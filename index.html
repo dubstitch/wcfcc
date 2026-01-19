@@ -7,8 +7,6 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="css/styles.css">
   <style>@view-transition { navigation: auto; }</style>
-  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
-  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
  </head>
  <body class="font-body bg-black h-full text-white"><!-- Navigation -->
   <nav class="bg-black text-white fixed top-0 left-0 right-0 z-50 border-b border-border-dark">
@@ -609,7 +607,7 @@
           <div class="space-y-3 text-sm">
            <div>
             <p class="text-black font-bold mb-1">All groups:</p>
-            <p class="text-neutral-dark">Motion sharpness • Voice projection ��� Full run throughs</p>
+            <p class="text-neutral-dark">Motion sharpness • Voice projection • Full run throughs</p>
            </div>
            <div>
             <p class="text-black font-bold mb-1">Legends:</p>
@@ -781,7 +779,7 @@
      <h1 class="font-athletic text-4xl mb-2 text-center">Schedules</h1>
      <div class="gradient-line mb-8"></div>
      <div class="mb-8">
-      <div class="flex flex-wrap gap-4 mb-6"><button onclick="showSchedule('events')" class="schedule-tab bg-neon-yellow text-black px-4 py-2 rounded-lg font-semibold">Special Events</button> <button onclick="showSchedule('practice')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Practice Schedule</button> <button onclick="showSchedule('games')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Game Schedule</button>
+      <div class="flex flex-wrap gap-4 mb-6"><button onclick="showSchedule(event, 'events')" class="schedule-tab bg-neon-yellow text-black px-4 py-2 rounded-lg font-semibold">Special Events</button> <button onclick="showSchedule(event, 'practice')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Practice Schedule</button> <button onclick="showSchedule(event, 'games')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Game Schedule</button>
       </div>
      </div><!-- Special Events -->
      <div id="events" class="schedule-content">
