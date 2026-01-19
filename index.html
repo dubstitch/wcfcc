@@ -5,7 +5,242 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Washington County Football Combine Camp - WCFCC</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="stylesheet" href="css/styles.css">
+  <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-yellow': '#CEFF00',
+                        'silver': '#C0C0C0',
+                        'neutral-dark': '#1a1a1a',
+                        'neutral-medium': '#2d2d2d',
+                        'light-bg': '#f5f5f5',
+                        'border-dark': '#333333'
+                    },
+                    fontFamily: {
+                        'athletic': ['Impact', 'Arial Black', 'sans-serif'],
+                        'body': ['Arial', 'Helvetica', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+  <style>
+        body {
+            box-sizing: border-box;
+        }
+        
+        .hero-bg {
+            background: 
+                linear-gradient(180deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 50%, rgba(0,0,0,0.9) 100%),
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(206,255,0,0.03) 2px, rgba(206,255,0,0.03) 4px),
+                radial-gradient(ellipse at 50% 100%, rgba(206,255,0,0.15), transparent 70%),
+                linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 50%, #0a0a0a 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(ellipse at 20% 80%, rgba(206,255,0,0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(206,255,0,0.08) 0%, transparent 50%);
+            animation: stadiumGlow 6s ease-in-out infinite alternate;
+        }
+        
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            right: 0;
+            bottom: 0;
+            background: 
+                linear-gradient(110deg, transparent 40%, rgba(206,255,0,0.06) 50%, transparent 60%);
+            animation: lightSweep 8s ease-in-out infinite;
+        }
+        
+        @keyframes stadiumGlow {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+        
+        @keyframes lightSweep {
+            0%, 100% { transform: translateX(-100%); }
+            50% { transform: translateX(200%); }
+        }
+        
+        .scroll-container {
+            cursor: grab;
+        }
+        
+        .scroll-container:active {
+            cursor: grabbing;
+        }
+        
+        .scroll-container::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .gradient-line {
+            height: 4px;
+            background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);
+            width: 100%;
+        }
+        
+        .section-divider {
+            height: 2px;
+            background: #CEFF00;
+            width: 80px;
+        }
+        
+        .hero-text-unit {
+            text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+        }
+        
+        .stat-block {
+            position: relative;
+        }
+        
+        .stat-block::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 2px;
+            height: 60%;
+            background: rgba(206,255,0,0.3);
+        }
+        
+        .stat-block:last-child::after {
+            display: none;
+        }
+        
+        .timeline-connector {
+            position: relative;
+        }
+        
+        .timeline-connector::before {
+            content: '';
+            position: absolute;
+            left: 31px;
+            top: 64px;
+            bottom: -64px;
+            width: 2px;
+            background: #CEFF00;
+        }
+        
+        .timeline-connector:last-child::before {
+            display: none;
+        }
+        
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .horizontal-scroll {
+            overflow-x: auto;
+            overflow-y: hidden;
+            scrollbar-width: thin;
+            scrollbar-color: #CEFF00 #1a1a1a;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar {
+            height: 12px;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar-track {
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar-thumb {
+            background: #CEFF00;
+            border-radius: 10px;
+            border: 2px solid #1a1a1a;
+        }
+        
+        .horizontal-scroll::-webkit-scrollbar-thumb:hover {
+            background: #b8e600;
+        }
+        
+        .value-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: slideInCard 0.6s ease-out forwards;
+        }
+        
+        .value-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+        
+        .value-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        .value-card:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+        
+        @keyframes slideInCard {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* CSS Auto-scroll Animation */
+        .auto-scroll-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+        
+        @media (hover: hover) and (pointer: fine) {
+            .auto-scroll-track:hover {
+                animation-play-state: paused;
+            }
+        }
+        
+        .auto-scroll-track.dragging {
+            animation-play-state: paused;
+        }
+        
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+        
+        .carousel-wrapper {
+            overflow-x: auto;
+            overflow-y: hidden;
+            width: 100%;
+            cursor: grab;
+            scrollbar-width: none;
+        }
+        
+        .carousel-wrapper::-webkit-scrollbar {
+            display: none;
+        }
+        
+        .carousel-wrapper.grabbing {
+            cursor: grabbing;
+        }
+    </style>
   <style>@view-transition { navigation: auto; }</style>
  </head>
  <body class="font-body bg-black h-full text-white"><!-- Navigation -->
@@ -607,7 +842,7 @@
           <div class="space-y-3 text-sm">
            <div>
             <p class="text-black font-bold mb-1">All groups:</p>
-            <p class="text-neutral-dark">Motion sharpness • Voice projection • Full run throughs</p>
+            <p class="text-neutral-dark">Motion sharpness • Voice projection ��� Full run throughs</p>
            </div>
            <div>
             <p class="text-black font-bold mb-1">Legends:</p>
@@ -779,7 +1014,7 @@
      <h1 class="font-athletic text-4xl mb-2 text-center">Schedules</h1>
      <div class="gradient-line mb-8"></div>
      <div class="mb-8">
-      <div class="flex flex-wrap gap-4 mb-6"><button onclick="showSchedule(event, 'events')" class="schedule-tab bg-neon-yellow text-black px-4 py-2 rounded-lg font-semibold">Special Events</button> <button onclick="showSchedule(event, 'practice')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Practice Schedule</button> <button onclick="showSchedule(event, 'games')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Game Schedule</button>
+      <div class="flex flex-wrap gap-4 mb-6"><button onclick="showSchedule('events')" class="schedule-tab bg-neon-yellow text-black px-4 py-2 rounded-lg font-semibold">Special Events</button> <button onclick="showSchedule('practice')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Practice Schedule</button> <button onclick="showSchedule('games')" class="schedule-tab bg-neutral-dark text-white px-4 py-2 rounded-lg font-semibold">Game Schedule</button>
       </div>
      </div><!-- Special Events -->
      <div id="events" class="schedule-content">
@@ -1086,5 +1321,96 @@
     </div>
    </footer>
   </main>
-  <script src="js/main.js"></script>
+  <script>
+        // Navigation functionality
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page');
+            pages.forEach(page => page.classList.add('hidden'));
+            document.getElementById(pageId).classList.remove('hidden');
+            const navButtons = document.querySelectorAll('.nav-btn');
+            navButtons.forEach(btn => btn.classList.remove('text-neon-yellow'));
+            window.scrollTo(0, 0);
+        }
+
+        function toggleMenu() {
+            const menu = document.getElementById('mobileMenu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Schedule tabs
+        function showSchedule(type) {
+            const contents = document.querySelectorAll('.schedule-content');
+            const tabs = document.querySelectorAll('.schedule-tab');
+            
+            contents.forEach(content => content.classList.add('hidden'));
+            tabs.forEach(tab => {
+                tab.classList.remove('bg-neon-yellow', 'text-black');
+                tab.classList.add('bg-neutral-dark', 'text-white');
+            });
+            
+            document.getElementById(type).classList.remove('hidden');
+            event.target.classList.remove('bg-neutral-dark', 'text-white');
+            event.target.classList.add('bg-neon-yellow', 'text-black');
+        }
+
+        // FAQ functionality
+        function toggleFAQ(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            
+            content.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            showPage('home');
+            
+            // Add drag scrolling to carousels
+            const carousels = document.querySelectorAll('.carousel-wrapper');
+            carousels.forEach(carousel => {
+                let isDown = false;
+                let startX;
+                let scrollLeft;
+                const track = carousel.querySelector('.auto-scroll-track');
+                
+                carousel.addEventListener('mousedown', (e) => {
+                    isDown = true;
+                    carousel.classList.add('grabbing');
+                    track.classList.add('dragging');
+                    startX = e.pageX - carousel.offsetLeft;
+                    scrollLeft = carousel.scrollLeft;
+                });
+                
+                carousel.addEventListener('mouseleave', () => {
+                    isDown = false;
+                    carousel.classList.remove('grabbing');
+                    track.classList.remove('dragging');
+                });
+                
+                carousel.addEventListener('mouseup', () => {
+                    isDown = false;
+                    carousel.classList.remove('grabbing');
+                    track.classList.remove('dragging');
+                });
+                
+                carousel.addEventListener('mousemove', (e) => {
+                    if (!isDown) return;
+                    e.preventDefault();
+                    const x = e.pageX - carousel.offsetLeft;
+                    const walk = (x - startX) * 2;
+                    carousel.scrollLeft = scrollLeft - walk;
+                });
+                
+                // Touch support for mobile
+                carousel.addEventListener('touchstart', () => {
+                    track.classList.add('dragging');
+                });
+                
+                carousel.addEventListener('touchend', () => {
+                    track.classList.remove('dragging');
+                });
+            });
+        });
+    </script>
 </html>
