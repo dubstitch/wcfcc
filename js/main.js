@@ -15,7 +15,7 @@
         }
 
         // Schedule tabs
-        function showSchedule(type) {
+        function showSchedule(e, type) {
             const contents = document.querySelectorAll('.schedule-content');
             const tabs = document.querySelectorAll('.schedule-tab');
             
@@ -26,8 +26,8 @@
             });
             
             document.getElementById(type).classList.remove('hidden');
-            event.target.classList.remove('bg-neutral-dark', 'text-white');
-            event.target.classList.add('bg-neon-yellow', 'text-black');
+            e.currentTarget.classList.remove('bg-neutral-dark', 'text-white');
+            e.currentTarget.classList.add('bg-neon-yellow', 'text-black');
         }
 
         // FAQ functionality
