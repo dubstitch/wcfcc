@@ -643,25 +643,25 @@
 <!-- Football Page -->
 <div id="football" class="page hidden">
     <div class="container mx-auto px-4 py-12">
-        <!-- Page Title with Age Division Bubbles -->
-        <div class="text-center mb-12">
-            <h1 class="font-athletic text-5xl md:text-6xl mb-6">FOOTBALL CAMP</h1>
-            
-            <!-- Age Division Bubbles right under title -->
-            <div class="flex flex-wrap justify-center gap-6 mb-6">
-                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
-                    <span class="text-black font-athletic text-2xl">9 11</span>
-                </div>
-                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
-                    <span class="text-black font-athletic text-2xl">12 14</span>
-                </div>
-                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
-                    <span class="text-black font-athletic text-2xl">15 17</span>
-                </div>
-            </div>
-            
-            <div class="w-96 h-1 mx-auto mb-12" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
+<!-- Page Title -->
+<div class="text-center mb-12">
+    <h1 class="font-athletic text-5xl md:text-6xl mb-4">FOOTBALL CAMP</h1>
+    <div class="w-96 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
+    
+    <!-- Age Division Bubbles below the underline -->
+    <div class="flex flex-wrap justify-center gap-6">
+        <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+            <span class="text-black font-athletic text-2xl">9 11</span>
         </div>
+        <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+            <span class="text-black font-athletic text-2xl">12 14</span>
+        </div>
+        <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+            <span class="text-black font-athletic text-2xl">15 17</span>
+        </div>
+    </div>
+</div>
+
         
         <!-- Camp Philosophy Card -->
         <section class="mb-16">
@@ -2008,9 +2008,16 @@ function showPage(pageId) {
 function loadPageFromHash() {
     const hash = window.location.hash.substring(1); // Remove the #
     if (hash && document.getElementById(hash)) {
-        showPage(hash);
+        // Hide all pages first WITHOUT showing home
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.add('hidden'));
+        // Show the correct page
+        document.getElementById(hash).classList.remove('hidden');
     } else {
-        showPage('home');
+        // Only if no hash, show home
+        const pages = document.querySelectorAll('.page');
+        pages.forEach(page => page.classList.add('hidden'));
+        document.getElementById('home').classList.remove('hidden');
     }
 }
 
@@ -2047,11 +2054,11 @@ function toggleFAQ(button) {
     icon.classList.toggle('rotate-180');
 }
 
+// Call loadPageFromHash BEFORE DOMContentLoaded to prevent flash
+loadPageFromHash();
+
 // Initialize page
 document.addEventListener('DOMContentLoaded', function () {
-    // Load the correct page based on URL hash
-    loadPageFromHash();
-
     // Add drag scrolling to carousels
     const carousels = document.querySelectorAll('.carousel-wrapper');
     carousels.forEach(carousel => {
