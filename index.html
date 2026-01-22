@@ -643,108 +643,100 @@
 <!-- Football Page -->
 <div id="football" class="page hidden">
     <div class="container mx-auto px-4 py-12">
-        <!-- Page Title -->
+        <!-- Page Title with Age Division Bubbles -->
         <div class="text-center mb-12">
-            <h1 class="font-athletic text-5xl md:text-6xl mb-4">FOOTBALL CAMP</h1>
+            <h1 class="font-athletic text-5xl md:text-6xl mb-6">FOOTBALL CAMP</h1>
+            
+            <!-- Age Division Bubbles right under title -->
+            <div class="flex flex-wrap justify-center gap-6 mb-6">
+                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-black font-athletic text-2xl">9 11</span>
+                </div>
+                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-black font-athletic text-2xl">12 14</span>
+                </div>
+                <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
+                    <span class="text-black font-athletic text-2xl">15 17</span>
+                </div>
+            </div>
+            
             <div class="w-96 h-1 mx-auto mb-12" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
         </div>
         
-        <!-- Camp Philosophy -->
+        <!-- Camp Philosophy Card -->
         <section class="mb-16">
             <div class="max-w-5xl mx-auto">
                 <h2 class="font-athletic text-4xl mb-8 text-left">Camp Philosophy</h2>
-                <div class="space-y-8 text-lg leading-relaxed">
-                    <p class="text-white">This camp emphasizes structure, discipline, and skill development in a competitive yet supportive environment.</p>
-                    <p class="text-white">Athletes are taught fundamental techniques, game strategy, and teamwork while building confidence and leadership skills on and off the field.</p>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Age Groups Display -->
-        <section class="mb-16">
-            <div class="max-w-5xl mx-auto">
-                <div class="flex flex-wrap justify-center gap-8">
-                    <div class="flex flex-col items-center">
-                        <div class="w-24 h-24 bg-neon-yellow rounded-full flex items-center justify-center mb-3 shadow-lg">
-                            <span class="text-black font-athletic text-3xl">9-11</span>
-                        </div>
-                        <p class="text-silver text-sm font-bold">Ages 9 to 11</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-24 h-24 bg-neon-yellow rounded-full flex items-center justify-center mb-3 shadow-lg">
-                            <span class="text-black font-athletic text-3xl">12-14</span>
-                        </div>
-                        <p class="text-silver text-sm font-bold">Ages 12 to 14</p>
-                    </div>
-                    <div class="flex flex-col items-center">
-                        <div class="w-24 h-24 bg-neon-yellow rounded-full flex items-center justify-center mb-3 shadow-lg">
-                            <span class="text-black font-athletic text-3xl">15-17</span>
-                        </div>
-                        <p class="text-silver text-sm font-bold">Ages 15 to 17</p>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow">
+                    <div class="space-y-6 text-lg leading-relaxed">
+                        <p class="text-black">This camp emphasizes structure, discipline, and skill development in a competitive yet supportive environment.</p>
+                        <p class="text-black">Athletes are taught fundamental techniques, game strategy, and teamwork while building confidence and leadership skills on and off the field.</p>
                     </div>
                 </div>
             </div>
         </section>
         
-        <!-- Core Skill Areas -->
+        <!-- Core Skill Areas Card with Decorative Border -->
         <section class="mb-16">
             <div class="max-w-5xl mx-auto">
-                <h2 class="font-athletic text-4xl mb-12 text-left">Core Skill Areas</h2>
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                                <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
-                            </svg>
+                <h2 class="font-athletic text-4xl mb-8 text-left">Core Skill Areas</h2>
+                <div class="bg-light-bg p-10 rounded-lg shadow-lg" style="border: 3px dashed #CEFF00;">
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
+                                    <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">FUNDAMENTALS</h3>
+                            <p class="text-neutral-dark text-sm">Basic techniques and positioning</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">FUNDAMENTALS</h3>
-                        <p class="text-silver text-sm">Basic techniques and positioning</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"/>
-                            </svg>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">GAME STRATEGY</h3>
+                            <p class="text-neutral-dark text-sm">Plays, formations, and tactics</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">GAME STRATEGY</h3>
-                        <p class="text-silver text-sm">Plays, formations, and tactics</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"/>
-                            </svg>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">CONDITIONING</h3>
+                            <p class="text-neutral-dark text-sm">Speed, agility, and strength</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">CONDITIONING</h3>
-                        <p class="text-silver text-sm">Speed, agility, and strength</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                            </svg>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">TEAMWORK</h3>
+                            <p class="text-neutral-dark text-sm">Communication and coordination</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">TEAMWORK</h3>
-                        <p class="text-silver text-sm">Communication and coordination</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
-                            </svg>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">GAME READINESS</h3>
+                            <p class="text-neutral-dark text-sm">Competition preparation and confidence</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">GAME READINESS</h3>
-                        <p class="text-silver text-sm">Competition preparation and confidence</p>
-                    </div>
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-                            </svg>
+                        <div class="text-center">
+                            <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4 shadow-md">
+                                <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
+                                    <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
+                                </svg>
+                            </div>
+                            <h3 class="font-athletic text-lg mb-2 text-black">LEADERSHIP</h3>
+                            <p class="text-neutral-dark text-sm">Character development on and off field</p>
                         </div>
-                        <h3 class="font-athletic text-lg mb-2">LEADERSHIP</h3>
-                        <p class="text-silver text-sm">Character development on and off field</p>
                     </div>
                 </div>
             </div>
@@ -754,7 +746,7 @@
         <section class="mb-16">
             <div class="max-w-5xl mx-auto">
                 <h2 class="font-athletic text-4xl mb-8 text-left">What We Provide</h2>
-                <div class="bg-light-bg p-8 rounded-lg">
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
                     <ul class="space-y-4">
                         <li class="flex items-center">
                             <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
@@ -809,18 +801,17 @@
             </div>
         </section>
         
-        <!-- Age Group Expectations (copied from Cheer) -->
+        <!-- Age Group Expectations -->
         <section class="mb-16">
             <div class="max-w-7xl mx-auto">
                 <h2 class="font-athletic text-4xl mb-8 text-center">Age Group Expectations</h2>
                 <p class="text-silver text-center mb-8">← Scroll to view all age groups →</p>
                 <div class="horizontal-scroll pb-4">
                     <div class="flex gap-8" style="width: max-content;">
-                        <!-- 9-11 Age Group -->
                         <div class="bg-light-bg p-8 rounded-lg" style="min-width: 400px; max-width: 400px;">
                             <div class="flex items-center mb-6">
                                 <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                                    <span class="text-black font-athletic text-2xl">9-11</span>
+                                    <span class="text-black font-athletic text-2xl">9 11</span>
                                 </div>
                                 <div>
                                     <h3 class="font-athletic text-3xl text-black">YOUTH DIVISION</h3>
@@ -835,11 +826,10 @@
                             </div>
                         </div>
                         
-                        <!-- 12-14 Age Group -->
                         <div class="bg-light-bg p-8 rounded-lg" style="min-width: 400px; max-width: 400px;">
                             <div class="flex items-center mb-6">
                                 <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                                    <span class="text-black font-athletic text-2xl">12-14</span>
+                                    <span class="text-black font-athletic text-2xl">12 14</span>
                                 </div>
                                 <div>
                                     <h3 class="font-athletic text-3xl text-black">INTERMEDIATE DIVISION</h3>
@@ -849,16 +839,15 @@
                             <div class="border-l-4 border-neon-yellow pl-6">
                                 <p class="text-lg mb-4 text-neutral-dark">Developing advanced techniques and understanding complex game strategy.</p>
                                 <p class="text-black font-bold mb-3">Skills emphasized:</p>
-                                <p class="text-neutral-dark leading-relaxed mb-4">Position-specific skills • Advanced play execution • Reading defenses • Strength and conditioning basics</p>
+                                <p class="text-neutral-dark leading-relaxed mb-4">Position specific skills • Advanced play execution • Reading defenses • Strength and conditioning basics</p>
                                 <p class="text-sm text-neutral-medium italic">Athletes build on fundamentals while preparing for competitive play at higher levels.</p>
                             </div>
                         </div>
                         
-                        <!-- 15-17 Age Group -->
                         <div class="bg-light-bg p-8 rounded-lg" style="min-width: 400px; max-width: 400px;">
                             <div class="flex items-center mb-6">
                                 <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                                    <span class="text-black font-athletic text-2xl">15-17</span>
+                                    <span class="text-black font-athletic text-2xl">15 17</span>
                                 </div>
                                 <div>
                                     <h3 class="font-athletic text-3xl text-black">ADVANCED DIVISION</h3>
@@ -877,14 +866,13 @@
             </div>
         </section>
         
-        <!-- Six Week Skill Progression (copied from Cheer but adapted) -->
+        <!-- Six Week Skill Progression -->
         <section class="mb-16">
             <div class="max-w-7xl mx-auto">
                 <h2 class="font-athletic text-4xl mb-8 text-center">Six Week Progression</h2>
                 <p class="text-silver text-center mb-8">← Scroll to view all weeks →</p>
                 <div class="horizontal-scroll pb-4">
                     <div class="flex gap-6" style="width: max-content;">
-                        <!-- Week 1 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -903,7 +891,6 @@
                             </div>
                         </div>
                         
-                        <!-- Week 2 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -914,7 +901,7 @@
                             <div class="space-y-3 text-sm">
                                 <div>
                                     <p class="text-black font-bold mb-1">All groups:</p>
-                                    <p class="text-neutral-dark">Position-specific technique • Route running basics • Blocking fundamentals • Defensive reads</p>
+                                    <p class="text-neutral-dark">Position specific technique • Route running basics • Blocking fundamentals • Defensive reads</p>
                                 </div>
                                 <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
                                     ✓ Players developing position confidence
@@ -922,7 +909,6 @@
                             </div>
                         </div>
                         
-                        <!-- Week 3 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -933,7 +919,7 @@
                             <div class="space-y-3 text-sm">
                                 <div>
                                     <p class="text-black font-bold mb-1">All groups:</p>
-                                    <p class="text-neutral-dark">Running basic plays • Communication on field • Working as offensive/defensive units</p>
+                                    <p class="text-neutral-dark">Running basic plays • Communication on field • Working as offensive and defensive units</p>
                                 </div>
                                 <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
                                     ✓ Teams functioning cohesively in drills
@@ -941,7 +927,6 @@
                             </div>
                         </div>
                         
-                        <!-- Week 4 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -960,7 +945,6 @@
                             </div>
                         </div>
                         
-                        <!-- Week 5 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
@@ -974,12 +958,11 @@
                                     <p class="text-neutral-dark">Sharpening execution • Speed and timing • Situational awareness</p>
                                 </div>
                                 <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                    ✓ Game-ready performance level
+                                    ✓ Game ready performance level
                                 </div>
                             </div>
                         </div>
                         
-                        <!-- Week 6 -->
                         <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
                             <div class="flex items-center mb-4">
                                 <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
