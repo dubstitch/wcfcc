@@ -265,38 +265,45 @@
 </head>
 
 <body class="font-body bg-black h-full text-white"><!-- Navigation -->
-    <nav class="bg-black text-white fixed top-0 left-0 right-0 z-50 border-b border-border-dark">
-        <div class="container mx-auto px-4">
-            <div class="flex overflow-x-auto space-x-6 py-3 scrollbar-hide pr-16 md:pr-4"><button
-                    onclick="showPage('home')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Home</button> <button
-                    onclick="showPage('football')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Football</button> <button
-                    onclick="showPage('cheer')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Cheer</button> <button
-                    onclick="showPage('registration')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Registration</button> <button
-                    onclick="showPage('schedules')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Schedules</button> <button
-                    onclick="showPage('coaches')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Coaches &amp; Staff</button>
-                <button onclick="showPage('forms')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Forms &amp; Policies</button>
-                <button onclick="showPage('contact')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Contact</button> <button
-                    onclick="showPage('faq')"
-                    class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">FAQ</button>
+<nav class="bg-black text-white fixed top-0 left-0 right-0 z-50 border-b border-border-dark">
+    <div class="container mx-auto px-4">
+        <div class="flex overflow-x-auto space-x-6 py-3 scrollbar-hide pr-16 md:pr-4">
+            <button onclick="showPage('home')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Home</button>
+            
+            <!-- Football Dropdown -->
+            <div class="relative group">
+                <button onclick="showPage('football')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Football</button>
+                <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
+                    <button onclick="showPage('football-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
+                    <button onclick="showPage('football-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
+                </div>
             </div>
-        </div><!-- Mobile scroll indicator -->
-        <div
-            class="md:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent pointer-events-none flex items-center justify-end pr-3">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewbox="0 0 20 20">
-                <path fill-rule="evenodd"
-                    d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                    clip-rule="evenodd" />
-            </svg>
+            
+            <!-- Cheer Dropdown -->
+            <div class="relative group">
+                <button onclick="showPage('cheer')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Cheer</button>
+                <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
+                    <button onclick="showPage('cheer-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
+                    <button onclick="showPage('cheer-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
+                </div>
+            </div>
+            
+            <button onclick="showPage('registration')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Registration</button>
+            <button onclick="showPage('schedules')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Schedules</button>
+            <button onclick="showPage('coaches')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Coaches & Staff</button>
+            <button onclick="showPage('forms')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Forms & Policies</button>
+            <button onclick="showPage('contact')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Contact</button>
+            <button onclick="showPage('faq')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">FAQ</button>
         </div>
-    </nav>
+    </div>
+    <!-- Mobile scroll indicator -->
+    <div class="md:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent pointer-events-none flex items-center justify-end pr-3">
+        <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+        </svg>
+    </div>
+</nav>
+
     <!-- Main Content -->
     <main id="mainContent" class="h-full" style="padding-top: 54px;">
         
@@ -1348,7 +1355,537 @@
         </div>
     </div>
 </div>
+<!-- Football Camp Info Page -->
+<div id="football-camp-info" class="page hidden">
+    <div class="container mx-auto px-4 py-12">
+        
+        <div class="text-center mb-12">
+            <h1 class="font-athletic text-5xl md:text-6xl mb-4">FOOTBALL CAMP INFO</h1>
+            <div class="w-96 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
+        </div>
 
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">CAMP SCHEDULE</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="font-bold text-black text-lg mb-2">Practice Days:</p>
+                            <p class="text-neutral-dark">Monday & Wednesday</p>
+                            <p class="font-bold text-black text-lg mt-4 mb-2">Time:</p>
+                            <p class="text-neutral-dark">6:00 PM to 8:00 PM</p>
+                            <p class="font-bold text-black text-lg mt-4 mb-2">Location:</p>
+                            <p class="text-neutral-dark">[INSERT LOCATION]</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-black text-lg mb-2">Game Days:</p>
+                            <p class="text-neutral-dark">Friday</p>
+                            <p class="font-bold text-black text-lg mt-4 mb-2">Time:</p>
+                            <p class="text-neutral-dark">6:00 PM to 8:30 PM</p>
+                            <p class="font-bold text-black text-lg mt-4 mb-2">Location:</p>
+                            <p class="text-neutral-dark">Turf Stadium</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">ARRIVAL & DROP OFF</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <ul class="space-y-3 text-neutral-dark">
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Athletes should arrive 15 minutes early to get settled and ready</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Coaches will be on site 30 minutes before practice begins</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Athletes must be picked up promptly at the end of practice</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Late pickups require advance notice to coaches</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">WHAT TO BRING EVERY DAY</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow">
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">7 on 7 helmet (every practice and game day)</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Water bottle (water and Gatorade provided, but bring your own for easy access)</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Sunscreen</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Cleats (optional but recommended)</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Positive attitude and ready to work</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">FOOD & HYDRATION</h2>
+                <div class="space-y-6">
+                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
+                        <h3 class="font-athletic text-xl mb-3 text-neon-yellow">Before Camp:</h3>
+                        <p class="text-silver">Athletes should eat a full meal before arriving. Camp begins with high energy drills and conditioning, so proper nutrition is essential.</p>
+                    </div>
+                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                        <h3 class="font-athletic text-xl mb-3 text-white">During Camp:</h3>
+                        <ul class="space-y-2 text-silver">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Water and Gatorade provided throughout practice</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Light snacks provided (fruit, etc.)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Snooks Shaved Ice & Soft Serve caters one weekday practice and every Friday Game Day</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
+                        <h3 class="font-athletic text-xl mb-3 text-neon-yellow">Game Day Fridays:</h3>
+                        <p class="text-white">Full meals provided for all athletes and families are welcome to enjoy the tailgate atmosphere.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">FACILITIES</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <p class="text-neutral-dark text-lg mb-4">No bathrooms on site. Athletes should use the restroom before arriving at camp.</p>
+                    <p class="text-neutral-dark text-lg">Shade and rest areas are available. Athletes are encouraged to stay hydrated and take breaks as needed.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">WHAT TO WEAR</h2>
+                <div class="space-y-6">
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-silver">
+                        <h3 class="font-athletic text-xl mb-3 text-black">Practice Days (Monday & Wednesday):</h3>
+                        <p class="text-neutral-dark">Comfortable athletic clothes appropriate for outdoor training. No camp uniform required.</p>
+                    </div>
+                    <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
+                        <h3 class="font-athletic text-xl mb-3 text-neon-yellow">Game Days (Fridays):</h3>
+                        <ul class="space-y-2 text-white">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Camp t-shirt and shorts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>7 on 7 helmet</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Mouthguard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Gloves</span>
+                            </li>
+                        </ul>
+                        <p class="text-silver mt-4">This is the day to represent WCFCC with pride.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">WEATHER POLICY</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <p class="text-neutral-dark text-lg mb-4">Camp operates rain or shine unless severe weather conditions require cancellation. Families will be notified via email and text if practice is canceled due to weather.</p>
+                    <div class="bg-neon-yellow p-4 rounded-lg mt-4">
+                        <p class="text-black font-bold mb-2">In case of extreme heat:</p>
+                        <p class="text-black">Additional water breaks and shade time will be provided. Athletes should bring extra water and wear sunscreen.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">ILLNESS & INJURY</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <ul class="space-y-3 text-neutral-dark">
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>If your athlete is sick, please keep them home to protect the health of all campers</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Minor injuries will be treated by coaching staff with basic first aid</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>In case of serious injury, parents will be contacted immediately</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>All coaches are trained in CPR and basic sports safety protocols</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">PARENT INVOLVEMENT</h2>
+                <div class="space-y-6">
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-silver">
+                        <h3 class="font-athletic text-xl mb-3 text-black">Practice Days:</h3>
+                        <p class="text-neutral-dark">Parents are welcome to watch from designated viewing areas but are not required to stay.</p>
+                    </div>
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
+                        <h3 class="font-athletic text-xl mb-3 text-black">Game Day Fridays:</h3>
+                        <p class="text-neutral-dark">Families are encouraged to attend, tailgate, and cheer on the athletes. Bring chairs, tents, and food to enjoy the full game day experience.</p>
+                    </div>
+                    <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
+                        <h3 class="font-athletic text-xl mb-3 text-neon-yellow">Championship Day (Week 6):</h3>
+                        <p class="text-white">This is the BIG day. All families are invited to celebrate six weeks of growth, competition, and community. Awards ceremony and team photos follow the championship games.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">COMMUNICATION</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <h3 class="font-athletic text-xl mb-4 text-black">How We'll Keep You Updated:</h3>
+                    <ul class="space-y-3 text-neutral-dark mb-6">
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Weekly email updates with schedule changes and reminders</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Text notifications for urgent updates or weather cancellations</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-neon-yellow mr-3">•</span>
+                            <span>Coaches available before and after practice for questions</span>
+                        </li>
+                    </ul>
+                    <div class="bg-neon-yellow p-4 rounded-lg">
+                        <p class="text-black font-bold">Questions or Concerns?</p>
+                        <p class="text-black">Contact us at WCFootballcombinecamp@gmail.com or speak directly with a coach at pickup/drop off.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">CODE OF CONDUCT</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <p class="text-neutral-dark text-lg mb-6">We expect all athletes, families, and coaches to uphold the values of respect, discipline, and sportsmanship.</p>
+                    
+                    <div class="mb-6">
+                        <h3 class="font-athletic text-xl mb-3 text-black">Athletes are expected to:</h3>
+                        <ul class="space-y-2 text-neutral-dark">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Arrive on time and ready to participate</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Respect coaches, teammates, and opponents</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Give full effort in every drill and activity</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Take responsibility for their gear and behavior</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <h3 class="font-athletic text-xl mb-3 text-black">Parents are expected to:</h3>
+                        <ul class="space-y-2 text-neutral-dark">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Support positive coaching and avoid sideline coaching</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Communicate respectfully with staff and other families</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Model good sportsmanship for young athletes</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg text-center">
+            <h2 class="font-athletic text-3xl mb-4">READY TO JOIN?</h2>
+            <p class="text-xl mb-6">Register now and secure your athlete's spot in WCFCC Summer Camp.</p>
+            <button onclick="showPage('registration')" class="bg-neon-yellow text-black px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-80 transition shadow-lg">
+                REGISTER FOR FOOTBALL
+            </button>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Football Uniform & Gear Page -->
+<div id="football-uniform" class="page hidden">
+    <div class="container mx-auto px-4 py-12">
+        
+        <!-- Page Title -->
+        <div class="text-center mb-12">
+            <h1 class="font-athletic text-5xl md:text-6xl mb-4">FOOTBALL UNIFORM & GEAR</h1>
+            <div class="w-96 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
+        </div>
+
+        <!-- What's Included -->
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">WHAT'S INCLUDED</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow">
+                    <p class="text-lg text-black mb-6">Your complete camp package includes everything your athlete needs for six weeks of training and competition:</p>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Camp t-shirt</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Camp shorts</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Gloves</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Mouth guard</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">7 on 7 helmet</span>
+                        </li>
+                        <li class="flex items-center text-black">
+                            <span class="text-neon-yellow mr-3 text-xl">✓</span>
+                            <span class="text-lg">Drawstring bag</span>
+                        </li>
+                    </ul>
+                    <p class="text-neutral-dark mt-6 text-lg">All gear, meals, snacks, and Championship Day experience included in one package price.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <!-- What to Bring -->
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">WHAT TO BRING</h2>
+                
+                <div class="space-y-8">
+                    <!-- Practice Days -->
+                    <div class="bg-neutral-dark p-8 rounded-lg border-l-4 border-silver">
+                        <h3 class="font-athletic text-2xl mb-4 text-white">Practice Days (Monday & Wednesday)</h3>
+                        <ul class="space-y-3 text-silver">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Comfortable athletic clothes (any athletic wear)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Cleats (optional but recommended)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Water bottle (water and Gatorade provided, but bring your own for easy access)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>7 on 7 helmet (athletes are responsible for bringing their helmet to every practice)</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Game Days -->
+                    <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg">
+                        <h3 class="font-athletic text-2xl mb-4 text-neon-yellow">Game Days (Fridays)</h3>
+                        <ul class="space-y-3 text-white">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Camp t-shirt and shorts</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>7 on 7 helmet</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Cleats</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Mouthguard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">★</span>
+                                <span>Gloves</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <!-- Gear Responsibility -->
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">GEAR RESPONSIBILITY</h2>
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg">
+                    <p class="text-lg text-black leading-relaxed mb-4">Athletes are responsible for bringing their 7 on 7 helmet to every practice and game. This teaches accountability and prepares them for managing their own equipment as they progress in football.</p>
+                    <p class="text-lg text-neutral-dark leading-relaxed font-bold">Lost or damaged helmets must be replaced at the athlete's expense.</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="gradient-line my-12"></div>
+
+        <!-- Camp Logistics -->
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">CAMP LOGISTICS</h2>
+                
+                <div class="space-y-6">
+                    <!-- Food & Hydration -->
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
+                        <h3 class="font-athletic text-2xl mb-4 text-black">FOOD & HYDRATION</h3>
+                        <ul class="space-y-2 text-neutral-dark">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Eat a full meal before arriving at camp</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Water and Gatorade provided throughout practice</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Light snacks provided (fruit, etc.)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Snooks Shaved Ice & Soft Serve caters one weekday practice and every Friday 7 on 7</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Full meals provided on Game Day Fridays</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Facilities -->
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
+                        <h3 class="font-athletic text-2xl mb-4 text-black">FACILITIES</h3>
+                        <p class="text-neutral-dark">No bathrooms on site. Athletes should use the restroom before arriving.</p>
+                    </div>
+
+                    <!-- What to Bring -->
+                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
+                        <h3 class="font-athletic text-2xl mb-4 text-black">WHAT TO BRING</h3>
+                        <ul class="space-y-2 text-neutral-dark">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Sunscreen</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Extra water bottle (optional)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Positive attitude and ready to compete</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg text-center">
+            <h2 class="font-athletic text-3xl mb-4">READY TO REGISTER?</h2>
+            <p class="text-xl mb-6">Secure your spot and get your complete camp package.</p>
+            <button onclick="showPage('registration')" class="bg-neon-yellow text-black px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-80 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
+                REGISTER FOR FOOTBALL
+            </button>
+        </div>
+    </div>
+</div>
+
+        
 
         
         
