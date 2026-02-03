@@ -2573,7 +2573,19 @@
             <div class="w-96 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
         </div>
 
-        <!-- Camp Dates Overview -->
+        <!-- Tabs -->
+        <div class="max-w-5xl mx-auto mb-12">
+            <div class="flex justify-center space-x-4">
+                <button onclick="showScheduleTab('football-schedule')" id="tab-football-schedule" class="schedule-tab px-8 py-3 rounded-lg font-semibold text-lg transition bg-neon-yellow text-black">
+                    FOOTBALL SCHEDULE
+                </button>
+                <button onclick="showScheduleTab('cheer-schedule')" id="tab-cheer-schedule" class="schedule-tab px-8 py-3 rounded-lg font-semibold text-lg transition bg-neutral-dark text-white hover:bg-neon-yellow hover:text-black">
+                    CHEER SCHEDULE
+                </button>
+            </div>
+        </div>
+
+        <!-- Camp Dates Overview (shown for both) -->
         <section class="mb-16">
             <div class="max-w-5xl mx-auto">
                 <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg text-center mb-8">
@@ -2586,258 +2598,343 @@
 
         <div class="gradient-line my-12"></div>
 
-        <!-- Football Schedule -->
-        <section class="mb-16">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="font-athletic text-4xl mb-8 text-left">FOOTBALL COMBINE CAMP SCHEDULE</h2>
-                
-                <!-- Weekly Practice Schedule -->
-                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow mb-8">
-                    <h3 class="font-athletic text-2xl mb-6 text-black">Weekly Practice Days</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between pb-4 border-b border-neutral-medium">
-                            <div>
-                                <p class="font-bold text-black text-lg">Monday & Wednesday</p>
-                                <p class="text-neutral-dark">Position specific training, combine drills, conditioning</p>
+        <!-- FOOTBALL SCHEDULE TAB -->
+        <div id="football-schedule" class="schedule-content">
+            <!-- Football Schedule -->
+            <section class="mb-16">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="font-athletic text-4xl mb-8 text-left">FOOTBALL COMBINE CAMP SCHEDULE</h2>
+                    
+                    <!-- Weekly Practice Schedule -->
+                    <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow mb-8">
+                        <h3 class="font-athletic text-2xl mb-6 text-black">Weekly Practice Days</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between pb-4 border-b border-neutral-medium">
+                                <div>
+                                    <p class="font-bold text-black text-lg">Monday & Wednesday</p>
+                                    <p class="text-neutral-dark">Position specific training, combine drills, conditioning</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-athletic text-2xl text-black">6:00 PM to 8:00 PM</p>
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <p class="font-athletic text-2xl text-black">6:00 PM to 8:00 PM</p>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-black text-lg">Friday</p>
+                                    <p class="text-neutral-dark">Game Day at turf stadium (7 on 7 competition)</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-athletic text-2xl text-black">6:00 PM to 8:30 PM</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="font-bold text-black text-lg">Friday</p>
-                                <p class="text-neutral-dark">Game Day at turf stadium (7 on 7 competition)</p>
+                    </div>
+
+                    <!-- Six Week Breakdown -->
+                    <div class="space-y-4">
+                        <h3 class="font-athletic text-2xl mb-4 text-white">Six Week Training Schedule</h3>
+                        
+                        <!-- Week 1 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-neon-yellow">WEEK 1: FOUNDATION & EVALUATION</h4>
+                                    <p class="text-silver text-sm">June 15 to June 20</p>
+                                </div>
+                                <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">1</span>
+                                </div>
                             </div>
-                            <div class="text-right">
-                                <p class="font-athletic text-2xl text-black">6:00 PM to 8:30 PM</p>
+                            <p class="text-white">Combine baseline testing, fundamental techniques, position introductions</p>
+                        </div>
+
+                        <!-- Week 2 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 2: POSITION DEVELOPMENT</h4>
+                                    <p class="text-silver text-sm">June 22 to June 27</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">2</span>
+                                </div>
                             </div>
+                            <p class="text-silver">Position specific drills, route running, defensive reads</p>
+                        </div>
+
+                        <!-- Week 3 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 3: CONDITIONING & COMPETITION</h4>
+                                    <p class="text-silver text-sm">June 29 to July 4</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">3</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Speed and agility work, team coordination, offensive and defensive units</p>
+                        </div>
+
+                        <!-- Week 4 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-neon-yellow">WEEK 4: TEAM COORDINATION</h4>
+                                    <p class="text-silver text-sm">July 6 to July 11</p>
+                                </div>
+                                <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">4</span>
+                                </div>
+                            </div>
+                            <p class="text-white">Combine re-evaluation, scrimmage scenarios, reading formations</p>
+                        </div>
+
+                        <!-- Week 5 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 5: GAME SITUATIONS</h4>
+                                    <p class="text-silver text-sm">July 13 to July 18</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">5</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Execution refinement, speed and timing, two-minute drill scenarios</p>
+                        </div>
+
+                        <!-- Week 6 -->
+                        <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-2xl text-neon-yellow">WEEK 6: CHAMPIONSHIP DAY</h4>
+                                    <p class="text-white text-sm">July 20 to July 24</p>
+                                </div>
+                                <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">6</span>
+                                </div>
+                            </div>
+                            <p class="text-white mb-3">Championship games, tailgate celebration, trophy presentation</p>
+                            <p class="text-neon-yellow font-bold">Friday, July 24: Championship Day Event</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- CHEER SCHEDULE TAB -->
+        <div id="cheer-schedule" class="schedule-content hidden">
+            <!-- Cheer Schedule -->
+            <section class="mb-16">
+                <div class="max-w-5xl mx-auto">
+                    <h2 class="font-athletic text-4xl mb-8 text-left">SIDELINE CHEER CAMP SCHEDULE</h2>
+                    
+                    <!-- Weekly Practice Schedule -->
+                    <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow mb-8">
+                        <h3 class="font-athletic text-2xl mb-6 text-black">Weekly Practice Days</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between pb-4 border-b border-neutral-medium">
+                                <div>
+                                    <p class="font-bold text-black text-lg">Tuesday & Thursday</p>
+                                    <p class="text-neutral-dark">Motions, jumps, stunts, formations, choreography</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-athletic text-2xl text-black">6:00 PM to 8:00 PM</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <div>
+                                    <p class="font-bold text-black text-lg">Friday</p>
+                                    <p class="text-neutral-dark">Game Day at turf stadium (sideline performance)</p>
+                                </div>
+                                <div class="text-right">
+                                    <p class="font-athletic text-2xl text-black">6:00 PM to 8:30 PM</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Six Week Breakdown -->
+                    <div class="space-y-4">
+                        <h3 class="font-athletic text-2xl mb-4 text-white">Six Week Training Schedule</h3>
+                        
+                        <!-- Week 1 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-neon-yellow">WEEK 1: SIDELINE FOUNDATIONS</h4>
+                                    <p class="text-silver text-sm">June 15 to June 20</p>
+                                </div>
+                                <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">1</span>
+                                </div>
+                            </div>
+                            <p class="text-white">Sideline cheers introduced, motion technique, basic jumps, formations</p>
+                        </div>
+
+                        <!-- Week 2 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 2: SKILL LAYERING</h4>
+                                    <p class="text-silver text-sm">June 22 to June 27</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">2</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Cleaner motions, stronger timing, jump improvement, confidence building</p>
+                        </div>
+
+                        <!-- Week 3 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 3: PERFORMANCE DEVELOPMENT</h4>
+                                    <p class="text-silver text-sm">June 29 to July 4</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">3</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Linking cheers together, transitions between formations, game day awareness</p>
+                        </div>
+
+                        <!-- Week 4 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 4: GAME DAY APPLICATION</h4>
+                                    <p class="text-silver text-sm">July 6 to July 11</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">4</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Cheering during live gameplay, staying engaged, field awareness</p>
+                        </div>
+
+                        <!-- Week 5 -->
+                        <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-xl text-white">WEEK 5: CLEAN AND CONFIDENT</h4>
+                                    <p class="text-silver text-sm">July 13 to July 18</p>
+                                </div>
+                                <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">5</span>
+                                </div>
+                            </div>
+                            <p class="text-silver">Motion sharpness, voice projection, full run throughs</p>
+                        </div>
+
+                        <!-- Week 6 -->
+                        <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
+                            <div class="flex items-start justify-between mb-3">
+                                <div>
+                                    <h4 class="font-athletic text-2xl text-neon-yellow">WEEK 6: EXECUTION AND TEAM PRIDE</h4>
+                                    <p class="text-white text-sm">July 20 to July 24</p>
+                                </div>
+                                <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
+                                    <span class="text-black font-athletic text-xl">6</span>
+                                </div>
+                            </div>
+                            <p class="text-white mb-3">Full 2.5 minute routine showcase, celebrating growth</p>
+                            <p class="text-neon-yellow font-bold">Friday, July 24: Championship Day Performance</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="gradient-line my-12"></div>
+
+        <!-- Post Camp Schedule: Mummers Parade (shown for both) -->
+        <section class="mb-16">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="font-athletic text-4xl mb-8 text-left">POST CAMP SCHEDULE: MUMMERS PARADE</h2>
+                
+                <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg mb-8 text-center">
+                    <h3 class="font-athletic text-3xl mb-4 text-neon-yellow">ALSATIA MUMMERS PARADE</h3>
+                    <p class="text-white text-2xl mb-2">October 31, 2026 | 6:00 PM</p>
+                    <p class="text-silver">Downtown Hagerstown, North & South Potomac Streets</p>
+                </div>
+
+                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow mb-8">
+                    <h3 class="font-athletic text-2xl mb-6 text-black">Post Camp Practice Schedule</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="font-bold text-black text-lg mb-2">August, September, October</p>
+                            <p class="text-neutral-dark">3 practices per month</p>
+                        </div>
+                        <div class="border-t-2 border-neutral-medium pt-4">
+                            <p class="font-bold text-black text-lg mb-2">Duration</p>
+                            <p class="text-neutral-dark">Approximately 2 hours for skills work and routine practice</p>
+                            <p class="text-neutral-dark">Stay as long as you want to work on the float</p>
+                        </div>
+                        <div class="border-t-2 border-neutral-medium pt-4">
+                            <p class="font-bold text-black text-lg mb-2">Location</p>
+                            <p class="text-neutral-dark">TBA (will be announced before camp ends)</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Six Week Breakdown -->
-                <div class="space-y-4">
-                    <h3 class="font-athletic text-2xl mb-4 text-white">Six Week Training Schedule</h3>
-                    
-                    <!-- Week 1 -->
+                <div class="grid md:grid-cols-2 gap-6 mb-8">
                     <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-neon-yellow">WEEK 1: FOUNDATION & EVALUATION</h4>
-                                <p class="text-silver text-sm">June 15 to June 20</p>
-                            </div>
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">1</span>
-                            </div>
-                        </div>
-                        <p class="text-white">Combine baseline testing, fundamental techniques, position introductions</p>
+                        <h4 class="font-athletic text-xl mb-3 text-neon-yellow">FOOTBALL POST CAMP PRACTICES</h4>
+                        <ul class="space-y-2 text-silver">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Run drills and conditioning</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Skills maintenance and coaching help</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Stay sharp for fall teams</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Work on float build</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Week 2 -->
                     <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 2: POSITION DEVELOPMENT</h4>
-                                <p class="text-silver text-sm">June 22 to June 27</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">2</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Position specific drills, route running, defensive reads</p>
+                        <h4 class="font-athletic text-xl mb-3 text-white">CHEER POST CAMP PRACTICES</h4>
+                        <ul class="space-y-2 text-silver">
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Perfect parade routines</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Practice formations and timing</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Build squad unity and synchronization</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-neon-yellow mr-3">•</span>
+                                <span>Work on float build</span>
+                            </li>
+                        </ul>
                     </div>
+                </div>
 
-                    <!-- Week 3 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 3: CONDITIONING & COMPETITION</h4>
-                                <p class="text-silver text-sm">June 29 to July 4</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">3</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Speed and agility work, team coordination, offensive and defensive units</p>
-                    </div>
-
-                    <!-- Week 4 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-neon-yellow">WEEK 4: TEAM COORDINATION</h4>
-                                <p class="text-silver text-sm">July 6 to July 11</p>
-                            </div>
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">4</span>
-                            </div>
-                        </div>
-                        <p class="text-white">Combine re-evaluation, scrimmage scenarios, reading formations</p>
-                    </div>
-
-                    <!-- Week 5 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 5: GAME SITUATIONS</h4>
-                                <p class="text-silver text-sm">July 13 to July 18</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">5</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Execution refinement, speed and timing, two-minute drill scenarios</p>
-                    </div>
-
-                    <!-- Week 6 -->
-                    <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-2xl text-neon-yellow">WEEK 6: CHAMPIONSHIP DAY</h4>
-                                <p class="text-white text-sm">July 20 to July 24</p>
-                            </div>
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">6</span>
-                            </div>
-                        </div>
-                        <p class="text-white mb-3">Championship games, tailgate celebration, trophy presentation</p>
-                        <p class="text-neon-yellow font-bold">Friday, July 24: Championship Day Event</p>
-                    </div>
+                <div class="bg-light-bg p-6 rounded-lg">
+                    <p class="text-black text-lg"><strong>Important:</strong> All post camp practices and parade participation are included in your $280 camp registration. There are no additional fees for Mummers Parade activities.</p>
                 </div>
             </div>
         </section>
 
         <div class="gradient-line my-12"></div>
 
-        <!-- Cheer Schedule -->
-        <section class="mb-16">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="font-athletic text-4xl mb-8 text-left">SIDELINE CHEER CAMP SCHEDULE</h2>
-                
-                <!-- Weekly Practice Schedule -->
-                <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow mb-8">
-                    <h3 class="font-athletic text-2xl mb-6 text-black">Weekly Practice Days</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between pb-4 border-b border-neutral-medium">
-                            <div>
-                                <p class="font-bold text-black text-lg">Tuesday & Thursday</p>
-                                <p class="text-neutral-dark">Motions, jumps, stunts, formations, choreography</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-athletic text-2xl text-black">6:00 PM to 8:00 PM</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div>
-                                <p class="font-bold text-black text-lg">Friday</p>
-                                <p class="text-neutral-dark">Game Day at turf stadium (sideline performance)</p>
-                            </div>
-                            <div class="text-right">
-                                <p class="font-athletic text-2xl text-black">6:00 PM to 8:30 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Six Week Breakdown -->
-                <div class="space-y-4">
-                    <h3 class="font-athletic text-2xl mb-4 text-white">Six Week Training Schedule</h3>
-                    
-                    <!-- Week 1 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-neon-yellow">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-neon-yellow">WEEK 1: SIDELINE FOUNDATIONS</h4>
-                                <p class="text-silver text-sm">June 15 to June 20</p>
-                            </div>
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">1</span>
-                            </div>
-                        </div>
-                        <p class="text-white">Sideline cheers introduced, motion technique, basic jumps, formations</p>
-                        <p class="text-silver text-sm mt-2"><strong>Glow only:</strong> Cheers set, dance intro, stunt fundamentals begin</p>
-                    </div>
-
-                    <!-- Week 2 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 2: SKILL LAYERING</h4>
-                                <p class="text-silver text-sm">June 22 to June 27</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">2</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Cleaner motions, stronger timing, jump improvement, confidence building</p>
-                        <p class="text-silver text-sm mt-2"><strong>Sparkle and Glow:</strong> Stunt progressions introduced</p>
-                    </div>
-
-                    <!-- Week 3 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 3: PERFORMANCE DEVELOPMENT</h4>
-                                <p class="text-silver text-sm">June 29 to July 4</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">3</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Linking cheers together, transitions between formations, game day awareness</p>
-                    </div>
-
-                    <!-- Week 4 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 4: GAME DAY APPLICATION</h4>
-                                <p class="text-silver text-sm">July 6 to July 11</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">4</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Cheering during live gameplay, staying engaged, field awareness</p>
-                    </div>
-
-                    <!-- Week 5 -->
-                    <div class="bg-neutral-dark p-6 rounded-lg border-l-4 border-silver">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-xl text-white">WEEK 5: CLEAN AND CONFIDENT</h4>
-                                <p class="text-silver text-sm">July 13 to July 18</p>
-                            </div>
-                            <div class="w-12 h-12 bg-silver rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">5</span>
-                            </div>
-                        </div>
-                        <p class="text-silver">Motion sharpness, voice projection, full run throughs</p>
-                        <p class="text-silver text-sm mt-2"><strong>Glow:</strong> Leadership roles, mentorship energy</p>
-                    </div>
-
-                    <!-- Week 6 -->
-                    <div class="bg-black border-2 border-neon-yellow p-6 rounded-lg">
-                        <div class="flex items-start justify-between mb-3">
-                            <div>
-                                <h4 class="font-athletic text-2xl text-neon-yellow">WEEK 6: EXECUTION AND TEAM PRIDE</h4>
-                                <p class="text-white text-sm">July 20 to July 24</p>
-                            </div>
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">6</span>
-                            </div>
-                        </div>
-                        <p class="text-white mb-3">Full 2.5 minute routine showcase, celebrating growth</p>
-                        <p class="text-neon-yellow font-bold">Friday, July 24: Championship Day Performance</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="gradient-line my-12"></div>
-
-        <!-- Important Notes -->
+        <!-- Important Notes (shown for both) -->
         <section class="mb-16">
             <div class="max-w-5xl mx-auto">
                 <h2 class="font-athletic text-4xl mb-8 text-left">IMPORTANT INFORMATION</h2>
@@ -2898,6 +2995,29 @@
         </div>
     </div>
 </div>
+
+<!-- Add this JavaScript at the end of your file before the closing </body> tag -->
+<script>
+function showScheduleTab(tabId) {
+    // Hide all schedule content
+    document.querySelectorAll('.schedule-content').forEach(content => {
+        content.classList.add('hidden');
+    });
+    
+    // Remove active styling from all tabs
+    document.querySelectorAll('.schedule-tab').forEach(tab => {
+        tab.classList.remove('bg-neon-yellow', 'text-black');
+        tab.classList.add('bg-neutral-dark', 'text-white');
+    });
+    
+    // Show selected content
+    document.getElementById(tabId).classList.remove('hidden');
+    
+    // Add active styling to selected tab
+    document.getElementById('tab-' + tabId).classList.remove('bg-neutral-dark', 'text-white');
+    document.getElementById('tab-' + tabId).classList.add('bg-neon-yellow', 'text-black');
+}
+</script>
 
 
 
