@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Washington County Football Combine Camp</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'neon-yellow': '#CEFF00',
+                        'silver': '#C0C0C0',
+                        'neutral-dark': '#1a1a1a',
+                        'neutral-medium': '#2d2d2d',
+                        'light-bg': '#f5f5f5',
+                        'border-dark': '#333333'
+                    },
+                    fontFamily: {
+                        'athletic': ['Impact', 'Arial Black', 'sans-serif'],
+                        'body': ['Arial', 'Helvetica', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="font-body bg-black text-white">
+
+    <nav class="bg-black text-white fixed top-0 left-0 right-0 z-50 border-b border-border-dark">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto space-x-6 py-3 scrollbar-hide pr-16 md:pr-4">
+                <button onclick="loadPage('home')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Home</button>
+                
+                <div class="relative group">
+                    <button onclick="loadPage('football')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Football</button>
+                    <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
+                        <button onclick="loadPage('football-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
+                        <button onclick="loadPage('football-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
+                    </div>
+                </div>
+                
+                <div class="relative group">
+                    <button onclick="loadPage('cheer')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Cheer</button>
+                    <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
+                        <button onclick="loadPage('cheer-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
+                        <button onclick="loadPage('cheer-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
+                    </div>
+                </div>
+                
+                <button onclick="loadPage('registration')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Registration</button>
+                <button onclick="loadPage('schedules')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Schedules</button>
+                <button onclick="loadPage('coaches')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Coaches & Staff</button>
+                <button onclick="loadPage('forms')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Forms & Policies</button>
+                <button onclick="loadPage('contact')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Contact</button>
+                <button onclick="loadPage('faq')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">FAQ</button>
+            </div>
+        </div>
+        <div class="md:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent pointer-events-none flex items-center justify-end pr-3">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+            </svg>
+        </div>
+    </nav>
+
+    <main id="content-area" class="min-h-screen" style="padding-top: 54px;">
+        <!-- Pages load here dynamically -->
+    </main>
+
+    <footer class="bg-white text-black">
+        <div class="container mx-auto px-4 py-12">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+                            <span class="text-neon-yellow font-athletic text-xs">WCFCC</span>
+                        </div>
+                        <div>
+                            <h3 class="font-athletic text-lg text-black">WCFCC</h3>
+                            <p class="text-sm text-black font-semibold">Washington County Football Combine Camp</p>
+                        </div>
+                    </div>
+                    <p class="text-black text-sm font-medium">Building champions on and off the field through teamwork, dedication, and community support.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-black font-athletic">Quick Links</h4>
+                    <div class="space-y-2 text-sm">
+                        <button onclick="loadPage('registration')" class="block text-black hover:underline transition font-semibold">Registration</button>
+                        <button onclick="loadPage('schedules')" class="block text-black hover:underline transition font-semibold">Schedules</button>
+                        <button onclick="loadPage('coaches')" class="block text-black hover:underline transition font-semibold">Coaches</button>
+                        <button onclick="loadPage('contact')" class="block text-black hover:underline transition font-semibold">Contact</button>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-black font-athletic">Camps</h4>
+                    <div class="space-y-2 text-sm">
+                        <button onclick="loadPage('football')" class="block text-black hover:underline transition font-semibold">Football</button>
+                        <button onclick="loadPage('cheer')" class="block text-black hover:underline transition font-semibold">Cheer</button>
+                        <button onclick="loadPage('forms')" class="block text-black hover:underline transition font-semibold">Forms & Policies</button>
+                        <button onclick="loadPage('faq')" class="block text-black hover:underline transition font-semibold">FAQ</button>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4 text-black font-athletic">Follow Us</h4>
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:opacity-70 transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="text-sm text-black font-semibold space-y-1">
+                        <p>Email: WCFootballcombinecamp@gmail.com</p>
+                        <p>Kahlil Johnson: 240-591-8453</p>
+                        <p>Des Wade (Cheer): 301-332-3441</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bg-neon-yellow py-6">
+            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-black">
+                <p class="text-black text-sm font-semibold">© 2026 Washington County Football Combine Camp. All rights reserved.</p>
+                <div class="mt-4 md:mt-0">
+                    <span class="text-black text-sm font-semibold">Anonymous Feedback</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
