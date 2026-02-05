@@ -104,16 +104,193 @@ html, body {
     box-shadow: 0 0 30px rgba(206, 255, 0, 0.6);
 }
 
+/* WCFCC Hero Immersive Additions */
+.wcfcc-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.wcfcc-hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 20%, rgba(206, 255, 0, 0.18) 0%, transparent 45%),
+        radial-gradient(circle at 80% 10%, rgba(206, 255, 0, 0.12) 0%, transparent 40%),
+        radial-gradient(circle at 55% 60%, rgba(255, 255, 255, 0.06) 0%, transparent 55%),
+        linear-gradient(180deg, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.92) 100%);
+    z-index: 0;
+}
+
+.wcfcc-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.1) 55%, rgba(0, 0, 0, 0.55) 100%);
+    opacity: 0.85;
+    z-index: 1;
+}
+
+.wcfcc-hero-grain {
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.03) 0px, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 3px);
+    opacity: 0.08;
+    mix-blend-mode: overlay;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.hero-badges {
+    display: inline-flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 18px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero-badges {
+        align-items: flex-start;
+    }
+}
+
+.season-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 2px solid rgba(206, 255, 0, 0.55);
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(8px);
+}
+
+.season-brand {
+    color: #ffffff;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+}
+
+.season-divider {
+    width: 1px;
+    height: 18px;
+    background: rgba(206, 255, 0, 0.65);
+}
+
+.season-label {
+    color: #CEFF00;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+}
+
+.hero-kicker {
+    color: rgba(255, 255, 255, 0.78);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.hero-title .hero-subline {
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 0 18px rgba(206, 255, 0, 0.12);
+}
+
+.hero-support {
+    max-width: 38rem;
+    margin-left: auto;
+    margin-right: auto;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+@media (min-width: 768px) {
+    .hero-support {
+        margin-left: 0;
+        margin-right: 0;
+        font-size: 18px;
+    }
+}
+
+.hero-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+}
+
+@media (min-width: 768px) {
+    .hero-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+.hero-secondary-btn {
+    padding: 14px 22px;
+    border-radius: 12px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.06);
+    color: rgba(255, 255, 255, 0.92);
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    transition: all 0.25s ease;
+}
+
+.hero-secondary-btn:hover {
+    border-color: rgba(206, 255, 0, 0.6);
+    background: rgba(206, 255, 0, 0.08);
+    color: #ffffff;
+    box-shadow: 0 0 24px rgba(206, 255, 0, 0.16);
+}
+
+.wcfcc-hero-media {
+    position: relative;
+}
+
+.hero-media-caption {
+    width: 100%;
+    max-width: 420px;
+    padding: 14px 14px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    backdrop-filter: blur(10px);
+}
+
+.hero-media-title {
+    color: #ffffff;
+    font-weight: 900;
+    letter-spacing: 0.02em;
+    font-size: 16px;
+}
+
+.hero-media-sub {
+    margin-top: 4px;
+    color: rgba(255, 255, 255, 0.78);
+    font-size: 13px;
+    line-height: 1.35;
+}
+
 /* Sponsor Slider */
 .sponsor-slider {
     width: 100%;
     overflow: hidden;
+    position: relative;
 }
 
 .sponsor-track {
     display: flex;
+    align-items: center;
     width: max-content;
-    animation: sponsor-scroll 20s linear infinite;
+    will-change: transform;
+    animation: sponsor-scroll 22s linear infinite;
+}
+
+.sponsor-slider:hover .sponsor-track {
+    animation-play-state: paused;
 }
 
 .logo {
@@ -128,11 +305,16 @@ html, body {
     justify-content: center;
     color: #aaa;
     font-size: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @keyframes sponsor-scroll {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+    100% {
+        transform: translate3d(-50%, 0, 0);
+    }
 }
 
 /* Expandable Content */
@@ -304,120 +486,4 @@ html, body {
 .registration-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
-}
-
-/* ===================================================== */
-/* NEW HERO IMMERSION AND STRUCTURE ADDITIONS */
-/* ===================================================== */
-
-.wcfcc-hero {
-    position: relative;
-}
-
-.wcfcc-hero-bg,
-.wcfcc-hero-overlay,
-.wcfcc-hero-grain {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-}
-
-.wcfcc-hero-bg {
-    background:
-        radial-gradient(1200px 520px at 50% 35%, rgba(206, 255, 0, 0.18), transparent 60%),
-        radial-gradient(900px 420px at 80% 55%, rgba(255, 255, 255, 0.12), transparent 60%),
-        radial-gradient(900px 520px at 20% 70%, rgba(206, 255, 0, 0.10), transparent 60%);
-}
-
-.wcfcc-hero-overlay {
-    background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
-}
-
-.wcfcc-hero-grain {
-    opacity: 0.08;
-    background-image:
-        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.3) 0 1px, transparent 2px),
-        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.22) 0 1px, transparent 2px),
-        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.18) 0 1px, transparent 2px);
-    background-size: 180px 180px, 220px 220px, 260px 260px;
-    mix-blend-mode: overlay;
-}
-
-.hero-badges {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 18px;
-}
-
-@media (min-width: 768px) {
-    .hero-badges {
-        justify-content: flex-start;
-    }
-}
-
-.season-pill {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 14px;
-    border-radius: 999px;
-    border: 1px solid rgba(255,255,255,0.14);
-    background: rgba(255,255,255,0.06);
-}
-
-.season-brand {
-    color: #CEFF00;
-    font-weight: 900;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 14px;
-}
-
-.season-divider {
-    width: 1px;
-    height: 16px;
-    background: rgba(255,255,255,0.22);
-}
-
-.season-label {
-    color: rgba(255,255,255,0.8);
-    font-size: 12px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-}
-
-.hero-kicker {
-    color: rgba(255,255,255,0.7);
-    font-weight: 700;
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-    font-size: 12px;
-}
-
-.hero-support {
-    color: rgba(255,255,255,0.78);
-    max-width: 42ch;
-    margin: 0 auto 18px;
-    font-size: 16px;
-    line-height: 1.55;
-}
-
-@media (min-width: 768px) {
-    .hero-support {
-        margin-left: 0;
-    }
-}
-
-.hero-secondary-btn {
-    padding: 16px 22px;
-    border-radius: 12px;
-    font-weight: 900;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    border: 1px solid rgba(255,255,255,0.16);
-    background: rgba(255,255,255,0.06);
-    color: rgba(255,255,255,0.86);
 }
