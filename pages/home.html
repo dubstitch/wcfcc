@@ -36,22 +36,25 @@
                     </p>
                 </div>
 
-<!-- Stats Bar with Gradient Backgrounds (FIXED) -->
-<div class="grid grid-cols-3 gap-3 md:gap-4 max-w-2xl mx-auto md:mx-0">
-    <div class="stat-box-gradient text-center p-4 md:p-6 rounded-xl">
-        <div class="font-athletic text-4xl md:text-5xl text-white mb-1 tracking-tight leading-none">8-17</div>
-        <div class="text-xs md:text-sm text-white uppercase tracking-wide font-bold">Ages</div>
-    </div>
-    <div class="stat-box-gradient text-center p-4 md:p-6 rounded-xl">
-        <div class="font-athletic text-4xl md:text-5xl text-white mb-1 tracking-tight leading-none">$280</div>
-        <div class="text-xs md:text-sm text-white uppercase tracking-wide font-bold">Registration</div>
-    </div>
-    <div class="stat-box-gradient text-center p-4 md:p-6 rounded-xl">
-        <div class="font-athletic text-4xl md:text-5xl text-white mb-1 tracking-tight leading-none">APR 31</div>
-        <div class="text-xs md:text-sm text-white uppercase tracking-wide font-bold">Deadline</div>
-    </div>
-</div>
-
+                <!-- Stats Bar - ONE gradient background for all stats (CORRECTED) -->
+                <div class="stats-container relative max-w-xl mx-auto md:mx-0">
+                    <div class="stats-gradient-bg absolute inset-0 rounded-xl"></div>
+                    <div class="relative z-10 grid grid-cols-3 divide-x divide-white/20 py-4 px-2">
+                        <div class="text-center px-2">
+                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">8-17</div>
+                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold">AGES</div>
+                        </div>
+                        <div class="text-center px-2">
+                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">$280</div>
+                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold">FEE</div>
+                        </div>
+                        <div class="text-center px-2">
+                            <div class="font-athletic text-2xl md:text-4xl text-white mb-1 leading-none whitespace-nowrap">APR 31</div>
+                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold">DEADLINE</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <!-- Hero Image - RIGHT SIDE on desktop -->
             <div class="relative mt-8 md:mt-0">
@@ -160,23 +163,36 @@
     </div>
 </section>
 
-<!-- Choose Your Path Section -->
+<!-- Choose Your Path Section (CENTERED HEADERS, EXPANDABLE CARDS ON MOBILE) -->
 <section class="py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
-        <div class="mb-8 md:mb-12">
+        <div class="text-center mb-8 md:mb-12">
             <p class="text-neon-yellow uppercase tracking-wider text-sm font-bold mb-2">Programs</p>
             <h2 class="font-athletic text-4xl md:text-6xl mb-4 gradient-text">CHOOSE YOUR PATH</h2>
-            <p class="text-lg md:text-xl text-silver max-w-2xl">Two elite programs. One championship experience.</p>
+            <p class="text-lg md:text-xl text-silver max-w-2xl mx-auto">Two elite programs. One championship experience.</p>
         </div>
 
-        <!-- Two Program Cards Side by Side -->
+        <!-- Two Program Cards - Desktop: side by side, Mobile: expandable -->
         <div class="grid md:grid-cols-2 gap-6 md:gap-8 max-w-6xl mx-auto mb-12">
             
-            <!-- Football Card -->
-            <div class="program-card bg-light-bg rounded-2xl shadow-lg overflow-hidden border-t-4 border-neon-yellow transform transition hover:scale-105">
-                <div class="p-6 md:p-8">
-                    <h3 class="font-athletic text-2xl md:text-3xl text-black mb-3">FOOTBALL COMBINE CAMP</h3>
-                    <p class="text-xl md:text-2xl font-bold text-black mb-4">Elite Skills. Real Competition. Championship Ready.</p>
+            <!-- Football Card (Expandable on mobile) -->
+            <div class="program-card-expandable bg-light-bg rounded-2xl shadow-lg overflow-hidden border-t-4 border-neon-yellow">
+                <button onclick="toggleProgramCard('football-content')" class="md:hidden w-full p-6 text-left flex items-center justify-between">
+                    <div>
+                        <h3 class="font-athletic text-2xl text-black mb-2">FOOTBALL COMBINE CAMP</h3>
+                        <p class="text-lg font-bold text-black">Elite Skills. Real Competition.</p>
+                    </div>
+                    <svg class="w-6 h-6 text-neon-yellow transition-transform duration-300 expand-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                
+                <div id="football-content" class="expandable-content p-6 md:p-8">
+                    <div class="hidden md:block mb-4">
+                        <h3 class="font-athletic text-2xl md:text-3xl text-black mb-3">FOOTBALL COMBINE CAMP</h3>
+                        <p class="text-xl md:text-2xl font-bold text-black mb-4">Elite Skills. Real Competition. Championship Ready.</p>
+                    </div>
+                    
                     <p class="text-neutral-dark text-base md:text-lg mb-6 leading-relaxed">
                         An intensive 6 week combine style training program designed to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.
                     </p>
@@ -213,11 +229,24 @@
                 </div>
             </div>
 
-            <!-- Cheer Card -->
-            <div class="program-card bg-light-bg rounded-2xl shadow-lg overflow-hidden border-t-4 border-neon-yellow transform transition hover:scale-105">
-                <div class="p-6 md:p-8">
-                    <h3 class="font-athletic text-2xl md:text-3xl text-black mb-3">SIDELINE CHEER CAMP</h3>
-                    <p class="text-xl md:text-2xl font-bold text-black mb-4">Confidence. Performance. Team Pride.</p>
+            <!-- Cheer Card (Expandable on mobile) -->
+            <div class="program-card-expandable bg-light-bg rounded-2xl shadow-lg overflow-hidden border-t-4 border-neon-yellow">
+                <button onclick="toggleProgramCard('cheer-content')" class="md:hidden w-full p-6 text-left flex items-center justify-between">
+                    <div>
+                        <h3 class="font-athletic text-2xl text-black mb-2">SIDELINE CHEER CAMP</h3>
+                        <p class="text-lg font-bold text-black">Confidence. Performance. Team Pride.</p>
+                    </div>
+                    <svg class="w-6 h-6 text-neon-yellow transition-transform duration-300 expand-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                
+                <div id="cheer-content" class="expandable-content p-6 md:p-8">
+                    <div class="hidden md:block mb-4">
+                        <h3 class="font-athletic text-2xl md:text-3xl text-black mb-3">SIDELINE CHEER CAMP</h3>
+                        <p class="text-xl md:text-2xl font-bold text-black mb-4">Confidence. Performance. Team Pride.</p>
+                    </div>
+                    
                     <p class="text-neutral-dark text-base md:text-lg mb-6 leading-relaxed">
                         A 6 week sideline cheer program designed to build confident young women through technique, teamwork, and real game day performance experience.
                     </p>
@@ -268,7 +297,6 @@
         <div class="lightbulb-section relative max-w-5xl mx-auto">
             <div class="lightbulb-glow"></div>
             <div class="relative z-10 bg-gradient-to-br from-neutral-dark to-black border-2 border-neon-yellow rounded-2xl p-6 md:p-12">
-                <!-- Stars decoration -->
                 <div class="absolute top-4 right-4 sparkle-stars">
                     <span class="star-sparkle">✦</span>
                     <span class="star-sparkle">✧</span>
@@ -328,23 +356,25 @@
     </div>
 </section>
 
-<!-- Game Day Fridays + Mummers Parade MOSAIC -->
+<!-- Complete Experience Section (CENTERED, EXPANDABLE ON MOBILE) -->
 <section class="py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
-        <div class="mb-8 md:mb-12">
+        <div class="text-center mb-8 md:mb-12">
             <p class="text-neon-yellow uppercase tracking-wider text-sm font-bold mb-2">Experience</p>
             <h2 class="font-athletic text-4xl md:text-6xl mb-4 gradient-text">THE COMPLETE EXPERIENCE</h2>
         </div>
 
-        <div class="mosaic-grid max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+        <!-- Desktop: Mosaic Grid -->
+        <div class="hidden md:grid mosaic-grid max-w-7xl mx-auto grid-cols-3 gap-6">
             <!-- Large Card - Game Day Fridays -->
             <div class="md:col-span-2 md:row-span-2 mosaic-card bg-neutral-dark rounded-2xl overflow-hidden border border-border-dark hover-glow">
-                <div class="p-6 md:p-8 h-full flex flex-col justify-between">
+                <div class="p-8 h-full flex flex-col justify-between">
                     <div>
-                        <h3 class="font-athletic text-3xl md:text-4xl mb-4 gradient-text">GAME DAY FRIDAYS</h3>
-                        <p class="text-lg md:text-xl text-white mb-4">Every Friday, camp moves to our turf stadium for the most exciting day of the week.</p>
-                        <p class="text-sm md:text-base text-silver mb-4">Football athletes compete in 7 on 7 scrimmages, applying the week's training in live game situations. Cheerleaders perform their sideline routines, supporting the teams and bringing the energy.</p>
-                        <p class="text-sm md:text-base text-white font-bold">Each week builds toward Championship Day in Week 6, where families tailgate, music plays, and athletes showcase six weeks of growth.</p>
+                        <h3 class="font-athletic text-4xl mb-4 gradient-text">GAME DAY FRIDAYS</h3>
+                        <p class="text-xl text-white mb-4">Every Friday, camp moves to our turf stadium for the most exciting day of the week.</p>
+                        <p class="text-base text-silver mb-2"><strong>Football:</strong> 7 on 7 scrimmages applying the week's training in live game situations</p>
+                        <p class="text-base text-silver mb-4"><strong>Cheer:</strong> Sideline performances supporting teams and bringing the energy</p>
+                        <p class="text-base text-white font-bold">Each week builds toward Championship Day in Week 6, where families tailgate, music plays, and athletes showcase six weeks of growth.</p>
                     </div>
                     <div class="mt-6">
                         <span class="inline-block bg-neon-yellow/20 text-neon-yellow px-4 py-2 rounded-full text-sm font-bold">EVERY FRIDAY</span>
@@ -354,12 +384,12 @@
 
             <!-- Medium Card - Mummers Parade -->
             <div class="md:row-span-2 mosaic-card bg-gradient-to-br from-neon-yellow/10 to-transparent rounded-2xl overflow-hidden border-2 border-neon-yellow hover-glow">
-                <div class="p-6 md:p-8 h-full flex flex-col justify-between">
+                <div class="p-8 h-full flex flex-col justify-between">
                     <div>
-                        <h3 class="font-athletic text-2xl md:text-3xl mb-4 text-neon-yellow">MUMMERS PARADE</h3>
+                        <h3 class="font-athletic text-3xl mb-4 text-neon-yellow">MUMMERS PARADE</h3>
                         <p class="text-white mb-4 font-bold">October 31, 2026</p>
-                        <p class="text-sm md:text-base text-silver mb-4">WCFCC takes the streets of downtown Hagerstown with our custom built float, cheer performances, and full team representation.</p>
-                        <p class="text-sm text-white mb-2">70,000+ spectators</p>
+                        <p class="text-base text-silver mb-2"><strong>Football:</strong> Athletic drills and team representation on our custom float</p>
+                        <p class="text-base text-silver mb-4"><strong>Cheer:</strong> Choreographed parade routines performing for 70,000+ spectators</p>
                         <p class="text-sm text-silver">All parade activities included in camp registration.</p>
                     </div>
                     <div class="mt-6">
@@ -368,64 +398,102 @@
                 </div>
             </div>
 
-            <!-- Small Card - Football Focus -->
-            <div class="mosaic-card bg-light-bg rounded-2xl overflow-hidden border border-border-dark hover-glow">
-                <div class="p-4 md:p-6">
-                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-athletic text-lg md:text-xl mb-2 text-black">FOOTBALL</h4>
-                    <p class="text-neutral-dark text-xs md:text-sm">7 on 7 competition, championship trophies, athletic drills in the parade</p>
-                </div>
-            </div>
-
-            <!-- Small Card - Cheer Focus -->
-            <div class="mosaic-card bg-light-bg rounded-2xl overflow-hidden border border-border-dark hover-glow">
-                <div class="p-4 md:p-6">
-                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mb-4">
-                        <svg class="w-6 h-6 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h4 class="font-athletic text-lg md:text-xl mb-2 text-black">CHEER</h4>
-                    <p class="text-neutral-dark text-xs md:text-sm">Sideline performances, 2.5 minute routine, choreographed parade routines</p>
-                </div>
-            </div>
-
-            <!-- CTA Card with Arrow -->
-            <div class="relative mosaic-card bg-gradient-to-br from-neon-yellow to-neon-yellow/80 rounded-2xl overflow-hidden hover-glow">
+            <!-- CTA Card -->
+            <div class="md:col-span-3 relative mosaic-card bg-gradient-to-br from-neon-yellow to-neon-yellow/80 rounded-2xl overflow-hidden hover-glow">
                 <div class="absolute top-4 right-4 text-black opacity-50">
                     <svg class="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
                     </svg>
                 </div>
-                <div class="p-4 md:p-6 h-full flex flex-col justify-center">
-                    <h4 class="font-athletic text-xl md:text-2xl mb-4 text-black">READY TO JOIN?</h4>
-                    <button onclick="loadPage('registration')" class="bg-black text-neon-yellow px-6 py-3 rounded-xl font-semibold hover:opacity-90 transition">
+                <div class="p-6 flex items-center justify-between">
+                    <h4 class="font-athletic text-3xl text-black">READY TO JOIN?</h4>
+                    <button onclick="loadPage('registration')" class="bg-black text-neon-yellow px-8 py-4 rounded-xl font-semibold hover:opacity-90 transition text-lg">
                         REGISTER NOW
                     </button>
                 </div>
             </div>
         </div>
+
+        <!-- Mobile: Expandable Cards -->
+        <div class="md:hidden space-y-4">
+            <!-- Game Day Fridays - Expandable -->
+            <div class="experience-card-expandable bg-neutral-dark rounded-2xl border border-border-dark overflow-hidden">
+                <button onclick="toggleExperienceCard('gameday-content')" class="w-full p-6 text-left flex items-center justify-between">
+                    <div class="flex-1">
+                        <h3 class="font-athletic text-2xl mb-2 gradient-text">GAME DAY FRIDAYS</h3>
+                        <p class="text-sm text-silver">Every Friday at our turf stadium</p>
+                    </div>
+                    <svg class="w-6 h-6 text-neon-yellow transition-transform duration-300 expand-arrow ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div id="gameday-content" class="expandable-content px-6 pb-6">
+                    <p class="text-white mb-4">Every Friday, camp moves to our turf stadium for the most exciting day of the week.</p>
+                    <div class="mb-4">
+                        <p class="text-sm text-silver mb-2"><strong class="text-white">Football:</strong> 7 on 7 scrimmages applying the week's training in live game situations</p>
+                        <p class="text-sm text-silver mb-2"><strong class="text-white">Cheer:</strong> Sideline performances supporting teams and bringing the energy</p>
+                    </div>
+                    <p class="text-sm text-white font-bold">Each week builds toward Championship Day in Week 6, where families tailgate, music plays, and athletes showcase six weeks of growth.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-neon-yellow/20 text-neon-yellow px-4 py-2 rounded-full text-sm font-bold">EVERY FRIDAY</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mummers Parade - Expandable -->
+            <div class="experience-card-expandable bg-gradient-to-br from-neon-yellow/10 to-transparent rounded-2xl border-2 border-neon-yellow overflow-hidden">
+                <button onclick="toggleExperienceCard('parade-content')" class="w-full p-6 text-left flex items-center justify-between">
+                    <div class="flex-1">
+                        <h3 class="font-athletic text-2xl mb-2 text-neon-yellow">MUMMERS PARADE</h3>
+                        <p class="text-sm text-white font-bold">October 31, 2026</p>
+                    </div>
+                    <svg class="w-6 h-6 text-neon-yellow transition-transform duration-300 expand-arrow ml-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div id="parade-content" class="expandable-content px-6 pb-6">
+                    <p class="text-white mb-4">WCFCC takes the streets of downtown Hagerstown with our custom built float.</p>
+                    <div class="mb-4">
+                        <p class="text-sm text-silver mb-2"><strong class="text-white">Football:</strong> Athletic drills and team representation on our custom float</p>
+                        <p class="text-sm text-silver mb-2"><strong class="text-white">Cheer:</strong> Choreographed parade routines performing for 70,000+ spectators</p>
+                    </div>
+                    <p class="text-sm text-silver">All parade activities included in camp registration.</p>
+                    <div class="mt-4">
+                        <span class="inline-block bg-neon-yellow text-black px-4 py-2 rounded-full text-sm font-bold">HALLOWEEN NIGHT</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Card (smaller on mobile) -->
+            <div class="bg-neon-yellow rounded-2xl p-6 text-center">
+                <h4 class="font-athletic text-2xl mb-4 text-black">READY TO JOIN?</h4>
+                <button onclick="loadPage('registration')" class="bg-black text-neon-yellow px-8 py-3 rounded-xl font-semibold hover:opacity-90 transition w-full">
+                    REGISTER NOW
+                </button>
+            </div>
+        </div>
     </div>
 </section>
 
-<!-- Core Values -->
+<!-- Core Values (CENTERED, STARS ON CARDS) -->
 <section class="py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
         <div class="max-w-6xl mx-auto">
-            <div class="mb-8 md:mb-12">
+            <div class="text-center mb-8 md:mb-12">
                 <p class="text-neon-yellow uppercase tracking-wider text-sm font-bold mb-2">Our Values</p>
                 <h2 class="font-athletic text-4xl md:text-6xl mb-4 gradient-text">CORE VALUES</h2>
             </div>
             
-            <!-- Desktop: 3 cards side by side -->
+            <!-- Desktop: 3 cards side by side with stars ON cards -->
             <div class="hidden md:grid grid-cols-3 gap-6">
-                <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                     <div class="value-glow"></div>
-                    <div class="value-stars-enhanced"></div>
+                    <!-- Stars ON the card -->
+                    <div class="card-stars">
+                        <span class="card-star">★</span>
+                        <span class="card-star">✦</span>
+                        <span class="card-star">✧</span>
+                    </div>
                     <div class="relative z-10">
                         <div class="flex items-start justify-between mb-4">
                             <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">SAFE<br>COACHING</h3>
@@ -436,13 +504,17 @@
                             </div>
                         </div>
                         <div class="w-20 h-0.5 bg-neon-yellow mb-4"></div>
-                        <p class="text-neutral-dark text-base leading-relaxed text-center">All coaches are background checked and trained in youth sports safety protocols. Athlete safety, proper progressions, and clear instruction are non negotiables at every session.</p>
+                        <p class="text-neutral-dark text-base leading-relaxed text-center">All coaches are background checked and trained in youth sports safety protocols.</p>
                     </div>
                 </div>
                 
-                <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                     <div class="value-glow"></div>
-                    <div class="value-stars-enhanced"></div>
+                    <div class="card-stars">
+                        <span class="card-star">★</span>
+                        <span class="card-star">✦</span>
+                        <span class="card-star">✧</span>
+                    </div>
                     <div class="relative z-10">
                         <div class="flex items-start justify-between mb-4">
                             <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">CLEAR<br>COMMUNICATION</h3>
@@ -453,13 +525,17 @@
                             </div>
                         </div>
                         <div class="w-20 h-0.5 bg-neon-yellow mb-4"></div>
-                        <p class="text-neutral-dark text-base leading-relaxed text-center">Families stay informed with regular updates and transparent policies. No surprises, no guesswork. You'll always know what's happening, what's expected, and how your athlete is progressing.</p>
+                        <p class="text-neutral-dark text-base leading-relaxed text-center">Families stay informed with regular updates and transparent policies.</p>
                     </div>
                 </div>
                 
-                <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                     <div class="value-glow"></div>
-                    <div class="value-stars-enhanced"></div>
+                    <div class="card-stars">
+                        <span class="card-star">★</span>
+                        <span class="card-star">✦</span>
+                        <span class="card-star">✧</span>
+                    </div>
                     <div class="relative z-10">
                         <div class="flex items-start justify-between mb-4">
                             <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">COMMUNITY<br>FOCUS</h3>
@@ -470,19 +546,37 @@
                             </div>
                         </div>
                         <div class="w-20 h-0.5 bg-neon-yellow mb-4"></div>
-                        <p class="text-neutral-dark text-base leading-relaxed text-center">More than a team, it's a family. We build lasting friendships and create memories that go beyond the game.</p>
+                        <p class="text-neutral-dark text-base leading-relaxed text-center">More than a team, it's a family. We build lasting friendships.</p>
                     </div>
                 </div>
             </div>
 
-            <!-- Mobile: Carousel with circular arrows -->
+            <!-- Mobile: Carousel with arrows in UPPER RIGHT -->
             <div class="md:hidden relative">
-                <div class="values-carousel overflow-hidden">
+                <!-- Arrows in upper right corner -->
+                <div class="absolute top-0 right-4 flex gap-2 z-30">
+                    <button onclick="previousValue()" class="circular-arrow-button bg-neutral-dark text-neon-yellow p-2 rounded-full shadow-lg border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    <button onclick="nextValue()" class="circular-arrow-button bg-neon-yellow text-black p-2 rounded-full shadow-lg hover:scale-110 transition">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="values-carousel overflow-hidden pt-12">
                     <div class="values-track flex transition-transform duration-300" id="valuesTrack">
                         <div class="value-slide flex-shrink-0 w-full px-4">
-                            <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                            <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                                 <div class="value-glow"></div>
-                                <div class="value-stars-enhanced"></div>
+                                <div class="card-stars">
+                                    <span class="card-star">★</span>
+                                    <span class="card-star">✦</span>
+                                    <span class="card-star">✧</span>
+                                </div>
                                 <div class="relative z-10">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">SAFE<br>COACHING</h3>
@@ -498,9 +592,13 @@
                             </div>
                         </div>
                         <div class="value-slide flex-shrink-0 w-full px-4">
-                            <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                            <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                                 <div class="value-glow"></div>
-                                <div class="value-stars-enhanced"></div>
+                                <div class="card-stars">
+                                    <span class="card-star">★</span>
+                                    <span class="card-star">✦</span>
+                                    <span class="card-star">✧</span>
+                                </div>
                                 <div class="relative z-10">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">CLEAR<br>COMMUNICATION</h3>
@@ -516,9 +614,13 @@
                             </div>
                         </div>
                         <div class="value-slide flex-shrink-0 w-full px-4">
-                            <div class="value-card-enhanced relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
+                            <div class="value-card-with-stars relative bg-white rounded-2xl shadow-lg overflow-hidden p-6">
                                 <div class="value-glow"></div>
-                                <div class="value-stars-enhanced"></div>
+                                <div class="card-stars">
+                                    <span class="card-star">★</span>
+                                    <span class="card-star">✦</span>
+                                    <span class="card-star">✧</span>
+                                </div>
                                 <div class="relative z-10">
                                     <div class="flex items-start justify-between mb-4">
                                         <h3 class="font-athletic text-2xl text-black leading-tight flex-1 pr-4">COMMUNITY<br>FOCUS</h3>
@@ -529,31 +631,21 @@
                                         </div>
                                     </div>
                                     <div class="w-20 h-0.5 bg-neon-yellow mb-4"></div>
-                                    <p class="text-neutral-dark text-base leading-relaxed text-center">More than a team, it's a family. We build lasting friendships.</p>
+                                    <p class="text-neutral-dark text-base leading-relaxed text-center">More than a team, it's a family.</p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <button onclick="previousValue()" class="circular-arrow-button absolute left-2 top-1/2 transform -translate-y-1/2 bg-neutral-dark text-neon-yellow p-3 rounded-full shadow-lg z-20 border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                    </svg>
-                </button>
-                <button onclick="nextValue()" class="circular-arrow-button absolute right-2 top-1/2 transform -translate-y-1/2 bg-neon-yellow text-black p-3 rounded-full shadow-lg z-20 hover:scale-110 transition">
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                    </svg>
-                </button>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Registration Section - Mobile Carousel -->
+<!-- Registration Section (CENTERED) -->
 <section class="py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
-        <div class="mb-8 md:mb-12">
+        <div class="text-center mb-8 md:mb-12">
             <p class="text-neon-yellow uppercase tracking-wider text-sm font-bold mb-2">Registration</p>
             <h2 class="font-athletic text-4xl md:text-6xl mb-4 gradient-text">SUMMER 2026<br>CAMP REGISTRATION <span class="text-neon-yellow">OPEN</span></h2>
         </div>
@@ -578,9 +670,23 @@
             </div>
         </div>
 
-        <!-- Mobile: Carousel -->
+        <!-- Mobile: Carousel with arrows in upper right -->
         <div class="md:hidden relative mb-8">
-            <div class="registration-carousel overflow-hidden">
+            <!-- Arrows in upper right corner -->
+            <div class="absolute top-0 right-4 flex gap-2 z-30">
+                <button onclick="previousRegistration()" class="circular-arrow-button bg-neutral-dark text-neon-yellow p-2 rounded-full shadow-lg border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="nextRegistration()" class="circular-arrow-button bg-neon-yellow text-black p-2 rounded-full shadow-lg hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="registration-carousel overflow-hidden pt-12">
                 <div class="registration-track flex transition-transform duration-300" id="registrationTrack">
                     <div class="registration-slide flex-shrink-0 w-full px-4">
                         <div class="registration-card bg-light-bg p-6 rounded-2xl shadow-lg border-t-4 border-neon-yellow text-center">
@@ -608,16 +714,6 @@
                     </div>
                 </div>
             </div>
-            <button onclick="previousRegistration()" class="circular-arrow-button absolute left-2 top-1/2 transform -translate-y-1/2 bg-neutral-dark text-neon-yellow p-3 rounded-full shadow-lg z-20 border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                </svg>
-            </button>
-            <button onclick="nextRegistration()" class="circular-arrow-button absolute right-2 top-1/2 transform -translate-y-1/2 bg-neon-yellow text-black p-3 rounded-full shadow-lg z-20 hover:scale-110 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-            </button>
         </div>
         
         <div class="text-center">
@@ -628,72 +724,103 @@
     </div>
 </section>
 
-<!-- Testimonials - 3 cards desktop, carousel mobile with circular arrows -->
+<!-- Testimonials (CENTERED, 10 testimonials, arrows upper right) -->
 <section class="py-12 md:py-16 bg-black">
     <div class="container mx-auto px-4">
-        <div class="mb-8 md:mb-12">
+        <div class="text-center mb-8 md:mb-12">
             <p class="text-neon-yellow uppercase tracking-wider text-sm font-bold mb-2">Testimonials</p>
             <h2 class="font-athletic text-4xl md:text-6xl mb-4 gradient-text">PARENT TESTIMONIALS</h2>
         </div>
         
-        <!-- Desktop: 3 cards visible -->
-        <div class="hidden md:grid grid-cols-3 gap-6 max-w-6xl mx-auto">
-            <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 md:p-8 rounded-2xl shadow-lg">
-                <div class="testimonial-gradient"></div>
-                <div class="relative z-10">
-                    <div class="text-neon-yellow text-5xl mb-4">"</div>
-                    <p class="text-lg md:text-xl mb-6 leading-relaxed text-white italic">WCFCC has been a game changer for my son. The coaching staff genuinely cares about each player's growth, both on and off the field.</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">TW</div>
-                        <div>
-                            <p class="font-bold text-white">Tasha Williams</p>
-                            <p class="text-silver text-sm">Football Parent</p>
+        <!-- Desktop: 3 cards visible, arrows upper right -->
+        <div class="hidden md:block relative max-w-6xl mx-auto">
+            <!-- Arrows in upper right corner -->
+            <div class="absolute top-0 right-0 flex gap-2 z-30">
+                <button onclick="previousTestimonial()" class="circular-arrow-button bg-neutral-dark text-neon-yellow p-3 rounded-full shadow-lg border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="nextTestimonial()" class="circular-arrow-button bg-neon-yellow text-black p-3 rounded-full shadow-lg hover:scale-110 transition">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="grid grid-cols-3 gap-6 pt-16">
+                <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-8 rounded-2xl shadow-lg">
+                    <div class="testimonial-gradient"></div>
+                    <div class="relative z-10">
+                        <div class="text-neon-yellow text-5xl mb-4">"</div>
+                        <p class="text-xl mb-6 leading-relaxed text-white italic">WCFCC has been a game changer for my son. The coaching staff genuinely cares about each player's growth, both on and off the field.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">TW</div>
+                            <div>
+                                <p class="font-bold text-white">Tasha Williams</p>
+                                <p class="text-silver text-sm">Football Parent</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 md:p-8 rounded-2xl shadow-lg">
-                <div class="testimonial-gradient"></div>
-                <div class="relative z-10">
-                    <div class="text-neon-yellow text-5xl mb-4">"</div>
-                    <p class="text-lg md:text-xl mb-6 leading-relaxed text-white italic">My daughter joined with zero experience and now she's thriving! The camp builds confidence, discipline, and teamwork.</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">MR</div>
-                        <div>
-                            <p class="font-bold text-white">Marcus Reed</p>
-                            <p class="text-silver text-sm">Cheer Parent</p>
+                <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-8 rounded-2xl shadow-lg">
+                    <div class="testimonial-gradient"></div>
+                    <div class="relative z-10">
+                        <div class="text-neon-yellow text-5xl mb-4">"</div>
+                        <p class="text-xl mb-6 leading-relaxed text-white italic">My daughter joined with zero experience and now she's thriving! The camp builds confidence, discipline, and teamwork.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">MR</div>
+                            <div>
+                                <p class="font-bold text-white">Marcus Reed</p>
+                                <p class="text-silver text-sm">Cheer Parent</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 md:p-8 rounded-2xl shadow-lg">
-                <div class="testimonial-gradient"></div>
-                <div class="relative z-10">
-                    <div class="text-neon-yellow text-5xl mb-4">"</div>
-                    <p class="text-lg md:text-xl mb-6 leading-relaxed text-white italic">The level of organization and commitment from WCFCC is outstanding. My son looks forward to camp every week.</p>
-                    <div class="flex items-center">
-                        <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">LC</div>
-                        <div>
-                            <p class="font-bold text-white">Lisa Chen</p>
-                            <p class="text-silver text-sm">Football Parent</p>
+                <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-8 rounded-2xl shadow-lg">
+                    <div class="testimonial-gradient"></div>
+                    <div class="relative z-10">
+                        <div class="text-neon-yellow text-5xl mb-4">"</div>
+                        <p class="text-xl mb-6 leading-relaxed text-white italic">The level of organization and commitment from WCFCC is outstanding. My son looks forward to camp every week.</p>
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">LC</div>
+                            <div>
+                                <p class="font-bold text-white">Lisa Chen</p>
+                                <p class="text-silver text-sm">Football Parent</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile: Carousel with circular arrows -->
+        <!-- Mobile: Carousel with arrows upper right -->
         <div class="md:hidden relative max-w-xl mx-auto">
-            <div class="testimonial-carousel overflow-hidden">
+            <!-- Arrows in upper right corner -->
+            <div class="absolute top-0 right-4 flex gap-2 z-30">
+                <button onclick="previousTestimonial()" class="circular-arrow-button bg-neutral-dark text-neon-yellow p-2 rounded-full shadow-lg border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+                    </svg>
+                </button>
+                <button onclick="nextTestimonial()" class="circular-arrow-button bg-neon-yellow text-black p-2 rounded-full shadow-lg hover:scale-110 transition">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="testimonial-carousel overflow-hidden pt-12">
                 <div class="testimonial-track transition-transform duration-500 flex" id="testimonialTrack">
+                    <!-- 10 testimonials -->
                     <div class="testimonial-slide flex-shrink-0 w-full px-4">
                         <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
                             <div class="testimonial-gradient"></div>
                             <div class="relative z-10">
                                 <div class="text-neon-yellow text-5xl mb-4">"</div>
-                                <p class="text-lg mb-6 leading-relaxed text-white italic">WCFCC has been a game changer for my son. The coaching staff genuinely cares about each player's growth, both on and off the field.</p>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">WCFCC has been a game changer for my son. The coaching staff genuinely cares about each player's growth.</p>
                                 <div class="flex items-center">
                                     <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">TW</div>
                                     <div>
@@ -736,26 +863,128 @@
                             </div>
                         </div>
                     </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">Our family is grateful we found WCFCC. The coaches are patient and knowledgeable, truly investing in each child's success.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">JP</div>
+                                    <div>
+                                        <p class="font-bold text-white">Jennifer Park</p>
+                                        <p class="text-silver text-sm">Football Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">The camaraderie and team spirit at WCFCC is unlike anything we've experienced. My daughter has made lifelong friends.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">SD</div>
+                                    <div>
+                                        <p class="font-bold text-white">Sarah Davis</p>
+                                        <p class="text-silver text-sm">Cheer Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">Coach Kahlil's dedication to these kids is remarkable. He pushes them to excel while keeping it fun and engaging.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">KM</div>
+                                    <div>
+                                        <p class="font-bold text-white">Kevin Martinez</p>
+                                        <p class="text-silver text-sm">Football Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">The all-inclusive fee is such a relief. No surprise costs, and everything my daughter needs is provided. Excellent value.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">AJ</div>
+                                    <div>
+                                        <p class="font-bold text-white">Angela Johnson</p>
+                                        <p class="text-silver text-sm">Cheer Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">My son has grown so much in just 6 weeks. His confidence, skills, and love for the game have all skyrocketed.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">RB</div>
+                                    <div>
+                                        <p class="font-bold text-white">Robert Brown</p>
+                                        <p class="text-silver text-sm">Football Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">Game Day Fridays are incredible! Watching my daughter perform with such pride and joy makes every Friday special for our family.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">NH</div>
+                                    <div>
+                                        <p class="font-bold text-white">Nicole Harris</p>
+                                        <p class="text-silver text-sm">Cheer Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-slide flex-shrink-0 w-full px-4">
+                        <div class="testimonial-card-enhanced bg-neutral-dark border-l-4 border-neon-yellow p-6 rounded-2xl shadow-lg">
+                            <div class="testimonial-gradient"></div>
+                            <div class="relative z-10">
+                                <div class="text-neon-yellow text-5xl mb-4">"</div>
+                                <p class="text-lg mb-6 leading-relaxed text-white italic">The Mummers Parade was an unforgettable experience. Our entire family loved seeing our son represent WCFCC in front of the community.</p>
+                                <div class="flex items-center">
+                                    <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center text-black font-bold mr-4">DT</div>
+                                    <div>
+                                        <p class="font-bold text-white">David Thompson</p>
+                                        <p class="text-silver text-sm">Football Parent</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <button onclick="previousTestimonial()" class="circular-arrow-button absolute left-0 md:left-4 top-1/2 transform -translate-y-1/2 -translate-x-4 md:translate-x-0 bg-neutral-dark text-neon-yellow p-3 rounded-full shadow-lg z-20 border-2 border-neon-yellow/50 hover:bg-neon-yellow hover:text-black transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
-                </svg>
-            </button>
-            <button onclick="nextTestimonial()" class="circular-arrow-button absolute right-0 md:right-4 top-1/2 transform -translate-y-1/2 translate-x-4 md:translate-x-0 bg-neon-yellow text-black p-3 rounded-full shadow-lg z-20 hover:scale-110 transition">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="3">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7"/>
-                </svg>
-            </button>
         </div>
     </div>
 </section>
 
-<!-- Final CTA -->
+<!-- Final CTA (CENTERED) -->
 <section class="py-12 md:py-20 bg-black text-center">
     <div class="container mx-auto px-4">
-        <div class="mb-8 md:mb-12">
+        <div class="text-center mb-8 md:mb-12">
             <h2 class="font-athletic text-4xl md:text-7xl mb-4 leading-tight gradient-text">READY TO START?</h2>
         </div>
         
