@@ -1,79 +1,95 @@
 <!-- Hero Section -->
-<section class="hero-bg pb-12 md:pb-16 relative overflow-hidden" style="padding-top: 54px;">
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-            
-            <!-- Text Content - CENTERED ON MOBILE -->
-            <div class="text-center md:text-left">
-                <div class="inline-block mb-6 px-6 py-2 border-2 border-silver rounded-full">
-                    <span class="text-neon-yellow font-athletic text-xl tracking-wider">WCFCC SUMMER 2026</span>
-                </div>
+<section class="hero-bg pb-12 md:pb-16 relative overflow-hidden wcfcc-hero" style="padding-top: 54px;">
+  <!-- Immersion layers -->
+  <div class="wcfcc-hero-bg" aria-hidden="true"></div>
+  <div class="wcfcc-hero-overlay" aria-hidden="true"></div>
+  <div class="wcfcc-hero-grain" aria-hidden="true"></div>
 
-                <h1 class="font-athletic leading-none mb-6">
-                    <span class="block text-4xl md:text-7xl gradient-text">BUILDING</span>
-                    <span class="block text-4xl md:text-7xl gradient-text-yellow">CHAMPIONS</span>
-                    <span class="block text-2xl md:text-4xl font-bold mt-2 gradient-text">ON AND OFF THE FIELD</span>
-                </h1>
-                
-                <div class="mb-8">
-                    <p class="font-normal text-lg md:text-2xl tracking-wide text-white leading-tight">
-                        Hagerstown, MD's Premier<br>
-                        Youth Football & Cheer Combine Camp
-                    </p>
-                </div>
+  <div class="container mx-auto px-4 relative z-10">
+    <div class="grid md:grid-cols-2 gap-8 items-center">
 
-                <button onclick="loadPage('registration')" class="bg-neon-yellow text-black px-12 py-4 rounded-xl font-athletic text-xl hover:opacity-90 transition shadow-2xl transform hover:scale-105 glow-button mb-8">
-                    SECURE YOUR SPOT EARLY!
-                </button>
-
-                <!-- Camp Dates -->
-                <div class="mb-8">
-                    <p class="font-athletic text-3xl md:text-5xl font-bold leading-tight mb-3 gradient-text">
-                        JUNE 15 TO JULY 24, 2026
-                    </p>
-                    <p class="text-base md:text-xl text-silver font-normal">
-                        8 week summer program including six weeks of elite training
-                    </p>
-                </div>
-
-                <!-- Stats - FIXED -->
-                <div class="stats-container relative max-w-xl mx-auto md:mx-0">
-                    <div class="stats-gradient-bg absolute inset-0 rounded-xl"></div>
-                    <div class="relative z-10 grid grid-cols-3 divide-x divide-white/20 py-4 px-2">
-                        <div class="text-center px-1">
-                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">8 17</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">AGES</div>
-                        </div>
-                        <div class="text-center px-1">
-                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">$280</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">FEE</div>
-                        </div>
-                        <div class="text-center px-1">
-                            <div class="font-athletic text-2xl md:text-4xl text-white mb-1 leading-none">APR 31</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">DEADLINE</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="relative mt-8 md:mt-0">
-                <div class="hero-image-container relative">
-                    <div class="hero-glow"></div>
-                    <div class="hero-image-placeholder bg-neutral-dark rounded-2xl overflow-hidden" style="aspect-ratio: 4/3;">
-                        <div class="w-full h-full flex items-center justify-center text-silver">
-                            <div class="text-center">
-                                <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-sm opacity-50">Hero Image Placeholder</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <!-- Text Content -->
+      <div class="text-center md:text-left">
+        <!-- Season pill and location -->
+        <div class="hero-badges">
+          <div class="season-pill">
+            <span class="season-brand">WCFCC</span>
+            <span class="season-divider" aria-hidden="true"></span>
+            <span class="season-label">SUMMER 2026</span>
+          </div>
+          <div class="hero-kicker">Hagerstown, Maryland</div>
         </div>
+
+        <h1 class="font-athletic leading-none mb-6 hero-title">
+          <span class="block text-4xl md:text-7xl gradient-text">BUILDING</span>
+          <span class="block text-4xl md:text-7xl gradient-text-yellow">CHAMPIONS</span>
+          <span class="block text-2xl md:text-4xl font-bold mt-2 hero-subline">ON AND OFF THE FIELD</span>
+        </h1>
+
+        <!-- Stronger support copy -->
+        <p class="hero-support mb-8">
+          A community built on discipline, development, and pride. Youth football and cheer that raises the standard and brings the city with it.
+        </p>
+
+        <!-- Primary action stays the same -->
+        <div class="hero-actions mb-8">
+          <button onclick="loadPage('registration')" class="bg-neon-yellow text-black px-12 py-4 rounded-xl font-athletic text-xl hover:opacity-90 transition shadow-2xl transform hover:scale-105 glow-button">
+            SECURE YOUR SPOT EARLY!
+          </button>
+
+          <!-- Optional secondary button for trust building -->
+          <button onclick="loadPage('about')" class="hero-secondary-btn">
+            WHY WCFCC
+          </button>
+        </div>
+
+        <!-- Camp Dates -->
+        <div class="mb-8">
+          <p class="font-athletic text-3xl md:text-5xl font-bold leading-tight mb-3 gradient-text">
+            JUNE 15 TO JULY 24, 2026
+          </p>
+          <p class="text-base md:text-xl text-silver font-normal">
+            8 week summer program including six weeks of elite training
+          </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-container relative max-w-xl mx-auto md:mx-0">
+          <div class="stats-gradient-bg absolute inset-0 rounded-xl"></div>
+          <div class="relative z-10 grid grid-cols-3 divide-x divide-white/20 py-4 px-2">
+            <div class="text-center px-1">
+              <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">8 17</div>
+              <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">AGES</div>
+            </div>
+            <div class="text-center px-1">
+              <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">$280</div>
+              <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">FEE</div>
+            </div>
+            <div class="text-center px-1">
+              <div class="font-athletic text-2xl md:text-4xl text-white mb-1 leading-none">APR 31</div>
+              <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">DEADLINE</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Image -->
+      <div class="relative mt-8 md:mt-0">
+        <div class="hero-image-container relative">
+          <div class="hero-glow"></div>
+          <div class="hero-image-placeholder bg-neutral-dark rounded-2xl overflow-hidden wcfcc-hero-media" style="aspect-ratio: 4/3;">
+            <div class="w-full h-full flex items-end justify-start p-5">
+              <div class="hero-media-caption">
+                <div class="hero-media-title">Friday Night Lights Energy</div>
+                <div class="hero-media-sub">Football competes, cheer performs, families show out</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
+  </div>
 </section>
 <section class="py-6 bg-black border-y border-border-dark overflow-hidden">
   <div class="sponsor-slider">
