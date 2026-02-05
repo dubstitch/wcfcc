@@ -1,11 +1,167 @@
-/* Stats gradient background */
+/* Base Resets */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Hero Background */
+.hero-bg {
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+    position: relative;
+}
+
+.hero-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at center, rgba(206, 255, 0, 0.1) 0%, transparent 70%);
+    animation: stadiumGlow 4s ease-in-out infinite;
+}
+
+@keyframes stadiumGlow {
+    0%, 100% { opacity: 0.5; }
+    50% { opacity: 0.8; }
+}
+
+/* Gradient Text */
+.gradient-text {
+    background: linear-gradient(180deg, #ffffff 0%, #c0c0c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.gradient-text-yellow {
+    background: linear-gradient(180deg, #CEFF00 0%, #9fbf00 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Hero Image */
+.hero-image-container {
+    position: relative;
+}
+
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background: radial-gradient(circle, rgba(206, 255, 0, 0.3) 0%, transparent 70%);
+    filter: blur(40px);
+    z-index: 0;
+    animation: glowPulse 3s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+    0%, 100% { opacity: 0.6; transform: translate(-50%, -50%) scale(1); }
+    50% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+}
+
+.hero-image-placeholder {
+    position: relative;
+    z-index: 1;
+}
+
+/* Stats Gradient Background */
 .stats-gradient-bg {
     background: linear-gradient(135deg, rgba(206, 255, 0, 0.3) 0%, rgba(159, 191, 0, 0.3) 100%);
     border: 2px solid rgba(206, 255, 0, 0.6);
     border-radius: 12px;
 }
 
-/* WCFCC Difference stars ON cards */
+.stats-container {
+    transition: all 0.3s ease;
+}
+
+/* Glow Button */
+.glow-button {
+    box-shadow: 0 0 20px rgba(206, 255, 0, 0.4);
+}
+
+.glow-button:hover {
+    box-shadow: 0 0 30px rgba(206, 255, 0, 0.6);
+}
+
+/* Sponsor Slider */
+.sponsor-slider-wrapper {
+    position: relative;
+}
+
+.sponsor-slider {
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Expandable Content */
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+
+.expandable-content.expanded {
+    max-height: 2000px;
+}
+
+.expand-arrow {
+    transition: transform 0.3s ease;
+}
+
+.expand-arrow.rotated {
+    transform: rotate(180deg);
+}
+
+@media (min-width: 768px) {
+    .expandable-content {
+        max-height: none !important;
+        overflow: visible;
+    }
+}
+
+/* Lightbulb Section */
+.lightbulb-section {
+    position: relative;
+}
+
+.lightbulb-glow {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(206, 255, 0, 0.15) 0%, transparent 60%);
+    filter: blur(60px);
+    z-index: 0;
+}
+
+/* WCFCC Difference Stars */
 .difference-stars {
     position: absolute;
     top: 12px;
@@ -51,44 +207,21 @@
     box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
 }
 
-/* Testimonial redesigned */
-.testimonial-redesigned {
-    position: relative;
-    background: #1a1a1a;
+/* Mosaic Grid */
+.mosaic-grid {
+    display: grid;
 }
 
-.testimonial-gradient {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);
+.mosaic-card {
+    transition: all 0.3s ease;
 }
 
-/* Expandable content */
-.expandable-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.4s ease;
+.hover-glow:hover {
+    box-shadow: 0 8px 32px rgba(206, 255, 0, 0.3);
+    border-color: rgba(206, 255, 0, 0.6);
 }
 
-.expandable-content.expanded {
-    max-height: 1000px;
-}
-
-.expand-arrow.rotated {
-    transform: rotate(180deg);
-}
-
-@media (min-width: 768px) {
-    .expandable-content {
-        max-height: none;
-        overflow: visible;
-    }
-}
-
-/* Value cards */
+/* Value Cards */
 .value-card {
     transition: all 0.3s ease;
 }
@@ -108,4 +241,50 @@
     background: linear-gradient(90deg, transparent 0%, rgba(206, 255, 0, 0.4) 50%, transparent 100%);
     filter: blur(20px);
     z-index: 0;
+}
+
+/* Carousel Styles */
+.values-carousel,
+.registration-carousel,
+.testimonial-carousel {
+    position: relative;
+}
+
+.values-track,
+.registration-track,
+.testimonial-track {
+    display: flex;
+    transition: transform 0.3s ease;
+}
+
+.value-slide,
+.registration-slide,
+.testimonial-slide {
+    flex-shrink: 0;
+    width: 100%;
+}
+
+/* Testimonial Redesigned */
+.testimonial-redesigned {
+    position: relative;
+    background: #1a1a1a;
+}
+
+.testimonial-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);
+}
+
+/* Registration Cards */
+.registration-card {
+    transition: all 0.3s ease;
+}
+
+.registration-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
 }
