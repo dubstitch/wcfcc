@@ -1,3 +1,23 @@
+/* CRITICAL: Full width responsive fix */
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
 /* Hero Background with Stadium Glow */
 .hero-bg {
     background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
@@ -26,6 +46,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.1;
 }
 
 .gradient-text-yellow {
@@ -33,6 +54,7 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    line-height: 1.1;
 }
 
 /* Hero Image Container with Backlit Glow */
@@ -63,16 +85,18 @@
     z-index: 1;
 }
 
-/* Stat Cards with Gradient Background */
-.stat-card {
-    background: linear-gradient(135deg, rgba(206, 255, 0, 0.1) 0%, rgba(206, 255, 0, 0.05) 100%);
-    border: 1px solid rgba(206, 255, 0, 0.3);
+/* Stat Cards with Gradient Background (FIXED) */
+.stat-card-gradient {
+    background: linear-gradient(135deg, rgba(206, 255, 0, 0.25) 0%, rgba(206, 255, 0, 0.15) 100%);
+    border: 2px solid rgba(206, 255, 0, 0.4);
     transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(206, 255, 0, 0.15);
 }
 
-.stat-card:hover {
+.stat-card-gradient:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
+    box-shadow: 0 8px 24px rgba(206, 255, 0, 0.3);
+    background: linear-gradient(135deg, rgba(206, 255, 0, 0.35) 0%, rgba(206, 255, 0, 0.25) 100%);
 }
 
 /* Sponsor Slider Auto Scroll */
@@ -143,6 +167,35 @@
     z-index: 0;
 }
 
+/* Stars decoration for WCFCC Difference section */
+.sparkle-stars {
+    display: flex;
+    gap: 8px;
+}
+
+.star-sparkle {
+    color: rgba(206, 255, 0, 0.3);
+    font-size: 20px;
+    animation: twinkle 2s ease-in-out infinite;
+}
+
+.star-sparkle:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.star-sparkle:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.star-sparkle:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
 .revelation-card {
     transition: all 0.3s ease;
 }
@@ -183,7 +236,7 @@
     box-shadow: 0 0 40px rgba(206, 255, 0, 0.4);
 }
 
-/* Value Cards with Stars and Glow */
+/* Value Cards with Stars and Glow (ENHANCED) */
 .value-card-enhanced {
     transition: all 0.3s ease;
 }
@@ -199,44 +252,47 @@
     left: 50%;
     transform: translateX(-50%);
     width: 80%;
-    height: 40px;
-    background: linear-gradient(90deg, transparent 0%, rgba(206, 255, 0, 0.3) 50%, transparent 100%);
+    height: 60px;
+    background: linear-gradient(90deg, transparent 0%, rgba(206, 255, 0, 0.4) 50%, transparent 100%);
     filter: blur(20px);
     z-index: 0;
 }
 
-.value-stars {
+/* Enhanced Stars with MORE visibility */
+.value-stars-enhanced {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 40px;
-    height: 40px;
-    z-index: 0;
+    top: 12px;
+    right: 12px;
+    width: 60px;
+    height: 60px;
+    z-index: 5;
 }
 
-.value-stars::before,
-.value-stars::after {
+.value-stars-enhanced::before,
+.value-stars-enhanced::after {
     content: '★';
     position: absolute;
-    color: rgba(206, 255, 0, 0.2);
-    font-size: 20px;
-    animation: twinkle 2s ease-in-out infinite;
+    color: rgba(206, 255, 0, 0.5);
+    font-size: 24px;
+    animation: twinkleBright 2s ease-in-out infinite;
+    text-shadow: 0 0 8px rgba(206, 255, 0, 0.6);
 }
 
-.value-stars::before {
+.value-stars-enhanced::before {
     top: 0;
     left: 0;
 }
 
-.value-stars::after {
-    top: 10px;
-    right: 0;
+.value-stars-enhanced::after {
+    top: 15px;
+    right: 5px;
     animation-delay: 1s;
+    font-size: 18px;
 }
 
-@keyframes twinkle {
-    0%, 100% { opacity: 0.3; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
+@keyframes twinkleBright {
+    0%, 100% { opacity: 0.4; transform: scale(1) rotate(0deg); }
+    50% { opacity: 1; transform: scale(1.3) rotate(15deg); }
 }
 
 /* Registration Cards */
@@ -265,21 +321,58 @@
     z-index: 0;
 }
 
-/* Arrow Buttons */
-.arrow-button {
+/* Circular Arrow Buttons (like in reference images) */
+.circular-arrow-button {
     transition: all 0.3s ease;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.arrow-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 16px rgba(206, 255, 0, 0.4);
+.circular-arrow-button:hover {
+    transform: scale(1.15);
+    box-shadow: 0 4px 20px rgba(206, 255, 0, 0.5);
 }
 
-/* Gradient Line Divider */
-.gradient-line {
-    height: 2px;
-    background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);
-    margin: 0;
+/* Mobile Values Carousel */
+.values-carousel {
+    position: relative;
+}
+
+.values-track {
+    display: flex;
+}
+
+.value-slide {
+    min-width: 100%;
+}
+
+/* Mobile Registration Carousel */
+.registration-carousel {
+    position: relative;
+}
+
+.registration-track {
+    display: flex;
+}
+
+.registration-slide {
+    min-width: 100%;
+}
+
+/* Mobile Testimonial Carousel */
+.testimonial-carousel {
+    position: relative;
+}
+
+.testimonial-track {
+    display: flex;
+}
+
+.testimonial-slide {
+    min-width: 100%;
 }
 
 /* Horizontal Scroll */
@@ -358,28 +451,36 @@
     }
 }
 
-/* Mobile Values Carousel */
-.values-carousel {
-    position: relative;
+/* Mobile Responsive Font Sizes */
+@media (max-width: 768px) {
+    .font-athletic {
+        line-height: 1.2;
+    }
+    
+    h1.font-athletic {
+        line-height: 1.1;
+    }
+    
+    h2.font-athletic {
+        line-height: 1.15;
+    }
 }
 
-.values-track {
-    display: flex;
-}
-
-.value-slide {
-    min-width: 100%;
-}
-
-/* Mobile Testimonial Carousel */
-.testimonial-carousel {
-    position: relative;
-}
-
-.testimonial-track {
-    display: flex;
-}
-
-.testimonial-slide {
-    min-width: 100%;
+/* Mobile specific adjustments */
+@media (max-width: 640px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Ensure no horizontal overflow */
+    .grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Reduce excessive padding on mobile */
+    section {
+        padding-top: 3rem;
+        padding-bottom: 3rem;
+    }
 }
