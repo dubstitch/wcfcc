@@ -104,38 +104,35 @@ html, body {
     box-shadow: 0 0 30px rgba(206, 255, 0, 0.6);
 }
 
+/* Sponsor Slider */
 .sponsor-slider {
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 }
 
 .sponsor-track {
-  display: flex;
-  width: max-content;
-  animation: sponsor-scroll 20s linear infinite;
+    display: flex;
+    width: max-content;
+    animation: sponsor-scroll 20s linear infinite;
 }
 
 .logo {
-  flex-shrink: 0;
-  width: 8rem;
-  height: 4rem;
-  margin: 0 1rem;
-  background: #222;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  font-size: 0.75rem;
+    flex-shrink: 0;
+    width: 8rem;
+    height: 4rem;
+    margin: 0 1rem;
+    background: #222;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #aaa;
+    font-size: 0.75rem;
 }
 
 @keyframes sponsor-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }
 
 /* Expandable Content */
@@ -307,4 +304,120 @@ html, body {
 .registration-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
+}
+
+/* ===================================================== */
+/* NEW HERO IMMERSION AND STRUCTURE ADDITIONS */
+/* ===================================================== */
+
+.wcfcc-hero {
+    position: relative;
+}
+
+.wcfcc-hero-bg,
+.wcfcc-hero-overlay,
+.wcfcc-hero-grain {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.wcfcc-hero-bg {
+    background:
+        radial-gradient(1200px 520px at 50% 35%, rgba(206, 255, 0, 0.18), transparent 60%),
+        radial-gradient(900px 420px at 80% 55%, rgba(255, 255, 255, 0.12), transparent 60%),
+        radial-gradient(900px 520px at 20% 70%, rgba(206, 255, 0, 0.10), transparent 60%);
+}
+
+.wcfcc-hero-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0.4), rgba(0,0,0,0.85));
+}
+
+.wcfcc-hero-grain {
+    opacity: 0.08;
+    background-image:
+        radial-gradient(circle at 20% 10%, rgba(255,255,255,0.3) 0 1px, transparent 2px),
+        radial-gradient(circle at 70% 30%, rgba(255,255,255,0.22) 0 1px, transparent 2px),
+        radial-gradient(circle at 40% 80%, rgba(255,255,255,0.18) 0 1px, transparent 2px);
+    background-size: 180px 180px, 220px 220px, 260px 260px;
+    mix-blend-mode: overlay;
+}
+
+.hero-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+@media (min-width: 768px) {
+    .hero-badges {
+        justify-content: flex-start;
+    }
+}
+
+.season-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(255,255,255,0.14);
+    background: rgba(255,255,255,0.06);
+}
+
+.season-brand {
+    color: #CEFF00;
+    font-weight: 900;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.season-divider {
+    width: 1px;
+    height: 16px;
+    background: rgba(255,255,255,0.22);
+}
+
+.season-label {
+    color: rgba(255,255,255,0.8);
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.hero-kicker {
+    color: rgba(255,255,255,0.7);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-size: 12px;
+}
+
+.hero-support {
+    color: rgba(255,255,255,0.78);
+    max-width: 42ch;
+    margin: 0 auto 18px;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+@media (min-width: 768px) {
+    .hero-support {
+        margin-left: 0;
+    }
+}
+
+.hero-secondary-btn {
+    padding: 16px 22px;
+    border-radius: 12px;
+    font-weight: 900;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    border: 1px solid rgba(255,255,255,0.16);
+    background: rgba(255,255,255,0.06);
+    color: rgba(255,255,255,0.86);
 }
