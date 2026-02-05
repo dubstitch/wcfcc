@@ -104,34 +104,39 @@ html, body {
     box-shadow: 0 0 30px rgba(206, 255, 0, 0.6);
 }
 
-/* Sponsor Slider - FIXED */
-.sponsor-slider-wrapper {
-    overflow: hidden;
-    width: 100%;
-}
-
 .sponsor-slider {
-    display: flex;
-    width: max-content;
-    animation: scroll 15s linear infinite;
+  width: 100%;
+  overflow: hidden;
 }
 
-.animate-scroll {
-    display: flex;
-    animation: scroll 20s linear infinite;
-    width: max-content;
+.sponsor-track {
+  display: flex;
+  width: max-content;
+  animation: sponsor-scroll 20s linear infinite;
 }
 
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+.logo {
+  flex-shrink: 0;
+  width: 8rem;
+  height: 4rem;
+  margin: 0 1rem;
+  background: #222;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #aaa;
+  font-size: 0.75rem;
 }
 
-
-.sponsor-logo {
-    flex-shrink: 0;
+@keyframes sponsor-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
-
 
 /* Expandable Content */
 .expandable-content {
