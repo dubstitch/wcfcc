@@ -85,19 +85,27 @@ html, body {
     z-index: 1;
 }
 
-/* Stat Cards with Gradient Background (FIXED) */
-.stat-card-gradient {
-    background: linear-gradient(135deg, rgba(206, 255, 0, 0.25) 0%, rgba(206, 255, 0, 0.15) 100%);
-    border: 2px solid rgba(206, 255, 0, 0.4);
+/* Stat Boxes with Solid Gradient Background (FIXED) */
+.stat-box-gradient {
+    background: linear-gradient(135deg, rgba(206, 255, 0, 0.3) 0%, rgba(159, 191, 0, 0.3) 100%);
+    border: 2px solid rgba(206, 255, 0, 0.6);
     transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(206, 255, 0, 0.15);
+    box-shadow: 0 4px 16px rgba(206, 255, 0, 0.2);
+    overflow: hidden;
 }
 
-.stat-card-gradient:hover {
+.stat-box-gradient:hover {
     transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(206, 255, 0, 0.3);
-    background: linear-gradient(135deg, rgba(206, 255, 0, 0.35) 0%, rgba(206, 255, 0, 0.25) 100%);
+    box-shadow: 0 8px 24px rgba(206, 255, 0, 0.4);
+    background: linear-gradient(135deg, rgba(206, 255, 0, 0.4) 0%, rgba(159, 191, 0, 0.4) 100%);
 }
+
+/* Ensure text stays contained */
+.stat-box-gradient div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+}
+
 
 /* Sponsor Slider Auto Scroll */
 .sponsor-slider-wrapper {
