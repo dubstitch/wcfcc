@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Washington County Football Combine Camp</title>
+    <title>WCFCC | Washington County Football Combine Camp</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -11,15 +11,15 @@
                 extend: {
                     colors: {
                         'neon-yellow': '#CEFF00',
-                        'silver': '#C0C0C0',
-                        'neutral-dark': '#1a1a1a',
-                        'neutral-medium': '#2d2d2d',
                         'light-bg': '#f5f5f5',
+                        'neutral-dark': '#1a1a1a',
+                        'neutral-medium': '#666666',
+                        'silver': '#c0c0c0',
                         'border-dark': '#333333'
                     },
                     fontFamily: {
                         'athletic': ['Impact', 'Arial Black', 'sans-serif'],
-                        'body': ['Arial', 'Helvetica', 'sans-serif']
+                        'sans': ['Arial', 'Helvetica', 'sans-serif']
                     }
                 }
             }
@@ -27,108 +27,154 @@
     </script>
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="font-body bg-black text-white">
+<body class="bg-black text-white font-sans">
 
-    <nav class="bg-black text-white fixed top-0 left-0 right-0 z-50 border-b border-border-dark">
+    <!-- Mobile Navigation -->
+    <nav class="fixed top-0 left-0 right-0 bg-black border-b border-border-dark z-50">
         <div class="container mx-auto px-4">
-            <div class="flex overflow-x-auto space-x-6 py-3 scrollbar-hide pr-16 md:pr-4">
-                <button onclick="loadPage('home')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Home</button>
+            <div class="flex items-center justify-between h-14">
+                <!-- Logo -->
+                <div class="text-neon-yellow font-athletic text-2xl">WCFCC</div>
                 
-                <div class="relative group">
-                    <button onclick="loadPage('football')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Football</button>
-                    <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
-                        <button onclick="loadPage('football-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
-                        <button onclick="loadPage('football-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
+                <!-- Desktop Nav -->
+                <div class="hidden md:flex items-center space-x-1">
+                    <button onclick="loadPage('home')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">HOME</button>
+                    
+                    <!-- Football Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold flex items-center">
+                            FOOTBALL
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-neutral-dark border border-border-dark rounded-lg mt-1 py-2 w-48">
+                            <button onclick="loadPage('football')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">About Football</button>
+                            <button onclick="loadPage('football-parents')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">Camp Info</button>
+                            <button onclick="loadPage('football-package')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">Camp Package</button>
+                        </div>
                     </div>
+                    
+                    <!-- Cheer Dropdown -->
+                    <div class="relative dropdown">
+                        <button class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold flex items-center">
+                            CHEER
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </button>
+                        <div class="dropdown-menu absolute hidden bg-neutral-dark border border-border-dark rounded-lg mt-1 py-2 w-48">
+                            <button onclick="loadPage('cheer')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">About Cheer</button>
+                            <button onclick="loadPage('cheer-parents')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">Camp Info</button>
+                            <button onclick="loadPage('cheer-package')" class="block w-full text-left px-4 py-2 text-white hover:bg-neon-yellow hover:text-black transition">Camp Package</button>
+                        </div>
+                    </div>
+                    
+                    <button onclick="loadPage('schedules')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">SCHEDULES</button>
+                    <button onclick="loadPage('coaches')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">COACHES</button>
+                    <button onclick="loadPage('forms')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">FORMS</button>
+                    <button onclick="loadPage('contact')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">CONTACT</button>
+                    <button onclick="loadPage('faq')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">FAQ</button>
+                    <button onclick="loadPage('registration')" class="ml-2 bg-neon-yellow text-black px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">REGISTER</button>
                 </div>
                 
-                <div class="relative group">
-                    <button onclick="loadPage('cheer')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Cheer</button>
-                    <div class="absolute hidden group-hover:block bg-black border border-neon-yellow mt-2 py-2 w-48 z-50 left-0">
-                        <button onclick="loadPage('cheer-camp-info')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Camp Info</button>
-                        <button onclick="loadPage('cheer-uniform')" class="block w-full text-left px-4 py-2 hover:bg-neon-yellow hover:text-black transition whitespace-nowrap">Uniform & Gear</button>
-                    </div>
-                </div>
-                
-                <button onclick="loadPage('registration')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Registration</button>
-                <button onclick="loadPage('schedules')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Schedules</button>
-                <button onclick="loadPage('coaches')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Coaches & Staff</button>
-                <button onclick="loadPage('forms')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Forms & Policies</button>
-                <button onclick="loadPage('contact')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">Contact</button>
-                <button onclick="loadPage('faq')" class="nav-btn whitespace-nowrap hover:text-neon-yellow transition">FAQ</button>
+                <!-- Mobile Hamburger -->
+                <button id="mobile-menu-button" class="md:hidden text-neon-yellow">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+                    </svg>
+                </button>
             </div>
         </div>
-        <div class="md:hidden absolute right-0 top-0 bottom-0 w-12 bg-gradient-to-l from-black to-transparent pointer-events-none flex items-center justify-end pr-3">
-            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
-            </svg>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-neutral-dark border-t border-border-dark">
+            <div class="px-4 py-2 space-y-1">
+                <button onclick="loadPage('home'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">HOME</button>
+                <button onclick="loadPage('football'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FOOTBALL</button>
+                <button onclick="loadPage('football-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
+                <button onclick="loadPage('football-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
+                <button onclick="loadPage('cheer'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CHEER</button>
+                <button onclick="loadPage('cheer-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
+                <button onclick="loadPage('cheer-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
+                <button onclick="loadPage('schedules'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">SCHEDULES</button>
+                <button onclick="loadPage('coaches'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">COACHES</button>
+                <button onclick="loadPage('forms'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FORMS</button>
+                <button onclick="loadPage('contact'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CONTACT</button>
+                <button onclick="loadPage('faq'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FAQ</button>
+                <button onclick="loadPage('registration'); closeMobileMenu();" class="block w-full bg-neon-yellow text-black px-4 py-3 rounded font-semibold hover:opacity-90 transition mt-2">REGISTER</button>
+            </div>
         </div>
     </nav>
 
-    <main id="content-area" class="min-h-screen" style="padding-top: 54px;">
-        <!-- Pages load here dynamically -->
+    <!-- Main Content Area -->
+    <main id="content-area" class="pt-14">
+        <!-- Home page content loads here -->
     </main>
 
-    <footer class="bg-white text-black">
-        <div class="container mx-auto px-4 py-12">
+    <!-- Footer -->
+    <footer class="bg-black border-t border-border-dark py-12">
+        <div class="container mx-auto px-4">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
-                    <div class="flex items-center space-x-3 mb-4">
-                        <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
-                            <span class="text-neon-yellow font-athletic text-xs">WCFCC</span>
-                        </div>
-                        <div>
-                            <h3 class="font-athletic text-lg text-black">WCFCC</h3>
-                            <p class="text-sm text-black font-semibold">Washington County Football Combine Camp</p>
-                        </div>
-                    </div>
-                    <p class="text-black text-sm font-medium">Building champions on and off the field through teamwork, dedication, and community support.</p>
+                    <div class="text-neon-yellow font-athletic text-3xl mb-4">WCFCC</div>
+                    <p class="text-silver">Building champions on and off the field since 2025.</p>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-black font-athletic">Quick Links</h4>
-                    <div class="space-y-2 text-sm">
-                        <button onclick="loadPage('registration')" class="block text-black hover:underline transition font-semibold">Registration</button>
-                        <button onclick="loadPage('schedules')" class="block text-black hover:underline transition font-semibold">Schedules</button>
-                        <button onclick="loadPage('coaches')" class="block text-black hover:underline transition font-semibold">Coaches</button>
-                        <button onclick="loadPage('contact')" class="block text-black hover:underline transition font-semibold">Contact</button>
-                    </div>
+                    <h3 class="font-athletic text-xl mb-4">QUICK LINKS</h3>
+                    <ul class="space-y-2">
+                        <li><button onclick="loadPage('football')" class="text-silver hover:text-neon-yellow transition">Football</button></li>
+                        <li><button onclick="loadPage('cheer')" class="text-silver hover:text-neon-yellow transition">Cheer</button></li>
+                        <li><button onclick="loadPage('schedules')" class="text-silver hover:text-neon-yellow transition">Schedules</button></li>
+                        <li><button onclick="loadPage('registration')" class="text-silver hover:text-neon-yellow transition">Register</button></li>
+                    </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-black font-athletic">Camps</h4>
-                    <div class="space-y-2 text-sm">
-                        <button onclick="loadPage('football')" class="block text-black hover:underline transition font-semibold">Football</button>
-                        <button onclick="loadPage('cheer')" class="block text-black hover:underline transition font-semibold">Cheer</button>
-                        <button onclick="loadPage('forms')" class="block text-black hover:underline transition font-semibold">Forms & Policies</button>
-                        <button onclick="loadPage('faq')" class="block text-black hover:underline transition font-semibold">FAQ</button>
-                    </div>
+                    <h3 class="font-athletic text-xl mb-4">CONTACT</h3>
+                    <ul class="space-y-2 text-silver">
+                        <li><a href="mailto:WCFootballcombinecamp@gmail.com" class="hover:text-neon-yellow transition">WCFootballcombinecamp@gmail.com</a></li>
+                        <li><a href="tel:240-591-8453" class="hover:text-neon-yellow transition">Kahlil: 240-591-8453</a></li>
+                        <li><a href="tel:301-332-3441" class="hover:text-neon-yellow transition">Des: 301-332-3441</a></li>
+                    </ul>
                 </div>
                 <div>
-                    <h4 class="font-semibold mb-4 text-black font-athletic">Follow Us</h4>
-                    <div class="flex space-x-4 mb-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="text-black hover:opacity-70 transition">
-                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-                            </svg>
+                    <h3 class="font-athletic text-xl mb-4">FOLLOW US</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-silver hover:text-neon-yellow transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                         </a>
-                    </div>
-                    <div class="text-sm text-black font-semibold space-y-1">
-                        <p>Email: WCFootballcombinecamp@gmail.com</p>
-                        <p>Kahlil Johnson: 240-591-8453</p>
-                        <p>Des Wade (Cheer): 301-332-3441</p>
+                        <a href="#" class="text-silver hover:text-neon-yellow transition">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                        </a>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="bg-neon-yellow py-6">
-            <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-black">
-                <p class="text-black text-sm font-semibold">© 2026 Washington County Football Combine Camp. All rights reserved.</p>
-                <div class="mt-4 md:mt-0">
-                    <span class="text-black text-sm font-semibold">Anonymous Feedback</span>
-                </div>
+            <div class="border-t border-border-dark mt-8 pt-8 text-center text-silver">
+                <p>&copy; 2026 Washington County Football Combine Camp. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
     <script src="js/app.js"></script>
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        function closeMobileMenu() {
+            document.getElementById('mobile-menu').classList.add('hidden');
+        }
+
+        // Desktop dropdown hover
+        document.querySelectorAll('.dropdown').forEach(dropdown => {
+            dropdown.addEventListener('mouseenter', function() {
+                this.querySelector('.dropdown-menu').classList.remove('hidden');
+            });
+            dropdown.addEventListener('mouseleave', function() {
+                this.querySelector('.dropdown-menu').classList.add('hidden');
+            });
+        });
+    </script>
 </body>
 </html>
