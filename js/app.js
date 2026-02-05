@@ -137,6 +137,27 @@ window.previousValue = function() {
     track.style.transform = `translateX(-${currentValueIndex * 100}%)`;
 };
 
+// Registration Carousel Navigation (Mobile)
+let currentRegistrationIndex = 0;
+
+window.nextRegistration = function() {
+    const track = document.getElementById('registrationTrack');
+    if (!track) return;
+    
+    const slides = track.querySelectorAll('.registration-slide');
+    currentRegistrationIndex = (currentRegistrationIndex + 1) % slides.length;
+    track.style.transform = `translateX(-${currentRegistrationIndex * 100}%)`;
+};
+
+window.previousRegistration = function() {
+    const track = document.getElementById('registrationTrack');
+    if (!track) return;
+    
+    const slides = track.querySelectorAll('.registration-slide');
+    currentRegistrationIndex = (currentRegistrationIndex - 1 + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentRegistrationIndex * 100}%)`;
+};
+
 // Testimonial Carousel Navigation
 let currentTestimonialIndex = 0;
 
