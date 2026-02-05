@@ -75,46 +75,37 @@ function initPageScripts() {
             icon.style.transform = 'rotate(180deg)';
         }
     };
-    
-    // Initialize carousel drag scrolling
-    const carousels = document.querySelectorAll('.carousel-wrapper');
-    carousels.forEach(carousel => {
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-        const track = carousel.querySelector('.auto-scroll-track');
-        
-        if (!track) return;
-        
-        carousel.addEventListener('mousedown', (e) => {
-            isDown = true;
-            carousel.style.cursor = 'grabbing';
-            startX = e.pageX - carousel.offsetLeft;
-            scrollLeft = carousel.scrollLeft;
-            track.style.animationPlayState = 'paused';
-        });
-        
-        carousel.addEventListener('mouseleave', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-            track.style.animationPlayState = 'running';
-        });
-        
-        carousel.addEventListener('mouseup', () => {
-            isDown = false;
-            carousel.style.cursor = 'grab';
-            track.style.animationPlayState = 'running';
-        });
-        
-        carousel.addEventListener('mousemove', (e) => {
-            if (!isDown) return;
-            e.preventDefault();
-            const x = e.pageX - carousel.offsetLeft;
-            const walk = (x - startX) * 2;
-            carousel.scrollLeft = scrollLeft - walk;
-        });
-    });
 }
+
+// Toggle Program Card Expansion (Mobile)
+window.toggleProgramCard = function(contentId) {
+    const content = document.getElementById(contentId);
+    const button = content.previousElementSibling;
+    const arrow = button.querySelector('.expand-arrow');
+    
+    if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        arrow.classList.remove('rotated');
+    } else {
+        content.classList.add('expanded');
+        arrow.classList.add('rotated');
+    }
+};
+
+// Toggle Experience Card Expansion (Mobile)
+window.toggleExperienceCard = function(contentId) {
+    const content = document.getElementById(contentId);
+    const button = content.previousElementSibling;
+    const arrow = button.querySelector('.expand-arrow');
+    
+    if (content.classList.contains('expanded')) {
+        content.classList.remove('expanded');
+        arrow.classList.remove('rotated');
+    } else {
+        content.classList.add('expanded');
+        arrow.classList.add('rotated');
+    }
+};
 
 // Values Carousel Navigation (Mobile)
 let currentValueIndex = 0;
