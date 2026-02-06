@@ -41,150 +41,150 @@ html, body {
     padding-right: 1rem;
 }
 
-/* Hero Stadium Custom */
-.hero-stadium-custom {
+.hero-stadium-fixed {
     position: relative;
     width: 100%;
-    height: 100vh;
-    overflow: hidden;
-    background: #000;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-bg-image {
+.hero-bg-wrapper {
     position: absolute;
     inset: 0;
     z-index: 0;
 }
 
-.hero-bg-img {
+.hero-bg-full {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
 
-.hero-bg-overlay {
+.hero-overlay-dark {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+    background: linear-gradient(180deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.7) 100%);
 }
 
-.hero-nav {
-    position: relative;
-    z-index: 50;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1.25rem 1.5rem;
-}
-
-.hero-badge {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.5rem 1.75rem;
-    border: 2px solid #c0c0c0;
-    border-radius: 9999px;
-}
-
-.hero-content-wrapper {
+.hero-text-container {
     position: relative;
     z-index: 10;
-    height: calc(100vh - 90px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    text-align: center;
     padding: 0 1rem;
 }
 
-.hero-text-center {
-    text-align: center;
-    max-width: 1100px;
-}
-
-.hero-main-heading {
+.hero-title-main {
     margin-bottom: 3rem;
 }
 
-.hero-building,
-.hero-champions {
+.hero-yellow-text {
     font-family: Impact, Arial Black, sans-serif;
-    font-size: 6rem;
-    line-height: 1;
-    margin-bottom: 0.5rem;
-    color: #FFD700;
+    font-size: 4rem;
+    line-height: 0.9;
+    color: #FFE900;
     text-shadow: 
-        5px 5px 10px rgba(0, 0, 0, 1),
-        0 0 50px rgba(255, 215, 0, 0.7),
-        0 0 100px rgba(255, 215, 0, 0.4);
+        0 0 60px rgba(255, 233, 0, 0.8),
+        0 0 30px rgba(255, 233, 0, 0.6),
+        4px 4px 8px rgba(0, 0, 0, 0.9);
     font-weight: 900;
-    letter-spacing: 0.02em;
+    margin-bottom: 0.5rem;
 }
 
-.hero-champions {
-    margin-bottom: 1.5rem;
-}
-
-.hero-subtitle {
+.hero-blue-text {
     font-family: Impact, Arial Black, sans-serif;
-    font-size: 2rem;
-    color: #ffffff;
-    text-shadow: 3px 3px 8px rgba(0, 0, 0, 1);
+    font-size: 1.75rem;
+    color: #5CB3FF;
+    text-shadow: 
+        0 0 40px rgba(92, 179, 255, 0.7),
+        3px 3px 6px rgba(0, 0, 0, 0.9);
     font-weight: 700;
-    margin-bottom: 0;
+    margin-top: 1.5rem;
 }
 
-.hero-description {
-    font-size: 1.25rem;
+.hero-desc-text {
+    font-size: 1.1rem;
     color: #ffffff;
-    line-height: 1.6;
+    line-height: 1.5;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
-    font-weight: 400;
 }
 
-/* Stats Hero */
-.stats-section-hero {
+.stats-bar-section {
     padding: 1.5rem 0;
     background: #000;
 }
 
-.stats-hero-container {
-    max-width: 56rem;
+.stats-wrapper-responsive {
+    max-width: 900px;
     margin: 0 auto;
     background: linear-gradient(135deg, rgba(206, 255, 0, 0.25) 0%, rgba(159, 191, 0, 0.25) 100%);
     border: 2px solid rgba(206, 255, 0, 0.5);
     border-radius: 1rem;
-    padding: 1.5rem 0;
+    padding: 1.25rem 0.5rem;
 }
 
-.stats-hero-grid {
+.stats-grid-new {
     display: grid;
     grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0.5rem;
     align-items: center;
 }
 
-.stat-item-hero {
+.stat-box-new {
     text-align: center;
+    padding: 0 0.5rem;
 }
 
-.stat-number-hero {
+.stat-num-new {
     font-family: Impact, Arial Black, sans-serif;
-    font-size: 3rem;
+    font-size: 2rem;
     color: #ffffff;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.25rem;
 }
 
-.stat-label-hero {
-    font-size: 0.75rem;
+.stat-lbl-new {
+    font-size: 0.65rem;
     color: #ffffff;
     text-transform: uppercase;
     font-weight: 700;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.05em;
 }
 
-.stat-divider-hero {
+.stat-line-new {
     width: 1px;
-    height: 3rem;
+    height: 2.5rem;
     background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 768px) {
+    .hero-yellow-text {
+        font-size: 7rem;
+    }
+    
+    .hero-blue-text {
+        font-size: 2.75rem;
+    }
+    
+    .hero-desc-text {
+        font-size: 1.5rem;
+    }
+    
+    .stat-num-new {
+        font-size: 3.5rem;
+    }
+    
+    .stat-lbl-new {
+        font-size: 0.75rem;
+    }
+    
+    .stat-line-new {
+        height: 3.5rem;
+    }
+    
+    .stats-wrapper-responsive {
+        padding: 1.5rem 1rem;
+    }
 }
 
 /* Logo Slider */
