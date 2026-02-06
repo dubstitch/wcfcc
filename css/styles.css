@@ -10,6 +10,28 @@ html, body {
     overflow-x: hidden;
 }
 
+/* Full Page Scroll Snap */
+#content-area {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+.snap-section {
+    min-height: 100vh;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.snap-section.overflow-allowed {
+    min-height: 100vh;
+    height: auto;
+}
+
 /* Container */
 .container {
     width: 100%;
@@ -19,7 +41,165 @@ html, body {
     padding-right: 1rem;
 }
 
-/* Hero Background */
+/* Hero Stadium Custom */
+.hero-stadium-custom {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+.hero-bg-image {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero-bg-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero-bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.7) 100%);
+}
+
+.hero-nav {
+    position: relative;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 1.5rem;
+}
+
+.hero-badge {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1.75rem;
+    border: 2px solid #c0c0c0;
+    border-radius: 9999px;
+}
+
+.hero-content-wrapper {
+    position: relative;
+    z-index: 10;
+    height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+}
+
+.hero-text-center {
+    text-align: center;
+    max-width: 1100px;
+}
+
+.hero-main-heading {
+    margin-bottom: 3rem;
+}
+
+.hero-building,
+.hero-champions {
+    font-family: Impact, Arial Black, sans-serif;
+    font-size: 6rem;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    color: #FFD700;
+    text-shadow: 
+        5px 5px 10px rgba(0, 0, 0, 1),
+        0 0 50px rgba(255, 215, 0, 0.7),
+        0 0 100px rgba(255, 215, 0, 0.4);
+    font-weight: 900;
+    letter-spacing: 0.02em;
+}
+
+.hero-champions {
+    margin-bottom: 1.5rem;
+}
+
+.hero-subtitle {
+    font-family: Impact, Arial Black, sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 1);
+    font-weight: 700;
+    margin-bottom: 0;
+}
+
+.hero-description {
+    font-size: 1.25rem;
+    color: #ffffff;
+    line-height: 1.6;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    font-weight: 400;
+}
+
+/* Stats Hero */
+.stats-section-hero {
+    padding: 1.5rem 0;
+    background: #000;
+}
+
+.stats-hero-container {
+    max-width: 56rem;
+    margin: 0 auto;
+    background: linear-gradient(135deg, rgba(206, 255, 0, 0.25) 0%, rgba(159, 191, 0, 0.25) 100%);
+    border: 2px solid rgba(206, 255, 0, 0.5);
+    border-radius: 1rem;
+    padding: 1.5rem 0;
+}
+
+.stats-hero-grid {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    align-items: center;
+}
+
+.stat-item-hero {
+    text-align: center;
+}
+
+.stat-number-hero {
+    font-family: Impact, Arial Black, sans-serif;
+    font-size: 3rem;
+    color: #ffffff;
+    margin-bottom: 0.5rem;
+}
+
+.stat-label-hero {
+    font-size: 0.75rem;
+    color: #ffffff;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+.stat-divider-hero {
+    width: 1px;
+    height: 3rem;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Logo Slider */
+.animate-scroll-logos {
+    display: flex;
+    width: max-content;
+    animation: scrollLogos 25s linear infinite;
+}
+
+@keyframes scrollLogos {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Old Hero Styles (if still needed elsewhere) */
 .hero-bg {
     background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
     position: relative;
@@ -104,40 +284,6 @@ html, body {
     box-shadow: 0 0 30px rgba(206, 255, 0, 0.6);
 }
 
-.sponsor-slider {
-  width: 100%;
-  overflow: hidden;
-}
-
-.sponsor-track {
-  display: flex;
-  width: max-content;
-  animation: sponsor-scroll 20s linear infinite;
-}
-
-.logo {
-  flex-shrink: 0;
-  width: 8rem;
-  height: 4rem;
-  margin: 0 1rem;
-  background: #222;
-  border-radius: 0.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #aaa;
-  font-size: 0.75rem;
-}
-
-@keyframes sponsor-scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 /* Expandable Content */
 .expandable-content {
     max-height: 0;
@@ -162,6 +308,17 @@ html, body {
         max-height: none !important;
         overflow: visible;
     }
+}
+
+/* Program Card Overflow Fix */
+.program-card-expandable {
+    overflow: hidden;
+}
+
+.program-card-expandable p,
+.program-card-expandable li {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 /* Lightbulb Section */
@@ -307,4 +464,24 @@ html, body {
 .registration-card:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 24px rgba(206, 255, 0, 0.2);
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+    .hero-building,
+    .hero-champions {
+        font-size: 8rem;
+    }
+    
+    .hero-subtitle {
+        font-size: 3rem;
+    }
+    
+    .hero-description {
+        font-size: 1.5rem;
+    }
+    
+    .stat-number-hero {
+        font-size: 4rem;
+    }
 }
