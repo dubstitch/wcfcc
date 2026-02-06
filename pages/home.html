@@ -1,80 +1,63 @@
 <!-- Hero Section -->
-<section class="hero-bg pb-16 md:pb-20 relative overflow-hidden" style="padding-top: 54px;">
-    <div class="container mx-auto px-4 relative z-10">
-        <div class="grid md:grid-cols-2 gap-8 items-center">
-            
-            <!-- Text Content -->
-            <div class="text-center md:text-left">
-                <div class="inline-block mb-6 px-6 py-2 border-2 border-silver rounded-full">
-                    <span class="text-neon-yellow font-athletic text-xl tracking-wider">WCFCC SUMMER 2026</span>
+<section class="hero-stadium-custom">
+    <!-- Background -->
+    <div class="hero-bg-image">
+        <img src="assets/images/hero-bg.png" alt="Stadium" class="hero-bg-img">
+        <div class="hero-bg-overlay"></div>
+    </div>
+    
+    <!-- Top Nav -->
+    <div class="hero-nav">
+        <div class="text-neon-yellow font-athletic text-3xl">WCFCC</div>
+        <div class="hero-badge">
+            <span class="text-silver font-athletic text-sm tracking-widest">SUMMER '26</span>
+        </div>
+        <button id="mobile-menu-button" class="text-neon-yellow">
+            <svg class="w-9 h-9" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+        </button>
+    </div>
+    
+    <!-- Hero Text -->
+    <div class="hero-content-wrapper">
+        <div class="hero-text-center">
+            <h1 class="hero-main-heading">
+                <div class="hero-building">BUILDING</div>
+                <div class="hero-champions">CHAMPIONS</div>
+                <div class="hero-subtitle">ON AND OFF THE FIELD</div>
+            </h1>
+            <p class="hero-description">
+                Hagerstown, Maryland's premier youth<br>football & cheer program.
+            </p>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Bar -->
+<section class="stats-section-hero">
+    <div class="container mx-auto px-4">
+        <div class="stats-hero-container">
+            <div class="stats-hero-grid">
+                <div class="stat-item-hero">
+                    <div class="stat-number-hero">8–17</div>
+                    <div class="stat-label-hero">AGES</div>
                 </div>
-
-                <h1 class="font-athletic leading-none mb-6">
-                    <span class="block text-4xl md:text-7xl gradient-text">BUILDING</span>
-                    <span class="block text-4xl md:text-7xl gradient-text-yellow">CHAMPIONS</span>
-                    <span class="block text-2xl md:text-4xl font-bold mt-2 gradient-text">ON AND OFF THE FIELD</span>
-                </h1>
-                
-                <div class="mb-8">
-                    <p class="font-normal text-lg md:text-2xl tracking-wide text-white leading-tight">
-                        Hagerstown, MD's Premier<br>
-                        Youth Football & Cheer Combine Camp
-                    </p>
+                <div class="stat-divider-hero"></div>
+                <div class="stat-item-hero">
+                    <div class="stat-number-hero">$280</div>
+                    <div class="stat-label-hero">FEE</div>
                 </div>
-
-                <button onclick="loadPage('registration')" class="bg-neon-yellow text-black px-12 py-4 rounded-xl font-athletic text-xl hover:opacity-90 transition shadow-2xl transform hover:scale-105 glow-button mb-8">
-                    SECURE YOUR SPOT EARLY!
-                </button>
-
-                <!-- Camp Dates -->
-                <div class="mb-8">
-                    <p class="font-athletic text-3xl md:text-5xl font-bold leading-tight mb-3 gradient-text">
-                        JUNE 15 TO JULY 24, 2026
-                    </p>
-                    <p class="text-base md:text-xl text-silver font-normal">
-                        8 week summer program including six weeks of elite training
-                    </p>
-                </div>
-
-                <!-- Stats - FIXED PADDING AND ALIGNMENT -->
-                <div class="stats-container relative max-w-xl mx-auto md:mx-0">
-                    <div class="stats-gradient-bg absolute inset-0 rounded-xl"></div>
-                    <div class="relative z-10 grid grid-cols-3 divide-x divide-white/20 py-5 px-3">
-                        <div class="text-center px-2">
-                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">8-17</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">AGES</div>
-                        </div>
-                        <div class="text-center px-2">
-                            <div class="font-athletic text-3xl md:text-5xl text-white mb-1 leading-none">$280</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">FEE</div>
-                        </div>
-                        <div class="text-center px-2">
-                            <div class="font-athletic text-3xl md:text-4xl text-white mb-1 leading-none">APR 31</div>
-                            <div class="text-[10px] md:text-sm text-white uppercase tracking-wide font-bold leading-tight">DEADLINE</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hero Image -->
-            <div class="relative mt-8 md:mt-0">
-                <div class="hero-image-container relative">
-                    <div class="hero-glow"></div>
-                    <div class="hero-image-placeholder bg-neutral-dark rounded-2xl overflow-hidden" style="aspect-ratio: 4/3;">
-                        <div class="w-full h-full flex items-center justify-center text-silver">
-                            <div class="text-center">
-                                <svg class="w-24 h-24 mx-auto mb-4 opacity-50" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z" clip-rule="evenodd"/>
-                                </svg>
-                                <p class="text-sm opacity-50">Hero Image Placeholder</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="stat-divider-hero"></div>
+                <div class="stat-item-hero">
+                    <div class="stat-number-hero">APR 31</div>
+                    <div class="stat-label-hero">DEADLINE</div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <section class="py-6 bg-black border-y border-border-dark">
     <div class="w-full overflow-hidden">
