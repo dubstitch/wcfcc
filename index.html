@@ -32,14 +32,13 @@
     <!-- Mobile Navigation -->
     <nav class="fixed top-0 left-0 right-0 bg-black border-b border-border-dark z-50">
         <div class="container mx-auto px-4">
-<div class="flex items-center justify-between h-14">
+<div class="flex items-center h-14">
 
     
     <!-- Desktop Nav -->
 
-                <div class="hidden md:flex items-center space-x-1">
+                <div class="hidden md:flex items-center space-x-1 desktop-nav flex-1 justify-center">
                     <button onclick="loadPage('home')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">HOME</button>
-                    
                     <!-- Football Dropdown -->
                     <div class="relative dropdown">
                         <button class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold flex items-center">
@@ -77,7 +76,7 @@
                     <button onclick="loadPage('faq')" class="px-4 py-2 text-white hover:text-neon-yellow transition font-semibold">FAQ</button>
                     <button onclick="loadPage('registration')" class="ml-2 bg-neon-yellow text-black px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition">REGISTER</button>
                 </div>
-                
+            
                 <!-- Mobile Hamburger -->
                 <button id="mobile-menu-button" class="md:hidden text-neon-yellow">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -85,24 +84,24 @@
                     </svg>
                 </button>
             </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-neutral-dark border-t border-border-dark">
-            <div class="px-4 py-2 space-y-1">
-                <button onclick="loadPage('home'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">HOME</button>
-                <button onclick="loadPage('football'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FOOTBALL</button>
-                <button onclick="loadPage('football-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
-                <button onclick="loadPage('football-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
-                <button onclick="loadPage('cheer'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CHEER</button>
-                <button onclick="loadPage('cheer-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
-                <button onclick="loadPage('cheer-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
-                <button onclick="loadPage('schedules'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">SCHEDULES</button>
-                <button onclick="loadPage('coaches'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">COACHES</button>
-                <button onclick="loadPage('forms'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FORMS</button>
-                <button onclick="loadPage('contact'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CONTACT</button>
-                <button onclick="loadPage('faq'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FAQ</button>
-                <button onclick="loadPage('registration'); closeMobileMenu();" class="block w-full bg-neon-yellow text-black px-4 py-3 rounded font-semibold hover:opacity-90 transition mt-2">REGISTER</button>
+            
+            <!-- Mobile Menu (inside container so it aligns with the hamburger) -->
+            <div id="mobile-menu" class="hidden bg-neutral-dark border-t border-border-dark w-full">
+                <div class="px-4 py-2 space-y-1">
+                    <button onclick="loadPage('home'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">HOME</button>
+                    <button onclick="loadPage('football'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FOOTBALL</button>
+                    <button onclick="loadPage('football-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
+                    <button onclick="loadPage('football-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
+                    <button onclick="loadPage('cheer'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CHEER</button>
+                    <button onclick="loadPage('cheer-parents'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Info</button>
+                    <button onclick="loadPage('cheer-package'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-silver hover:bg-neon-yellow hover:text-black transition rounded pl-8">Camp Package</button>
+                    <button onclick="loadPage('schedules'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">SCHEDULES</button>
+                    <button onclick="loadPage('coaches'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">COACHES</button>
+                    <button onclick="loadPage('forms'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FORMS</button>
+                    <button onclick="loadPage('contact'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">CONTACT</button>
+                    <button onclick="loadPage('faq'); closeMobileMenu();" class="block w-full text-left px-4 py-3 text-white hover:bg-neon-yellow hover:text-black transition rounded font-semibold">FAQ</button>
+                    <button onclick="loadPage('registration'); closeMobileMenu();" class="block w-full bg-neon-yellow text-black px-4 py-3 rounded font-semibold hover:opacity-90 transition mt-2">REGISTER</button>
+                </div>
             </div>
         </div>
     </nav>
@@ -156,25 +155,5 @@
     </footer>
 
     <script src="js/app.js"></script>
-    <script>
-        // Mobile menu toggle
-        document.getElementById('mobile-menu-button').addEventListener('click', function() {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
-        });
-
-        function closeMobileMenu() {
-            document.getElementById('mobile-menu').classList.add('hidden');
-        }
-
-        // Desktop dropdown hover
-        document.querySelectorAll('.dropdown').forEach(dropdown => {
-            dropdown.addEventListener('mouseenter', function() {
-                this.querySelector('.dropdown-menu').classList.remove('hidden');
-            });
-            dropdown.addEventListener('mouseleave', function() {
-                this.querySelector('.dropdown-menu').classList.add('hidden');
-            });
-        });
-    </script>
 </body>
 </html>

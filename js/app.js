@@ -170,8 +170,127 @@ window.previousTestimonial = function() {
     track.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
 };
 
-// Load initial page
-document.addEventListener('DOMContentLoaded', loadPageFromHash);
+// Mobile nav helpers
+window.closeMobileMenu = function() {
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) mobileMenu.classList.add('hidden');
+};
+
+function attachMobileNavHandlers() {
+    var mobileBtn = document.getElementById('mobile-menu-button');
+    var mobileMenu = document.getElementById('mobile-menu');
+    if (mobileBtn && mobileMenu) {
+        // Remove previous listeners if any
+        mobileBtn.removeEventListener('click', mobileBtn._toggleHandler || (()=>{}));
+        var toggleHandler = function(e) {
+            e.stopPropagation();
+            mobileMenu.classList.toggle('hidden');
+        };
+        mobileBtn.addEventListener('click', toggleHandler);
+        mobileBtn._toggleHandler = toggleHandler;
+
+        mobileMenu.removeEventListener('click', mobileMenu._closeHandler || (()=>{}));
+        var closeHandler = function(e) {
+            if (e.target.tagName === 'BUTTON') {
+                closeMobileMenu();
+            }
+            e.stopPropagation();
+        };
+        mobileMenu.addEventListener('click', closeHandler);
+        mobileMenu._closeHandler = closeHandler;
+
+        // Click outside to close
+        document.removeEventListener('click', document._mobileMenuOutsideHandler || (()=>{}));
+        var outsideHandler = function(e) {
+            if (!mobileMenu.classList.contains('hidden')) {
+                if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
+                    closeMobileMenu();
+                }
+            }
+        };
+        document.addEventListener('click', outsideHandler);
+        document._mobileMenuOutsideHandler = outsideHandler;
+    }
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    loadPageFromHash();
+    attachMobileNavHandlers();
+    // Restore desktop dropdown hover logic
+    document.querySelectorAll('.dropdown').forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            var menu = this.querySelector('.dropdown-menu');
+            if (menu) menu.classList.remove('hidden');
+        });
+        dropdown.addEventListener('mouseleave', function() {
+            var menu = this.querySelector('.dropdown-menu');
+            if (menu) menu.classList.add('hidden');
+        });
+    });
+});
+
+// Also re-attach handlers after every page load (SPA navigation)
+window.addEventListener('hashchange', attachMobileNavHandlers);
 
 // Handle browser back/forward buttons
 window.addEventListener('popstate', loadPageFromHash);
+
+// Nav overflow detector: if desktop nav items don't fit, switch to collapsed hamburger
+(function() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+
+    const checkNavOverflow = () => {
+        const container = nav.querySelector('.container');
+        const desktop = nav.querySelector('.desktop-nav');
+        const mobileBtn = document.getElementById('mobile-menu-button');
+        if (!container || !desktop || !mobileBtn) return;
+
+        const desktopStyle = window.getComputedStyle(desktop);
+        // If desktop nav is not rendered (e.g. small screens), clear collapse
+        if (desktopStyle.display === 'none') {
+            nav.classList.remove('collapsed-nav');
+            return;
+        }
+
+        const desktopRect = desktop.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+        const buffer = 12; // small breathing room
+
+        // 1) Basic viewport overflow check
+        const overflowsViewport = desktopRect.right > (window.innerWidth - buffer) || desktopRect.left < buffer;
+
+        // 2) Scroll width vs client width (items overflow horizontally)
+        const scrollOverflow = desktop.scrollWidth > (desktop.clientWidth - buffer) || desktop.scrollWidth > (container.clientWidth - buffer);
+
+        // 3) Any direct child overflowing container bounds (covers edge cases with dropdowns/items)
+        let childOverflow = false;
+        Array.from(desktop.children).forEach(child => {
+            try {
+                const r = child.getBoundingClientRect();
+                if (r.right > (containerRect.right - buffer) || r.left < (containerRect.left + buffer)) {
+                    childOverflow = true;
+                }
+            } catch (e) {
+                // ignore measurement errors
+            }
+        });
+
+        // If any overflow detected, collapse to mobile nav
+        if (overflowsViewport || scrollOverflow || childOverflow) {
+            nav.classList.add('collapsed-nav');
+        } else {
+            nav.classList.remove('collapsed-nav');
+        }
+    };
+
+    // debounce helper
+    let t;
+    const debounced = () => { clearTimeout(t); t = setTimeout(checkNavOverflow, 120); };
+
+    window.addEventListener('resize', debounced);
+    window.addEventListener('orientationchange', debounced);
+    window.addEventListener('load', () => { setTimeout(checkNavOverflow, 150); });
+    // run shortly after script load to catch initial layout
+    setTimeout(checkNavOverflow, 60);
+})();

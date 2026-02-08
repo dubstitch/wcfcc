@@ -273,7 +273,9 @@ html, body {
 
 @media (min-width: 768px) {
     .expandable-content { overflow: visible; }
-    .expandable-content .preview { display: none; }
+    /* On desktop we want to show both preview AND full sections
+       so users see the header/intro plus the full experience list. */
+    .expandable-content .preview { display: block; margin-bottom: 0.5rem; }
     .expandable-content .full { display: block; }
 }
 
@@ -290,6 +292,34 @@ html, body {
         max-height: none !important;
         overflow: visible;
     }
+}
+
+/* Show mobile hamburger on tablet/desktop when nav is collapsed by JS
+   and keep it visually on the far left of the nav bar. Also hide the
+   desktop nav items when collapsed. */
+@media (min-width: 768px) {
+    nav.collapsed-nav #mobile-menu-button {
+        display: inline-flex !important;
+        align-items: center;
+        justify-content: center;
+    }
+
+    nav.collapsed-nav .desktop-nav {
+        display: none !important;
+    }
+
+    /* ensure button is visually leftmost in the flex row */
+    #mobile-menu-button { order: -1; }
+}
+
+/* Deterministic tablet breakpoint: always use mobile nav at widths <= 1024px.
+   This removes inconsistency between different tablet devices and DPI/scaling.
+   The JS overflow detector still runs and will add `nav.collapsed-nav` for
+   narrower edge cases on larger screens. */
+@media (max-width: 1024px) {
+    .desktop-nav { display: none !important; }
+    #mobile-menu-button { display: inline-flex !important; order: -1; }
+    /* mobile menu visibility is controlled by the `hidden` class (toggled by JS) */
 }
 
 /* Program Card Overflow Fix */
