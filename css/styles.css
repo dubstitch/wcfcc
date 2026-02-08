@@ -29,6 +29,7 @@ html, body {
     align-items: stretch;
     justify-content: center;
     flex-direction: column;
+    padding: 1rem 0;
 }
 
 @media (max-width: 767px) {
@@ -108,7 +109,7 @@ html, body {
 .hero-text-container { flex: 1 1 auto; display:flex; flex-direction:column; justify-content:center; }
 
 .hero-title-main {
-    margin-bottom: 2rem;
+    margin-bottom: 0.5rem;
 }
 
 .hero-yellow-text {
@@ -120,7 +121,7 @@ html, body {
     -webkit-text-stroke: 3px #000000;
     paint-order: stroke fill;
     font-weight: 900;
-    margin-bottom: 0.5rem;
+    /* margin-bottom: 0.5rem; */
 }
 
 .hero-blue-text {
@@ -129,7 +130,7 @@ html, body {
     color: #FFFFFF;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
     font-weight: 700;
-    margin-top: 1.5rem;
+    /* margin-top: 1.5rem; */
 }
 
 .hero-desc-text {
