@@ -79,7 +79,10 @@ html, body {
 .container {
     width: 100%;
     max-width: 1400px;
-    margin: 0 auto;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    margin-top: 0;
+    margin-bottom: 0;
     padding-left: 1rem;
     padding-right: 1rem;
 }
