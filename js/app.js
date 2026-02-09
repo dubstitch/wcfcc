@@ -108,6 +108,24 @@ window.toggleExperienceCard = function(contentId) {
 };
 
 // Values Carousel Navigation (Mobile)
+// WCFCC Difference Carousel Navigation (Mobile)
+let currentDifferenceIndex = 0;
+
+window.nextDifference = function() {
+    const track = document.getElementById('differenceTrack');
+    if (!track) return;
+    const slides = track.querySelectorAll('.difference-slide');
+    currentDifferenceIndex = (currentDifferenceIndex + 1) % slides.length;
+    track.style.transform = `translateX(-${currentDifferenceIndex * 100}%)`;
+};
+
+window.previousDifference = function() {
+    const track = document.getElementById('differenceTrack');
+    if (!track) return;
+    const slides = track.querySelectorAll('.difference-slide');
+    currentDifferenceIndex = (currentDifferenceIndex - 1 + slides.length) % slides.length;
+    track.style.transform = `translateX(-${currentDifferenceIndex * 100}%)`;
+};
 let currentValueIndex = 0;
 
 window.nextValue = function() {
