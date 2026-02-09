@@ -591,3 +591,8 @@ main#content-area {
     scroll-snap-align: start;
     scroll-snap-stop: always;
 }
+
+nav #mobile-menu .container.mx-auto.px-4 {
+    margin-left: 0;
+    margin-right: 0;
+}
