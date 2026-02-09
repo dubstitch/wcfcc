@@ -1,3 +1,15 @@
+@media (min-width: 768px) {
+    .expand-arrow {
+        display: none !important;
+    }
+    .ml-4.w-10.h-10.bg-neon-yellow.rounded-full.flex.items-center.justify-center.flex-shrink-0 {
+        display: none !important;
+    }
+}
+@media (min-width: 768px) {
+    .expandable-content .preview { display: block; margin-bottom: 0.5rem; }
+    .expandable-content .full { display: block; }
+}
 /* Consistent hero text sizing across breakpoints */
 .hero-title-main {
     font-size: clamp(2.5rem, 6vw, 4rem);
@@ -335,40 +347,40 @@ html, body {
 }
 
 /* Expandable Content */
+/* Expandable Content - COMPLETE FIX */
 .expandable-content {
     overflow: hidden;
 }
 
-/* preview / full split: show preview on small screens, full when expanded or on desktop
-   When expanded on mobile show BOTH preview and full (user requested "see EVERYTHING").
-   On desktop preview hidden and full shown. */
-.expandable-content .preview { display: block; margin-top: 0.25rem; margin-bottom: 0.25rem; }
-.expandable-content .full { display: none; }
-.expandable-content.expanded .full { display: block; }
-.expandable-content.expanded .preview { display: block; /* keep preview visible when expanded */ margin-top: 0.25rem; margin-bottom: 0.75rem; }
+/* Base state: show preview, hide full */
+.expandable-content .preview { 
+    display: block; 
+    margin-top: 0.25rem; 
+    margin-bottom: 0.25rem; 
+}
 
+.expandable-content .full { 
+    display: none; 
+}
+
+/* Expanded state: show both preview and full */
+.expandable-content.expanded .preview { 
+    display: block; 
+    margin-top: 0.25rem; 
+    margin-bottom: 0.75rem; 
+}
+
+.expandable-content.expanded .full { 
+    display: block; 
+}
+
+/* Desktop behavior: same as mobile, cards still expand/collapse */
 @media (min-width: 768px) {
     .expandable-content { overflow: visible; }
-    /* On desktop we want to show both preview AND full sections
-       so users see the header/intro plus the full experience list. */
     .expandable-content .preview { display: block; margin-bottom: 0.5rem; }
     .expandable-content .full { display: block; }
 }
 
-.expand-arrow {
-    transition: transform 0.3s ease;
-}
-
-.expand-arrow.rotated {
-    transform: rotate(180deg);
-}
-
-@media (min-width: 768px) {
-    .expandable-content {
-        max-height: none !important;
-        overflow: visible;
-    }
-}
 
 /* Show mobile hamburger on tablet/desktop when nav is collapsed by JS
    and keep it visually on the far left of the nav bar. Also hide the
