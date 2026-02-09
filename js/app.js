@@ -294,3 +294,4 @@ window.addEventListener('popstate', loadPageFromHash);
     // run shortly after script load to catch initial layout
     setTimeout(checkNavOverflow, 60);
 })();
+
