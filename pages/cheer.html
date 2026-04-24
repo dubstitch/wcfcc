@@ -1,497 +1,343 @@
-<div class="container mx-auto px-4 py-12">
-    
-    <!-- Page Title -->
-    <div class="text-center mb-12">
-        <h1 class="font-athletic text-5xl md:text-6xl mb-4">SIDELINE CHEER CAMP</h1>
-        <div class="w-96 h-1 mx-auto mb-8" style="background: linear-gradient(90deg, transparent 0%, #CEFF00 50%, transparent 100%);"></div>
-        
-        <!-- Age Division Bubble -->
-        <div class="flex flex-wrap justify-center gap-6">
-            <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center shadow-lg">
-                <span class="text-black font-athletic text-xl">8-11</span>
-            </div>
-        </div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sideline Cheer Camp | WCFCC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
 
-    <!-- Introduction -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">Introduction</h2>
-            <div class="bg-light-bg p-8 rounded-lg shadow-lg border-l-4 border-neon-yellow">
-                <div class="space-y-6 text-lg leading-relaxed">
-                    <p class="text-black">The WCFCC Summer Cheer Camp is a recreational, football sideline focused cheer camp designed to build confidence, teamwork, and strong fundamentals.</p>
-                    <p class="text-black">Athletes focus on sideline cheers, motions, jumps, formations, and age appropriate stunting with clear expectations. Camp also includes learning performance routines for the Hagerstown Mummers Parade in October.</p>
-                    <p class="text-black font-bold">This is not an all star or competition cheer camp.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+<nav>
+  <a href="../index.html" class="nav-logo">WC<span>FCC</span></a>
+  <ul class="nav-links">
+    <li><a href="football.html">Football</a></li>
+    <li><a href="cheer.html">Cheer</a></li>
+    <li><a href="schedules.html">Schedules</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="registration.html" class="nav-cta nav-cta-desktop">Register Now</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
 
-    <div class="gradient-line my-12"></div>
-
-    <!-- Camp Philosophy -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">Camp Philosophy</h2>
-            <div class="space-y-6 text-lg leading-relaxed">
-                <p class="text-white">This camp emphasizes structure, encouragement, and skill development in a positive environment.</p>
-                <p class="text-white">Athletes are taught how to perform together as a team, stay engaged on the sidelines, and grow at their own pace while learning proper technique and timing.</p>
-                <p class="text-white">Beyond summer, our squad stays connected through October as we prepare for the Alsatia Mummers Parade, Hagerstown's biggest annual event with 70,000+ spectators.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Game Day Fridays -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">Game Day Fridays</h2>
-            <div class="space-y-6 text-lg leading-relaxed">
-                <p class="text-white">Every Friday, cheerleaders perform at our turf stadium during live 7 on 7 football games.</p>
-                
-                <div class="bg-light-bg p-8 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-2xl mb-4 text-black">What to Expect:</h3>
-                    <p class="text-neutral-dark mb-4">Cheerleaders perform sideline cheers, execute formations, and bring energy to support the football teams during live competition.</p>
-                    <ul class="space-y-2 text-neutral-dark">
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span>Performing sideline cheers during gameplay</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span>Executing choreographed dances when music plays</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span>Building confidence performing in front of families</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span>Real game day atmosphere and excitement</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-black p-8 rounded-lg border-2 border-neon-yellow mt-8">
-                    <h3 class="font-athletic text-3xl mb-4 text-neon-yellow">Championship Day | Week 6</h3>
-                    <p class="text-white mb-4">The ultimate performance where six weeks of training comes together.</p>
-                    <ul class="space-y-3 text-silver">
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">★</span>
-                            <span>Each squad performs their complete 2.5 minute routine</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">★</span>
-                            <span>Families invited to tailgate, bring chairs and tents</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">★</span>
-                            <span>Music and celebration atmosphere</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">★</span>
-                            <span>Showcase all skills learned throughout camp</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">★</span>
-                            <span>Team photos and awards ceremony</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Our Standards -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">Our Standards</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-xl mb-3 text-black">AACCA Spirit Safety Certification</h3>
-                    <p class="text-neutral-dark">All coaches are certified in the American Association of Cheerleading Coaches and Administrators safety standards.</p>
-                </div>
-                <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-xl mb-3 text-black">Progressive Training</h3>
-                    <p class="text-neutral-dark">Skills are introduced based on readiness and age appropriateness, with proper progressions for all skill levels.</p>
-                </div>
-                <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-xl mb-3 text-black">Age Appropriate Standards</h3>
-                    <p class="text-neutral-dark">Clear skill expectations that align with physical and developmental readiness for ages 8 to 11.</p>
-                </div>
-                <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-xl mb-3 text-black">Grass Surface Protocols</h3>
-                    <p class="text-neutral-dark">All stunting and tumbling performed on grass follows specific safety guidelines for outdoor surfaces.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Core Skill Areas -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">Core Skill Areas</h2>
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"/>
-                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">SIDELINE CHEERS</h3>
-                    <p class="text-neutral-dark text-sm">Chants and cheers for game day energy</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM13 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2h-2z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">MOTIONS & TIMING</h3>
-                    <p class="text-neutral-dark text-sm">Sharp technique and synchronized execution</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M12.395 2.553a1 1 0 00-1.45-.385c-.345.23-.614.558-.822.88-.214.33-.403.713-.57 1.116-.334.804-.614 1.768-.84 2.734a31.365 31.365 0 00-.613 3.58 2.64 2.64 0 01-.945-1.067c-.328-.68-.398-1.534-.398-2.654A1 1 0 005.05 6.05 6.981 6.981 0 003 11a7 7 0 1011.95-4.95c-.592-.591-.98-.985-1.348-1.467-.363-.476-.724-1.063-1.207-2.03zM12.12 15.12A3 3 0 017 13s.879.5 2.5.5c0-1 .5-4 1.25-4.5.5 1 .786 1.293 1.371 1.879A2.99 2.99 0 0113 13a2.99 2.99 0 01-.879 2.121z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">JUMPS</h3>
-                    <p class="text-neutral-dark text-sm">Jump technique and combinations</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">FORMATIONS</h3>
-                    <p class="text-neutral-dark text-sm">Spacing and transitions on the field</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">SIDELINE DANCES</h3>
-                    <p class="text-neutral-dark text-sm">Choreographed routines when music plays</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">AGE APPROPRIATE STUNTING</h3>
-                    <p class="text-neutral-dark text-sm">Safe progressions</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">TUMBLING</h3>
-                    <p class="text-neutral-dark text-sm">Progressive skill development</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">PERFORMANCE & PRESENCE</h3>
-                    <p class="text-neutral-dark text-sm">Confidence and stage presence</p>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-lg border-t-4 border-neon-yellow text-center">
-                    <div class="w-16 h-16 bg-neon-yellow rounded-full flex items-center justify-center mx-auto mb-4">
-                        <svg class="w-8 h-8 text-black" fill="currentColor" viewBox="0 0 20 20">
-                            <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z"/>
-                        </svg>
-                    </div>
-                    <h3 class="font-athletic text-lg mb-2 text-black">TRUST & TEAMWORK</h3>
-                    <p class="text-neutral-dark text-sm">Building squad unity</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- What We Provide -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">What We Provide</h2>
-            <div class="bg-light-bg p-8 rounded-lg shadow-lg">
-                <ul class="space-y-4">
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Complete uniform package (camp t-shirt, shorts, pom-poms, hair accessories, drawstring bag)</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Professional coaching staff</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Weekly practices and Friday game day performances</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">2.5 minute showcase routine (built over 6 weeks)</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Parade performance routines for Mummers Parade</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Championship Day performance experience</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Post camp practices and parade participation (3x/month through October)</span>
-                    </li>
-                    <li class="flex items-center">
-                        <div class="w-7 h-7 bg-black rounded-full flex items-center justify-center mr-4 flex-shrink-0" style="box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);">
-                            <svg class="w-4 h-4 text-neon-yellow" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
-                            </svg>
-                        </div>
-                        <span class="leading-relaxed text-black">Awards ceremony and team photos</span>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Age Group Expectations -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-center">Age Group Expectations</h2>
-            
-            <div class="bg-light-bg p-8 rounded-lg max-w-3xl mx-auto">
-                <div class="flex items-center mb-6">
-                    <div class="w-20 h-20 bg-neon-yellow rounded-full flex items-center justify-center mr-6 flex-shrink-0">
-                        <span class="text-black font-athletic text-2xl">8-11</span>
-                    </div>
-                    <div>
-                        <h3 class="font-athletic text-3xl text-black">GLOW</h3>
-                        <p class="text-neutral-dark text-lg">Ages 8 to 11</p>
-                    </div>
-                </div>
-                <div class="border-l-4 border-neon-yellow pl-6">
-                    <p class="text-lg mb-4 text-neutral-dark">Learning how to cheer as a group, perform on the sidelines, and build confidence through structured training.</p>
-                    <p class="text-black font-bold mb-3">Skills emphasized:</p>
-                    <p class="text-neutral-dark leading-relaxed mb-4">Sideline cheers • Basic motions and timing • Jump basics • Formations and spacing • Ground based visual stunts • Parade choreography • Performance presence</p>
-                    <p class="text-sm text-neutral-medium italic">No elevated stunting. Emphasis on confidence, coordination, teamwork, and learning to perform in front of crowds.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Six Week Progression -->
-    <section class="mb-16">
-        <div class="max-w-7xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-center">Six Week Progression</h2>
-            <p class="text-silver text-center mb-8">← Scroll to view all weeks →</p>
-            <div class="horizontal-scroll pb-4">
-                <div class="flex gap-6" style="width: max-content;">
-                    <!-- Week 1 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">1</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">SIDELINE FOUNDATIONS</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Sideline cheers introduced • Motion technique established • Basic jump technique • Learning formations and spacing • Intro to parade choreography • Float design discussion</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                ✓ Team is sideline ready and learning parade material
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Week 2 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">2</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">SKILL LAYERING</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Cleaner motions • Stronger timing • Jump improvement • Confidence building • Continue parade choreography • Float construction begins</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                ✓ Structured material with improved control
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Week 3 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">3</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">PERFORMANCE DEVELOPMENT</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Linking cheers together • Transitions between formations • Game day awareness • Parade choreography taking shape • Float work continues</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                ✓ Connected sequences with confidence
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Week 4 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">4</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">GAME DAY APPLICATION</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Cheering during live gameplay • Staying engaged and focused • Field awareness • Parade routine fully taught • Full run throughs begin</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                ✓ Effective performance during games
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Week 5 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">5</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">CLEAN AND CONFIDENT</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Motion sharpness • Voice projection • Full run throughs • Championship Day routine ready • Parade routine refined • Performance excellence</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold text-xs">
-                                ✓ Confident, coordinated, and prepared
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Week 6 -->
-                    <div class="bg-light-bg p-6 rounded-lg border-l-4 border-neon-yellow" style="min-width: 350px; max-width: 350px;">
-                        <div class="flex items-center mb-4">
-                            <div class="w-12 h-12 bg-neon-yellow rounded-full flex items-center justify-center mr-4 flex-shrink-0">
-                                <span class="text-black font-athletic text-xl">6</span>
-                            </div>
-                            <h3 class="font-athletic text-2xl text-black">EXECUTION AND TEAM PRIDE</h3>
-                        </div>
-                        <div class="space-y-3 text-sm">
-                            <p class="text-neutral-dark">Consistency • Team spirit • Celebrating growth • Championship Day performance • Parade routine complete and ready for October</p>
-                            <div class="bg-neon-yellow text-black px-3 py-2 rounded inline-block font-bold">
-                                ✓ FINISH LINE: Ready for Championship Day and Mummers Parade
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="gradient-line my-12"></div>
-
-    <!-- Mummers Parade Section -->
-    <section class="mb-16">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-athletic text-4xl mb-8 text-left">BEYOND SUMMER: MUMMERS PARADE</h2>
-            
-            <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg mb-8">
-                <h3 class="font-athletic text-3xl mb-4 text-neon-yellow">OCTOBER 31, 2026 | DOWNTOWN HAGERSTOWN</h3>
-                <p class="text-white text-xl mb-4">WCFCC doesn't end when summer camp ends. We take our squad to the biggest event in Hagerstown: the Alsatia Mummers Parade with 70,000+ spectators watching.</p>
-                <p class="text-silver">Perform your routines on our custom float, walk the parade route, and represent WCFCC with pride.</p>
-            </div>
-
-            <div class="space-y-6">
-                <div class="bg-light-bg p-8 rounded-lg border-l-4 border-neon-yellow">
-                    <h3 class="font-athletic text-2xl mb-4 text-black">What Cheerleaders Do</h3>
-                    <ul class="space-y-3 text-neutral-dark">
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span><strong>During Summer Camp:</strong> Learn routines that will be performed at the parade, help design and start building the WCFCC float</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span><strong>Post Camp Practices (3x/month):</strong> Perfect your routines, practice formations, work on timing, continue building the float</span>
-                        </li>
-                        <li class="flex items-start">
-                            <span class="text-neon-yellow mr-3">✓</span>
-                            <span><strong>Parade Day:</strong> Perform choreographed routines on the WCFCC float and walk the parade route in front of 70,000+ spectators</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bg-neutral-dark p-8 rounded-lg border-l-4 border-silver">
-                    <h3 class="font-athletic text-2xl mb-4 text-white">Why This Matters</h3>
-                    <p class="text-silver mb-4">The Mummers Parade is the biggest stage in Hagerstown. This is your moment to shine in front of thousands of people, cameras, and judges.</p>
-                    <p class="text-silver mb-4">The post camp practices keep your skills sharp, build squad unity, and ensure everyone is confident and synchronized for the big performance.</p>
-                    <p class="text-white font-bold">This isn't just another performance. It's the culmination of everything you worked on during summer camp, and it's a memory you'll carry forever.</p>
-                </div>
-
-                <div class="bg-light-bg p-6 rounded-lg">
-                    <h3 class="font-athletic text-xl mb-3 text-black">Post Camp Schedule</h3>
-                    <p class="text-neutral-dark mb-2"><strong>Frequency:</strong> 3x per month (August, September, October)</p>
-                    <p class="text-neutral-dark mb-2"><strong>Duration:</strong> Approximately 2 hours for routine practice, stay as long as you want for float building</p>
-                    <p class="text-neutral-dark mb-2"><strong>Location:</strong> TBA</p>
-                    <p class="text-neutral-dark mt-4"><strong>Included:</strong> All parade activities and post camp practices included in your $280 camp registration. No additional fees.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Join Our Squad CTA -->
-    <div class="bg-black border-2 border-neon-yellow p-8 rounded-lg text-center">
-        <h2 class="font-athletic text-3xl mb-4">Join Our Squad</h2>
-        <p class="text-xl mb-6">Build confidence, make friends, and cheer on our teams!</p>
-        <button onclick="loadPage('registration')" class="bg-neon-yellow text-black px-8 py-3 rounded-lg font-semibold text-lg hover:opacity-80 transition shadow-lg hover:shadow-xl transform hover:-translate-y-0.5">
-            Register for Cheer
-        </button>
-    </div>
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="football.html">Football</a>
+  <a href="cheer.html">Cheer</a>
+  <a href="schedules.html">Schedules</a>
+  <a href="coaches.html">Coaches</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="registration.html" class="cta" onclick="toggleMobileMenu()">Register Now</a>
 </div>
+
+<section class="hero" style="min-height:auto;padding-bottom:60px;">
+  <div class="hero-bg-text">CHEER</div>
+  <div class="hero-inner" style="grid-template-columns:1fr;gap:0;padding-top:40px;">
+    <div class="hero-left">
+      <div class="hero-badge fade-up delay-1"><span class="dot"></span>Sideline Cheer Camp</div>
+      <h1 class="hero-h1 fade-up delay-2">
+        <span class="line-building">SIDELINE</span>
+        <span class="line-champions">CHEER</span>
+        <span class="line-field">CAMP</span>
+      </h1>
+      <div class="hero-actions fade-up delay-3" style="margin-top:20px;">
+        <div style="display:flex;gap:12px;flex-wrap:wrap;">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">8&ndash;11</div>
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">12&ndash;14</div>
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">15&ndash;17</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="experience" style="padding:80px 0;">
+  <div class="container">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow">About the Program</div>
+      <h2 class="section-title">CAMP<br><span class="accent">PHILOSOPHY</span></h2>
+    </div>
+    <div class="anim anim-d2" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:48px;">
+      <div style="background:#fff;border-radius:16px;padding:40px 32px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+        <p style="font-size:16px;line-height:1.7;color:var(--mid-gray);">A 6 week sideline cheer program designed to build confident young women through technique, teamwork, and real game day performance experience.</p>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:40px 32px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+        <p style="font-size:16px;line-height:1.7;color:var(--mid-gray);">Athletes learn cheers, motions, jumps, and choreography while developing confidence, leadership, and a genuine sense of team pride.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--black);padding:80px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,255,255,0.02);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">SIDELINE</div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">What You Learn</div>
+      <h2 class="section-title" style="color:var(--white);">CHEER<br><span class="accent">CURRICULUM</span></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:600px;margin-top:16px;">Weekly practices build technical skill, stamina, and performance confidence. Every rep is focused on being ready for Friday's live sideline reps at the turf stadium.</p>
+    </div>
+    <div class="anim anim-d2" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:48px;">
+      <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:32px;border:1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--yellow);margin-bottom:20px;letter-spacing:1px;">CORE SKILLS</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Sideline Cheers:</strong> Crowd-leading chants and call-and-response</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Motions and Jumps:</strong> Sharp technique and clean execution</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Choreography:</strong> Full sideline dances set to music</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Showmanship:</strong> Stage presence, energy, and crowd connection</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Conditioning:</strong> Strength, stamina, and flexibility</span></div>
+          <div style="display:flex;align-items:flex-start;gap:12px;"><span style="color:var(--yellow);font-size:16px;flex-shrink:0;margin-top:2px;">&#9670;</span><span style="color:rgba(255,255,255,0.7);font-size:14px;line-height:1.6;"><strong style="color:var(--white);">Teamwork:</strong> Synchronization and communication</span></div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px 32px;border:1px solid var(--yellow);">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--yellow);line-height:1;">WEEK 1</div>
+          <p style="color:rgba(255,255,255,0.7);font-size:14px;margin-top:8px;">Foundations: cheer voice, motion placement, jump technique, and first choreography sequences.</p>
+        </div>
+        <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px 32px;border:1px solid rgba(255,255,255,0.1);">
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:48px;color:var(--white);line-height:1;">WEEK 6</div>
+          <p style="color:rgba(255,255,255,0.55);font-size:14px;margin-top:8px;">Full 2.5 minute routine performed on Championship Day.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="gameday-banner">
+  <div class="gameday-inner">
+    <div class="gameday-left anim anim-d1">
+      <div class="section-eyebrow">Every Week</div>
+      <h2 class="section-title" style="color:white;">GAME DAY<br><span style="color:var(--yellow);-webkit-text-stroke:3px rgba(255,255,255,0.4);paint-order:stroke fill;">FRIDAYS</span></h2>
+      <p class="gameday-intro">Every Friday, cheer squads take the sideline at our turf stadium. Real performance reps every single week, with full Championship Day at Week 6.</p>
+    </div>
+    <div class="gameday-accordion anim anim-d2">
+      <div class="gda-card is-open" id="chSideline">
+        <button class="gda-trigger" onclick="toggleGDA('chSideline')">
+          <div class="gda-trigger-left">
+            <span class="gda-title">SIDELINE PERFORMANCE</span>
+            <span class="gda-subtitle">Live sideline reps every Friday</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body">
+          <div class="gda-body-inner">
+            <p class="gda-desc">Squads cheer live on the sideline while football runs 7 on 7 scrimmages. Full in-game performance experience from Week 1.</p>
+            <p class="gda-detail"><strong>Sideline cheers</strong> in real crowd conditions</p>
+            <p class="gda-detail"><strong>Motion and jump technique</strong> under pressure</p>
+            <p class="gda-detail"><strong>Energy and crowd engagement</strong></p>
+            <p class="gda-detail"><strong>Team synchronization</strong> at game speed</p>
+            <span class="gda-badge">Every Friday</span>
+          </div>
+        </div>
+      </div>
+      <div class="gda-card" id="chChampionship">
+        <button class="gda-trigger" onclick="toggleGDA('chChampionship')">
+          <div class="gda-trigger-left">
+            <span class="gda-title">CHAMPIONSHIP DAY</span>
+            <span class="gda-subtitle">Week 6 - Full routine showcase</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body">
+          <div class="gda-body-inner">
+            <p class="gda-desc">Six weeks of training comes together in a full 2.5 minute choreographed routine performed during Championship Day games.</p>
+            <p class="gda-detail"><strong>2.5 minute full routine</strong> with music</p>
+            <p class="gda-detail"><strong>Families, tailgate, and stadium atmosphere</strong></p>
+            <p class="gda-detail"><strong>Performance alongside</strong> Boost, Nitro, and Turbo football championships</p>
+            <span class="gda-badge">Week 6</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--smoke);padding:80px 0;">
+  <div class="container">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow">Beyond Summer</div>
+      <h2 class="section-title">MUMMERS<br><span class="accent">PARADE</span></h2>
+    </div>
+    <div class="anim anim-d2" style="background:var(--black);border-radius:16px;padding:48px;border:2px solid var(--yellow);margin-top:48px;position:relative;overflow:hidden;">
+      <div style="position:absolute;top:50%;right:-40px;transform:translateY(-50%);font-family:'Bebas Neue',sans-serif;font-size:160px;color:rgba(255,255,255,0.02);line-height:1;pointer-events:none;">OCT</div>
+      <div style="position:relative;z-index:1;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,4vw,48px);color:var(--yellow);letter-spacing:1px;margin-bottom:12px;">OCTOBER 31, 2026 | DOWNTOWN HAGERSTOWN</div>
+        <p style="color:rgba(255,255,255,0.8);font-size:18px;line-height:1.6;margin-bottom:8px;">Cheer squads perform down the parade route at the Alsatia Mummers Parade with 70,000+ spectators watching.</p>
+        <p style="color:rgba(255,255,255,0.5);font-size:15px;line-height:1.6;">Represent WCFCC with pride, keep your routine sharp, and stay connected with your camp family through October.</p>
+      </div>
+    </div>
+    <div class="anim anim-d3" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:32px;">
+      <div style="background:#fff;border-radius:16px;padding:32px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);margin-bottom:16px;letter-spacing:1px;">WHAT CHEERLEADERS DO</h3>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          <div style="display:flex;align-items:flex-start;gap:10px;"><span style="color:var(--black);background:var(--yellow);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;margin-top:2px;">&#10003;</span><span style="font-size:14px;color:var(--mid-gray);line-height:1.5;"><strong style="color:var(--black);">During Summer Camp:</strong> Help design and start building the WCFCC float</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><span style="color:var(--black);background:var(--yellow);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;margin-top:2px;">&#10003;</span><span style="font-size:14px;color:var(--mid-gray);line-height:1.5;"><strong style="color:var(--black);">Post Camp (3x/month):</strong> Keep choreography sharp and learn parade-route material</span></div>
+          <div style="display:flex;align-items:flex-start;gap:10px;"><span style="color:var(--black);background:var(--yellow);border-radius:50%;width:20px;height:20px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:11px;font-weight:800;margin-top:2px;">&#10003;</span><span style="font-size:14px;color:var(--mid-gray);line-height:1.5;"><strong style="color:var(--black);">Parade Day:</strong> Perform cheers and choreography down the parade route</span></div>
+        </div>
+      </div>
+      <div style="background:#fff;border-radius:16px;padding:32px;border:1px solid var(--border);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);margin-bottom:16px;letter-spacing:1px;">POST CAMP SCHEDULE</h3>
+        <div style="display:flex;flex-direction:column;gap:10px;">
+          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Frequency:</strong> 3x per month (Aug, Sep, Oct)</div>
+          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Duration:</strong> Approx. 2 hours</div>
+          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Location:</strong> TBA</div>
+          <div style="margin-top:8px;background:var(--yellow);border-radius:8px;padding:12px 16px;font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:800;letter-spacing:1px;color:var(--black);">ALL INCLUDED IN $280 REGISTRATION</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--black);padding:80px 0;">
+  <div class="container">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Safety First</div>
+      <h2 class="section-title" style="color:var(--white);">OUR<br><span class="accent">STANDARDS</span></h2>
+    </div>
+    <div class="anim anim-d2" style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px;">
+      <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);margin-bottom:10px;letter-spacing:1px;">Certified Cheer Staff</h3>
+        <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6;">All coaches are background checked and trained in youth cheer safety, proper progressions, and spotting technique.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);margin-bottom:10px;letter-spacing:1px;">Age Appropriate Progressions</h3>
+        <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6;">Skills are introduced in a safe sequence. Athletes master fundamentals before advancing to more complex choreography.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);margin-bottom:10px;letter-spacing:1px;">Inclusive Environment</h3>
+        <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6;">All experience levels are welcome. We meet every athlete where she is and build from there.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.08);">
+        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:20px;color:var(--yellow);margin-bottom:10px;letter-spacing:1px;">Confidence Over Perfection</h3>
+        <p style="color:rgba(255,255,255,0.55);font-size:14px;line-height:1.6;">We build confident, coachable performers. Technique matters, but so does the courage to perform in front of a crowd.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--smoke);padding:80px 0;overflow:hidden;">
+  <div class="container">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow">The Journey</div>
+      <h2 class="section-title">SIX WEEK<br><span class="accent">PROGRESSION</span></h2>
+    </div>
+    <div class="experience-carousel-wrapper" style="margin-top:48px;overflow-x:auto;">
+      <div style="display:flex;gap:20px;align-items:flex-start;min-width:max-content;padding-bottom:12px;">
+        <div style="background:#fff;border-radius:16px;padding:28px;border-left:4px solid var(--yellow);flex:0 0 280px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">1</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">FOUNDATIONS</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Cheer voice, motion placement, jump prep, first sideline cheers, and intro to choreography.</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:28px;flex:0 0 280px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">2</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">TECHNIQUE BUILD</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Jump technique, motion sharpness, and adding the first half of the Championship Day routine.</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:28px;flex:0 0 280px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">3</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">STAMINA &amp; ENERGY</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Conditioning for performance stamina, crowd engagement, and synchronized team execution.</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:28px;flex:0 0 280px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">4</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">FULL ROUTINE</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Complete 2.5 minute routine learned. Polish formations, transitions, and timing.</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:28px;flex:0 0 280px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">5</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">PERFORMANCE POLISH</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Performance-quality reps, sharpening showmanship, locking in sideline cheer rotation for Friday.</p>
+        </div>
+        <div style="background:#fff;border-radius:16px;padding:28px;flex:0 0 280px;border:2px solid var(--yellow);">
+          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">6</div>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">CHAMPIONSHIP DAY</h3>
+          <p style="font-size:13px;color:var(--mid-gray);line-height:1.6;">Perform the full 2.5 minute routine during the Championship Day games. Families, stadium energy, pure showcase.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta">
+  <div class="container">
+    <div class="final-cta-inner anim anim-d1">
+      <div class="section-eyebrow" style="justify-content:center;">Ready to Perform</div>
+      <h2>READY TO<br><span>TAKE THE SIDELINE?</span></h2>
+      <p>Join our cheer family and build confidence, skill, and team pride through six weeks of real performance experience.</p>
+      <div class="cta-buttons">
+        <a href="registration.html" class="btn-cta-main">Register for Cheer</a>
+        <a href="../index.html#programs" class="btn-cta-outline">View All Programs</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">WC<span>FCC</span></span>
+      <p>Building champions on and off the field since 2025. Washington County Football Combine Camp. Hagerstown, MD.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Programs</div>
+      <ul class="footer-links">
+        <li><a href="football.html">Football Combine Camp</a></li>
+        <li><a href="cheer.html">Sideline Cheer Camp</a></li>
+        <li><a href="schedules.html">Schedules</a></li>
+        <li><a href="registration.html">Register</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="forms.html">Forms</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></li>
+        <li><a href="tel:240-591-8453">Kahlil: 240-591-8453</a></li>
+        <li><a href="tel:301-332-3441">Des: 301-332-3441</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copyright">2026 Washington County Football Combine Camp. All rights reserved.</span>
+    <span class="footer-copy-mark">WCFCC &bull; HAGERSTOWN MD</span>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('navMobileMenu').classList.toggle('is-open');
+  document.getElementById('navHamburger').classList.toggle('is-open');
+}
+function toggleGDA(id) {
+  var card = document.getElementById(id);
+  var isOpen = card.classList.contains('is-open');
+  document.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
+  if (!isOpen) card.classList.add('is-open');
+}
+(function() {
+  var animEls = document.querySelectorAll('.anim');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  animEls.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
