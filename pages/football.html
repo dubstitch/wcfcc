@@ -1,4 +1,41 @@
-<!-- FOOTBALL PAGE HERO -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Combine Camp | WCFCC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+</head>
+<body>
+
+<nav>
+  <a href="../index.html" class="nav-logo">WC<span>FCC</span></a>
+  <ul class="nav-links">
+    <li><a href="football.html">Football</a></li>
+    <li><a href="cheer.html">Cheer</a></li>
+    <li><a href="schedules.html">Schedules</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <a href="registration.html" class="nav-cta nav-cta-desktop">Register Now</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<div class="nav-mobile-menu" id="navMobileMenu">
+  <a href="football.html">Football</a>
+  <a href="cheer.html">Cheer</a>
+  <a href="schedules.html">Schedules</a>
+  <a href="coaches.html">Coaches</a>
+  <a href="faq.html">FAQ</a>
+  <a href="contact.html">Contact</a>
+  <a href="registration.html" class="cta" onclick="toggleMobileMenu()">Register Now</a>
+</div>
 
 <section class="hero" style="min-height:auto;padding-bottom:60px;">
   <div class="hero-bg-text">FOOTBALL</div>
@@ -21,8 +58,6 @@
   </div>
 </section>
 
-<!-- PHILOSOPHY -->
-
 <section class="experience" style="padding:80px 0;">
   <div class="container">
     <div class="anim anim-d1">
@@ -39,8 +74,6 @@
     </div>
   </div>
 </section>
-
-<!-- WHAT IS A COMBINE -->
 
 <section style="background:var(--black);padding:80px 0;position:relative;overflow:hidden;">
   <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,255,255,0.02);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">COMBINE</div>
@@ -75,8 +108,6 @@
     </div>
   </div>
 </section>
-
-<!-- GAME DAY FRIDAYS -->
 
 <section class="gameday-banner">
   <div class="gameday-inner">
@@ -128,8 +159,6 @@
   </div>
 </section>
 
-<!-- MUMMERS PARADE -->
-
 <section style="background:var(--smoke);padding:80px 0;">
   <div class="container">
     <div class="anim anim-d1">
@@ -166,8 +195,6 @@
   </div>
 </section>
 
-<!-- STANDARDS -->
-
 <section style="background:var(--black);padding:80px 0;">
   <div class="container">
     <div class="anim anim-d1">
@@ -194,8 +221,6 @@
     </div>
   </div>
 </section>
-
-<!-- AGE DIVISIONS -->
 
 <section class="experience" style="padding:80px 0;">
   <div class="container">
@@ -232,19 +257,17 @@
   </div>
 </section>
 
-<!-- SIX WEEK PROGRESSION -->
-
 <section style="background:var(--black);padding:80px 0;overflow:hidden;">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">The Journey</div>
       <h2 class="section-title" style="color:var(--white);">SIX WEEK<br><span class="accent">PROGRESSION</span></h2>
     </div>
-    <div class="experience-carousel-wrapper" style="margin-top:48px;">
-      <div style="display:flex;gap:20px;align-items:flex-start;">
+    <div class="experience-carousel-wrapper" style="margin-top:48px;overflow-x:auto;">
+      <div style="display:flex;gap:20px;align-items:flex-start;min-width:max-content;padding-bottom:12px;">
         <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid var(--yellow);flex:0 0 280px;">
           <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">1</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:1px;margin-bottom:12px;">FOUNDATION & EVALUATION</h3>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:1px;margin-bottom:12px;">FOUNDATION &amp; EVALUATION</h3>
           <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">Combine baseline testing, basic stance and positioning, proper tackling form, ball handling drills, understanding field positions.</p>
           <div style="margin-top:14px;background:var(--yellow);border-radius:6px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:var(--black);display:inline-block;">&#10003; Baseline metrics established</div>
         </div>
@@ -256,7 +279,7 @@
         </div>
         <div style="background:rgba(255,255,255,0.04);border-radius:16px;padding:28px;border:1px solid rgba(255,255,255,0.08);flex:0 0 280px;">
           <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:32px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:16px;">3</div>
-          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:1px;margin-bottom:12px;">CONDITIONING & COMPETITION</h3>
+          <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--white);letter-spacing:1px;margin-bottom:12px;">CONDITIONING &amp; COMPETITION</h3>
           <p style="font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;">Speed and agility work, running basic plays, communication on field, working as offensive and defensive units.</p>
           <div style="margin-top:14px;background:var(--yellow);border-radius:6px;padding:6px 12px;font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:1px;color:var(--black);display:inline-block;">&#10003; Teams functioning cohesively</div>
         </div>
@@ -283,8 +306,6 @@
   </div>
 </section>
 
-<!-- CTA -->
-
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-inner anim anim-d1">
@@ -292,9 +313,73 @@
       <h2>READY TO<br><span>HIT THE FIELD?</span></h2>
       <p>Join our football family and experience six weeks of elite training, real competition, and championship results.</p>
       <div class="cta-buttons">
-        <a href="#" class="btn-cta-main">Register for Football</a>
-        <a href="#" class="btn-cta-outline">View All Programs</a>
+        <a href="registration.html" class="btn-cta-main">Register for Football</a>
+        <a href="../index.html#programs" class="btn-cta-outline">View All Programs</a>
       </div>
     </div>
   </div>
 </section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="logo">WC<span>FCC</span></span>
+      <p>Building champions on and off the field since 2025. Washington County Football Combine Camp. Hagerstown, MD.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Programs</div>
+      <ul class="footer-links">
+        <li><a href="football.html">Football Combine Camp</a></li>
+        <li><a href="cheer.html">Sideline Cheer Camp</a></li>
+        <li><a href="schedules.html">Schedules</a></li>
+        <li><a href="registration.html">Register</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Info</div>
+      <ul class="footer-links">
+        <li><a href="coaches.html">Coaches</a></li>
+        <li><a href="forms.html">Forms</a></li>
+        <li><a href="faq.html">FAQ</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></li>
+        <li><a href="tel:240-591-8453">Kahlil: 240-591-8453</a></li>
+        <li><a href="tel:301-332-3441">Des: 301-332-3441</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copyright">2026 Washington County Football Combine Camp. All rights reserved.</span>
+    <span class="footer-copy-mark">WCFCC &bull; HAGERSTOWN MD</span>
+  </div>
+</footer>
+
+<script>
+function toggleMobileMenu() {
+  document.getElementById('navMobileMenu').classList.toggle('is-open');
+  document.getElementById('navHamburger').classList.toggle('is-open');
+}
+function toggleGDA(id) {
+  var card = document.getElementById(id);
+  var isOpen = card.classList.contains('is-open');
+  document.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
+  if (!isOpen) card.classList.add('is-open');
+}
+(function() {
+  var animEls = document.querySelectorAll('.anim');
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  animEls.forEach(function(el) { observer.observe(el); });
+})();
+</script>
+
+</body>
+</html>
