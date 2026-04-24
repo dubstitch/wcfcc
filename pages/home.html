@@ -1,299 +1,4 @@
-<!DOCTYPE html>
-
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WCFCC | Washington County Football Combine Camp</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --yellow: #E8FF00;
-    --yellow-warm: #FFE600;
-    --black: #0A0A0A;
-    --off-black: #111111;
-    --charcoal: #1A1A1A;
-    --dark-gray: #2A2A2A;
-    --mid-gray: #555;
-    --light-gray: #AAAAAA;
-    --smoke: #E8EBF0;
-    --white: #F2F4F7;
-    --border: rgba(0,0,0,0.1);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
-  .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-  .nav-hamburger span { display: block; width: 24px; height: 2px; background: var(--white); border-radius: 2px; transition: all 0.3s; }
-  .nav-hamburger.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .nav-hamburger.is-open span:nth-child(2) { opacity: 0; }
-  .nav-hamburger.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-  .nav-mobile-menu { display: none; position: fixed; top: 64px; left: 0; right: 0; background: var(--black); border-bottom: 2px solid var(--yellow); z-index: 99; padding: 24px 20px; flex-direction: column; gap: 4px; }
-  .nav-mobile-menu.is-open { display: flex; }
-  .nav-mobile-menu a { font-family: 'Barlow Condensed', sans-serif; font-size: 22px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.7); padding: 12px 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: color 0.15s; }
-  .nav-mobile-menu a:hover { color: var(--yellow); }
-  .nav-mobile-menu a.cta { margin-top: 12px; background: var(--yellow); color: var(--black); text-align: center; padding: 14px; border-radius: 8px; border-bottom: none; }
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; background: var(--black); border-bottom: 1px solid rgba(255,255,255,0.06); padding: 0 40px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
-  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 3px; color: var(--white); text-decoration: none; }
-  .nav-logo span { color: var(--yellow); background: rgba(232,255,0,0.12); padding: 2px 6px; border-radius: 4px; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  .nav-links a { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; color: rgba(255,255,255,0.5); transition: color 0.2s; }
-  .nav-links a:hover { color: var(--white); }
-  .nav-cta { background: var(--yellow); color: var(--black) !important; padding: 10px 20px; border-radius: 6px; font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; text-decoration: none; transition: background 0.2s, transform 0.15s; }
-  .nav-cta:hover { background: #d4f000; transform: translateY(-1px); }
-  .hero { background: var(--white); display: flex; flex-direction: column; justify-content: center; padding-top: 64px; padding-bottom: 0; position: relative; overflow: hidden; }
-  .hero-bg-text { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: 'Bebas Neue', sans-serif; font-size: clamp(120px, 22vw, 340px); color: rgba(0,0,0,0.03); letter-spacing: -5px; white-space: nowrap; pointer-events: none; user-select: none; line-height: 1; }
-  .hero-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--black); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 14px; }
-  .hero-badge .dot { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; animation: pulse-dot 2s infinite; }
-  @keyframes pulse-dot { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.5; transform: scale(0.7); } }
-  .hero-inner { position: relative; z-index: 2; max-width: 1300px; margin: 0 auto; padding: 20px 40px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
-  .hero-h1 { font-family: 'Bebas Neue', sans-serif; line-height: 0.9; margin-bottom: 16px; }
-  .hero-h1 .line-building { display: block; font-size: clamp(72px, 9vw, 130px); color: var(--black); letter-spacing: 1px; }
-  .hero-h1 .line-champions { display: block; font-size: clamp(80px, 11vw, 160px); color: #E8FF00; -webkit-text-stroke: 4px #0A0A0A; paint-order: stroke fill; letter-spacing: 1px; }
-  .hero-h1 .line-field { display: block; font-size: clamp(28px, 3.5vw, 52px); color: var(--mid-gray); letter-spacing: 4px; font-weight: 400; margin-top: 6px; }
-  .hero-sub { font-size: clamp(15px, 1.4vw, 18px); font-weight: 500; color: var(--mid-gray); line-height: 1.5; margin-bottom: 20px; max-width: 460px; }
-  .hero-actions { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; margin-bottom: 20px; }
-  .btn-primary { background: var(--black); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 13px 28px; border-radius: 8px; border: none; cursor: pointer; transition: transform 0.15s, box-shadow 0.15s; text-decoration: none; display: inline-block; }
-  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.2); }
-  .btn-secondary { background: #ffffff; color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 13px 24px; border-radius: 8px; border: 2px solid rgba(0,0,0,0.15); cursor: pointer; transition: all 0.15s; text-decoration: none; display: inline-block; }
-  .btn-secondary:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .hero-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 10px; overflow: hidden; max-width: 480px; margin-bottom: 0; }
-  .hero-stat { background: #ffffff; padding: 10px 16px; text-align: center; }
-  .hero-stat-val { font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--black); letter-spacing: 1px; line-height: 1; margin-bottom: 2px; }
-  .hero-stat-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: var(--light-gray); }
-  .hero-date-bar { background: var(--yellow); border-radius: 10px; padding: 12px 20px; display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px; }
-  .hero-date-bar .date-label { font-family: 'Barlow Condensed', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(0,0,0,0.5); margin-bottom: 2px; }
-  .hero-date-bar .date-val { font-family: 'Bebas Neue', sans-serif; font-size: 22px; letter-spacing: 2px; color: var(--black); line-height: 1; }
-  .hero-date-bar .arrow-wrap { width: 34px; height: 34px; background: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .hero-image-col { position: relative; }
-  .hero-img-frame { width: 100%; aspect-ratio: 4/5; background: var(--smoke); border-radius: 20px; overflow: hidden; position: relative; border: 2px solid var(--border); }
-  .hero-img-placeholder { width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; background: linear-gradient(145deg, #f0f0ec 0%, #e5e5df 100%); gap: 16px; }
-  .placeholder-icon { width: 80px; height: 80px; background: var(--black); border-radius: 50%; display: flex; align-items: center; justify-content: center; opacity: 0.15; }
-  .placeholder-icon svg { width: 36px; height: 36px; fill: white; }
-  .placeholder-text { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; letter-spacing: 2px; color: var(--light-gray); text-transform: uppercase; }
-  .hero-img-badge { position: absolute; bottom: -20px; left: -20px; background: var(--black); color: var(--yellow); padding: 20px 24px; border-radius: 14px; box-shadow: 0 12px 40px rgba(0,0,0,0.15); }
-  .hero-img-badge .badge-num { font-family: 'Bebas Neue', sans-serif; font-size: 42px; line-height: 1; letter-spacing: 1px; }
-  .hero-img-badge .badge-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: rgba(232,255,0,0.6); }
-  .hero-img-tag { position: absolute; top: 24px; right: -16px; background: var(--white); border: 1px solid var(--border); border-radius: 100px; padding: 10px 18px; display: flex; align-items: center; gap: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
-  .hero-img-tag .tag-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; animation: pulse-dot 2s infinite; }
-  .hero-img-tag span { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--black); }
-  .ticker-sentinel { height: 0; visibility: hidden; }
-  .ticker { background: var(--black); padding: 13px 0; overflow: hidden; border-top: 3px solid var(--yellow); border-bottom: 3px solid var(--yellow); position: relative; z-index: 90; transition: box-shadow 0.3s; }
-  .ticker.is-sticky { position: fixed; top: 64px; left: 0; right: 0; box-shadow: 0 4px 24px rgba(0,0,0,0.25); }
-  .ticker-track { display: flex; animation: ticker-scroll 40s linear infinite; white-space: nowrap; width: max-content; }
-  .ticker-track:hover { animation-play-state: paused; }
-  @keyframes ticker-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-  .ticker-item { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--white); padding: 0 24px; display: inline-flex; align-items: center; gap: 10px; }
-  .ticker-item.sponsor-item { color: rgba(255,255,255,0.55); font-size: 12px; letter-spacing: 1.5px; }
-  .ticker-item.sponsor-item:hover { color: var(--yellow); }
-  .ticker-item .sep { color: var(--yellow); font-size: 8px; opacity: 0.6; }
-  .ticker-item .sep-bright { color: var(--yellow); font-size: 14px; opacity: 1; }
-  .ticker-spacer { display: none; height: 46px; }
-  .ticker-spacer.active { display: block; }
-  section { padding: 96px 0; }
-  .container { max-width: 1300px; margin: 0 auto; padding: 0 40px; }
-  .section-eyebrow { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 12px; display: flex; align-items: center; gap: 12px; }
-  .section-eyebrow::before { content: ''; display: block; width: 24px; height: 2px; background: var(--yellow); flex-shrink: 0; }
-  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(48px, 6vw, 88px); line-height: 0.92; letter-spacing: 1px; color: var(--black); margin-bottom: 16px; }
-  .section-title .accent { color: var(--yellow); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
-  .section-subtitle { font-size: 18px; color: var(--mid-gray); max-width: 560px; line-height: 1.6; }
-  .programs { background: var(--black); }
-  .programs-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 60px; flex-wrap: wrap; gap: 24px; }
-  .programs-header .section-eyebrow { color: rgba(255,255,255,0.4); }
-  .programs-header .section-eyebrow::before { background: var(--yellow); }
-  .programs-header .section-title { color: var(--white); }
-  .programs-header .section-subtitle { color: rgba(255,255,255,0.5); }
-  .programs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
-  .program-card { border-radius: 20px; overflow: hidden; position: relative; cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; }
-  .program-card:hover { transform: translateY(-6px); box-shadow: 0 30px 80px rgba(0,0,0,0.12); }
-  .program-card.football { background: var(--black); border: 2px solid var(--dark-gray); }
-  .program-card.cheer { background: var(--yellow); border: 2px solid rgba(0,0,0,0.05); }
-  .program-card-inner { padding: 48px 40px; }
-  .program-tag { display: inline-block; font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 24px; }
-  .football .program-tag { background: rgba(232,255,0,0.1); color: var(--yellow); border: 1px solid rgba(232,255,0,0.2); }
-  .cheer .program-tag { background: rgba(0,0,0,0.08); color: var(--black); border: 1px solid rgba(0,0,0,0.1); }
-  .program-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(38px, 4vw, 56px); line-height: 0.9; letter-spacing: 1px; margin-bottom: 20px; }
-  .football .program-title { color: var(--white); }
-  .cheer .program-title { color: var(--black); }
-  .program-desc { font-size: 15px; line-height: 1.6; margin-bottom: 32px; }
-  .football .program-desc { color: rgba(255,255,255,0.6); }
-  .cheer .program-desc { color: rgba(0,0,0,0.6); }
-  .program-features { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-bottom: 40px; }
-  .program-features li { display: flex; align-items: center; gap: 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; }
-  .football .program-features li { color: rgba(255,255,255,0.85); }
-  .cheer .program-features li { color: rgba(0,0,0,0.75); }
-  .check-icon { width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-  .football .check-icon { background: var(--yellow); }
-  .cheer .check-icon { background: var(--black); }
-  .check-icon svg { width: 10px; height: 10px; }
-  .football .check-icon svg { fill: var(--black); }
-  .cheer .check-icon svg { fill: var(--yellow); }
-  .program-cta { display: inline-flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; text-decoration: none; padding: 14px 26px; border-radius: 8px; transition: all 0.15s; cursor: pointer; border: none; }
-  .football .program-cta { background: var(--yellow); color: var(--black); }
-  .football .program-cta:hover { background: #d4f000; transform: translateX(4px); }
-  .cheer .program-cta { background: var(--black); color: var(--yellow); }
-  .cheer .program-cta:hover { background: var(--charcoal); transform: translateX(4px); }
-  .program-meta { position: absolute; top: 32px; right: 32px; text-align: right; }
-  .program-ages { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1; letter-spacing: 1px; }
-  .football .program-ages { color: rgba(255,255,255,0.06); }
-  .cheer .program-ages { color: rgba(0,0,0,0.06); }
-  .experience { background: var(--smoke); overflow: hidden; }
-  .experience-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 48px; flex-wrap: wrap; gap: 24px; }
-  .carousel-controls { display: flex; align-items: center; gap: 12px; flex-shrink: 0; margin-top: 32px; justify-content: center; }
-  .carousel-btn { width: 44px; height: 44px; border-radius: 50%; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.15s; flex-shrink: 0; }
-  .carousel-btn.prev { background: var(--white); color: var(--black); border: 1px solid var(--border); }
-  .carousel-btn.prev:hover { background: var(--black); color: var(--white); border-color: var(--black); }
-  .carousel-btn.next { background: var(--black); color: var(--yellow); }
-  .carousel-btn.next:hover { background: var(--charcoal); transform: scale(1.05); }
-  .carousel-btn svg { width: 18px; height: 18px; }
-  .carousel-dots { display: flex; gap: 6px; align-items: center; }
-  .carousel-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--light-gray); transition: all 0.2s; cursor: pointer; border: none; padding: 0; }
-  .carousel-dot.active { background: var(--black); width: 20px; border-radius: 3px; }
-  .experience-carousel-wrapper { overflow: hidden; margin: 0 -40px; padding: 0 40px; }
-  .experience-carousel { display: flex; gap: 20px; transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94); will-change: transform; cursor: grab; }
-  .experience-carousel:active { cursor: grabbing; }
-  .exp-card { background: #ffffff; border-radius: 16px; padding: 40px 32px; flex: 0 0 calc(33.333% - 14px); min-width: 0; border: 1px solid var(--border); transition: transform 0.25s, box-shadow 0.25s; position: relative; overflow: hidden; }
-  .exp-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
-  .exp-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
-  .exp-card:hover::before { transform: scaleX(1); }
-  .exp-icon { width: 48px; height: 48px; background: var(--yellow); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 20px; flex-shrink: 0; }
-  .exp-icon svg { width: 24px; height: 24px; fill: var(--black); }
-  .exp-title { font-family: 'Bebas Neue', sans-serif; font-size: 28px; letter-spacing: 1px; color: var(--black); line-height: 1; margin-bottom: 12px; }
-  .exp-desc { font-size: 14px; color: var(--mid-gray); line-height: 1.6; }
-  @media (max-width: 1024px) { .exp-card { flex: 0 0 calc(50% - 10px); } }
-  @media (max-width: 768px) { .experience-carousel-wrapper { margin: 0 -20px; padding: 0 20px; } .exp-card { flex: 0 0 calc(85vw); } }
-  .gameday-banner { background: var(--black); padding: 80px 0; position: relative; overflow: hidden; }
-  .gameday-banner::before { content: 'GAME DAY'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Bebas Neue', sans-serif; font-size: 240px; color: rgba(255,255,255,0.02); letter-spacing: -5px; white-space: nowrap; pointer-events: none; line-height: 1; }
-  .gameday-inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; position: relative; z-index: 2; }
-  .gameday-left .section-eyebrow { color: rgba(255,255,255,0.4); }
-  .gameday-left .section-eyebrow::before { background: var(--yellow); }
-  .gameday-left .section-title { color: var(--white); }
-  .gameday-left .gameday-intro { color: rgba(255,255,255,0.6); font-size: 16px; line-height: 1.7; margin-top: 20px; }
-  .gameday-accordion { display: flex; flex-direction: column; gap: 16px; }
-  .gda-card { border-radius: 14px; overflow: hidden; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); transition: border-color 0.2s; }
-  .gda-card.is-open { border-color: var(--yellow); background: rgba(255,255,255,0.06); }
-  .gda-trigger { width: 100%; background: transparent; border: none; padding: 22px 24px; display: flex; align-items: center; justify-content: space-between; cursor: pointer; gap: 16px; text-align: left; }
-  .gda-trigger-left { display: flex; flex-direction: column; gap: 4px; }
-  .gda-title { font-family: 'Bebas Neue', sans-serif; font-size: 26px; letter-spacing: 1px; color: var(--white); line-height: 1; transition: color 0.2s; }
-  .gda-card.is-open .gda-title { color: var(--yellow); }
-  .gda-subtitle { font-family: 'Barlow Condensed', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: 1px; color: rgba(255,255,255,0.4); text-transform: uppercase; }
-  .gda-chevron { width: 36px; height: 36px; background: var(--yellow); border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: transform 0.3s; }
-  .gda-card.is-open .gda-chevron { transform: rotate(180deg); }
-  .gda-chevron svg { width: 16px; height: 16px; fill: none; stroke: var(--black); stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
-  .gda-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, opacity 0.3s ease; opacity: 0; }
-  .gda-card.is-open .gda-body { max-height: 500px; opacity: 1; }
-  .gda-body-inner { padding: 0 24px 24px; }
-  .gda-desc { font-size: 14px; color: rgba(255,255,255,0.65); line-height: 1.7; margin-bottom: 16px; }
-  .gda-detail { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; margin-bottom: 8px; }
-  .gda-detail strong { color: rgba(255,255,255,0.85); }
-  .gda-highlight { font-size: 13px; font-weight: 700; color: var(--white); margin: 12px 0 16px; }
-  .gda-badge { display: inline-block; background: var(--yellow); color: var(--black); font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase; padding: 5px 14px; border-radius: 100px; }
-  .testimonials { background: var(--smoke); overflow: hidden; }
-  .testimonials-header { margin-bottom: 48px; }
-  .testimonial-card { background: #ffffff; border-radius: 16px; padding: 40px 32px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-  .testimonial-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: var(--yellow); transform: scaleX(0); transition: transform 0.3s; transform-origin: left; }
-  .testimonial-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
-  .testimonial-card:hover::before { transform: scaleX(1); }
-  .quote-mark { font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 0.7; margin-bottom: 16px; display: block; color: var(--yellow); }
-  .testimonial-text { font-size: 14px; line-height: 1.65; margin-bottom: 20px; font-style: italic; color: var(--mid-gray); }
-  .testimonial-author { display: flex; align-items: center; gap: 12px; border-top: 1px solid var(--border); padding-top: 16px; }
-  .author-avatar { width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; flex-shrink: 0; background: var(--black); color: var(--yellow); }
-  .author-name { font-family: 'Barlow Condensed', sans-serif; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; color: var(--black); }
-  .author-role { font-size: 12px; color: var(--light-gray); }
-  .final-cta { background: var(--yellow); padding: 120px 0; text-align: center; position: relative; overflow: hidden; }
-  .final-cta::before { content: 'WCFCC'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); font-family: 'Bebas Neue', sans-serif; font-size: 280px; color: rgba(0,0,0,0.05); letter-spacing: -8px; pointer-events: none; line-height: 1; white-space: nowrap; }
-  .final-cta-inner { position: relative; z-index: 2; }
-  .final-cta .section-eyebrow { justify-content: center; color: rgba(0,0,0,0.45); margin-bottom: 20px; }
-  .final-cta .section-eyebrow::before { background: var(--black); }
-  .final-cta h2 { font-family: 'Bebas Neue', sans-serif; font-size: clamp(60px, 9vw, 120px); line-height: 0.9; color: var(--black); letter-spacing: 1px; margin-bottom: 24px; }
-  .final-cta h2 span { color: var(--black); }
-  .final-cta p { font-size: 18px; color: rgba(0,0,0,0.6); max-width: 480px; margin: 0 auto 48px; line-height: 1.6; }
-  .cta-buttons { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
-  .btn-cta-main { background: var(--black); color: var(--yellow); font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 18px 40px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.15s; text-decoration: none; }
-  .btn-cta-main:hover { background: var(--charcoal); transform: translateY(-2px); box-shadow: 0 10px 40px rgba(0,0,0,0.2); }
-  .btn-cta-outline { background: transparent; color: rgba(0,0,0,0.7); font-family: 'Barlow Condensed', sans-serif; font-size: 16px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 18px 36px; border-radius: 8px; border: 2px solid rgba(0,0,0,0.25); cursor: pointer; transition: all 0.15s; text-decoration: none; }
-  .btn-cta-outline:hover { border-color: var(--black); color: var(--black); }
-  footer { background: var(--off-black); padding: 60px 0 40px; border-top: 1px solid rgba(255,255,255,0.06); }
-  .footer-inner { max-width: 1300px; margin: 0 auto; padding: 0 40px; display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
-  .footer-brand .logo { font-family: 'Bebas Neue', sans-serif; font-size: 32px; letter-spacing: 3px; color: var(--white); margin-bottom: 16px; display: block; }
-  .footer-brand .logo span { color: var(--yellow); background: rgba(232,255,0,0.1); padding: 2px 6px; border-radius: 4px; }
-  .footer-brand p { font-size: 14px; color: rgba(255,255,255,0.35); line-height: 1.7; max-width: 260px; }
-  .footer-col-title { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; color: rgba(255,255,255,0.3); margin-bottom: 20px; }
-  .footer-links { list-style: none; display: flex; flex-direction: column; gap: 12px; }
-  .footer-links a { font-size: 14px; color: rgba(255,255,255,0.5); text-decoration: none; transition: color 0.15s; }
-  .footer-links a:hover { color: var(--white); }
-  .footer-bottom { max-width: 1300px; margin: 0 auto; padding: 24px 40px 0; border-top: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: space-between; }
-  .footer-copyright { font-size: 13px; color: rgba(255,255,255,0.25); }
-  .footer-copy-mark { font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 2px; color: rgba(255,255,255,0.15); }
-  @media (max-width: 1024px) {
-    .hero-inner { grid-template-columns: 1fr; gap: 0; padding: 16px 32px 20px; }
-    .hero-image-col { display: none; }
-    .hero-h1 .line-building { font-size: clamp(64px, 12vw, 100px); }
-    .hero-h1 .line-champions { font-size: clamp(72px, 14vw, 130px); }
-    .programs-grid { grid-template-columns: 1fr; }
-    .gameday-inner { grid-template-columns: 1fr; gap: 48px; }
-    .footer-inner { grid-template-columns: 1fr 1fr; gap: 40px; }
-  }
-  @media (max-width: 768px) {
-    nav { padding: 0 20px; }
-    .nav-links { display: none; }
-    .nav-hamburger { display: flex; }
-    .nav-cta-desktop { display: none; }
-    .container { padding: 0 20px; }
-    section { padding: 64px 0; }
-    .hero-inner { padding: 28px 20px 16px; grid-template-columns: 1fr; gap: 0; }
-    .hero-image-col { display: none; }
-    .programs-header { flex-direction: column; align-items: flex-start; }
-    .program-card-inner { padding: 32px 24px; }
-    .footer-inner { grid-template-columns: 1fr; gap: 32px; padding: 0 20px; }
-    .footer-bottom { flex-direction: column; gap: 12px; text-align: center; padding: 20px 20px 0; }
-    .final-cta { padding: 80px 20px; }
-  }
-  @keyframes fade-up { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
-  .fade-up { animation: fade-up 0.7s ease forwards; }
-  .delay-1 { animation-delay: 0.1s; opacity: 0; }
-  .delay-2 { animation-delay: 0.2s; opacity: 0; }
-  .delay-3 { animation-delay: 0.35s; opacity: 0; }
-  .delay-4 { animation-delay: 0.5s; opacity: 0; }
-  .delay-5 { animation-delay: 0.65s; opacity: 0; }
-</style>
-</head>
-<body>
-
-<nav>
-  <a href="#" class="nav-logo">WC<span>FCC</span></a>
-  <ul class="nav-links">
-    <li><a href="#">Football</a></li>
-    <li><a href="#">Cheer</a></li>
-    <li><a href="#">Schedules</a></li>
-    <li><a href="#">Coaches</a></li>
-    <li><a href="#">FAQ</a></li>
-    <li><a href="#">Contact</a></li>
-  </ul>
-  <div style="display:flex;align-items:center;gap:16px;">
-    <a href="#register" class="nav-cta nav-cta-desktop">Register Now</a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</nav>
-
-<div class="nav-mobile-menu" id="navMobileMenu">
-  <a href="#">Football</a>
-  <a href="#">Cheer</a>
-  <a href="#">Schedules</a>
-  <a href="#">Coaches</a>
-  <a href="#">FAQ</a>
-  <a href="#">Contact</a>
-  <a href="#register" class="cta" onclick="toggleMobileMenu()">Register Now</a>
-</div>
-
-<script>
-  function toggleMobileMenu() {
-    document.getElementById('navMobileMenu').classList.toggle('is-open');
-    document.getElementById('navHamburger').classList.toggle('is-open');
-  }
-</script>
+<!-- HERO -->
 
 <section class="hero">
   <div class="hero-bg-text">WCFCC</div>
@@ -308,7 +13,7 @@
       <p class="hero-sub fade-up delay-3">Hagerstown, MD's premier youth football and cheer combine camp. Six weeks of elite training, real competition, and championship results.</p>
       <div class="hero-actions fade-up delay-4">
         <a href="#register" class="btn-primary">Secure Your Spot</a>
-        <a href="#programs" class="btn-secondary">Explore Programs</a>
+        <a href="javascript:void(0)" onclick="document.getElementById('programs').scrollIntoView({behavior:'smooth'})" class="btn-secondary">Explore Programs</a>
       </div>
       <div class="hero-date-bar fade-up delay-5">
         <div>
@@ -337,6 +42,8 @@
     </div>
   </div>
 </section>
+
+<!-- TICKER -->
 
 <div class="ticker-sentinel" id="tickerSentinel"></div>
 <div class="ticker-spacer" id="tickerSpacer"></div>
@@ -380,32 +87,19 @@
     <span class="ticker-item sponsor-item">Sponsor 6 <span class="sep">&#9670;</span></span>
   </div>
 </div>
-<script>
-  (function() {
-    var sentinel = document.getElementById('tickerSentinel');
-    var ticker = document.getElementById('stickyTicker');
-    var spacer = document.getElementById('tickerSpacer');
-    var navHeight = 64;
-    function updateSticky() {
-      var top = sentinel.getBoundingClientRect().top;
-      if (top <= navHeight) { ticker.classList.add('is-sticky'); spacer.classList.add('active'); }
-      else { ticker.classList.remove('is-sticky'); spacer.classList.remove('active'); }
-    }
-    window.addEventListener('scroll', updateSticky, { passive: true });
-    updateSticky();
-  })();
-</script>
+
+<!-- PROGRAMS -->
 
 <section class="programs" id="programs">
   <div class="container">
     <div class="programs-header">
       <div>
-        <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Programs</div>
-        <h2 class="section-title" style="color:var(--white);">CHOOSE YOUR<br><span class="accent">PATH</span></h2>
+        <div class="section-eyebrow anim anim-d1" style="color:rgba(255,255,255,0.4);">Programs</div>
+        <h2 class="section-title anim anim-d2" style="color:var(--white);">CHOOSE YOUR<br><span class="accent">PATH</span></h2>
       </div>
-      <p class="section-subtitle" style="color:rgba(255,255,255,0.5);">Two elite programs. One championship experience. Built for kids who are serious about getting better.</p>
+      <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.5);">Two elite programs. One championship experience. Built for kids who are serious about getting better.</p>
     </div>
-    <div class="programs-grid">
+    <div class="programs-grid anim anim-d4">
       <div class="program-card football">
         <div class="program-meta"><div class="program-ages">9&ndash;17</div></div>
         <div class="program-card-inner">
@@ -442,13 +136,15 @@
   </div>
 </section>
 
+<!-- EXPERIENCE -->
+
 <section class="experience">
   <div class="container">
     <div class="experience-header">
       <div>
-        <div class="section-eyebrow">Core Values</div>
-        <h2 class="section-title">WHAT MAKES US<br><span class="accent">DIFFERENT</span></h2>
-        <p class="section-subtitle" style="margin-top:16px;">We don't just train athletes. We build character, community, and confidence through every rep, every Friday, and every season.</p>
+        <div class="section-eyebrow anim anim-d1">Core Values</div>
+        <h2 class="section-title anim anim-d2">WHAT MAKES US<br><span class="accent">DIFFERENT</span></h2>
+        <p class="section-subtitle anim anim-d3" style="margin-top:16px;">We don't just train athletes. We build character, community, and confidence through every rep, every Friday, and every season.</p>
       </div>
     </div>
     <div class="experience-carousel-wrapper">
@@ -470,54 +166,16 @@
   </div>
 </section>
 
-<script>
-(function() {
-  var carousel = document.getElementById('expCarousel');
-  var prevBtn = document.getElementById('expPrev');
-  var nextBtn = document.getElementById('expNext');
-  var dotsContainer = document.getElementById('expDots');
-  var cards = carousel.querySelectorAll('.exp-card');
-  var current = 0;
-  var autoTimer;
-  function getVisible() { var w = window.innerWidth; if (w <= 768) return 1; if (w <= 1024) return 2; return 3; }
-  function totalSlides() { return cards.length - getVisible() + 1; }
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    for (var i = 0; i < totalSlides(); i++) {
-      var dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === current ? ' active' : '');
-      (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
-      dotsContainer.appendChild(dot);
-    }
-  }
-  function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) { d.classList.toggle('active', i === current); }); }
-  function getCardWidth() { return cards[0].offsetWidth + 20; }
-  function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)'; updateDots(); }
-  function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
-  function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
-  function startAuto() { autoTimer = setInterval(next, 3500); }
-  function stopAuto() { clearInterval(autoTimer); }
-  nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
-  prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
-  carousel.addEventListener('mouseenter', stopAuto);
-  carousel.addEventListener('mouseleave', startAuto);
-  var touchStartX = 0;
-  carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
-  carousel.addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); } startAuto(); });
-  window.addEventListener('resize', function() { buildDots(); goTo(0); });
-  buildDots();
-  startAuto();
-})();
-</script>
+<!-- GAME DAY -->
 
 <section class="gameday-banner">
   <div class="gameday-inner">
-    <div class="gameday-left">
+    <div class="gameday-left anim anim-d1">
       <div class="section-eyebrow">Built Different</div>
       <h2 class="section-title" style="color:white;">THE FULL<br><span style="color:var(--yellow);-webkit-text-stroke:3px rgba(255,255,255,0.4);paint-order:stroke fill;">SEASON</span></h2>
       <p class="gameday-intro">Every Friday, camp moves to our turf stadium for the most exciting day of the week. Live game reps, real performances, and full energy from week one all the way to Championship Day.</p>
     </div>
-    <div class="gameday-accordion">
+    <div class="gameday-accordion anim anim-d2">
       <div class="gda-card is-open" id="gdaFridays">
         <button class="gda-trigger" onclick="toggleGDA('gdaFridays')">
           <div class="gda-trigger-left">
@@ -558,18 +216,11 @@
   </div>
 </section>
 
-<script>
-  function toggleGDA(id) {
-    var card = document.getElementById(id);
-    var isOpen = card.classList.contains('is-open');
-    document.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
-    if (!isOpen) card.classList.add('is-open');
-  }
-</script>
+<!-- TESTIMONIALS -->
 
-<section class="testimonials">
+<section class="testimonials" id="testimonials">
   <div class="container">
-    <div class="testimonials-header">
+    <div class="testimonials-header anim anim-d1">
       <div>
         <div class="section-eyebrow">Parent Reviews</div>
         <h2 class="section-title">WHAT FAMILIES<br><span class="accent">ARE SAYING</span></h2>
@@ -577,27 +228,27 @@
     </div>
     <div class="experience-carousel-wrapper">
       <div class="experience-carousel" id="testCarousel">
-        <div class="testimonial-card" style="flex:0 0 calc(33.333% - 14px);min-width:280px;">
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">WCFCC has been a game changer for my son. The coaching staff genuinely cares about every single kid and it shows every Friday on that field. His confidence has completely transformed.</p>
           <div class="testimonial-author"><div class="author-avatar">TW</div><div><div class="author-name">Tasha Williams</div><div class="author-role">Football Parent</div></div></div>
         </div>
-        <div class="testimonial-card" style="flex:0 0 calc(33.333% - 14px);min-width:280px;">
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">My daughter joined with zero experience and now she's thriving. The cheer coaches met her exactly where she was.</p>
           <div class="testimonial-author"><div class="author-avatar">MR</div><div><div class="author-name">Marcus Reed</div><div class="author-role">Cheer Parent</div></div></div>
         </div>
-        <div class="testimonial-card" style="flex:0 0 calc(33.333% - 14px);min-width:280px;">
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">The organization and commitment from WCFCC is outstanding. My son looks forward to camp every single week.</p>
           <div class="testimonial-author"><div class="author-avatar">LC</div><div><div class="author-name">Lisa Chen</div><div class="author-role">Football Parent</div></div></div>
         </div>
-        <div class="testimonial-card" style="flex:0 0 calc(33.333% - 14px);min-width:280px;">
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">Game Day Fridays are incredible. Watching my daughter perform with so much pride every week never gets old.</p>
           <div class="testimonial-author"><div class="author-avatar">NH</div><div><div class="author-name">Nicole Harris</div><div class="author-role">Cheer Parent</div></div></div>
         </div>
-        <div class="testimonial-card" style="flex:0 0 calc(33.333% - 14px);min-width:280px;">
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">The all inclusive fee is such a relief. Everything is covered. Coach Kahlil's dedication to these kids is remarkable.</p>
           <div class="testimonial-author"><div class="author-avatar">KM</div><div><div class="author-name">Kevin Martinez</div><div class="author-role">Football Parent</div></div></div>
@@ -612,57 +263,11 @@
   </div>
 </section>
 
-<script>
-(function() {
-  var carousel = document.getElementById('testCarousel');
-  var prevBtn = document.getElementById('testPrev');
-  var nextBtn = document.getElementById('testNext');
-  var dotsContainer = document.getElementById('testDots');
-  var cards = carousel.querySelectorAll('.testimonial-card');
-  var current = 0;
-  var autoTimer;
-  function getVisible() { var w = window.innerWidth; if (w <= 768) return 1; if (w <= 1024) return 2; return 3; }
-  function totalSlides() { return cards.length - getVisible() + 1; }
-  function buildDots() {
-    dotsContainer.innerHTML = '';
-    for (var i = 0; i < totalSlides(); i++) {
-      var dot = document.createElement('button');
-      dot.className = 'carousel-dot' + (i === current ? ' active' : '');
-      (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
-      dotsContainer.appendChild(dot);
-    }
-  }
-  function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) { d.classList.toggle('active', i === current); }); }
-  function getCardWidth() { return cards[0].offsetWidth + 20; }
-  function setCardSizes() {
-    var w = window.innerWidth;
-    var vis = getVisible();
-    var containerW = carousel.parentElement.offsetWidth;
-    var cardW = Math.floor((containerW - (20 * (vis - 1))) / vis);
-    Array.from(cards).forEach(function(c) { c.style.flex = '0 0 ' + cardW + 'px'; c.style.minWidth = cardW + 'px'; });
-  }
-  function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)'; updateDots(); }
-  function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
-  function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
-  function startAuto() { autoTimer = setInterval(next, 4000); }
-  function stopAuto() { clearInterval(autoTimer); }
-  nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
-  prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
-  carousel.addEventListener('mouseenter', stopAuto);
-  carousel.addEventListener('mouseleave', startAuto);
-  var touchStartX = 0;
-  carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
-  carousel.addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); } startAuto(); });
-  window.addEventListener('resize', function() { setCardSizes(); buildDots(); goTo(0); });
-  setCardSizes();
-  buildDots();
-  startAuto();
-})();
-</script>
+<!-- FINAL CTA -->
 
 <section class="final-cta">
   <div class="container">
-    <div class="final-cta-inner">
+    <div class="final-cta-inner anim anim-d1">
       <div class="section-eyebrow" style="justify-content:center;">Ready to Start</div>
       <h2>READY TO<br><span>GET STARTED?</span></h2>
       <p>Join WCFCC and become part of a legacy of champions. Registration is open now for Summer 2026.</p>
@@ -673,45 +278,3 @@
     </div>
   </div>
 </section>
-
-<footer>
-  <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo">WC<span>FCC</span></span>
-      <p>Building champions on and off the field since 2025. Washington County Football Combine Camp. Hagerstown, MD.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Programs</div>
-      <ul class="footer-links">
-        <li><a href="#">Football Combine Camp</a></li>
-        <li><a href="#">Sideline Cheer Camp</a></li>
-        <li><a href="#">Schedules</a></li>
-        <li><a href="#">Register</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Info</div>
-      <ul class="footer-links">
-        <li><a href="#">Coaches</a></li>
-        <li><a href="#">Forms</a></li>
-        <li><a href="#">FAQ</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></li>
-        <li><a href="tel:240-591-8453">Kahlil: 240-591-8453</a></li>
-        <li><a href="tel:301-332-3441">Des: 301-332-3441</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <span class="footer-copyright">2026 Washington County Football Combine Camp. All rights reserved.</span>
-    <span class="footer-copy-mark">WCFCC &bull; HAGERSTOWN MD</span>
-  </div>
-</footer>
-
-</body>
-</html>
