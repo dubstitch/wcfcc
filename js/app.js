@@ -1,315 +1,146 @@
-// Page Loading Function
-async function loadPage(pageName) {
-    const contentArea = document.getElementById('content-area');
-    
-    try {
-        const response = await fetch(`pages/${pageName}.html`);
-        
-        if (!response.ok) {
-            throw new Error('Page not found');
-        }
-        
-        const html = await response.text();
-        contentArea.innerHTML = html;
-        
-        // Scroll to top
-        window.scrollTo(0, 0);
-        
-        // Update URL hash
-        window.location.hash = pageName;
-        
-        // Initialize page-specific scripts
-        initPageScripts();
-        
-    } catch (error) {
-        contentArea.innerHTML = `
-            <div class="container mx-auto px-4 py-20 text-center">
-                <h1 class="font-athletic text-4xl mb-4">Page Not Found</h1>
-                <p class="text-silver mb-8">The page you're looking for doesn't exist.</p>
-                <button onclick="loadPage('home')" class="bg-neon-yellow text-black px-8 py-3 rounded-lg font-semibold hover:opacity-90 transition">
-                    Go Home
-                </button>
-            </div>
-        `;
-    }
+// ============ MOBILE MENU ============
+function toggleMobileMenu() {
+document.getElementById(‘navMobileMenu’).classList.toggle(‘is-open’);
+document.getElementById(‘navHamburger’).classList.toggle(‘is-open’);
 }
 
-// Load page from URL hash
-function loadPageFromHash() {
-    const hash = window.location.hash.substring(1);
-    const page = hash || 'home';
-    loadPage(page);
-}
-
-// Initialize page-specific scripts
-function initPageScripts() {
-    // Define showScheduleTab globally for schedules page
-    window.showScheduleTab = function(tabId) {
-        const tabs = document.querySelectorAll('.schedule-tab-content');
-        const buttons = document.querySelectorAll('.schedule-tab-button');
-        
-        tabs.forEach(tab => {
-            tab.classList.add('hidden');
-        });
-        
-        buttons.forEach(btn => {
-            btn.classList.remove('border-neon-yellow', 'text-neon-yellow');
-            btn.classList.add('border-transparent', 'text-silver');
-        });
-        
-        document.getElementById(tabId).classList.remove('hidden');
-        event.target.classList.remove('border-transparent', 'text-silver');
-        event.target.classList.add('border-neon-yellow', 'text-neon-yellow');
-    };
-    
-    // Define toggleFAQ globally for FAQ page
-    window.toggleFAQ = function(button) {
-        const content = button.nextElementSibling;
-        const icon = button.querySelector('svg');
-        
-        if (content.style.maxHeight) {
-            content.style.maxHeight = null;
-            icon.style.transform = 'rotate(0deg)';
-        } else {
-            content.style.maxHeight = content.scrollHeight + 'px';
-            icon.style.transform = 'rotate(180deg)';
-        }
-    };
-}
-
-// Toggle Program Card Expansion (Mobile)
-window.toggleProgramCard = function(contentId) {
-    const content = document.getElementById(contentId);
-    const button = content.previousElementSibling;
-    const arrow = button.querySelector('.expand-arrow');
-    
-    if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
-        arrow.classList.remove('rotated');
-    } else {
-        content.classList.add('expanded');
-        arrow.classList.add('rotated');
-    }
-};
-
-// Toggle Experience Card Expansion (Mobile)
-window.toggleExperienceCard = function(contentId) {
-    const content = document.getElementById(contentId);
-    const button = content.previousElementSibling;
-    const arrow = button.querySelector('.expand-arrow');
-    
-    if (content.classList.contains('expanded')) {
-        content.classList.remove('expanded');
-        arrow.classList.remove('rotated');
-    } else {
-        content.classList.add('expanded');
-        arrow.classList.add('rotated');
-    }
-};
-
-// Values Carousel Navigation (Mobile)
-// WCFCC Difference Carousel Navigation (Mobile)
-let currentDifferenceIndex = 0;
-
-window.nextDifference = function() {
-    const track = document.getElementById('differenceTrack');
-    if (!track) return;
-    const slides = track.querySelectorAll('.difference-slide');
-    currentDifferenceIndex = (currentDifferenceIndex + 1) % slides.length;
-    track.style.transform = `translateX(-${currentDifferenceIndex * 100}%)`;
-};
-
-window.previousDifference = function() {
-    const track = document.getElementById('differenceTrack');
-    if (!track) return;
-    const slides = track.querySelectorAll('.difference-slide');
-    currentDifferenceIndex = (currentDifferenceIndex - 1 + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentDifferenceIndex * 100}%)`;
-};
-let currentValueIndex = 0;
-
-window.nextValue = function() {
-    const track = document.getElementById('valuesTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.value-slide');
-    currentValueIndex = (currentValueIndex + 1) % slides.length;
-    track.style.transform = `translateX(-${currentValueIndex * 100}%)`;
-};
-
-window.previousValue = function() {
-    const track = document.getElementById('valuesTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.value-slide');
-    currentValueIndex = (currentValueIndex - 1 + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentValueIndex * 100}%)`;
-};
-
-// Registration Carousel Navigation (Mobile)
-let currentRegistrationIndex = 0;
-
-window.nextRegistration = function() {
-    const track = document.getElementById('registrationTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.registration-slide');
-    currentRegistrationIndex = (currentRegistrationIndex + 1) % slides.length;
-    track.style.transform = `translateX(-${currentRegistrationIndex * 100}%)`;
-};
-
-window.previousRegistration = function() {
-    const track = document.getElementById('registrationTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.registration-slide');
-    currentRegistrationIndex = (currentRegistrationIndex - 1 + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentRegistrationIndex * 100}%)`;
-};
-
-// Testimonial Carousel Navigation
-let currentTestimonialIndex = 0;
-
-window.nextTestimonial = function() {
-    const track = document.getElementById('testimonialTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.testimonial-slide');
-    currentTestimonialIndex = (currentTestimonialIndex + 1) % slides.length;
-    track.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
-};
-
-window.previousTestimonial = function() {
-    const track = document.getElementById('testimonialTrack');
-    if (!track) return;
-    
-    const slides = track.querySelectorAll('.testimonial-slide');
-    currentTestimonialIndex = (currentTestimonialIndex - 1 + slides.length) % slides.length;
-    track.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
-};
-
-// Mobile nav helpers
-window.closeMobileMenu = function() {
-    var mobileMenu = document.getElementById('mobile-menu');
-    if (mobileMenu) mobileMenu.classList.add('hidden');
-};
-
-function attachMobileNavHandlers() {
-    var mobileBtn = document.getElementById('mobile-menu-button');
-    var mobileMenu = document.getElementById('mobile-menu');
-    if (mobileBtn && mobileMenu) {
-        // Remove previous listeners if any
-        mobileBtn.removeEventListener('click', mobileBtn._toggleHandler || (()=>{}));
-        var toggleHandler = function(e) {
-            e.stopPropagation();
-            mobileMenu.classList.toggle('hidden');
-        };
-        mobileBtn.addEventListener('click', toggleHandler);
-        mobileBtn._toggleHandler = toggleHandler;
-
-        mobileMenu.removeEventListener('click', mobileMenu._closeHandler || (()=>{}));
-        var closeHandler = function(e) {
-            if (e.target.tagName === 'BUTTON') {
-                closeMobileMenu();
-            }
-            e.stopPropagation();
-        };
-        mobileMenu.addEventListener('click', closeHandler);
-        mobileMenu._closeHandler = closeHandler;
-
-        // Click outside to close
-        document.removeEventListener('click', document._mobileMenuOutsideHandler || (()=>{}));
-        var outsideHandler = function(e) {
-            if (!mobileMenu.classList.contains('hidden')) {
-                if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target)) {
-                    closeMobileMenu();
-                }
-            }
-        };
-        document.addEventListener('click', outsideHandler);
-        document._mobileMenuOutsideHandler = outsideHandler;
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function() {
-    loadPageFromHash();
-    attachMobileNavHandlers();
-    // Restore desktop dropdown hover logic
-    document.querySelectorAll('.dropdown').forEach(dropdown => {
-        dropdown.addEventListener('mouseenter', function() {
-            var menu = this.querySelector('.dropdown-menu');
-            if (menu) menu.classList.remove('hidden');
-        });
-        dropdown.addEventListener('mouseleave', function() {
-            var menu = this.querySelector('.dropdown-menu');
-            if (menu) menu.classList.add('hidden');
-        });
-    });
+// ============ SCROLL ANIMATIONS ============
+function initAnimations() {
+var animEls = document.querySelectorAll(’.anim’);
+var observer = new IntersectionObserver(function(entries) {
+entries.forEach(function(entry) {
+if (entry.isIntersecting) entry.target.classList.add(‘visible’);
 });
+}, { threshold: 0.15 });
+animEls.forEach(function(el) { observer.observe(el); });
+}
 
-// Also re-attach handlers after every page load (SPA navigation)
-window.addEventListener('hashchange', attachMobileNavHandlers);
+// ============ TICKER INIT ============
+function initTicker() {
+var ticker = document.getElementById(‘stickyTicker’);
+var spacer = document.getElementById(‘tickerSpacer’);
+if (!ticker) return;
+var navH = 64;
+var tickerTop = null;
+function getTickerTop() {
+ticker.classList.remove(‘is-sticky’);
+spacer.classList.remove(‘active’);
+tickerTop = ticker.getBoundingClientRect().top + window.pageYOffset;
+}
+function onScroll() {
+if (tickerTop === null) getTickerTop();
+if (window.pageYOffset + navH >= tickerTop) {
+ticker.classList.add(‘is-sticky’);
+spacer.classList.add(‘active’);
+} else {
+ticker.classList.remove(‘is-sticky’);
+spacer.classList.remove(‘active’);
+}
+}
+window.removeEventListener(‘scroll’, window._tickerScroll);
+window._tickerScroll = onScroll;
+window.addEventListener(‘scroll’, onScroll, { passive: true });
+getTickerTop();
+onScroll();
+}
 
-// Handle browser back/forward buttons
-window.addEventListener('popstate', loadPageFromHash);
-
-// Nav overflow detector: if desktop nav items don't fit, switch to collapsed hamburger
+// ============ CAROUSELS INIT ============
+function initCarousels() {
+// Experience carousel
 (function() {
-    const nav = document.querySelector('nav');
-    if (!nav) return;
-
-    const checkNavOverflow = () => {
-        const container = nav.querySelector('.container');
-        const desktop = nav.querySelector('.desktop-nav');
-        const mobileBtn = document.getElementById('mobile-menu-button');
-        if (!container || !desktop || !mobileBtn) return;
-
-        const desktopStyle = window.getComputedStyle(desktop);
-        // If desktop nav is not rendered (e.g. small screens), clear collapse
-        if (desktopStyle.display === 'none') {
-            nav.classList.remove('collapsed-nav');
-            return;
-        }
-
-        const desktopRect = desktop.getBoundingClientRect();
-        const containerRect = container.getBoundingClientRect();
-        const buffer = 12; // small breathing room
-
-        // 1) Basic viewport overflow check
-        const overflowsViewport = desktopRect.right > (window.innerWidth - buffer) || desktopRect.left < buffer;
-
-        // 2) Scroll width vs client width (items overflow horizontally)
-        const scrollOverflow = desktop.scrollWidth > (desktop.clientWidth - buffer) || desktop.scrollWidth > (container.clientWidth - buffer);
-
-        // 3) Any direct child overflowing container bounds (covers edge cases with dropdowns/items)
-        let childOverflow = false;
-        Array.from(desktop.children).forEach(child => {
-            try {
-                const r = child.getBoundingClientRect();
-                if (r.right > (containerRect.right - buffer) || r.left < (containerRect.left + buffer)) {
-                    childOverflow = true;
-                }
-            } catch (e) {
-                // ignore measurement errors
-            }
-        });
-
-        // If any overflow detected, collapse to mobile nav
-        if (overflowsViewport || scrollOverflow || childOverflow) {
-            nav.classList.add('collapsed-nav');
-        } else {
-            nav.classList.remove('collapsed-nav');
-        }
-    };
-
-    // debounce helper
-    let t;
-    const debounced = () => { clearTimeout(t); t = setTimeout(checkNavOverflow, 120); };
-
-    window.addEventListener('resize', debounced);
-    window.addEventListener('orientationchange', debounced);
-    window.addEventListener('load', () => { setTimeout(checkNavOverflow, 150); });
-    // run shortly after script load to catch initial layout
-    setTimeout(checkNavOverflow, 60);
+var carousel = document.getElementById(‘expCarousel’);
+if (!carousel) return;
+var prevBtn = document.getElementById(‘expPrev’);
+var nextBtn = document.getElementById(‘expNext’);
+var dotsContainer = document.getElementById(‘expDots’);
+var cards = carousel.querySelectorAll(’.exp-card’);
+var current = 0;
+var autoTimer;
+function getVisible() { var w = window.innerWidth; if (w <= 768) return 1; if (w <= 1024) return 2; return 3; }
+function totalSlides() { return cards.length - getVisible() + 1; }
+function buildDots() {
+dotsContainer.innerHTML = ‘’;
+for (var i = 0; i < totalSlides(); i++) {
+var dot = document.createElement(‘button’);
+dot.className = ‘carousel-dot’ + (i === current ? ’ active’ : ‘’);
+(function(idx) { dot.addEventListener(‘click’, function() { goTo(idx); }); })(i);
+dotsContainer.appendChild(dot);
+}
+}
+function updateDots() { dotsContainer.querySelectorAll(’.carousel-dot’).forEach(function(d, i) { d.classList.toggle(‘active’, i === current); }); }
+function getCardWidth() { return cards[0].offsetWidth + 20; }
+function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = ‘translateX(-’ + (current * getCardWidth()) + ‘px)’; updateDots(); }
+function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
+function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
+function startAuto() { autoTimer = setInterval(next, 3500); }
+function stopAuto() { clearInterval(autoTimer); }
+nextBtn.addEventListener(‘click’, function() { stopAuto(); next(); startAuto(); });
+prevBtn.addEventListener(‘click’, function() { stopAuto(); prev(); startAuto(); });
+carousel.addEventListener(‘mouseenter’, stopAuto);
+carousel.addEventListener(‘mouseleave’, startAuto);
+var touchStartX = 0;
+carousel.addEventListener(‘touchstart’, function(e) { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+carousel.addEventListener(‘touchend’, function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); } startAuto(); });
+window.addEventListener(‘resize’, function() { buildDots(); goTo(0); });
+buildDots();
+startAuto();
 })();
 
+// Testimonials carousel
+(function() {
+var carousel = document.getElementById(‘testCarousel’);
+if (!carousel) return;
+var prevBtn = document.getElementById(‘testPrev’);
+var nextBtn = document.getElementById(‘testNext’);
+var dotsContainer = document.getElementById(‘testDots’);
+var cards = carousel.querySelectorAll(’.testimonial-card’);
+var current = 0;
+var autoTimer;
+function getVisible() { var w = window.innerWidth; if (w <= 768) return 1; if (w <= 1024) return 2; return 3; }
+function totalSlides() { return cards.length - getVisible() + 1; }
+function buildDots() {
+dotsContainer.innerHTML = ‘’;
+for (var i = 0; i < totalSlides(); i++) {
+var dot = document.createElement(‘button’);
+dot.className = ‘carousel-dot’ + (i === current ? ’ active’ : ‘’);
+(function(idx) { dot.addEventListener(‘click’, function() { goTo(idx); }); })(i);
+dotsContainer.appendChild(dot);
+}
+}
+function updateDots() { dotsContainer.querySelectorAll(’.carousel-dot’).forEach(function(d, i) { d.classList.toggle(‘active’, i === current); }); }
+function getCardWidth() { return cards[0].offsetWidth + 20; }
+function setCardSizes() {
+var w = window.innerWidth;
+var containerW = carousel.parentElement.offsetWidth;
+var cardW;
+if (w <= 768) { cardW = Math.floor(w * 0.85); }
+else if (w <= 1024) { cardW = Math.floor((containerW - 20) / 2); }
+else { cardW = Math.floor((containerW - 40) / 3); }
+Array.from(cards).forEach(function(c) { c.style.flex = ’0 0 ’ + cardW + ‘px’; c.style.minWidth = cardW + ‘px’; });
+}
+function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = ‘translateX(-’ + (current * getCardWidth()) + ‘px)’; updateDots(); }
+function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
+function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
+function startAuto() { autoTimer = setInterval(next, 4000); }
+function stopAuto() { clearInterval(autoTimer); }
+nextBtn.addEventListener(‘click’, function() { stopAuto(); next(); startAuto(); });
+prevBtn.addEventListener(‘click’, function() { stopAuto(); prev(); startAuto(); });
+carousel.addEventListener(‘mouseenter’, stopAuto);
+carousel.addEventListener(‘mouseleave’, startAuto);
+var touchStartX = 0;
+carousel.addEventListener(‘touchstart’, function(e) { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+carousel.addEventListener(‘touchend’, function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); } startAuto(); });
+window.addEventListener(‘resize’, function() { setCardSizes(); buildDots(); goTo(0); });
+setCardSizes();
+buildDots();
+startAuto();
+})();
+}
+
+// ============ ACCORDION ============
+function toggleGDA(id) {
+var card = document.getElementById(id);
+var isOpen = card.classList.contains(‘is-open’);
+document.querySelectorAll(’.gda-card’).forEach(function(c) { c.classList.remove(‘is-open’); });
+if (!isOpen) card.classList.add(‘is-open’);
+}
