@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>WCFCC | Washington County Football Combine Camp</title>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
@@ -86,11 +86,11 @@
   </div>
 </footer>
 
-<script src="app.js"></script>
+<script src="js/app.js"></script>
 
 <script>
   function loadPage(page) {
-    fetch(page + '.html')
+    fetch('pages/' + page + '.html')
       .then(function(r) { return r.text(); })
       .then(function(html) {
         document.getElementById('page-content').innerHTML = html;
