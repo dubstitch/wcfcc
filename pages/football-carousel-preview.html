@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Football Carousel Preview | WCFCC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  .football-progress-section { background: var(--black); padding: 80px 0; overflow: hidden; }
+  .football-progress-section .section-eyebrow { color: rgba(255,255,255,0.4); }
+  .football-progress-section .section-title { color: var(--white); }
+  .football-progress-carousel { display: flex; align-items: stretch; gap: 20px; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; cursor: grab; }
+  .football-progress-card { background: rgba(255,255,255,0.04); border-radius: 16px; padding: 28px; border: 1px solid rgba(255,255,255,0.08); flex: 0 0 calc(33.333% - 14px); min-width: 0; position: relative; overflow: hidden; }
+  .football-progress-card.featured { border-color: var(--yellow); }
+  .football-progress-num { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue', sans-serif; font-size: 32px; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
+  .football-progress-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 24px; color: var(--white); letter-spacing: 1px; margin-bottom: 12px; line-height: 1; }
+  .football-progress-card p { font-size: 14px; color: rgba(255,255,255,0.58); line-height: 1.6; }
+  .football-progress-tag { margin-top: 16px; background: var(--yellow); border-radius: 6px; padding: 7px 12px; font-family: 'Barlow Condensed', sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 1px; color: var(--black); display: inline-block; text-transform: uppercase; }
+  .football-progress-section .carousel-dot.active { background: var(--yellow); }
+  @media (max-width: 1024px) { .football-progress-card { flex: 0 0 calc(50% - 10px); } }
+  @media (max-width: 768px) { .football-progress-card { flex: 0 0 85vw; } }
+</style>
+</head>
+<body>
+<nav>
+  <a href="../index.html" class="nav-logo">WC<span>FCC</span></a>
+  <ul class="nav-links">
+    <li><a href="football.html">Football</a></li>
+    <li><a href="cheer.html">Cheer</a></li>
+    <li><a href="schedules.html">Schedules</a></li>
+    <li><a href="coaches.html">Coaches</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a href="registration.html" class="nav-cta nav-cta-desktop">Register Now</a>
+</nav>
+<section class="hero" style="min-height:auto;padding-bottom:60px;">
+  <div class="hero-bg-text">FOOTBALL</div>
+  <div class="hero-inner" style="grid-template-columns:1fr;gap:0;padding-top:40px;">
+    <div class="hero-left">
+      <div class="hero-badge fade-up delay-1"><span class="dot"></span>Football Combine Camp</div>
+      <h1 class="hero-h1 fade-up delay-2">
+        <span class="line-building">FOOTBALL</span>
+        <span class="line-champions">COMBINE</span>
+        <span class="line-field">CAMP</span>
+      </h1>
+    </div>
+  </div>
+</section>
+<section class="football-progress-section">
+  <div class="container">
+    <div class="anim visible">
+      <div class="section-eyebrow">The Journey</div>
+      <h2 class="section-title">SIX WEEK<br><span class="accent">PROGRESSION</span></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:620px;margin-top:16px;">This preview uses the same reusable carousel behavior as the homepage, while keeping the football page color scheme.</p>
+    </div>
+    <div class="experience-carousel-wrapper" style="margin-top:48px;">
+      <div class="football-progress-carousel" id="footballProgression">
+        <div class="football-progress-card featured"><div class="football-progress-num">1</div><h3>FOUNDATION &amp; EVALUATION</h3><p>Combine baseline testing, basic stance and positioning, proper tackling form, ball handling drills, and understanding field positions.</p><span class="football-progress-tag">Baseline metrics established</span></div>
+        <div class="football-progress-card"><div class="football-progress-num">2</div><h3>POSITION DEVELOPMENT</h3><p>Position specific technique, route running basics, blocking fundamentals, defensive reads, and confidence building.</p><span class="football-progress-tag">Position confidence building</span></div>
+        <div class="football-progress-card"><div class="football-progress-num">3</div><h3>CONDITIONING &amp; COMPETITION</h3><p>Speed and agility work, running basic plays, communication on field, and working as offensive and defensive units.</p><span class="football-progress-tag">Teams functioning cohesively</span></div>
+        <div class="football-progress-card"><div class="football-progress-num">4</div><h3>TEAM COORDINATION</h3><p>Combine re-evaluation to track improvement, scrimmage scenarios, time management, and reading opponent formations.</p><span class="football-progress-tag">Growth documented</span></div>
+        <div class="football-progress-card"><div class="football-progress-num">5</div><h3>GAME SITUATIONS</h3><p>Sharpening execution, speed and timing, situational awareness, and two minute drill scenarios.</p><span class="football-progress-tag">Game ready performance</span></div>
+        <div class="football-progress-card featured"><div class="football-progress-num">6</div><h3>CHAMPIONSHIP DAY</h3><p>Peak performance, team pride, championship games, trophy presentation, and celebrating six weeks of growth.</p><span class="football-progress-tag">Finish line</span></div>
+      </div>
+    </div>
+    <div class="carousel-controls">
+      <button class="carousel-btn prev" id="footballPrev" type="button" aria-label="Previous week"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div class="carousel-dots" id="footballDots"></div>
+      <button class="carousel-btn next" id="footballNext" type="button" aria-label="Next week"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</section>
+<script src="../js/reusable-carousel.js"></script>
+<script>
+  initReusableCarousel({ carouselId: 'footballProgression', prevId: 'footballPrev', nextId: 'footballNext', dotsId: 'footballDots', cardSelector: '.football-progress-card', desktopVisible: 3, gap: 20 });
+</script>
+</body>
+</html>
