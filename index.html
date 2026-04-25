@@ -18,15 +18,14 @@
     <li><a href="pages/cheer.html">Cheer</a></li>
     <li><a href="pages/schedules.html">Schedules</a></li>
     <li><a href="pages/coaches.html">Coaches</a></li>
+    <li><a href="pages/registration.html">Register</a></li>
     <li><a href="pages/faq.html">FAQ</a></li>
     <li><a href="pages/contact.html">Contact</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
-    <button class="reviews-btn" onclick="document.getElementById('testimonials').scrollIntoView({behavior:'smooth'})" style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:15px;letter-spacing:2px;padding:8px 16px;border-radius:6px;border:none;cursor:pointer;line-height:1;white-space:nowrap;transition:background 0.15s,transform 0.15s;" onmouseover="this.style.background='#d4f000';this.style.transform='translateY(-1px)'" onmouseout="this.style.background='var(--yellow)';this.style.transform='translateY(0)'"><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--black)" style="vertical-align:middle;margin-right:6px;position:relative;top:-1px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span style="vertical-align:middle;">REVIEWS</span><svg width="11" height="11" viewBox="0 0 24 24" fill="var(--black)" style="vertical-align:middle;margin-left:6px;position:relative;top:-1px;"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></button>
-    <a href="#register" class="nav-cta nav-cta-desktop">Register Now</a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
+    <a href="#testimonials" class="nav-reviews"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="nav-reviews-label">REVIEWS</span><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
+    <a href="pages/registration.html" class="nav-cta nav-cta-desktop">Register Now</a>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
 
@@ -35,11 +34,12 @@
   <a href="pages/cheer.html">Cheer</a>
   <a href="pages/schedules.html">Schedules</a>
   <a href="pages/coaches.html">Coaches</a>
+  <a href="pages/registration.html">Register</a>
   <a href="pages/faq.html">FAQ</a>
   <a href="pages/contact.html">Contact</a>
-  <a href="#register" class="cta" onclick="toggleMobileMenu()">Register Now</a>
+  <a href="#testimonials" onclick="toggleMobileMenu()">Reviews</a>
+  <a href="pages/registration.html" class="cta" onclick="toggleMobileMenu()">Register Now</a>
 </div>
-
 <script>
   function toggleMobileMenu() {
     document.getElementById('navMobileMenu').classList.toggle('is-open');
