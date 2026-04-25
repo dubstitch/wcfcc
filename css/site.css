@@ -74,6 +74,52 @@
   .ch-skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
   .ch-skill-pills span { background: rgba(255,20,147,0.08); color: var(--pink); border: 1px solid rgba(255,20,147,0.2); font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
   .cheer-theme .ch-skill-pills span { background: rgba(255,20,147,0.08); color: var(--pink); border-color: rgba(255,20,147,0.25); }
+
+  /* ============ CHEER HERO DECORATIONS ============ */
+  .cheer-theme .hero { position: relative; padding-top: 64px; padding-bottom: 56px; overflow: hidden; }
+  .cheer-theme .hero::before { content: ''; position: absolute; top: -180px; right: -180px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(255,20,147,0.18) 0%, rgba(255,20,147,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
+  .cheer-theme .hero::after { content: ''; position: absolute; bottom: -160px; left: -120px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(232,255,0,0.18) 0%, rgba(232,255,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
+  .cheer-theme .hero-bg-text { color: rgba(255,20,147,0.04); }
+  .cheer-theme .hero .hero-inner { position: relative; z-index: 2; }
+  .ch-sparkle { position: absolute; pointer-events: none; user-select: none; z-index: 1; opacity: 0.9; }
+  .ch-sparkle.sp-1 { top: 90px; right: 8%; width: 38px; height: 38px; color: var(--pink); animation: ch-twinkle 2.4s ease-in-out infinite; }
+  .ch-sparkle.sp-2 { top: 38%; right: 22%; width: 22px; height: 22px; color: var(--yellow); animation: ch-twinkle 3s ease-in-out infinite 0.6s; }
+  .ch-sparkle.sp-3 { bottom: 18%; left: 6%; width: 28px; height: 28px; color: var(--pink); animation: ch-twinkle 2.8s ease-in-out infinite 1.2s; }
+  .ch-sparkle.sp-4 { top: 22%; left: 4%; width: 18px; height: 18px; color: var(--pink-soft); animation: ch-twinkle 3.4s ease-in-out infinite 0.3s; }
+  @keyframes ch-twinkle { 0%, 100% { opacity: 1; transform: scale(1) rotate(0deg); } 50% { opacity: 0.4; transform: scale(0.7) rotate(180deg); } }
+
+  .ch-hero-tagline { display: inline-flex; align-items: center; gap: 8px; background: var(--pink); color: var(--white); font-family: 'Barlow Condensed',sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 7px 16px; border-radius: 100px; margin-bottom: 18px; box-shadow: 0 6px 20px rgba(255,20,147,0.35); }
+  .ch-hero-tagline svg { width: 12px; height: 12px; fill: var(--white); }
+  .cheer-theme .hero-h1 { line-height: 0.88; }
+  .cheer-theme .hero-h1 .line-building { color: var(--black); font-size: clamp(48px, 6.5vw, 92px); letter-spacing: 1px; }
+  .cheer-theme .hero-h1 .line-champions { font-size: clamp(80px, 13vw, 180px); letter-spacing: 0; line-height: 0.86; filter: drop-shadow(0 10px 30px rgba(255,20,147,0.35)); }
+  .cheer-theme .hero-h1 .line-field { color: var(--mid-gray); font-size: clamp(20px, 2.5vw, 36px); letter-spacing: 6px; margin-top: 8px; }
+  .cheer-theme .hero-sub { color: var(--mid-gray); font-size: clamp(15px, 1.5vw, 18px); margin-bottom: 22px; }
+  .ch-hero-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 22px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); }
+  .ch-hero-meta .sep { width: 6px; height: 6px; background: var(--pink); border-radius: 50%; }
+  .ch-hero-meta strong { color: var(--black); font-weight: 800; }
+  .cheer-theme .age-chip { background: var(--pink); color: var(--white); box-shadow: 0 6px 18px rgba(255,20,147,0.25); }
+  .cheer-theme .age-chip.alt { background: var(--yellow); color: var(--black); box-shadow: 0 6px 18px rgba(232,255,0,0.4); }
+  .ch-hero-cta { margin-top: 8px; display: inline-flex; align-items: center; gap: 10px; background: var(--black); color: var(--white); font-family: 'Barlow Condensed',sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 8px; text-decoration: none; transition: transform 0.15s, box-shadow 0.15s; }
+  .ch-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); background: var(--pink); }
+  .ch-hero-cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* ============ HOMEPAGE: pink touches for cheer references ============ */
+  .program-card.cheer { background: var(--pink) !important; border-color: rgba(255,255,255,0.1) !important; }
+  .program-card.cheer .program-tag { background: rgba(255,255,255,0.18); color: var(--white); border-color: rgba(255,255,255,0.25); }
+  .program-card.cheer .program-title { color: var(--white); }
+  .program-card.cheer .program-desc { color: rgba(255,255,255,0.85); }
+  .program-card.cheer .program-features li { color: rgba(255,255,255,0.95); }
+  .program-card.cheer .check-icon { background: var(--white); }
+  .program-card.cheer .check-icon svg { fill: var(--pink); }
+  .program-card.cheer .program-cta { background: var(--white); color: var(--pink); }
+  .program-card.cheer .program-cta:hover { background: var(--black); color: var(--white); }
+  .program-card.cheer .program-ages { color: rgba(255,255,255,0.18); }
+  .program-card.cheer p[style*="rgba(0,0,0,0.35)"] { color: rgba(255,255,255,0.7) !important; }
+  /* Ticker cheer references in pink */
+  .ticker-item.cheer-ref { color: var(--pink); }
+  /* Footer cheer link hover */
+  .footer-links a[href*="cheer"]:hover { color: var(--pink); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }

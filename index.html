@@ -97,7 +97,7 @@
     <span class="ticker-item">WCFCC Summer 2026 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Ages 8 to 17 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Football Combine Camp <span class="sep-bright">&#9670;</span></span>
-    <span class="ticker-item">Sideline Cheer Camp <span class="sep-bright">&#9670;</span></span>
+    <span class="ticker-item cheer-ref">Sideline Cheer Camp <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Game Day Fridays <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Championship Day Week 6 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">$280 All Inclusive <span class="sep-bright">&#9670;</span></span>
@@ -115,7 +115,7 @@
     <span class="ticker-item">WCFCC Summer 2026 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Ages 8 to 17 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Football Combine Camp <span class="sep-bright">&#9670;</span></span>
-    <span class="ticker-item">Sideline Cheer Camp <span class="sep-bright">&#9670;</span></span>
+    <span class="ticker-item cheer-ref">Sideline Cheer Camp <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Game Day Fridays <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">Championship Day Week 6 <span class="sep-bright">&#9670;</span></span>
     <span class="ticker-item">$280 All Inclusive <span class="sep-bright">&#9670;</span></span>
@@ -478,19 +478,7 @@
   </div>
 </footer>
 
-<script>
-  (function() {
-    var animEls = document.querySelectorAll('.anim');
-    var observer = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.15 });
-    animEls.forEach(function(el) { observer.observe(el); });
-  })();
-</script>
+<script src="js/site.js"></script>
 
 </body>
 </html>
