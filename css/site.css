@@ -1,6 +1,8 @@
   :root {
     --yellow: #E8FF00;
     --yellow-warm: #FFE600;
+    --pink: #FF1493;
+    --pink-soft: #FF6BA8;
     --black: #0A0A0A;
     --off-black: #111111;
     --charcoal: #1A1A1A;
@@ -11,6 +13,67 @@
     --white: #F2F4F7;
     --border: rgba(0,0,0,0.1);
   }
+  /* ============ CHEER THEME (hot pink accent on cheer pages) ============ */
+  .cheer-theme .section-title .accent { color: var(--pink); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
+  .cheer-theme .hero-h1 .line-champions { color: var(--pink); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; }
+  .cheer-theme .hero-bg-text { color: rgba(255,20,147,0.05); }
+  .cheer-theme .hero-badge { background: var(--pink); color: var(--white); }
+  .cheer-theme .hero-badge .dot { background: var(--white); }
+  .cheer-theme .section-eyebrow::before { background: var(--pink); }
+  .cheer-theme .age-chip { background: var(--pink); color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 2px; padding: 12px 24px; border-radius: 100px; }
+  .cheer-theme .info-card { border-left-color: var(--pink); }
+  .cheer-theme .info-card.is-dark { border-left-color: var(--pink); }
+  .cheer-theme .info-card ul li::before { background: var(--pink); }
+  .cheer-theme .wc-card.is-active { border-color: var(--pink); }
+  .cheer-theme .wc-card .wc-num { background: var(--pink); color: var(--white); }
+  .cheer-theme .wc-card.is-dark.is-active h3 { color: var(--pink); }
+  .cheer-theme .wc-card .wc-tag { background: var(--pink); color: var(--white); }
+  .cheer-theme .wc-acc-item.is-open { border-color: var(--pink); }
+  .cheer-theme .wc-acc-item.is-dark.is-open { border-color: var(--pink); }
+  .cheer-theme .wc-acc-item.is-dark.is-open .wc-acc-trigger { color: var(--pink); }
+  .cheer-theme .wc-acc-chevron { background: var(--pink); }
+  .cheer-theme .wc-acc-chevron svg { stroke: var(--white); }
+  .cheer-theme .carousel-btn.next { background: var(--pink); color: var(--white); }
+  .cheer-theme .carousel-btn.next:hover { background: #E0117D; }
+  .cheer-theme .carousel-dot.active { background: var(--pink); }
+  .cheer-theme .gameday-banner h2 .gd-accent { color: var(--pink); -webkit-text-stroke: 3px rgba(255,255,255,0.4); paint-order: stroke fill; }
+  .cheer-theme .gda-card.is-open { border-color: var(--pink); }
+  .cheer-theme .gda-card.is-open .gda-title { color: var(--pink); }
+  .cheer-theme .gda-chevron { background: var(--pink); }
+  .cheer-theme .gda-chevron svg { stroke: var(--white); }
+  .cheer-theme .gda-badge { background: var(--pink); color: var(--white); }
+  .cheer-theme .final-cta { background: var(--pink); }
+  .cheer-theme .final-cta::before { color: rgba(0,0,0,0.05); }
+  .cheer-theme .final-cta .section-eyebrow { color: rgba(255,255,255,0.7); }
+  .cheer-theme .final-cta .section-eyebrow::before { background: var(--white); }
+  .cheer-theme .final-cta h2 { color: var(--white); }
+  .cheer-theme .final-cta h2 span { color: var(--black); }
+  .cheer-theme .final-cta p { color: rgba(255,255,255,0.85); }
+  .cheer-theme .final-cta .btn-cta-main { background: var(--black); color: var(--white); }
+  .cheer-theme .final-cta .btn-cta-outline { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.4); }
+  .cheer-theme .final-cta .btn-cta-outline:hover { color: var(--white); border-color: var(--white); }
+  .cheer-theme .page-header .accent { color: var(--pink); }
+  .cheer-theme .nav-cta { background: var(--pink); color: var(--white) !important; }
+  .cheer-theme .nav-cta:hover { background: #E0117D; }
+  .cheer-theme .fb-philosophy-card { border-left-color: var(--pink); }
+  .cheer-theme .fb-mummers-banner { border-color: var(--pink); }
+  .cheer-theme .fb-mummers-date { color: var(--pink); }
+  .cheer-theme .fb-included-pill { background: var(--pink); color: var(--white); }
+  .cheer-theme .fb-bullet-check { background: var(--pink); color: var(--white); }
+  /* Slim value strip for cheer landing */
+  .ch-value-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; }
+  .ch-value-strip > div { padding: 24px 20px; text-align: center; border-right: 1px solid var(--border); }
+  .ch-value-strip > div:last-child { border-right: none; }
+  .ch-value-strip .ch-val-num { font-family: 'Bebas Neue',sans-serif; font-size: 38px; line-height: 1; color: var(--pink); letter-spacing: 1px; }
+  .ch-value-strip .ch-val-label { font-family: 'Barlow Condensed',sans-serif; font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); margin-top: 6px; }
+  @media (max-width: 640px) {
+    .ch-value-strip { grid-template-columns: 1fr; }
+    .ch-value-strip > div { border-right: none; border-bottom: 1px solid var(--border); }
+    .ch-value-strip > div:last-child { border-bottom: none; }
+  }
+  .ch-skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; }
+  .ch-skill-pills span { background: rgba(255,20,147,0.08); color: var(--pink); border: 1px solid rgba(255,20,147,0.2); font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; padding: 8px 14px; border-radius: 100px; }
+  .cheer-theme .ch-skill-pills span { background: rgba(255,20,147,0.08); color: var(--pink); border-color: rgba(255,20,147,0.25); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }
