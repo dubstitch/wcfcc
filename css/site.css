@@ -259,6 +259,93 @@
 .anim-d4 { transition-delay: 0.35s; }
 .anim-d5 { transition-delay: 0.45s; }
 
+/* ============ ANCHOR SCROLL OFFSET (sticky nav + sticky ticker) ============ */
+:root { --wc-scroll-offset: 130px; }
+section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
+@media (max-width: 768px) { :root { --wc-scroll-offset: 110px; } }
+
+/* ============ RESPONSIVE GRID UTILITIES ============ */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; }
+.grid-asym { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+@media (max-width: 1024px) {
+  .grid-3 { grid-template-columns: repeat(2, 1fr); }
+  .grid-4 { grid-template-columns: repeat(2, 1fr); }
+  .grid-asym { grid-template-columns: 1fr; }
+}
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; gap: 16px; }
+  .grid-3 { grid-template-columns: 1fr; gap: 16px; }
+  .grid-4 { grid-template-columns: 1fr; gap: 16px; }
+}
+
+/* ============ NAV REVIEWS BUTTON ============ */
+.nav-reviews { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer; line-height: 1; white-space: nowrap; transition: background 0.15s, transform 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.nav-reviews:hover { background: #d4f000; transform: translateY(-1px); }
+.nav-reviews svg { width: 11px; height: 11px; fill: var(--black); position: relative; top: -1px; }
+@media (max-width: 540px) {
+  .nav-reviews .nav-reviews-label { display: none; }
+  .nav-reviews { padding: 8px 10px; }
+}
+
+/* ============ FOOTBALL/CHEER PAGE TWEAKS ============ */
+.fb-divisions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.fb-division-card { background: #fff; border-radius: 16px; padding: 32px; border: 1px solid var(--border); position: relative; overflow: hidden; }
+.fb-division-card.is-dark { background: var(--black); border: 1px solid rgba(255,255,255,0.1); }
+.fb-division-card .fb-bg-num { position: absolute; top: 16px; right: 20px; font-family: 'Bebas Neue',sans-serif; font-size: 72px; color: rgba(0,0,0,0.04); line-height: 1; }
+.fb-division-card.is-dark .fb-bg-num { color: rgba(255,255,255,0.04); }
+.fb-division-pill { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue',sans-serif; font-size: 20px; padding: 8px 20px; border-radius: 100px; display: inline-block; margin-bottom: 16px; }
+.fb-division-card h3 { font-family: 'Bebas Neue',sans-serif; font-size: 32px; color: var(--black); letter-spacing: 1px; margin-bottom: 8px; }
+.fb-division-card.is-dark h3 { color: var(--white); }
+.fb-division-card .fb-rule { width: 32px; height: 3px; background: var(--yellow); border-radius: 2px; margin-bottom: 16px; }
+.fb-division-card p { font-size: 14px; color: var(--mid-gray); line-height: 1.6; margin-bottom: 12px; }
+.fb-division-card.is-dark p { color: rgba(255,255,255,0.6); }
+.fb-division-card p.fb-detail { font-size: 13px; }
+@media (max-width: 1024px) { .fb-divisions { grid-template-columns: 1fr; gap: 16px; } }
+
+.fb-philosophy { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.fb-philosophy-card { background: #fff; border-radius: 16px; padding: 36px 28px; border: 1px solid var(--border); border-left: 4px solid var(--yellow); }
+.fb-philosophy-card p { font-size: 15px; line-height: 1.7; color: var(--mid-gray); }
+@media (max-width: 768px) { .fb-philosophy { grid-template-columns: 1fr; gap: 16px; } .fb-philosophy-card { padding: 28px 24px; } }
+
+.fb-combine { display: grid; grid-template-columns: 1.3fr 1fr; gap: 24px; align-items: stretch; }
+.fb-combine-drills { background: rgba(255,255,255,0.04); border-radius: 16px; padding: 32px; border: 1px solid rgba(255,255,255,0.08); }
+.fb-combine-drills h3 { font-family: 'Bebas Neue',sans-serif; font-size: 22px; color: var(--yellow); margin-bottom: 20px; letter-spacing: 1px; }
+.fb-combine-drills .drill-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; }
+.fb-combine-drills .drill-diamond { color: var(--yellow); font-size: 14px; flex-shrink: 0; margin-top: 4px; }
+.fb-combine-drills .drill-text { color: rgba(255,255,255,0.7); font-size: 14px; line-height: 1.6; }
+.fb-combine-drills .drill-text strong { color: var(--white); }
+.fb-combine-weeks { display: flex; flex-direction: column; gap: 16px; }
+.fb-week-card { background: rgba(255,255,255,0.04); border-radius: 16px; padding: 24px 28px; border: 1px solid rgba(255,255,255,0.1); flex: 1; }
+.fb-week-card.is-active { border-color: var(--yellow); }
+.fb-week-card .fb-week-num { font-family: 'Bebas Neue',sans-serif; font-size: 40px; line-height: 1; color: var(--white); }
+.fb-week-card.is-active .fb-week-num { color: var(--yellow); }
+.fb-week-card p { color: rgba(255,255,255,0.6); font-size: 14px; margin-top: 8px; line-height: 1.5; }
+@media (max-width: 1024px) {
+  .fb-combine { grid-template-columns: 1fr; }
+  .fb-combine-weeks { flex-direction: row; gap: 12px; }
+}
+@media (max-width: 640px) {
+  .fb-combine-weeks { flex-direction: column; }
+  .fb-combine-drills { padding: 24px; }
+}
+
+.fb-mummers-banner { background: var(--black); border-radius: 16px; padding: 40px; border: 2px solid var(--yellow); position: relative; overflow: hidden; }
+.fb-mummers-banner .fb-mummers-bg { position: absolute; top: 50%; right: -40px; transform: translateY(-50%); font-family: 'Bebas Neue',sans-serif; font-size: 160px; color: rgba(255,255,255,0.02); line-height: 1; pointer-events: none; }
+.fb-mummers-date { font-family: 'Bebas Neue',sans-serif; font-size: clamp(24px,4vw,42px); color: var(--yellow); letter-spacing: 1px; margin-bottom: 12px; line-height: 1.05; position: relative; z-index: 1; }
+.fb-mummers-banner p { color: rgba(255,255,255,0.8); font-size: 16px; line-height: 1.6; margin-bottom: 8px; position: relative; z-index: 1; }
+.fb-mummers-banner p.dim { color: rgba(255,255,255,0.5); font-size: 14px; }
+@media (max-width: 768px) { .fb-mummers-banner { padding: 28px 24px; } }
+
+.fb-bullet-list { display: flex; flex-direction: column; gap: 12px; }
+.fb-bullet { display: flex; align-items: flex-start; gap: 10px; }
+.fb-bullet-check { background: var(--yellow); color: var(--black); border-radius: 50%; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 12px; font-weight: 800; margin-top: 1px; }
+.fb-bullet-text { font-size: 14px; color: var(--mid-gray); line-height: 1.5; }
+.fb-bullet-text strong { color: var(--black); }
+
+.fb-included-pill { margin-top: 12px; background: var(--yellow); border-radius: 8px; padding: 12px 16px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: var(--black); display: inline-block; }
+
 /* ============ REUSABLE CAROUSEL ============ */
 .wc-carousel { position: relative; }
 .wc-carousel-viewport { overflow: hidden; }
