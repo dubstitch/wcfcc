@@ -7,42 +7,29 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
 </head>
-<body>
+<body class="cheer-theme">
 
 <nav>
   <a href="../index.html" class="nav-logo">WC<span>FCC</span></a>
   <ul class="nav-links">
-    <li><a href="football.html">Football</a></li>
-    <li><a href="cheer.html">Cheer</a></li>
-    <li><a href="schedules.html">Schedules</a></li>
-    <li><a href="coaches.html">Coaches</a></li>
-    <li><a href="registration.html">Register</a></li>
-    <li><a href="faq.html">FAQ</a></li>
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="football.html">Football</a></li><li><a href="cheer.html">Cheer</a></li><li><a href="schedules.html">Schedules</a></li><li><a href="coaches.html">Coaches</a></li><li><a href="registration.html">Register</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
   </ul>
   <div style="display:flex;align-items:center;gap:12px;">
     <a href="../index.html#testimonials" class="nav-reviews"><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg><span class="nav-reviews-label">REVIEWS</span><svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg></a>
     <a href="registration.html" class="nav-cta nav-cta-desktop">Register Now</a>
-    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()">
-      <span></span><span></span><span></span>
-    </button>
+    <button class="nav-hamburger" id="navHamburger" aria-label="Menu" onclick="toggleMobileMenu()"><span></span><span></span><span></span></button>
   </div>
 </nav>
-
 <div class="nav-mobile-menu" id="navMobileMenu">
-  <a href="football.html">Football</a>
-  <a href="cheer.html">Cheer</a>
-  <a href="schedules.html">Schedules</a>
-  <a href="coaches.html">Coaches</a>
-  <a href="faq.html">FAQ</a>
-  <a href="contact.html">Contact</a>
+  <a href="football.html">Football</a><a href="cheer.html">Cheer</a><a href="schedules.html">Schedules</a><a href="coaches.html">Coaches</a><a href="registration.html">Register</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a>
   <a href="../index.html#testimonials" onclick="toggleMobileMenu()">Reviews</a>
   <a href="registration.html" class="cta" onclick="toggleMobileMenu()">Register Now</a>
 </div>
 
-<section class="hero" style="min-height:auto;padding-bottom:60px;">
+<!-- HERO + SLIM VALUE STRIP (no big philosophy cards) -->
+<section class="hero" style="min-height:auto;padding-bottom:40px;">
   <div class="hero-bg-text">CHEER</div>
-  <div class="hero-inner" style="grid-template-columns:1fr;gap:0;padding-top:40px;">
+  <div class="hero-inner" style="grid-template-columns:1fr;gap:0;padding-top:32px;">
     <div class="hero-left">
       <div class="hero-badge fade-up delay-1"><span class="dot"></span>Sideline Cheer Camp</div>
       <h1 class="hero-h1 fade-up delay-2">
@@ -50,182 +37,73 @@
         <span class="line-champions">CHEER</span>
         <span class="line-field">CAMP</span>
       </h1>
-      <div class="hero-actions fade-up delay-3" style="margin-top:20px;">
-        <div style="display:flex;gap:12px;flex-wrap:wrap;">
-          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">8&ndash;11</div>
-          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">12&ndash;14</div>
-          <div style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:2px;padding:12px 24px;border-radius:100px;">15&ndash;17</div>
-        </div>
+      <p class="hero-sub fade-up delay-3" style="max-width:560px;margin-top:10px;">Six weeks of technique, teamwork, and real game-day reps. Built to grow confident, coachable performers.</p>
+      <div class="hero-actions fade-up delay-3" style="margin-top:18px;">
+        <span class="age-chip">8&ndash;11</span>
+        <span class="age-chip">12&ndash;14</span>
+        <span class="age-chip">15&ndash;17</span>
       </div>
     </div>
   </div>
 </section>
 
-<section class="experience" style="padding:80px 0;">
+<section style="padding:24px 0 56px;">
   <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">About the Program</div>
-      <h2 class="section-title">CAMP<br><span class="accent">PHILOSOPHY</span></h2>
-    </div>
-    <div class="anim anim-d2 fb-philosophy" style="margin-top:48px;">
-      <div class="fb-philosophy-card">
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">CONFIDENCE &amp; TEAMWORK</h3>
-        <p>A 6-week sideline cheer program designed to build confident young women through technique, teamwork, and real game-day performance experience.</p>
-      </div>
-      <div class="fb-philosophy-card">
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:24px;color:var(--black);letter-spacing:1px;margin-bottom:12px;">SKILL &amp; SHOWMANSHIP</h3>
-        <p>Athletes learn cheers, motions, jumps, and choreography while developing confidence, leadership, and a genuine sense of team pride.</p>
-      </div>
+    <div class="anim anim-d1 ch-value-strip">
+      <div><div class="ch-val-num">6 WKS</div><div class="ch-val-label">Of Training</div></div>
+      <div><div class="ch-val-num">8&ndash;17</div><div class="ch-val-label">Ages</div></div>
+      <div><div class="ch-val-num">$280</div><div class="ch-val-label">All Inclusive</div></div>
     </div>
   </div>
 </section>
 
+<!-- CURRICULUM + 6-WEEK PROGRESSION (combined) -->
 <section style="background:var(--black);padding:80px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,255,255,0.02);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">SIDELINE</div>
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,20,147,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">CURRICULUM</div>
   <div class="container" style="position:relative;z-index:2;">
     <div class="anim anim-d1">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">What You Learn</div>
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">The Journey</div>
       <h2 class="section-title" style="color:var(--white);">CHEER<br><span class="accent">CURRICULUM</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.6);line-height:1.7;max-width:600px;margin-top:16px;">Weekly practices build technical skill, stamina, and performance confidence. Every rep is focused on being ready for Friday's live sideline reps at the turf stadium.</p>
+      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:620px;margin-top:14px;">Every rep is built around the next Friday performance. Six weeks of progressive skill, choreography, and showmanship &mdash; ending with a full 2.5-minute Championship Day routine.</p>
     </div>
-    <div class="anim anim-d2 fb-combine" style="margin-top:48px;">
-      <div class="fb-combine-drills">
-        <h3>CORE SKILLS</h3>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Sideline Cheers</strong> &mdash; Crowd-leading chants and call-and-response.</span></div>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Motions &amp; Jumps</strong> &mdash; Sharp technique and clean execution.</span></div>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Choreography</strong> &mdash; Full sideline dances set to music.</span></div>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Showmanship</strong> &mdash; Stage presence, energy, and crowd connection.</span></div>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Conditioning</strong> &mdash; Strength, stamina, and flexibility.</span></div>
-        <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Teamwork</strong> &mdash; Synchronization and communication.</span></div>
-      </div>
-      <div class="fb-combine-weeks">
-        <div class="fb-week-card is-active">
-          <div class="fb-week-num">WEEK 1</div>
-          <p>Foundations: cheer voice, motion placement, jump technique, first choreography sequences.</p>
-        </div>
-        <div class="fb-week-card">
-          <div class="fb-week-num">WEEK 6</div>
-          <p>Full 2.5-minute routine performed on Championship Day.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
-<section class="gameday-banner">
-  <div class="gameday-inner">
-    <div class="gameday-left anim anim-d1">
-      <div class="section-eyebrow">Every Week</div>
-      <h2 class="section-title" style="color:white;">GAME DAY<br><span style="color:var(--yellow);-webkit-text-stroke:3px rgba(255,255,255,0.4);paint-order:stroke fill;">FRIDAYS</span></h2>
-      <p class="gameday-intro">Every Friday, cheer squads take the sideline at our turf stadium. Real performance reps every single week, with full Championship Day at Week 6.</p>
-    </div>
-    <div class="gameday-accordion anim anim-d2">
-      <div class="gda-card is-open" id="chSideline">
-        <button class="gda-trigger" onclick="toggleGDA('chSideline')">
-          <div class="gda-trigger-left">
-            <span class="gda-title">SIDELINE PERFORMANCE</span>
-            <span class="gda-subtitle">Live sideline reps every Friday</span>
-          </div>
-          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="gda-body">
-          <div class="gda-body-inner">
-            <p class="gda-desc">Squads cheer live on the sideline while football runs 7 on 7 scrimmages. Full in-game performance experience from Week 1.</p>
-            <p class="gda-detail"><strong>Sideline cheers</strong> in real crowd conditions</p>
-            <p class="gda-detail"><strong>Motion and jump technique</strong> under pressure</p>
-            <p class="gda-detail"><strong>Energy and crowd engagement</strong></p>
-            <p class="gda-detail"><strong>Team synchronization</strong> at game speed</p>
-            <span class="gda-badge">Every Friday</span>
-          </div>
-        </div>
-      </div>
-      <div class="gda-card" id="chChampionship">
-        <button class="gda-trigger" onclick="toggleGDA('chChampionship')">
-          <div class="gda-trigger-left">
-            <span class="gda-title">CHAMPIONSHIP DAY</span>
-            <span class="gda-subtitle">Week 6 - Full routine showcase</span>
-          </div>
-          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="gda-body">
-          <div class="gda-body-inner">
-            <p class="gda-desc">Six weeks of training comes together in a full 2.5 minute choreographed routine performed during Championship Day games.</p>
-            <p class="gda-detail"><strong>2.5 minute full routine</strong> with music</p>
-            <p class="gda-detail"><strong>Families, tailgate, and stadium atmosphere</strong></p>
-            <p class="gda-detail"><strong>Performance alongside</strong> Boost, Nitro, and Turbo football championships</p>
-            <span class="gda-badge">Week 6</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--smoke);padding:80px 0;">
-  <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">Beyond Summer</div>
-      <h2 class="section-title">MUMMERS<br><span class="accent">PARADE</span></h2>
-    </div>
-    <div class="anim anim-d2 fb-mummers-banner" style="margin-top:48px;">
-      <div class="fb-mummers-bg">OCT</div>
-      <div class="fb-mummers-date">OCT 31, 2026<br>DOWNTOWN HAGERSTOWN</div>
-      <p>Cheer squads perform down the parade route at the Alsatia Mummers Parade, with 70,000+ spectators watching.</p>
-      <p class="dim">Represent WCFCC with pride, keep your routine sharp, and stay connected with your camp family through October.</p>
-    </div>
-    <div class="anim anim-d3 grid-2" style="margin-top:24px;">
-      <div style="background:#fff;border-radius:16px;padding:28px;border:1px solid var(--border);border-left:4px solid var(--yellow);">
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);margin-bottom:16px;letter-spacing:1px;">WHAT CHEERLEADERS DO</h3>
-        <div class="fb-bullet-list">
-          <div class="fb-bullet"><span class="fb-bullet-check">&#10003;</span><span class="fb-bullet-text"><strong>During Summer Camp:</strong> Help design and start building the WCFCC float.</span></div>
-          <div class="fb-bullet"><span class="fb-bullet-check">&#10003;</span><span class="fb-bullet-text"><strong>Post Camp (3x/month):</strong> Keep choreography sharp and learn parade-route material.</span></div>
-          <div class="fb-bullet"><span class="fb-bullet-check">&#10003;</span><span class="fb-bullet-text"><strong>Parade Day:</strong> Perform cheers and choreography down the parade route.</span></div>
-        </div>
-      </div>
-      <div style="background:#fff;border-radius:16px;padding:28px;border:1px solid var(--border);">
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--black);margin-bottom:16px;letter-spacing:1px;">POST CAMP SCHEDULE</h3>
-        <div style="display:flex;flex-direction:column;gap:10px;">
-          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Frequency:</strong> 3x per month (Aug, Sep, Oct)</div>
-          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Duration:</strong> ~2 hours per session</div>
-          <div style="font-size:14px;color:var(--mid-gray);"><strong style="color:var(--black);">Location:</strong> TBA</div>
-          <span class="fb-included-pill">ALL INCLUDED IN $280 REGISTRATION</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--black);padding:80px 0;">
-  <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Safety First</div>
-      <h2 class="section-title" style="color:var(--white);">OUR<br><span class="accent">STANDARDS</span></h2>
-    </div>
-    <div class="anim anim-d2 grid-2" style="margin-top:48px;">
-      <div class="info-card is-dark"><h3>Certified Cheer Staff</h3><p>All coaches are background-checked and trained in youth cheer safety, proper progressions, and spotting technique.</p></div>
-      <div class="info-card is-dark"><h3>Age-Appropriate Progressions</h3><p>Skills are introduced in a safe sequence. Athletes master fundamentals before advancing to complex choreography.</p></div>
-      <div class="info-card is-dark"><h3>Inclusive Environment</h3><p>All experience levels welcome. We meet every athlete where she is and build from there.</p></div>
-      <div class="info-card is-dark"><h3>Confidence Over Perfection</h3><p>We build confident, coachable performers. Technique matters, but so does the courage to perform in front of a crowd.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--smoke);padding:80px 0;overflow:hidden;">
-  <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">The Journey</div>
-      <h2 class="section-title">SIX WEEK<br><span class="accent">PROGRESSION</span></h2>
-    </div>
     <div class="anim anim-d2 wc-carousel" data-wc-carousel data-wc-visible="3,2,1" style="margin-top:48px;">
       <div class="wc-carousel-viewport"><div class="wc-carousel-track" data-wc-track>
-        <div class="wc-card is-active"><div class="wc-num">1</div><h3>FOUNDATIONS</h3><p>Cheer voice, motion placement, jump prep, first sideline cheers, and intro to choreography.</p></div>
-        <div class="wc-card"><div class="wc-num">2</div><h3>TECHNIQUE BUILD</h3><p>Jump technique, motion sharpness, and adding the first half of the Championship Day routine.</p></div>
-        <div class="wc-card"><div class="wc-num">3</div><h3>STAMINA &amp; ENERGY</h3><p>Conditioning for performance stamina, crowd engagement, and synchronized team execution.</p></div>
-        <div class="wc-card"><div class="wc-num">4</div><h3>FULL ROUTINE</h3><p>Complete 2.5 minute routine learned. Polish formations, transitions, and timing.</p></div>
-        <div class="wc-card"><div class="wc-num">5</div><h3>PERFORMANCE POLISH</h3><p>Performance-quality reps, sharpening showmanship, locking in sideline cheer rotation for Friday.</p></div>
-        <div class="wc-card is-active"><div class="wc-num">6</div><h3>CHAMPIONSHIP DAY</h3><p>Perform the full 2.5 minute routine during the Championship Day games. Families, stadium energy, pure showcase.</p></div>
+        <div class="wc-card is-dark is-active"><div class="wc-num">1</div><h3>FOUNDATIONS</h3><p>Cheer voice, motion placement, jump prep, first sideline cheers.</p></div>
+        <div class="wc-card is-dark"><div class="wc-num">2</div><h3>TECHNIQUE BUILD</h3><p>Jump technique, motion sharpness, first half of the routine.</p></div>
+        <div class="wc-card is-dark"><div class="wc-num">3</div><h3>STAMINA &amp; ENERGY</h3><p>Conditioning, crowd engagement, synchronized execution.</p></div>
+        <div class="wc-card is-dark"><div class="wc-num">4</div><h3>FULL ROUTINE</h3><p>Complete 2.5-minute routine learned. Polish formations and timing.</p></div>
+        <div class="wc-card is-dark"><div class="wc-num">5</div><h3>POLISH</h3><p>Performance reps. Showmanship. Friday rotation locked in.</p></div>
+        <div class="wc-card is-dark is-active"><div class="wc-num">6</div><h3>CHAMPIONSHIP DAY</h3><p>Full routine performed live. Families, stadium, showcase energy.</p></div>
       </div></div>
       <div class="carousel-controls" style="margin-top:32px;">
+        <button class="carousel-btn prev" data-wc-prev aria-label="Previous"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg></button>
+        <div class="carousel-dots" data-wc-dots></div>
+        <button class="carousel-btn next" data-wc-next aria-label="Next"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="anim anim-d3 ch-skill-pills">
+      <span>Sideline Cheers</span><span>Motions &amp; Jumps</span><span>Choreography</span><span>Showmanship</span><span>Conditioning</span><span>Teamwork</span>
+    </div>
+  </div>
+</section>
+
+<!-- STANDARDS as horizontal carousel -->
+<section style="background:var(--smoke);padding:64px 0;">
+  <div class="container">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow">Safety First</div>
+      <h2 class="section-title">OUR<br><span class="accent">STANDARDS</span></h2>
+    </div>
+    <div class="anim anim-d2 wc-carousel" data-wc-carousel data-wc-visible="3,2,1" style="margin-top:40px;">
+      <div class="wc-carousel-viewport"><div class="wc-carousel-track" data-wc-track>
+        <div class="wc-card is-active"><div class="wc-num">&#10003;</div><h3>CERTIFIED CHEER STAFF</h3><p>All coaches are background-checked and trained in youth cheer safety, progressions, and spotting.</p></div>
+        <div class="wc-card"><div class="wc-num">&#10003;</div><h3>SAFE PROGRESSIONS</h3><p>Skills introduced in safe sequence. Fundamentals before complex choreography.</p></div>
+        <div class="wc-card"><div class="wc-num">&#10003;</div><h3>INCLUSIVE</h3><p>Every level welcome. We meet athletes where they are and build up.</p></div>
+        <div class="wc-card is-active"><div class="wc-num">&#10003;</div><h3>CONFIDENCE FIRST</h3><p>Technique matters &mdash; so does the courage to perform in front of a crowd.</p></div>
+      </div></div>
+      <div class="carousel-controls" style="margin-top:24px;">
         <button class="carousel-btn prev" data-wc-prev aria-label="Previous"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg></button>
         <div class="carousel-dots" data-wc-dots></div>
         <button class="carousel-btn next" data-wc-next aria-label="Next"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
@@ -234,12 +112,71 @@
   </div>
 </section>
 
+<!-- BEYOND THE SIDELINE: condensed accordion (Game Day Fridays + Mummers Parade) -->
+<section class="gameday-banner" style="padding:72px 0;">
+  <div class="gameday-inner">
+    <div class="gameday-left anim anim-d1">
+      <div class="section-eyebrow">Beyond Practice</div>
+      <h2 class="section-title" style="color:var(--white);">FRIDAY NIGHTS<br><span class="gd-accent">&amp; THE PARADE</span></h2>
+      <p class="gameday-intro">Live sideline reps every Friday at the Turf Stadium, Championship Day on Week 6, and the Alsatia Mummers Parade in October. The cheer experience doesn&rsquo;t end when summer does.</p>
+    </div>
+    <div class="gameday-accordion anim anim-d2">
+      <div class="gda-card is-open" id="chFri">
+        <button class="gda-trigger" onclick="toggleGDA('chFri')">
+          <div class="gda-trigger-left">
+            <span class="gda-title">GAME DAY FRIDAYS</span>
+            <span class="gda-subtitle">Live sideline performance, every week</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body"><div class="gda-body-inner">
+          <p class="gda-detail"><strong>Sideline cheers</strong> in real crowd conditions</p>
+          <p class="gda-detail"><strong>Motion &amp; jump technique</strong> under game pressure</p>
+          <p class="gda-detail"><strong>Crowd engagement</strong> at game speed</p>
+          <span class="gda-badge">Every Friday &middot; 6&ndash;8:30 PM</span>
+        </div></div>
+      </div>
+      <div class="gda-card" id="chChamps">
+        <button class="gda-trigger" onclick="toggleGDA('chChamps')">
+          <div class="gda-trigger-left">
+            <span class="gda-title">CHAMPIONSHIP DAY</span>
+            <span class="gda-subtitle">Week 6 &middot; Full routine showcase</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body"><div class="gda-body-inner">
+          <p class="gda-detail"><strong>2.5-minute full routine</strong> with music</p>
+          <p class="gda-detail"><strong>Tailgate atmosphere</strong> with families invited</p>
+          <p class="gda-detail">Performed alongside the football championship games</p>
+          <span class="gda-badge">Week 6 &middot; July 24, 2026</span>
+        </div></div>
+      </div>
+      <div class="gda-card" id="chMum">
+        <button class="gda-trigger" onclick="toggleGDA('chMum')">
+          <div class="gda-trigger-left">
+            <span class="gda-title">MUMMERS PARADE</span>
+            <span class="gda-subtitle">Oct 31 &middot; 70,000+ spectators</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body"><div class="gda-body-inner">
+          <p class="gda-detail"><strong>Parade route performance</strong> in downtown Hagerstown</p>
+          <p class="gda-detail"><strong>Post-camp practices</strong> 3x/month Aug&ndash;Oct keep choreography sharp</p>
+          <p class="gda-detail"><strong>Help build the WCFCC float</strong> during summer camp</p>
+          <span class="gda-badge">Oct 31, 2026 &middot; Included in $280</span>
+        </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA (pink) -->
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-inner anim anim-d1">
       <div class="section-eyebrow" style="justify-content:center;">Ready to Perform</div>
       <h2>READY TO<br><span>TAKE THE SIDELINE?</span></h2>
-      <p>Join our cheer family and build confidence, skill, and team pride through six weeks of real performance experience.</p>
+      <p>Six weeks. Real performance reps. Championship Day. The Mummers Parade. All in.</p>
       <div class="cta-buttons">
         <a href="registration.html" class="btn-cta-main">Register for Cheer</a>
         <a href="../index.html#programs" class="btn-cta-outline">View All Programs</a>
@@ -250,43 +187,14 @@
 
 <footer>
   <div class="footer-inner">
-    <div class="footer-brand">
-      <span class="logo">WC<span>FCC</span></span>
-      <p>Building champions on and off the field since 2025. Washington County Football Combine Camp. Hagerstown, MD.</p>
-    </div>
-    <div>
-      <div class="footer-col-title">Programs</div>
-      <ul class="footer-links">
-        <li><a href="football.html">Football Combine Camp</a></li>
-        <li><a href="cheer.html">Sideline Cheer Camp</a></li>
-        <li><a href="schedules.html">Schedules</a></li>
-        <li><a href="registration.html">Register</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Info</div>
-      <ul class="footer-links">
-        <li><a href="coaches.html">Coaches</a></li>
-        <li><a href="faq.html">FAQ</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div>
-    <div>
-      <div class="footer-col-title">Contact</div>
-      <ul class="footer-links">
-        <li><a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></li>
-        <li><a href="tel:240-591-8453">Kahlil: 240-591-8453</a></li>
-        <li><a href="tel:301-332-3441">Des: 301-332-3441</a></li>
-      </ul>
-    </div>
+    <div class="footer-brand"><span class="logo">WC<span>FCC</span></span><p>Building champions on and off the field since 2025. Washington County Football Combine Camp. Hagerstown, MD.</p></div>
+    <div><div class="footer-col-title">Programs</div><ul class="footer-links"><li><a href="football.html">Football Combine Camp</a></li><li><a href="cheer.html">Sideline Cheer Camp</a></li><li><a href="schedules.html">Schedules</a></li><li><a href="registration.html">Register</a></li></ul></div>
+    <div><div class="footer-col-title">Info</div><ul class="footer-links"><li><a href="coaches.html">Coaches</a></li><li><a href="faq.html">FAQ</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+    <div><div class="footer-col-title">Contact</div><ul class="footer-links"><li><a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></li><li><a href="tel:240-591-8453">Kahlil: 240-591-8453</a></li><li><a href="tel:301-332-3441">Des: 301-332-3441</a></li></ul></div>
   </div>
-  <div class="footer-bottom">
-    <span class="footer-copyright">2026 Washington County Football Combine Camp. All rights reserved.</span>
-    <span class="footer-copy-mark">WCFCC &bull; HAGERSTOWN MD</span>
-  </div>
+  <div class="footer-bottom"><span class="footer-copyright">2026 Washington County Football Combine Camp. All rights reserved.</span><span class="footer-copy-mark">WCFCC &bull; HAGERSTOWN MD</span></div>
 </footer>
 
 <script src="../js/site.js"></script>
-
 </body>
 </html>
