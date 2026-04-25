@@ -346,6 +346,32 @@ section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
 
 .fb-included-pill { margin-top: 12px; background: var(--yellow); border-radius: 8px; padding: 12px 16px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: var(--black); display: inline-block; }
 
+/* Tighten game-day banner title on mobile (the FRIDAYS stroke text was hugging the edge) */
+@media (max-width: 768px) {
+  .gameday-banner { padding: 56px 0; }
+  .gameday-inner { padding: 0 20px; gap: 32px; }
+  .gameday-banner::before { font-size: 120px; }
+  .gameday-left .section-title { font-size: clamp(40px, 13vw, 72px); }
+}
+
+/* Hero pills on football/cheer scale down nicely on small screens */
+@media (max-width: 480px) {
+  .hero .hero-actions > div { gap: 8px !important; }
+  .hero .hero-actions > div > div { font-size: 18px !important; padding: 10px 18px !important; }
+}
+
+/* Sub-page header padding on mobile */
+@media (max-width: 768px) {
+  .page-header { padding: 100px 0 40px; }
+  .page-header h1 { font-size: clamp(40px, 12vw, 80px); }
+}
+
+/* Section padding on mobile across the board */
+@media (max-width: 768px) {
+  section[style*="padding:80px 0"] { padding: 56px 0 !important; }
+  section[style*="padding: 80px 0"] { padding: 56px 0 !important; }
+}
+
 /* ============ REUSABLE CAROUSEL ============ */
 .wc-carousel { position: relative; }
 .wc-carousel-viewport { overflow: hidden; }
