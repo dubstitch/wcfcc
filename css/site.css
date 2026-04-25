@@ -284,9 +284,9 @@ section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
 .nav-reviews { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue', sans-serif; font-size: 15px; letter-spacing: 2px; padding: 8px 14px; border-radius: 6px; border: none; cursor: pointer; line-height: 1; white-space: nowrap; transition: background 0.15s, transform 0.15s; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
 .nav-reviews:hover { background: #d4f000; transform: translateY(-1px); }
 .nav-reviews svg { width: 11px; height: 11px; fill: var(--black); position: relative; top: -1px; }
-@media (max-width: 540px) {
-  .nav-reviews .nav-reviews-label { display: none; }
-  .nav-reviews { padding: 8px 10px; }
+@media (max-width: 380px) {
+  .nav-reviews { padding: 8px 10px; font-size: 13px; letter-spacing: 1.5px; }
+  .nav-reviews svg { width: 10px; height: 10px; }
 }
 
 /* ============ FOOTBALL/CHEER PAGE TWEAKS ============ */
