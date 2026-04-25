@@ -11,7 +11,6 @@ function initReusableCarousel(config) {
   var autoTimer;
   var gap = config.gap || 20;
   var interval = config.interval || 3500;
-  var activeClass = config.activeClass || 'is-active';
 
   function getVisible() {
     var width = window.innerWidth;
@@ -53,17 +52,10 @@ function initReusableCarousel(config) {
     });
   }
 
-  function updateActiveCard() {
-    cards.forEach(function(card, index) {
-      card.classList.toggle(activeClass, index === current);
-    });
-  }
-
   function goTo(index) {
     current = Math.max(0, Math.min(index, totalSlides() - 1));
     carousel.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)';
     updateDots();
-    updateActiveCard();
   }
 
   function next() {
@@ -119,6 +111,5 @@ function initReusableCarousel(config) {
   });
 
   buildDots();
-  updateActiveCard();
   startAuto();
 }
