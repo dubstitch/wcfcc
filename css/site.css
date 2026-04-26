@@ -13,53 +13,66 @@
     --white: #F2F4F7;
     --border: rgba(0,0,0,0.1);
   }
-  /* ============ CHEER THEME (hot pink accent on cheer pages) ============ */
-  .cheer-theme .section-title .accent { color: var(--pink); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
-  .cheer-theme .hero-h1 .line-champions { color: var(--pink); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; }
-  .cheer-theme .hero-bg-text { color: rgba(255,20,147,0.05); }
-  .cheer-theme .hero-badge { background: var(--pink); color: var(--white); }
-  .cheer-theme .hero-badge .dot { background: var(--white); }
-  .cheer-theme .section-eyebrow::before { background: var(--pink); }
-  .cheer-theme .age-chip { background: var(--pink); color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 2px; padding: 12px 24px; border-radius: 100px; }
-  .cheer-theme .info-card { border-left-color: var(--pink); }
-  .cheer-theme .info-card.is-dark { border-left-color: var(--pink); }
-  .cheer-theme .info-card ul li::before { background: var(--pink); }
-  .cheer-theme .wc-card.is-active { border-color: var(--pink); }
-  .cheer-theme .wc-card .wc-num { background: var(--pink); color: var(--white); }
-  .cheer-theme .wc-card.is-dark.is-active h3 { color: var(--pink); }
-  .cheer-theme .wc-card .wc-tag { background: var(--pink); color: var(--white); }
-  .cheer-theme .wc-acc-item.is-open { border-color: var(--pink); }
-  .cheer-theme .wc-acc-item.is-dark.is-open { border-color: var(--pink); }
-  .cheer-theme .wc-acc-item.is-dark.is-open .wc-acc-trigger { color: var(--pink); }
+  /* ============ CHEER THEME (Volt yellow stays primary; pink is a small accent) ============ */
+  /* Hero: yellow stroke stays as the primary brand mark; pink shows up as a secondary glow + chips */
+  .cheer-theme .hero-h1 .line-champions { filter: drop-shadow(0 8px 24px rgba(255,20,147,0.28)); }
+  .cheer-theme .hero-bg-text { color: rgba(232,255,0,0.04); }
+  .cheer-theme .hero-badge { background: var(--black); color: var(--yellow); }
+  .cheer-theme .hero-badge .dot { background: var(--yellow); }
+  .cheer-theme .section-eyebrow::before { background: var(--yellow); }
+  /* Age chips: 1st + 3rd yellow, middle pink for the "extra" pop */
+  .cheer-theme .age-chip { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 2px; padding: 12px 24px; border-radius: 100px; }
+  .cheer-theme .age-chip.is-pink { background: var(--pink); color: var(--white); box-shadow: 0 6px 18px rgba(255,20,147,0.3); }
+  /* Info cards stay yellow */
+  .cheer-theme .info-card { border-left-color: var(--yellow); }
+  .cheer-theme .info-card.is-dark { border-left-color: var(--yellow); }
+  .cheer-theme .info-card ul li::before { background: var(--yellow); }
+  /* Carousel cards stay yellow with pink "active" highlight */
+  .cheer-theme .wc-card.is-active { border-color: var(--pink); box-shadow: 0 8px 24px rgba(255,20,147,0.18); }
+  .cheer-theme .wc-card .wc-num { background: var(--yellow); color: var(--black); }
+  .cheer-theme .wc-card.is-active .wc-num { background: var(--pink); color: var(--white); }
+  .cheer-theme .wc-card.is-dark.is-active h3 { color: var(--yellow); }
+  .cheer-theme .wc-card .wc-tag { background: var(--yellow); color: var(--black); }
+  /* Accordion open state: yellow border, pink chevron for personality */
+  .cheer-theme .wc-acc-item.is-open { border-color: var(--yellow); }
+  .cheer-theme .wc-acc-item.is-dark.is-open { border-color: var(--yellow); }
+  .cheer-theme .wc-acc-item.is-dark.is-open .wc-acc-trigger { color: var(--yellow); }
   .cheer-theme .wc-acc-chevron { background: var(--pink); }
   .cheer-theme .wc-acc-chevron svg { stroke: var(--white); }
-  .cheer-theme .carousel-btn.next { background: var(--pink); color: var(--white); }
-  .cheer-theme .carousel-btn.next:hover { background: #E0117D; }
+  /* Carousel controls: yellow primary */
+  .cheer-theme .carousel-btn.next { background: var(--black); color: var(--yellow); }
+  .cheer-theme .carousel-btn.next:hover { background: var(--charcoal); }
   .cheer-theme .carousel-dot.active { background: var(--pink); }
-  .cheer-theme .gameday-banner h2 .gd-accent { color: var(--pink); -webkit-text-stroke: 3px rgba(255,255,255,0.4); paint-order: stroke fill; }
-  .cheer-theme .gda-card.is-open { border-color: var(--pink); }
-  .cheer-theme .gda-card.is-open .gda-title { color: var(--pink); }
+  /* Game day banner: yellow stays primary, with pink chevrons */
+  .cheer-theme .gameday-banner h2 .gd-accent { color: var(--yellow); -webkit-text-stroke: 3px rgba(255,255,255,0.4); paint-order: stroke fill; }
+  .cheer-theme .gda-card.is-open { border-color: var(--yellow); }
+  .cheer-theme .gda-card.is-open .gda-title { color: var(--yellow); }
   .cheer-theme .gda-chevron { background: var(--pink); }
   .cheer-theme .gda-chevron svg { stroke: var(--white); }
-  .cheer-theme .gda-badge { background: var(--pink); color: var(--white); }
-  .cheer-theme .final-cta { background: var(--pink); }
+  .cheer-theme .gda-badge { background: var(--yellow); color: var(--black); }
+  /* Final CTA: back to yellow brand color, pink only on the inner accent text */
+  .cheer-theme .final-cta { background: var(--yellow); }
   .cheer-theme .final-cta::before { color: rgba(0,0,0,0.05); }
-  .cheer-theme .final-cta .section-eyebrow { color: rgba(255,255,255,0.7); }
-  .cheer-theme .final-cta .section-eyebrow::before { background: var(--white); }
-  .cheer-theme .final-cta h2 { color: var(--white); }
-  .cheer-theme .final-cta h2 span { color: var(--black); }
-  .cheer-theme .final-cta p { color: rgba(255,255,255,0.85); }
-  .cheer-theme .final-cta .btn-cta-main { background: var(--black); color: var(--white); }
-  .cheer-theme .final-cta .btn-cta-outline { color: rgba(255,255,255,0.9); border-color: rgba(255,255,255,0.4); }
-  .cheer-theme .final-cta .btn-cta-outline:hover { color: var(--white); border-color: var(--white); }
-  .cheer-theme .page-header .accent { color: var(--pink); }
-  .cheer-theme .nav-cta { background: var(--pink); color: var(--white) !important; }
-  .cheer-theme .nav-cta:hover { background: #E0117D; }
-  .cheer-theme .fb-philosophy-card { border-left-color: var(--pink); }
-  .cheer-theme .fb-mummers-banner { border-color: var(--pink); }
-  .cheer-theme .fb-mummers-date { color: var(--pink); }
-  .cheer-theme .fb-included-pill { background: var(--pink); color: var(--white); }
-  .cheer-theme .fb-bullet-check { background: var(--pink); color: var(--white); }
+  .cheer-theme .final-cta .section-eyebrow { color: rgba(0,0,0,0.5); }
+  .cheer-theme .final-cta .section-eyebrow::before { background: var(--black); }
+  .cheer-theme .final-cta h2 { color: var(--black); }
+  .cheer-theme .final-cta h2 span { color: var(--pink); -webkit-text-stroke: 2px var(--black); paint-order: stroke fill; }
+  .cheer-theme .final-cta p { color: rgba(0,0,0,0.65); }
+  .cheer-theme .final-cta .btn-cta-main { background: var(--black); color: var(--yellow); }
+  .cheer-theme .final-cta .btn-cta-outline { color: rgba(0,0,0,0.7); border-color: rgba(0,0,0,0.25); }
+  .cheer-theme .final-cta .btn-cta-outline:hover { color: var(--black); border-color: var(--black); }
+  .cheer-theme .page-header .accent { color: var(--yellow); }
+  /* Sub-pages keep yellow CTA */
+  .cheer-theme .nav-cta { background: var(--yellow); color: var(--black) !important; }
+  .cheer-theme .nav-cta:hover { background: #d4f000; }
+  .cheer-theme .fb-philosophy-card { border-left-color: var(--yellow); }
+  .cheer-theme .fb-mummers-banner { border-color: var(--yellow); }
+  .cheer-theme .fb-mummers-date { color: var(--yellow); }
+  .cheer-theme .fb-included-pill { background: var(--yellow); color: var(--black); }
+  .cheer-theme .fb-bullet-check { background: var(--yellow); color: var(--black); }
+  /* Section title accent stays as the volt-stroked yellow */
+  .cheer-theme .section-title .accent { color: var(--yellow); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
+  .cheer-theme .hero-h1 .line-champions { color: var(--yellow); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; }
   /* Slim value strip for cheer landing */
   .ch-value-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; }
   .ch-value-strip > div { padding: 24px 20px; text-align: center; border-right: 1px solid var(--border); }
@@ -104,22 +117,116 @@
   .ch-hero-cta:hover { transform: translateY(-2px); box-shadow: 0 12px 30px rgba(0,0,0,0.18); background: var(--pink); }
   .ch-hero-cta svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
 
-  /* ============ HOMEPAGE: pink touches for cheer references ============ */
-  .program-card.cheer { background: var(--pink) !important; border-color: rgba(255,255,255,0.1) !important; }
-  .program-card.cheer .program-tag { background: rgba(255,255,255,0.18); color: var(--white); border-color: rgba(255,255,255,0.25); }
-  .program-card.cheer .program-title { color: var(--white); }
-  .program-card.cheer .program-desc { color: rgba(255,255,255,0.85); }
-  .program-card.cheer .program-features li { color: rgba(255,255,255,0.95); }
-  .program-card.cheer .check-icon { background: var(--white); }
-  .program-card.cheer .check-icon svg { fill: var(--pink); }
-  .program-card.cheer .program-cta { background: var(--white); color: var(--pink); }
-  .program-card.cheer .program-cta:hover { background: var(--black); color: var(--white); }
-  .program-card.cheer .program-ages { color: rgba(255,255,255,0.18); }
-  .program-card.cheer p[style*="rgba(0,0,0,0.35)"] { color: rgba(255,255,255,0.7) !important; }
+  /* ============ HOMEPAGE: white program cards with brand accents ============ */
+  /* Both program cards default to white. Football gets yellow accents. Cheer gets pink + yellow accents. */
+  .program-card.football,
+  .program-card.cheer { background: #fff !important; border: 1px solid var(--border) !important; }
+  .program-card.football:hover { box-shadow: 0 30px 80px rgba(232,255,0,0.15); }
+  .program-card.cheer:hover { box-shadow: 0 30px 80px rgba(255,20,147,0.18); }
+
+  /* Football card: yellow accents */
+  .program-card.football .program-tag { background: var(--yellow); color: var(--black); border: none; }
+  .program-card.football .program-title { color: var(--black); }
+  .program-card.football .program-desc { color: var(--mid-gray); }
+  .program-card.football .program-features li { color: var(--charcoal); }
+  .program-card.football .check-icon { background: var(--yellow); }
+  .program-card.football .check-icon svg { fill: var(--black); }
+  .program-card.football .program-cta { background: var(--black); color: var(--yellow); }
+  .program-card.football .program-cta:hover { background: var(--charcoal); }
+  .program-card.football .program-ages { color: rgba(0,0,0,0.06); }
+  .program-card.football p[style*="rgba(255,255,255,0.35)"] { color: rgba(0,0,0,0.45) !important; }
+  .program-card.football::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--yellow); }
+
+  /* Cheer card: pink + yellow accents */
+  .program-card.cheer .program-tag { background: var(--pink); color: var(--white); border: none; }
+  .program-card.cheer .program-title { color: var(--black); }
+  .program-card.cheer .program-title .accent-pink { color: var(--pink); }
+  .program-card.cheer .program-desc { color: var(--mid-gray); }
+  .program-card.cheer .program-features li { color: var(--charcoal); }
+  .program-card.cheer .check-icon { background: var(--yellow); }
+  .program-card.cheer .check-icon svg { fill: var(--black); }
+  .program-card.cheer .program-cta { background: var(--black); color: var(--yellow); }
+  .program-card.cheer .program-cta:hover { background: var(--pink); color: var(--white); }
+  .program-card.cheer .program-ages { color: rgba(255,20,147,0.10); }
+  .program-card.cheer p[style*="rgba(0,0,0,0.35)"] { color: rgba(0,0,0,0.45) !important; }
+  .program-card.cheer::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--pink) 0%, var(--pink) 50%, var(--yellow) 50%, var(--yellow) 100%); }
+  /* Pink sparkle accent in upper right of cheer card */
+  .program-card.cheer::after { content: '✦'; position: absolute; top: 24px; right: 24px; font-size: 24px; color: var(--pink); opacity: 0.6; }
   /* Ticker cheer references in pink */
   .ticker-item.cheer-ref { color: var(--pink); }
   /* Footer cheer link hover */
   .footer-links a[href*="cheer"]:hover { color: var(--pink); }
+
+  /* ============ DIAGONAL PROGRAM SPLIT (homepage) ============ */
+  .diag-programs { position: relative; aspect-ratio: 16/10; max-width: 1200px; margin: 0 auto; background: var(--smoke); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
+  .diag-card { position: absolute; inset: 0; background: #fff; border: none; cursor: pointer; text-align: left; padding: 0; transition: clip-path 0.7s cubic-bezier(0.65, 0, 0.35, 1); font-family: inherit; }
+  .diag-card.diag-football { clip-path: polygon(0 0, 100% 0, 0 100%); z-index: 2; }
+  .diag-card.diag-cheer { clip-path: polygon(100% 0, 100% 100%, 0 100%); z-index: 1; }
+  .diag-card.diag-football::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: var(--yellow); pointer-events: none; }
+  .diag-card.diag-cheer::after { content: '✦'; position: absolute; top: 24px; right: 24px; font-size: 28px; color: var(--pink); opacity: 0.7; }
+  /* Diagonal seam — visual accent */
+  .diag-programs::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; pointer-events: none; background: linear-gradient(to top right, transparent calc(50% - 1px), rgba(0,0,0,0.08) 50%, transparent calc(50% + 1px)); z-index: 5; }
+
+  .diag-content { position: absolute; padding: 40px; max-width: 56%; transition: opacity 0.3s ease; }
+  .diag-football .diag-content { top: 0; left: 0; }
+  .diag-cheer .diag-content { bottom: 0; right: 0; text-align: right; }
+  .diag-tag { display: inline-block; font-family: 'Barlow Condensed',sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 2.5px; text-transform: uppercase; padding: 6px 14px; border-radius: 100px; margin-bottom: 16px; }
+  .diag-football .diag-tag { background: var(--yellow); color: var(--black); }
+  .diag-cheer .diag-tag { background: var(--pink); color: var(--white); }
+  .diag-title { font-family: 'Bebas Neue',sans-serif; font-size: clamp(28px, 3.4vw, 48px); line-height: 0.92; letter-spacing: 1px; color: var(--black); margin-bottom: 14px; }
+  .diag-desc { font-size: 14px; line-height: 1.55; color: var(--mid-gray); margin-bottom: 18px; max-width: 380px; }
+  .diag-cheer .diag-desc { margin-left: auto; }
+  .diag-features { list-style: none; display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+  .diag-features li { display: flex; align-items: center; gap: 10px; font-family: 'Barlow Condensed',sans-serif; font-size: 14px; font-weight: 600; color: var(--charcoal); }
+  .diag-cheer .diag-features li { justify-content: flex-end; }
+  .diag-features .check-icon { width: 18px; height: 18px; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .diag-football .diag-features .check-icon { background: var(--yellow); }
+  .diag-cheer .diag-features .check-icon { background: var(--pink); }
+  .diag-features .check-icon svg { width: 9px; height: 9px; fill: var(--black); }
+  .diag-cheer .diag-features .check-icon svg { fill: var(--white); }
+  .diag-meta { font-family: 'Barlow Condensed',sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: var(--light-gray); margin-bottom: 16px; }
+  .diag-cta { display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 11px 22px; border-radius: 8px; text-decoration: none; transition: all 0.15s; }
+  .diag-football .diag-cta { background: var(--black); color: var(--yellow); }
+  .diag-football .diag-cta:hover { background: var(--charcoal); transform: translateX(3px); }
+  .diag-cheer .diag-cta { background: var(--black); color: var(--white); }
+  .diag-cheer .diag-cta:hover { background: var(--pink); transform: translateX(3px); }
+  .diag-cta svg { width: 14px; height: 14px; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* Tab label (only visible when card is in tab mode) */
+  .diag-tab-label { display: none; position: absolute; bottom: 14px; right: 18px; font-family: 'Bebas Neue',sans-serif; font-size: 16px; letter-spacing: 2px; color: var(--black); align-items: center; gap: 6px; }
+  .diag-tab-label svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2.5; }
+
+  /* When football is active: football fills, cheer becomes a bottom-right tab */
+  .diag-programs.football-open .diag-card.diag-football { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); z-index: 3; }
+  .diag-programs.football-open .diag-card.diag-cheer { clip-path: polygon(78% 70%, 100% 70%, 100% 100%, 78% 100%); z-index: 4; background: var(--pink); }
+  .diag-programs.football-open .diag-card.diag-cheer .diag-content { opacity: 0; pointer-events: none; }
+  .diag-programs.football-open .diag-card.diag-cheer .diag-tab-label { display: inline-flex; color: var(--white); }
+  .diag-programs.football-open .diag-card.diag-cheer::after { display: none; }
+
+  /* When cheer is active: cheer fills, football becomes a bottom-right tab */
+  .diag-programs.cheer-open .diag-card.diag-cheer { clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); z-index: 3; }
+  .diag-programs.cheer-open .diag-card.diag-football { clip-path: polygon(78% 70%, 100% 70%, 100% 100%, 78% 100%); z-index: 4; background: var(--black); }
+  .diag-programs.cheer-open .diag-card.diag-football .diag-content { opacity: 0; pointer-events: none; }
+  .diag-programs.cheer-open .diag-card.diag-football .diag-tab-label { display: inline-flex; color: var(--yellow); }
+  .diag-programs.cheer-open .diag-card.diag-football::after { display: none; }
+
+  /* Hide the diagonal seam when one card is fully open */
+  .diag-programs.football-open::before,
+  .diag-programs.cheer-open::before { opacity: 0; transition: opacity 0.4s; }
+
+  /* Mobile fallback: stack as normal cards */
+  @media (max-width: 768px) {
+    .diag-programs { aspect-ratio: auto; display: flex; flex-direction: column; }
+    .diag-card { position: relative; clip-path: none !important; height: auto; padding: 32px 24px; z-index: auto !important; background: #fff !important; }
+    .diag-card.diag-football { border-bottom: 1px solid var(--border); }
+    .diag-content { position: relative; padding: 0; max-width: 100%; opacity: 1 !important; pointer-events: auto !important; }
+    .diag-cheer .diag-content { text-align: left; }
+    .diag-cheer .diag-desc { margin-left: 0; }
+    .diag-cheer .diag-features li { justify-content: flex-start; }
+    .diag-tab-label { display: none !important; }
+    .diag-programs::before { display: none; }
+    .diag-card.diag-football::after { left: 0; right: 0; }
+  }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
   body { font-family: 'Barlow', sans-serif; background: var(--white); color: var(--black); overflow-x: hidden; }

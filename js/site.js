@@ -138,6 +138,20 @@ function initCarousels() {
   document.querySelectorAll('[data-wc-carousel]').forEach(initCarousel);
 }
 
+// Diagonal program split (homepage Choose Your Path)
+function diagOpen(which) {
+  var dp = document.getElementById('diagPrograms');
+  if (!dp) return;
+  var key = which + '-open';
+  if (dp.classList.contains(key)) {
+    // Click on the active card again -> close back to default split
+    dp.classList.remove('football-open', 'cheer-open');
+  } else {
+    dp.classList.remove('football-open', 'cheer-open');
+    dp.classList.add(key);
+  }
+}
+
 // Schedules / packages tab switcher: data-tab-group="<group>" on triggers and panels.
 function switchTab(btn) {
   var group = btn.getAttribute('data-tab-group');
