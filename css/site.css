@@ -71,8 +71,9 @@
   .cheer-theme .fb-included-pill { background: var(--yellow); color: var(--black); }
   .cheer-theme .fb-bullet-check { background: var(--yellow); color: var(--black); }
   /* Section title accent stays as the volt-stroked yellow */
+  /* Section titles stay yellow (brand). Hero CHEER word is the cheer signature → pink. */
   .cheer-theme .section-title .accent { color: var(--yellow); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
-  .cheer-theme .hero-h1 .line-champions { color: var(--yellow); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; }
+  .cheer-theme .hero-h1 .line-champions { color: var(--pink); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; filter: drop-shadow(0 8px 24px rgba(255,20,147,0.32)); }
   /* Slim value strip for cheer landing */
   .ch-value-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; }
   .ch-value-strip > div { padding: 24px 20px; text-align: center; border-right: 1px solid var(--border); }
@@ -94,7 +95,8 @@
   .cheer-theme .hero::after { content: ''; position: absolute; bottom: -160px; left: -120px; width: 420px; height: 420px; background: radial-gradient(circle, rgba(232,255,0,0.18) 0%, rgba(232,255,0,0) 70%); border-radius: 50%; pointer-events: none; z-index: 0; }
   .cheer-theme .hero-bg-text { color: rgba(255,20,147,0.04); }
   .cheer-theme .hero .hero-inner { position: relative; z-index: 2; }
-  .ch-sparkle { position: absolute; pointer-events: none; user-select: none; z-index: 1; opacity: 0.9; }
+  /* Sparkles always sit on top of the hero content */
+  .ch-sparkle { position: absolute; pointer-events: none; user-select: none; z-index: 5; opacity: 0.9; }
   .ch-sparkle.sp-1 { top: 90px; right: 8%; width: 38px; height: 38px; color: var(--pink); animation: ch-twinkle 2.4s ease-in-out infinite; }
   .ch-sparkle.sp-2 { top: 38%; right: 22%; width: 22px; height: 22px; color: var(--yellow); animation: ch-twinkle 3s ease-in-out infinite 0.6s; }
   .ch-sparkle.sp-3 { bottom: 18%; left: 6%; width: 28px; height: 28px; color: var(--pink); animation: ch-twinkle 2.8s ease-in-out infinite 1.2s; }
@@ -109,7 +111,7 @@
   .cheer-theme .hero-h1 .line-field { color: var(--mid-gray); font-size: clamp(20px, 2.5vw, 36px); letter-spacing: 6px; margin-top: 8px; }
   .cheer-theme .hero-sub { color: var(--mid-gray); font-size: clamp(15px, 1.5vw, 18px); margin-bottom: 22px; }
   .ch-hero-meta { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin: 14px 0 22px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); }
-  .ch-hero-meta .sep { width: 6px; height: 6px; background: var(--pink); border-radius: 50%; }
+  .ch-hero-meta .sep { width: 6px; height: 6px; background: var(--yellow); border-radius: 50%; }
   .ch-hero-meta strong { color: var(--black); font-weight: 800; }
   .cheer-theme .age-chip { background: var(--pink); color: var(--white); box-shadow: 0 6px 18px rgba(255,20,147,0.25); }
   .cheer-theme .age-chip.alt { background: var(--yellow); color: var(--black); box-shadow: 0 6px 18px rgba(232,255,0,0.4); }
@@ -214,18 +216,20 @@
   .diag-programs.football-open::before,
   .diag-programs.cheer-open::before { opacity: 0; transition: opacity 0.4s; }
 
-  /* Mobile fallback: stack as normal cards */
+  /* Mobile: keep the diagonal split but tighten content so triangles stay readable */
   @media (max-width: 768px) {
-    .diag-programs { aspect-ratio: auto; display: flex; flex-direction: column; }
-    .diag-card { position: relative; clip-path: none !important; height: auto; padding: 32px 24px; z-index: auto !important; background: #fff !important; }
-    .diag-card.diag-football { border-bottom: 1px solid var(--border); }
-    .diag-content { position: relative; padding: 0; max-width: 100%; opacity: 1 !important; pointer-events: auto !important; }
-    .diag-cheer .diag-content { text-align: left; }
-    .diag-cheer .diag-desc { margin-left: 0; }
-    .diag-cheer .diag-features li { justify-content: flex-start; }
-    .diag-tab-label { display: none !important; }
-    .diag-programs::before { display: none; }
-    .diag-card.diag-football::after { left: 0; right: 0; }
+    .diag-programs { aspect-ratio: 1 / 1.05; max-width: 100%; }
+    .diag-content { padding: 22px; max-width: 64%; }
+    .diag-title { font-size: clamp(22px, 6vw, 32px); margin-bottom: 10px; }
+    .diag-desc { display: none; }
+    .diag-features { display: none; }
+    .diag-meta { display: none; }
+    .diag-cta { padding: 9px 14px; font-size: 11px; letter-spacing: 1.5px; }
+    .diag-cta svg { width: 12px; height: 12px; }
+    .diag-card.diag-cheer::after { font-size: 22px; top: 16px; right: 16px; }
+    /* Tighter tab on mobile so it's still tappable */
+    .diag-programs.football-open .diag-card.diag-cheer { clip-path: polygon(70% 65%, 100% 65%, 100% 100%, 70% 100%); }
+    .diag-programs.cheer-open .diag-card.diag-football { clip-path: polygon(70% 65%, 100% 65%, 100% 100%, 70% 100%); }
   }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { scroll-behavior: smooth; }
@@ -476,9 +480,16 @@
 .anim-d5 { transition-delay: 0.45s; }
 
 /* ============ ANCHOR SCROLL OFFSET (sticky nav + sticky ticker) ============ */
-:root { --wc-scroll-offset: 130px; }
+:root { --wc-scroll-offset: 84px; }
+body.has-ticker { --wc-scroll-offset: 130px; }
 section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
-@media (max-width: 768px) { :root { --wc-scroll-offset: 110px; } }
+@media (max-width: 768px) {
+  :root { --wc-scroll-offset: 76px; }
+  body.has-ticker { --wc-scroll-offset: 110px; }
+}
+
+/* Lock horizontal scroll on small screens so swipes on carousels never leak into the page */
+html, body { overflow-x: clip; overscroll-behavior-x: none; }
 
 /* ============ RESPONSIVE GRID UTILITIES ============ */
 .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
@@ -562,6 +573,11 @@ section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
 
 .fb-included-pill { margin-top: 12px; background: var(--yellow); border-radius: 8px; padding: 12px 16px; font-family: 'Barlow Condensed',sans-serif; font-size: 13px; font-weight: 800; letter-spacing: 1px; color: var(--black); display: inline-block; }
 
+/* Compact homepage camp-dates pill (replaces the old button-y bar) */
+.hero-dates { display: inline-flex; align-items: baseline; gap: 10px; padding: 8px 14px; background: rgba(0,0,0,0.04); border-radius: 8px; margin-bottom: 14px; }
+.hero-dates-label { font-family: 'Barlow Condensed', sans-serif; font-size: 11px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; color: var(--mid-gray); }
+.hero-dates-val { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1.5px; color: var(--black); }
+
 /* Tighten game-day banner title on mobile (the FRIDAYS stroke text was hugging the edge) */
 @media (max-width: 768px) {
   .gameday-banner { padding: 56px 0; }
@@ -590,13 +606,13 @@ section[id], div[id], a[id] { scroll-margin-top: var(--wc-scroll-offset); }
 
 /* ============ REUSABLE CAROUSEL ============ */
 .wc-carousel { position: relative; }
-.wc-carousel-viewport { overflow: hidden; }
+.wc-carousel-viewport { overflow: hidden; touch-action: pan-y; overscroll-behavior-x: contain; }
 .wc-carousel-track { display: flex; gap: 20px; align-items: stretch; transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94); will-change: transform; }
-.wc-card { background: #ffffff; border-radius: 16px; padding: 28px; flex: 0 0 calc(33.333% - 14px); min-width: 0; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.25s, box-shadow 0.25s; }
-.wc-card:hover { transform: translateY(-4px); box-shadow: 0 20px 60px rgba(0,0,0,0.08); }
-.wc-card.is-dark { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--white); }
-.wc-card.is-dark:hover { box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-.wc-card.is-active { border-color: var(--yellow); }
+.wc-card { background: #ffffff; border-radius: 16px; padding: 28px; flex: 0 0 calc(33.333% - 14px); min-width: 0; border: 1px solid var(--border); position: relative; overflow: hidden; transition: box-shadow 0.25s; box-shadow: 0 2px 14px rgba(0,0,0,0.05); }
+.wc-card.is-dark { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: var(--white); box-shadow: 0 2px 14px rgba(0,0,0,0.25); }
+/* Glow only — no translate, no click affordance */
+.wc-card.is-active { box-shadow: 0 4px 24px rgba(232,255,0,0.2); }
+.wc-card.is-dark.is-active { box-shadow: 0 4px 28px rgba(232,255,0,0.18); }
 .wc-card .wc-num { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue',sans-serif; font-size: 28px; width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; }
 .wc-card h3 { font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 1px; line-height: 1.05; margin-bottom: 12px; }
 .wc-card.is-dark h3 { color: var(--white); }
