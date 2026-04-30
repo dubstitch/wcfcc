@@ -7,30 +7,191 @@
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
 <style>
-  body:not(.cheer-theme) .ch-val-num,
-  body:not(.cheer-theme) .ch-skill-pills span,
-  body:not(.cheer-theme) .wc-card .wc-num,
-  body:not(.cheer-theme) .wc-acc-chevron,
-  body:not(.cheer-theme) .gda-chevron,
-  body:not(.cheer-theme) .gda-badge,
-  body:not(.cheer-theme) .final-cta h2 span { color: var(--black); background: var(--yellow); border-color: var(--yellow); }
-  body:not(.cheer-theme) .ch-skill-pills span { color: var(--yellow); background: rgba(232,255,0,0.06); border-color: rgba(232,255,0,0.28); }
-  body:not(.cheer-theme) .final-cta h2 span { background: transparent; color: var(--black); }
-  body:not(.cheer-theme) .btn-cta-main { color: var(--yellow); }
-  .fb-combine-clean { display:grid; grid-template-columns:1.25fr .75fr; gap:24px; align-items:stretch; }
-  .fb-combine-clean .fb-combine-drills { background:var(--black); border:1px solid rgba(0,0,0,0.12); border-radius:16px; padding:28px; }
-  .fb-combine-clean .fb-combine-drills h3 { color:var(--yellow); }
-  .fb-combine-clean .drill-text { color:rgba(255,255,255,0.72); }
-  .fb-combine-clean .drill-text strong { color:var(--white); }
-  .fb-combine-clean .fb-combine-weeks { display:flex; flex-direction:column; gap:16px; }
-  .fb-combine-clean .fb-week-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:28px; }
-  .fb-combine-clean .fb-week-card.is-active { border-color:var(--yellow); box-shadow:0 8px 28px rgba(232,255,0,0.2); }
-  .fb-combine-clean .fb-week-num { color:var(--black); }
-  .fb-combine-clean .fb-week-card p { color:var(--mid-gray); }
-  @media (max-width:768px){ .fb-combine-clean { grid-template-columns:1fr; } }
+  .football-theme {
+    --fb-yellow: var(--yellow);
+    --fb-black: var(--black);
+    --fb-white: var(--white);
+    --fb-smoke: var(--smoke);
+    --fb-mid: var(--mid-gray);
+  }
+
+  .football-theme .hero .age-chip {
+    background: var(--fb-yellow) !important;
+    color: var(--fb-black) !important;
+    box-shadow: 0 6px 18px rgba(232,255,0,0.28) !important;
+  }
+
+  .football-theme .ch-hero-meta .sep {
+    background: var(--fb-yellow) !important;
+  }
+
+  .football-theme .ch-hero-cta {
+    background: var(--fb-black) !important;
+    color: var(--fb-yellow) !important;
+    border: 2px solid var(--fb-black) !important;
+  }
+
+  .football-theme .ch-hero-cta svg path {
+    stroke: var(--fb-yellow) !important;
+  }
+
+  .football-theme .ch-hero-cta.fb-secondary-cta {
+    background: var(--fb-yellow) !important;
+    color: var(--fb-black) !important;
+    border-color: var(--fb-yellow) !important;
+  }
+
+  .football-theme .ch-value-strip {
+    background: var(--fb-white);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .football-theme .ch-val-num {
+    background: transparent !important;
+    color: var(--fb-black) !important;
+  }
+
+  .football-theme .ch-val-label {
+    color: var(--fb-mid) !important;
+  }
+
+  .football-theme .wc-card .wc-num,
+  .football-theme .wc-acc-chevron,
+  .football-theme .gda-chevron,
+  .football-theme .gda-badge {
+    background: var(--fb-yellow) !important;
+    color: var(--fb-black) !important;
+    border-color: var(--fb-yellow) !important;
+  }
+
+  .football-theme .carousel-btn {
+    background: var(--fb-white) !important;
+    color: var(--fb-black) !important;
+  }
+
+  .football-theme .carousel-btn.next {
+    background: var(--fb-black) !important;
+    color: var(--fb-yellow) !important;
+    border: 1px solid rgba(232,255,0,0.3);
+  }
+
+  .football-theme .carousel-dots span,
+  .football-theme .carousel-dots button,
+  .football-theme .carousel-dot {
+    background: rgba(255,255,255,0.45) !important;
+  }
+
+  .football-theme .carousel-dots span.is-active,
+  .football-theme .carousel-dots button.is-active,
+  .football-theme .carousel-dot.is-active,
+  .football-theme .carousel-dots .active {
+    background: var(--fb-yellow) !important;
+  }
+
+  .football-theme .ch-skill-pills span {
+    color: var(--fb-yellow) !important;
+    background: rgba(232,255,0,0.06) !important;
+    border-color: rgba(232,255,0,0.28) !important;
+  }
+
+  .football-theme .fb-combine-section {
+    background: var(--fb-black) !important;
+    color: var(--fb-white);
+  }
+
+  .football-theme .fb-combine-section .section-title,
+  .football-theme .fb-combine-section .section-subtitle {
+    color: var(--fb-white) !important;
+  }
+
+  .football-theme .fb-combine-section .section-eyebrow {
+    color: rgba(255,255,255,0.42) !important;
+  }
+
+  .fb-combine-clean {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+  }
+
+  .fb-combine-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 16px;
+    padding: 28px;
+    min-width: 0;
+  }
+
+  .fb-combine-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    letter-spacing: 1.5px;
+    color: var(--fb-yellow);
+    margin-bottom: 20px;
+  }
+
+  .fb-combine-card .drill-row {
+    align-items: flex-start;
+  }
+
+  .fb-combine-card .drill-text {
+    color: rgba(255,255,255,0.72) !important;
+  }
+
+  .fb-combine-card .drill-text strong {
+    color: var(--fb-white) !important;
+  }
+
+  .fb-timeline-item {
+    border-top: 1px solid rgba(255,255,255,0.14);
+    padding: 20px 0;
+  }
+
+  .fb-timeline-item:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+  }
+
+  .fb-timeline-label {
+    display: inline-flex;
+    align-items: center;
+    background: var(--fb-yellow);
+    color: var(--fb-black);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1.5px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+  }
+
+  .fb-timeline-item p {
+    color: rgba(255,255,255,0.72);
+    line-height: 1.65;
+  }
+
+  .football-theme .wc-acc-item.is-open {
+    border-color: var(--fb-yellow) !important;
+  }
+
+  .football-theme .final-cta h2 span {
+    color: var(--fb-black) !important;
+    background: transparent !important;
+  }
+
+  .football-theme .btn-cta-main {
+    color: var(--fb-yellow) !important;
+  }
+
+  @media (max-width:768px) {
+    .fb-combine-clean { grid-template-columns: 1fr; }
+  }
 </style>
 </head>
-<body>
+<body class="football-theme">
 
 <nav>
   <a href="../index.html" class="nav-logo">WC<span>FCC</span></a>
@@ -86,7 +247,7 @@
       </div>
       <div class="fade-up delay-5" style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
         <a href="registration.html" class="ch-hero-cta">Register for Football <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-        <a href="#progression" class="ch-hero-cta" style="background:transparent;color:var(--black);border:2px solid var(--yellow);">See the Training Plan</a>
+        <a href="#progression" class="ch-hero-cta fb-secondary-cta">See the Training Plan</a>
       </div>
     </div>
   </div>
@@ -131,7 +292,7 @@
   </div>
 </section>
 
-<section style="background:var(--white);padding:64px 0;">
+<section class="fb-combine-section" style="padding:72px 0;">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow">Testing</div>
@@ -139,7 +300,7 @@
       <p class="section-subtitle" style="margin-top:14px;">A combine is a structured athletic evaluation that measures speed, agility, power, and position specific skills. Athletes test in Week 1, train through the program, and re-test in Week 4 to track improvement.</p>
     </div>
     <div class="anim anim-d2 fb-combine-clean" style="margin-top:40px;">
-      <div class="fb-combine-drills">
+      <div class="fb-combine-card">
         <h3>COMBINE DRILLS</h3>
         <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>40 Yard Dash</strong> &mdash; Measures straight line speed.</span></div>
         <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>20 Yard Shuttle</strong> &mdash; Tests lateral quickness and change of direction.</span></div>
@@ -148,13 +309,14 @@
         <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Vertical Jump</strong> &mdash; Tests vertical explosion.</span></div>
         <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>Position Specific Drills</strong> &mdash; Evaluates technique for each position.</span></div>
       </div>
-      <div class="fb-combine-weeks">
-        <div class="fb-week-card is-active">
-          <div class="fb-week-num">WEEK 1</div>
+      <div class="fb-combine-card">
+        <h3>TESTING TIMELINE</h3>
+        <div class="fb-timeline-item">
+          <span class="fb-timeline-label">WEEK 1</span>
           <p>Athletes establish baseline measurements across all combine drills.</p>
         </div>
-        <div class="fb-week-card">
-          <div class="fb-week-num">WEEK 4</div>
+        <div class="fb-timeline-item">
+          <span class="fb-timeline-label">WEEK 4</span>
           <p>Athletes are re-evaluated to track measurable improvement from Week 1.</p>
         </div>
       </div>
