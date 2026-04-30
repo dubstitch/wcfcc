@@ -6,6 +6,29 @@
 <title>Football Combine Camp | WCFCC</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  body:not(.cheer-theme) .ch-val-num,
+  body:not(.cheer-theme) .ch-skill-pills span,
+  body:not(.cheer-theme) .wc-card .wc-num,
+  body:not(.cheer-theme) .wc-acc-chevron,
+  body:not(.cheer-theme) .gda-chevron,
+  body:not(.cheer-theme) .gda-badge,
+  body:not(.cheer-theme) .final-cta h2 span { color: var(--black); background: var(--yellow); border-color: var(--yellow); }
+  body:not(.cheer-theme) .ch-skill-pills span { color: var(--yellow); background: rgba(232,255,0,0.06); border-color: rgba(232,255,0,0.28); }
+  body:not(.cheer-theme) .final-cta h2 span { background: transparent; color: var(--black); }
+  body:not(.cheer-theme) .btn-cta-main { color: var(--yellow); }
+  .fb-combine-clean { display:grid; grid-template-columns:1.25fr .75fr; gap:24px; align-items:stretch; }
+  .fb-combine-clean .fb-combine-drills { background:var(--black); border:1px solid rgba(0,0,0,0.12); border-radius:16px; padding:28px; }
+  .fb-combine-clean .fb-combine-drills h3 { color:var(--yellow); }
+  .fb-combine-clean .drill-text { color:rgba(255,255,255,0.72); }
+  .fb-combine-clean .drill-text strong { color:var(--white); }
+  .fb-combine-clean .fb-combine-weeks { display:flex; flex-direction:column; gap:16px; }
+  .fb-combine-clean .fb-week-card { background:var(--white); border:1px solid var(--border); border-radius:16px; padding:28px; }
+  .fb-combine-clean .fb-week-card.is-active { border-color:var(--yellow); box-shadow:0 8px 28px rgba(232,255,0,0.2); }
+  .fb-combine-clean .fb-week-num { color:var(--black); }
+  .fb-combine-clean .fb-week-card p { color:var(--mid-gray); }
+  @media (max-width:768px){ .fb-combine-clean { grid-template-columns:1fr; } }
+</style>
 </head>
 <body>
 
@@ -115,7 +138,7 @@
       <h2 class="section-title">COMBINE<br><span class="accent">EXPLAINED</span></h2>
       <p class="section-subtitle" style="margin-top:14px;">A combine is a structured athletic evaluation that measures speed, agility, power, and position specific skills. Athletes test in Week 1, train through the program, and re-test in Week 4 to track improvement.</p>
     </div>
-    <div class="anim anim-d2 fb-combine" style="margin-top:40px;">
+    <div class="anim anim-d2 fb-combine-clean" style="margin-top:40px;">
       <div class="fb-combine-drills">
         <h3>COMBINE DRILLS</h3>
         <div class="drill-row"><span class="drill-diamond">&#9670;</span><span class="drill-text"><strong>40 Yard Dash</strong> &mdash; Measures straight line speed.</span></div>
@@ -139,37 +162,34 @@
   </div>
 </section>
 
-<section class="experience" style="padding:64px 0;">
+<section style="background:var(--white);padding:64px 0;">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow">Divisions</div>
       <h2 class="section-title">AGE GROUP<br><span class="accent">EXPECTATIONS</span></h2>
       <p class="section-subtitle" style="margin-top:14px;">Three football divisions, same training path. Each group develops at the right pace for their age, confidence, and game experience.</p>
     </div>
-    <div class="anim anim-d2 fb-divisions" style="margin-top:40px;">
-      <div class="fb-division-card">
-        <div class="fb-bg-num">9</div>
-        <span class="fb-division-pill">9&ndash;11</span>
-        <h3>BOOST</h3>
-        <div class="fb-rule"></div>
-        <p>Foundations division. Athletes ages 9 to 11 learn competitive football basics with emphasis on fundamentals, teamwork, and confidence.</p>
-        <p class="fb-detail">Skills emphasized: Field positions, ball handling, basic offensive and defensive concepts, safe contact progressions, and team communication.</p>
+    <div class="anim anim-d2 wc-acc" style="margin-top:32px;max-width:840px;">
+      <div class="wc-acc-item is-open" data-acc-item data-acc-group="football-age">
+        <button class="wc-acc-trigger" onclick="toggleAcc(this)"><span style="display:flex;align-items:center;gap:14px;"><span style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;padding:4px 10px;border-radius:100px;">9&ndash;11</span> BOOST</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+        <div class="wc-acc-body"><div class="wc-acc-body-inner">
+          <p style="margin-bottom:12px;"><strong style="color:var(--black);">Foundations division.</strong> Athletes ages 9 to 11 learn competitive football basics with emphasis on fundamentals, teamwork, and confidence.</p>
+          <p><strong style="color:var(--black);">Skills emphasized:</strong> Field positions &middot; Ball handling &middot; Basic offensive and defensive concepts &middot; Safe contact progressions &middot; Team communication.</p>
+        </div></div>
       </div>
-      <div class="fb-division-card is-dark">
-        <div class="fb-bg-num">12</div>
-        <span class="fb-division-pill">12&ndash;14</span>
-        <h3>NITRO</h3>
-        <div class="fb-rule"></div>
-        <p>Development division. Athletes ages 12 to 14 build stronger technique, faster decision making, and better understanding of game strategy.</p>
-        <p class="fb-detail">Skills emphasized: Position specific drills, route running, blocking fundamentals, defensive reads, play execution, and conditioning basics.</p>
+      <div class="wc-acc-item" data-acc-item data-acc-group="football-age">
+        <button class="wc-acc-trigger" onclick="toggleAcc(this)"><span style="display:flex;align-items:center;gap:14px;"><span style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;padding:4px 10px;border-radius:100px;">12&ndash;14</span> NITRO</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+        <div class="wc-acc-body"><div class="wc-acc-body-inner">
+          <p style="margin-bottom:12px;"><strong style="color:var(--black);">Development division.</strong> Athletes ages 12 to 14 build stronger technique, faster decision making, and better understanding of game strategy.</p>
+          <p><strong style="color:var(--black);">Skills emphasized:</strong> Position specific drills &middot; Route running &middot; Blocking fundamentals &middot; Defensive reads &middot; Play execution &middot; Conditioning basics.</p>
+        </div></div>
       </div>
-      <div class="fb-division-card">
-        <div class="fb-bg-num">15</div>
-        <span class="fb-division-pill">15&ndash;17</span>
-        <h3>TURBO</h3>
-        <div class="fb-rule"></div>
-        <p>Performance division. Athletes ages 15 to 17 sharpen high school readiness through advanced technique, leadership, and competitive execution.</p>
-        <p class="fb-detail">Skills emphasized: Advanced game strategy, position mastery, leadership, situational awareness, competitive conditioning, and football IQ.</p>
+      <div class="wc-acc-item" data-acc-item data-acc-group="football-age">
+        <button class="wc-acc-trigger" onclick="toggleAcc(this)"><span style="display:flex;align-items:center;gap:14px;"><span style="background:var(--yellow);color:var(--black);font-family:'Bebas Neue',sans-serif;font-size:14px;letter-spacing:1.5px;padding:4px 10px;border-radius:100px;">15&ndash;17</span> TURBO</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+        <div class="wc-acc-body"><div class="wc-acc-body-inner">
+          <p style="margin-bottom:12px;"><strong style="color:var(--black);">Performance division.</strong> Athletes ages 15 to 17 sharpen high school readiness through advanced technique, leadership, and competitive execution.</p>
+          <p><strong style="color:var(--black);">Skills emphasized:</strong> Advanced game strategy &middot; Position mastery &middot; Leadership &middot; Situational awareness &middot; Competitive conditioning &middot; Football IQ.</p>
+        </div></div>
       </div>
     </div>
   </div>
