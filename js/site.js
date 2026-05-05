@@ -172,9 +172,53 @@ function enhanceProgramPageHero() {
   inner.appendChild(photo);
 }
 
+function initRegistrationFormModal() {
+  var formLinks = document.querySelectorAll('a[href*="forms.gle"]');
+  if (!formLinks.length) return;
+
+  var modal = document.createElement('div');
+  modal.id = 'registrationFormModal';
+  modal.innerHTML = '<div class="reg-modal-backdrop" data-reg-modal-close></div><div class="reg-modal-panel" role="dialog" aria-modal="true" aria-label="Registration form"><div class="reg-modal-header"><div><span class="reg-modal-eyebrow">WCFCC Registration</span><h2 id="regModalTitle">Registration Form</h2></div><button class="reg-modal-close" type="button" aria-label="Close registration form" data-reg-modal-close>&times;</button></div><iframe id="regModalFrame" title="WCFCC registration form"></iframe><div class="reg-modal-footer"><a id="regModalExternal" href="#" target="_blank" rel="noopener">Open in new tab</a></div></div>';
+  document.body.appendChild(modal);
+
+  var frame = document.getElementById('regModalFrame');
+  var title = document.getElementById('regModalTitle');
+  var external = document.getElementById('regModalExternal');
+
+  function openModal(link) {
+    var href = link.getAttribute('href');
+    var label = link.textContent.trim() || 'Registration Form';
+    title.textContent = label;
+    frame.setAttribute('src', href);
+    external.setAttribute('href', href);
+    modal.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    frame.setAttribute('src', 'about:blank');
+    document.body.style.overflow = '';
+  }
+
+  formLinks.forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      openModal(link);
+    });
+  });
+
+  modal.querySelectorAll('[data-reg-modal-close]').forEach(function(btn) {
+    btn.addEventListener('click', closeModal);
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+  });
+}
+
 function applyTargetedStyles() {
   var style = document.createElement('style');
-  style.textContent = 'nav .nav-cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:36px!important;line-height:1!important}.nav-reviews{height:36px!important;display:inline-flex!important;align-items:center!important}.nav-links{gap:clamp(18px,2vw,32px)!important}@media(max-width:1320px){.nav-links,.nav-cta-desktop,.nav-reviews{display:none!important}.nav-hamburger{display:flex!important}}@media(min-width:1321px){.nav-hamburger{display:none!important}.nav-mobile-menu{display:none!important}.nav-links{display:flex!important}.nav-reviews{display:inline-flex!important}.nav-cta-desktop{display:inline-flex!important}}.nav-cta-desktop::before{content:"★";margin-right:10px}.nav-cta-desktop::after{content:"★";margin-left:10px}.gameday-accordion .diag-cta{background:var(--black);color:var(--yellow);}.football-theme .hero-image-col,.cheer-theme .hero-image-col{position:relative}.football-theme .hero-img-frame,.cheer-theme .hero-img-frame{background:var(--black)}';
+  style.textContent = 'nav .nav-cta{display:inline-flex!important;align-items:center!important;justify-content:center!important;min-height:36px!important;line-height:1!important}.nav-reviews{height:36px!important;display:inline-flex!important;align-items:center!important}.nav-links{gap:clamp(18px,2vw,32px)!important}@media(max-width:1320px){.nav-links,.nav-cta-desktop,.nav-reviews{display:none!important}.nav-hamburger{display:flex!important}}@media(min-width:1321px){.nav-hamburger{display:none!important}.nav-mobile-menu{display:none!important}.nav-links{display:flex!important}.nav-reviews{display:inline-flex!important}.nav-cta-desktop{display:inline-flex!important}}.nav-cta-desktop::before{content:"★";margin-right:10px}.nav-cta-desktop::after{content:"★";margin-left:10px}.gameday-accordion .diag-cta{background:var(--black);color:var(--yellow);}.football-theme .hero-image-col,.cheer-theme .hero-image-col{position:relative}.football-theme .hero-img-frame,.cheer-theme .hero-img-frame{background:var(--black)}#registrationFormModal{display:none;position:fixed;inset:0;z-index:1000}#registrationFormModal.is-open{display:block}.reg-modal-backdrop{position:absolute;inset:0;background:rgba(0,0,0,.76);backdrop-filter:blur(6px)}.reg-modal-panel{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(1040px,94vw);height:min(860px,88vh);background:var(--white);border:3px solid var(--yellow);border-radius:18px;overflow:hidden;box-shadow:0 30px 90px rgba(0,0,0,.45);display:flex;flex-direction:column}.reg-modal-header{background:var(--black);color:var(--white);display:flex;align-items:center;justify-content:space-between;gap:18px;padding:18px 22px;border-bottom:3px solid var(--yellow)}.reg-modal-eyebrow{display:block;color:var(--yellow);font-family:"Barlow Condensed",sans-serif;font-size:11px;font-weight:900;letter-spacing:2.4px;text-transform:uppercase;margin-bottom:4px}.reg-modal-header h2{font-family:"Bebas Neue",sans-serif;font-size:34px;letter-spacing:1.5px;line-height:1;margin:0}.reg-modal-close{background:var(--yellow);color:var(--black);border:0;border-radius:999px;width:40px;height:40px;font-size:30px;line-height:36px;font-weight:900;cursor:pointer}.reg-modal-panel iframe{width:100%;height:100%;border:0;background:white}.reg-modal-footer{display:flex;justify-content:flex-end;background:var(--black);padding:10px 16px}.reg-modal-footer a{color:var(--yellow);font-family:"Barlow Condensed",sans-serif;font-size:13px;font-weight:900;letter-spacing:1.8px;text-transform:uppercase;text-decoration:none}@media(max-width:720px){.reg-modal-panel{width:100vw;height:100vh;border-radius:0;border-left:0;border-right:0}.reg-modal-header{padding:14px 16px}.reg-modal-header h2{font-size:28px}}';
   document.head.appendChild(style);
 }
 
@@ -182,6 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
   applyTargetedStyles();
   replaceHomepagePrograms();
   enhanceProgramPageHero();
+  initRegistrationFormModal();
   initAnim();
   initCarousels();
 });
