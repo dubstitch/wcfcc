@@ -17,7 +17,6 @@ function toggleGDA(id) {
   if (!isOpen) card.classList.add('is-open');
 }
 
-// Generic FAQ-style accordion (single-open). Use data-acc-group="<group>" on toggle button + body.
 function toggleAcc(btn) {
   var item = btn.closest('[data-acc-item]');
   if (!item) return;
@@ -30,7 +29,6 @@ function toggleAcc(btn) {
   item.classList.toggle('is-open');
 }
 
-// Reveal-on-scroll
 function initAnim() {
   var els = document.querySelectorAll('.anim');
   if (!els.length || !('IntersectionObserver' in window)) {
@@ -176,7 +174,7 @@ function enhanceProgramPageHero() {
 
 function applyTargetedStyles() {
   var style = document.createElement('style');
-  style.textContent = 'nav .nav-cta{height:36px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0 18px!important;line-height:1!important}.nav-reviews{height:36px!important;display:inline-flex!important;align-items:center!important}.nav-links{gap:clamp(18px,2vw,32px)!important}@media(max-width:1180px){.nav-cta-desktop{display:none!important}.nav-hamburger{display:flex!important}}.gameday-accordion .diag-cta{background:var(--black);color:var(--yellow);}.football-theme .hero-image-col,.cheer-theme .hero-image-col{position:relative}.football-theme .hero-img-frame,.cheer-theme .hero-img-frame{background:var(--black)}';
+  style.textContent = 'nav .nav-cta{height:36px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0 18px!important;line-height:1!important}.nav-reviews{height:36px!important;display:inline-flex!important;align-items:center!important}.nav-links{gap:clamp(18px,2vw,32px)!important}@media(max-width:1180px){.nav-links,.nav-cta-desktop,.nav-reviews{display:none!important}.nav-hamburger{display:flex!important}}@media(min-width:1181px){.nav-hamburger{display:none!important}.nav-mobile-menu{display:none!important}.nav-links{display:flex!important}.nav-reviews{display:inline-flex!important}.nav-cta-desktop{display:inline-flex!important}}.gameday-accordion .diag-cta{background:var(--black);color:var(--yellow);}.football-theme .hero-image-col,.cheer-theme .hero-image-col{position:relative}.football-theme .hero-img-frame,.cheer-theme .hero-img-frame{background:var(--black)}';
   document.head.appendChild(style);
 }
 
