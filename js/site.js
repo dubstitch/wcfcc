@@ -43,16 +43,6 @@ function initAnim() {
   els.forEach(function(el) { io.observe(el); });
 }
 
-// Reusable horizontal carousel.
-// Markup:
-// <div class="wc-carousel" data-wc-carousel>
-//   <div class="wc-carousel-viewport"><div class="wc-carousel-track"> ...cards... </div></div>
-//   <div class="wc-carousel-controls">
-//     <button class="carousel-btn prev" data-wc-prev>...</button>
-//     <div class="carousel-dots" data-wc-dots></div>
-//     <button class="carousel-btn next" data-wc-next>...</button>
-//   </div>
-// </div>
 function initCarousel(root) {
   var track = root.querySelector('[data-wc-track], .wc-carousel-track');
   if (!track) return;
@@ -63,7 +53,7 @@ function initCarousel(root) {
   var dotsContainer = root.querySelector('[data-wc-dots]');
   var current = 0;
   var autoTimer;
-  var visibleAttr = root.getAttribute('data-wc-visible'); // e.g. "3,2,1"
+  var visibleAttr = root.getAttribute('data-wc-visible');
   var visibleBreakpoints = visibleAttr ? visibleAttr.split(',').map(function(n) { return parseInt(n, 10); }) : [3, 2, 1];
 
   function getVisible() {
@@ -110,10 +100,7 @@ function initCarousel(root) {
   }
   function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
   function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
-  function startAuto() {
-    if (root.hasAttribute('data-wc-noauto')) return;
-    autoTimer = setInterval(next, 4000);
-  }
+  function startAuto() { if (!root.hasAttribute('data-wc-noauto')) autoTimer = setInterval(next, 4000); }
   function stopAuto() { clearInterval(autoTimer); }
 
   if (nextBtn) nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
@@ -128,7 +115,6 @@ function initCarousel(root) {
     startAuto();
   });
   window.addEventListener('resize', function() { setCardSizes(); buildDots(); goTo(Math.min(current, totalSlides() - 1)); });
-
   setCardSizes();
   buildDots();
   startAuto();
@@ -138,21 +124,17 @@ function initCarousels() {
   document.querySelectorAll('[data-wc-carousel]').forEach(initCarousel);
 }
 
-// Diagonal program split (homepage Choose Your Path)
 function diagOpen(which) {
   var dp = document.getElementById('diagPrograms');
   if (!dp) return;
   var key = which + '-open';
-  if (dp.classList.contains(key)) {
-    // Click on the active card again -> close back to default split
-    dp.classList.remove('football-open', 'cheer-open');
-  } else {
+  if (dp.classList.contains(key)) dp.classList.remove('football-open', 'cheer-open');
+  else {
     dp.classList.remove('football-open', 'cheer-open');
     dp.classList.add(key);
   }
 }
 
-// Schedules / packages tab switcher: data-tab-group="<group>" on triggers and panels.
 function switchTab(btn) {
   var group = btn.getAttribute('data-tab-group');
   var key = btn.getAttribute('data-tab');
@@ -165,7 +147,43 @@ function switchTab(btn) {
   });
 }
 
+function replaceHomepagePrograms() {
+  var diag = document.getElementById('diagPrograms');
+  if (!diag) return;
+  var helperText = diag.previousElementSibling;
+  if (helperText && helperText.textContent.toLowerCase().indexOf('tap a side') !== -1) helperText.textContent = 'Tap a program to expand';
+  diag.className = 'gameday-accordion anim anim-d4';
+  diag.removeAttribute('id');
+  diag.innerHTML = '<div class="gda-card is-open" id="homeFootball"><button class="gda-trigger" type="button" onclick="toggleGDA(\'homeFootball\')"><div class="gda-trigger-left"><span class="gda-title">FOOTBALL COMBINE CAMP</span><span class="gda-subtitle">Combine testing, position training, and weekly 7 on 7 competition</span></div><div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button><div class="gda-body"><div class="gda-body-inner"><p class="gda-desc">An intensive 6-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p><p class="gda-detail"><strong>Combine testing</strong> and skill tracking</p><p class="gda-detail"><strong>Position specific training</strong> for each athlete</p><p class="gda-detail"><strong>Weekly 7 on 7 competition</strong> every Friday</p><p class="gda-detail"><strong>Championship Day</strong> with trophies</p><span class="gda-badge">Ages 9–17</span><a href="pages/football.html" class="diag-cta" style="margin-top:18px;">Learn More</a></div></div></div><div class="gda-card" id="homeCheer"><button class="gda-trigger" type="button" onclick="toggleGDA(\'homeCheer\')"><div class="gda-trigger-left"><span class="gda-title">SIDELINE CHEER CAMP</span><span class="gda-subtitle">Sideline cheers, choreography, and game day performance</span></div><div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button><div class="gda-body"><div class="gda-body-inner"><p class="gda-desc">A 6-week sideline cheer program designed to build confident young women through technique, teamwork, and real game-day performance experience.</p><p class="gda-detail"><strong>Sideline cheers</strong> motions and jumps</p><p class="gda-detail"><strong>Choreographed sideline dances</strong></p><p class="gda-detail"><strong>Weekly game day performances</strong></p><p class="gda-detail"><strong>Mummers Parade performance</strong></p><span class="gda-badge">Ages 8–13</span><a href="pages/cheer.html" class="diag-cta" style="margin-top:18px;">Learn More</a></div></div></div>';
+}
+
+function enhanceProgramPageHero() {
+  var isProgramPage = document.body.classList.contains('football-theme') || document.body.classList.contains('cheer-theme');
+  if (!isProgramPage || window.innerWidth < 980) return;
+  var hero = document.querySelector('.hero');
+  var inner = hero ? hero.querySelector('.hero-inner') : null;
+  if (!hero || !inner || inner.querySelector('.hero-image-col')) return;
+  inner.style.gridTemplateColumns = 'minmax(0,1fr) minmax(320px,440px)';
+  inner.style.gap = '64px';
+  inner.style.alignItems = 'center';
+  inner.style.paddingTop = '40px';
+  inner.style.paddingBottom = '40px';
+  var photo = document.createElement('div');
+  photo.className = 'hero-image-col fade-up delay-3';
+  photo.innerHTML = '<div class="hero-img-frame"><div class="hero-img-placeholder"><div class="placeholder-icon"><svg viewBox="0 0 24 24"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg></div><span class="placeholder-text">Hero Photo Coming Soon</span></div></div><div class="hero-img-badge"><div class="badge-num">6</div><div class="badge-label">Week Program</div></div><div class="hero-img-tag"><span class="tag-dot"></span><span>Registration Open</span></div>';
+  inner.appendChild(photo);
+}
+
+function applyTargetedStyles() {
+  var style = document.createElement('style');
+  style.textContent = 'nav .nav-cta{height:36px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;padding:0 18px!important;line-height:1!important}.nav-reviews{height:36px!important;display:inline-flex!important;align-items:center!important}.nav-links{gap:clamp(18px,2vw,32px)!important}@media(max-width:1180px){.nav-cta-desktop{display:none!important}.nav-hamburger{display:flex!important}}.gameday-accordion .diag-cta{background:var(--black);color:var(--yellow);}.football-theme .hero-image-col,.cheer-theme .hero-image-col{position:relative}.football-theme .hero-img-frame,.cheer-theme .hero-img-frame{background:var(--black)}';
+  document.head.appendChild(style);
+}
+
 document.addEventListener('DOMContentLoaded', function() {
+  applyTargetedStyles();
+  replaceHomepagePrograms();
+  enhanceProgramPageHero();
   initAnim();
   initCarousels();
 });
