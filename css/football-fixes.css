@@ -36,18 +36,44 @@
   border-radius: 50% !important;
 }
 
+.football-theme .hero-sub {
+  font-size: 0 !important;
+}
+
+.football-theme .hero-sub::before {
+  content: 'Four weeks of combine testing, position training, football fundamentals, and Friday night 7 on 7 competition. Built to develop disciplined, confident athletes who understand the game.';
+  font-size: clamp(16px, 1.6vw, 19px) !important;
+  line-height: 1.65 !important;
+}
+
 .football-theme .ch-hero-meta {
   display: flex !important;
   align-items: center !important;
   flex-wrap: nowrap !important;
-  gap: 10px !important;
+  gap: 12px !important;
   margin: 18px 0 18px !important;
-  font-size: clamp(15px, 1.7vw, 20px) !important;
+  font-size: clamp(16px, 1.8vw, 22px) !important;
   letter-spacing: 2.4px !important;
   white-space: nowrap !important;
 }
 
-.football-theme .ch-hero-meta span:last-child,
+.football-theme .ch-hero-meta span:not(.sep) {
+  font-size: 0 !important;
+}
+
+.football-theme .ch-hero-meta span:not(.sep):first-of-type::before {
+  content: 'JUN 15 - JUL 11, 2026';
+  font-size: clamp(16px, 1.8vw, 22px) !important;
+  font-weight: 900 !important;
+}
+
+.football-theme .ch-hero-meta span:not(.sep):nth-of-type(2)::before {
+  content: '$175 ALL INCLUSIVE';
+  font-size: clamp(16px, 1.8vw, 22px) !important;
+  font-weight: 900 !important;
+}
+
+.football-theme .ch-hero-meta span:not(.sep):last-child,
 .football-theme .ch-hero-meta .sep:last-of-type {
   display: none !important;
 }
@@ -106,6 +132,21 @@
   background: rgba(255,255,255,0.58) !important;
 }
 
+.football-theme .ch-value-strip > div:nth-child(1) .ch-val-num,
+.football-theme .ch-value-strip > div:nth-child(3) .ch-val-num {
+  font-size: 0 !important;
+}
+
+.football-theme .ch-value-strip > div:nth-child(1) .ch-val-num::before {
+  content: '4 WKS';
+  font-size: clamp(34px, 4vw, 52px) !important;
+}
+
+.football-theme .ch-value-strip > div:nth-child(3) .ch-val-num::before {
+  content: '$175';
+  font-size: clamp(34px, 4vw, 52px) !important;
+}
+
 .football-theme .ch-val-num {
   background: transparent !important;
   color: var(--black) !important;
@@ -137,6 +178,23 @@
 .football-theme .fb-combine-card {
   background: rgba(255,255,255,0.05) !important;
   border: 1px solid rgba(255,255,255,0.14) !important;
+}
+
+.football-theme .gameday-intro,
+.football-theme .final-cta p {
+  font-size: 0 !important;
+}
+
+.football-theme .gameday-intro::before {
+  content: 'Athletes compete live every Friday at the Turf Stadium, finish with Championship Day in the final week, and continue the experience at the Alsatia Mummers Parade in October.';
+  font-size: 16px !important;
+  line-height: 1.7 !important;
+}
+
+.football-theme .final-cta p::before {
+  content: 'Four weeks. Combine testing. Friday night competition. Championship Day. The Mummers Parade. All included.';
+  font-size: 18px !important;
+  line-height: 1.6 !important;
 }
 
 @media (max-width: 720px) {
