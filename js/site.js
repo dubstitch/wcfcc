@@ -178,7 +178,7 @@ function initRegistrationFormModal() {
 
   var modal = document.createElement('div');
   modal.id = 'registrationFormModal';
-  modal.innerHTML = '<div class="reg-modal-backdrop" data-reg-modal-close></div><div class="reg-modal-panel" role="dialog" aria-modal="true" aria-label="Registration form"><div class="reg-modal-header"><div><span class="reg-modal-eyebrow">WCFCC Registration</span><h2 id="regModalTitle">Registration Form</h2></div><button class="reg-modal-close" type="button" aria-label="Close registration form" data-reg-modal-close>&times;</button></div><iframe id="regModalFrame" title="WCFCC registration form"></iframe><div class="reg-modal-footer"><a id="regModalExternal" href="#" target="_blank" rel="noopener">Open in new tab</a></div></div>';
+  modal.innerHTML = '<div class="reg-modal-backdrop" data-reg-modal-close></div><div class="reg-modal-panel" role="dialog" aria-modal="true" aria-labelledby="regModalTitle"><div class="reg-modal-header"><div><span class="reg-modal-eyebrow">WCFCC 2026 Registration</span><h2 id="regModalTitle">Registration Form</h2></div><button class="reg-modal-close" type="button" aria-label="Close registration form" data-reg-modal-close>&times;</button></div><iframe id="regModalFrame" title="WCFCC registration form"></iframe><div class="reg-modal-footer"><a id="regModalExternal" href="#" target="_blank" rel="noopener">Open in new tab</a></div></div>';
   document.body.appendChild(modal);
 
   var frame = document.getElementById('regModalFrame');
@@ -187,7 +187,7 @@ function initRegistrationFormModal() {
 
   function openModal(link) {
     var href = link.getAttribute('href');
-    var label = link.textContent.trim() || 'Registration Form';
+    var label = link.textContent.trim().replace(/^Open\s+/i, '') || 'Registration Form';
     title.textContent = label;
     frame.setAttribute('src', href);
     external.setAttribute('href', href);
