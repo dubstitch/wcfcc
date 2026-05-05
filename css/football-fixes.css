@@ -1,0 +1,87 @@
+/* Football page final polish overrides */
+
+.football-theme .hero {
+  min-height: auto !important;
+  padding-bottom: 24px !important;
+}
+
+.football-theme .hero-inner {
+  grid-template-columns: 1fr !important;
+  gap: 0 !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
+}
+
+.football-theme .hero-badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 10px !important;
+  background: var(--black) !important;
+  color: var(--yellow) !important;
+  border-radius: 100px !important;
+  padding: 10px 22px !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 900 !important;
+  letter-spacing: 3px !important;
+  text-transform: uppercase !important;
+  margin-bottom: 18px !important;
+}
+
+.football-theme .hero-badge .dot {
+  width: 8px !important;
+  height: 8px !important;
+  background: var(--yellow) !important;
+  border-radius: 50% !important;
+}
+
+.football-theme .hero .age-chip {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  min-height: 36px !important;
+  padding: 8px 18px !important;
+  border-radius: 999px !important;
+  background: var(--yellow) !important;
+  color: var(--black) !important;
+  box-shadow: 0 6px 18px rgba(232,255,0,0.28) !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 900 !important;
+  letter-spacing: 2px !important;
+  text-transform: uppercase !important;
+  line-height: 1 !important;
+}
+
+.football-theme .ch-hero-cta.fb-secondary-cta {
+  background: var(--yellow) !important;
+  color: var(--black) !important;
+  border-color: var(--yellow) !important;
+}
+
+.football-theme .ch-val-num {
+  background: transparent !important;
+  color: var(--black) !important;
+}
+
+.football-theme .carousel-dots span,
+.football-theme .carousel-dots button,
+.football-theme .carousel-dot {
+  background: rgba(255,255,255,0.45) !important;
+}
+
+.football-theme .carousel-dots span.is-active,
+.football-theme .carousel-dots button.is-active,
+.football-theme .carousel-dot.is-active,
+.football-theme .carousel-dots .active {
+  background: var(--yellow) !important;
+}
+
+.football-theme .fb-combine-section {
+  background: var(--black) !important;
+}
+
+.football-theme .fb-combine-card {
+  background: rgba(255,255,255,0.05) !important;
+  border: 1px solid rgba(255,255,255,0.14) !important;
+}
