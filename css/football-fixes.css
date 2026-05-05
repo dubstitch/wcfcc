@@ -152,9 +152,9 @@
   line-height: 48px !important;
   color: var(--white) !important;
   font-family: 'Barlow Condensed', sans-serif !important;
-  font-size: 18px !important;
-  font-weight: 900 !important;
-  letter-spacing: 4px !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  letter-spacing: 3px !important;
   text-transform: uppercase !important;
   animation: footballTickerMove 32s linear infinite !important;
 }
@@ -208,7 +208,7 @@
   position: relative !important;
   display: flex !important;
   gap: 12px !important;
-  align-items: flex-start !important;
+  align-items: center !important;
 }
 
 .football-theme .fb-combine-card .drill-diamond {
@@ -216,7 +216,7 @@
   width: 10px !important;
   height: 10px !important;
   min-width: 10px !important;
-  margin-top: 8px !important;
+  margin-top: 0 !important;
   border-radius: 999px !important;
   background: var(--yellow) !important;
   box-shadow: 0 0 10px rgba(232,255,0,0.75) !important;
@@ -247,7 +247,7 @@
   }
 
   .football-theme .hero + section::before {
-    font-size: 16px !important;
+    font-size: 13px !important;
     letter-spacing: 3px !important;
   }
 }
