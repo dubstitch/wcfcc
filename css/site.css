@@ -13,67 +13,68 @@
     --white: #F2F4F7;
     --border: rgba(0,0,0,0.1);
   }
-  /* ============ CHEER THEME (Volt yellow stays primary; pink is a small accent) ============ */
-  /* Hero: yellow stroke stays as the primary brand mark; pink shows up as a secondary glow + chips */
-  .cheer-theme .hero-h1 .line-champions { filter: drop-shadow(0 8px 24px rgba(255,20,147,0.28)); }
-  .cheer-theme .hero-bg-text { color: rgba(232,255,0,0.04); }
-  .cheer-theme .hero-badge { background: var(--black); color: var(--yellow); }
-  .cheer-theme .hero-badge .dot { background: var(--yellow); }
-  .cheer-theme .section-eyebrow::before { background: var(--yellow); }
-  /* Age chips: 1st + 3rd yellow, middle pink for the "extra" pop */
-  .cheer-theme .age-chip { background: var(--yellow); color: var(--black); font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 2px; padding: 12px 24px; border-radius: 100px; }
-  .cheer-theme .age-chip.is-pink { background: var(--pink); color: var(--white); box-shadow: 0 6px 18px rgba(255,20,147,0.3); }
-  /* Info cards stay yellow */
-  .cheer-theme .info-card { border-left-color: var(--yellow); }
-  .cheer-theme .info-card.is-dark { border-left-color: var(--yellow); }
-  .cheer-theme .info-card ul li::before { background: var(--yellow); }
-  /* Carousel cards stay yellow with pink "active" highlight */
+  /* ============ CHEER THEME (Pink primary; volt yellow as a small spark accent) ============ */
+  /* Hero */
+  .cheer-theme .hero-h1 .line-champions { color: var(--pink); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; filter: drop-shadow(0 10px 30px rgba(255,20,147,0.35)); }
+  .cheer-theme .hero-bg-text { color: rgba(255,20,147,0.05); }
+  .cheer-theme .hero-badge { background: var(--black); color: var(--pink); }
+  .cheer-theme .hero-badge .dot { background: var(--pink); }
+  /* Section eyebrow + title accent: pink */
+  .cheer-theme .section-eyebrow::before { background: var(--pink); }
+  .cheer-theme .section-title .accent { color: var(--pink); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
+  /* Age chips: pink primary, yellow alt for the "spark" pop */
+  .cheer-theme .age-chip { background: var(--pink); color: var(--white); font-family: 'Bebas Neue',sans-serif; font-size: 22px; letter-spacing: 2px; padding: 12px 24px; border-radius: 100px; box-shadow: 0 6px 18px rgba(255,20,147,0.28); }
+  .cheer-theme .age-chip.is-pink,
+  .cheer-theme .age-chip.alt { background: var(--yellow); color: var(--black); box-shadow: 0 6px 18px rgba(232,255,0,0.4); }
+  /* Info cards: pink left rail */
+  .cheer-theme .info-card { border-left-color: var(--pink); }
+  .cheer-theme .info-card.is-dark { border-left-color: var(--pink); }
+  .cheer-theme .info-card ul li::before { background: var(--pink); }
+  /* Carousel cards: pink primary, yellow spark for active number */
   .cheer-theme .wc-card.is-active { border-color: var(--pink); box-shadow: 0 8px 24px rgba(255,20,147,0.18); }
-  .cheer-theme .wc-card .wc-num { background: var(--yellow); color: var(--black); }
-  .cheer-theme .wc-card.is-active .wc-num { background: var(--pink); color: var(--white); }
-  .cheer-theme .wc-card.is-dark.is-active h3 { color: var(--yellow); }
-  .cheer-theme .wc-card .wc-tag { background: var(--yellow); color: var(--black); }
-  /* Accordion open state: yellow border, pink chevron for personality */
-  .cheer-theme .wc-acc-item.is-open { border-color: var(--yellow); }
-  .cheer-theme .wc-acc-item.is-dark.is-open { border-color: var(--yellow); }
-  .cheer-theme .wc-acc-item.is-dark.is-open .wc-acc-trigger { color: var(--yellow); }
+  .cheer-theme .wc-card .wc-num { background: var(--pink); color: var(--white); }
+  .cheer-theme .wc-card.is-active .wc-num { background: var(--yellow); color: var(--black); }
+  .cheer-theme .wc-card.is-dark.is-active h3 { color: var(--pink); }
+  .cheer-theme .wc-card .wc-tag { background: var(--pink); color: var(--white); }
+  /* Accordion open state: pink border + pink trigger label, pink chevron */
+  .cheer-theme .wc-acc-item.is-open { border-color: var(--pink); }
+  .cheer-theme .wc-acc-item.is-dark.is-open { border-color: var(--pink); }
+  .cheer-theme .wc-acc-item.is-dark.is-open .wc-acc-trigger { color: var(--pink); }
   .cheer-theme .wc-acc-chevron { background: var(--pink); }
   .cheer-theme .wc-acc-chevron svg { stroke: var(--white); }
-  /* Carousel controls: yellow primary */
-  .cheer-theme .carousel-btn.next { background: var(--black); color: var(--yellow); }
+  /* Carousel controls */
+  .cheer-theme .carousel-btn.next { background: var(--black); color: var(--pink); }
   .cheer-theme .carousel-btn.next:hover { background: var(--charcoal); }
   .cheer-theme .carousel-dot.active { background: var(--pink); }
-  /* Game day banner: yellow stays primary, with pink chevrons */
-  .cheer-theme .gameday-banner h2 .gd-accent { color: var(--yellow); -webkit-text-stroke: 3px rgba(255,255,255,0.4); paint-order: stroke fill; }
-  .cheer-theme .gda-card.is-open { border-color: var(--yellow); }
-  .cheer-theme .gda-card.is-open .gda-title { color: var(--yellow); }
+  /* Game day banner */
+  .cheer-theme .gameday-banner h2 .gd-accent { color: var(--pink); -webkit-text-stroke: 3px rgba(255,255,255,0.4); paint-order: stroke fill; }
+  .cheer-theme .gda-card.is-open { border-color: var(--pink); }
+  .cheer-theme .gda-card.is-open .gda-title { color: var(--pink); }
   .cheer-theme .gda-chevron { background: var(--pink); }
   .cheer-theme .gda-chevron svg { stroke: var(--white); }
-  .cheer-theme .gda-badge { background: var(--yellow); color: var(--black); }
-  /* Final CTA: back to yellow brand color, pink only on the inner accent text */
-  .cheer-theme .final-cta { background: var(--yellow); }
-  .cheer-theme .final-cta::before { color: rgba(0,0,0,0.05); }
-  .cheer-theme .final-cta .section-eyebrow { color: rgba(0,0,0,0.5); }
-  .cheer-theme .final-cta .section-eyebrow::before { background: var(--black); }
-  .cheer-theme .final-cta h2 { color: var(--black); }
-  .cheer-theme .final-cta h2 span { color: var(--pink); -webkit-text-stroke: 2px var(--black); paint-order: stroke fill; }
-  .cheer-theme .final-cta p { color: rgba(0,0,0,0.65); }
+  .cheer-theme .gda-badge { background: var(--pink); color: var(--white); }
+  /* Final CTA: pink wash with yellow as the spark inside */
+  .cheer-theme .final-cta { background: var(--pink); }
+  .cheer-theme .final-cta::before { color: rgba(255,255,255,0.08); }
+  .cheer-theme .final-cta .section-eyebrow { color: rgba(255,255,255,0.7); }
+  .cheer-theme .final-cta .section-eyebrow::before { background: var(--white); }
+  .cheer-theme .final-cta h2 { color: var(--white); }
+  .cheer-theme .final-cta h2 span { color: var(--yellow); -webkit-text-stroke: 2px var(--black); paint-order: stroke fill; }
+  .cheer-theme .final-cta p { color: rgba(255,255,255,0.85); }
   .cheer-theme .final-cta .btn-cta-main { background: var(--black); color: var(--yellow); }
-  .cheer-theme .final-cta .btn-cta-outline { color: rgba(0,0,0,0.7); border-color: rgba(0,0,0,0.25); }
-  .cheer-theme .final-cta .btn-cta-outline:hover { color: var(--black); border-color: var(--black); }
-  .cheer-theme .page-header .accent { color: var(--yellow); }
-  /* Sub-pages keep yellow CTA */
-  .cheer-theme .nav-cta { background: var(--yellow); color: var(--black) !important; }
-  .cheer-theme .nav-cta:hover { background: #d4f000; }
-  .cheer-theme .fb-philosophy-card { border-left-color: var(--yellow); }
-  .cheer-theme .fb-mummers-banner { border-color: var(--yellow); }
-  .cheer-theme .fb-mummers-date { color: var(--yellow); }
-  .cheer-theme .fb-included-pill { background: var(--yellow); color: var(--black); }
-  .cheer-theme .fb-bullet-check { background: var(--yellow); color: var(--black); }
-  /* Section title accent stays as the volt-stroked yellow */
-  /* Section titles stay yellow (brand). Hero CHEER word is the cheer signature → pink. */
-  .cheer-theme .section-title .accent { color: var(--yellow); -webkit-text-stroke: 3px var(--black); paint-order: stroke fill; }
-  .cheer-theme .hero-h1 .line-champions { color: var(--pink); -webkit-text-stroke: 4px var(--black); paint-order: stroke fill; filter: drop-shadow(0 8px 24px rgba(255,20,147,0.32)); }
+  .cheer-theme .final-cta .btn-cta-main:hover { background: var(--charcoal); }
+  .cheer-theme .final-cta .btn-cta-outline { color: rgba(255,255,255,0.85); border-color: rgba(255,255,255,0.4); }
+  .cheer-theme .final-cta .btn-cta-outline:hover { color: var(--white); border-color: var(--white); }
+  .cheer-theme .page-header .accent { color: var(--pink); }
+  /* Nav CTA: pink button */
+  .cheer-theme .nav-cta { background: var(--pink); color: var(--white) !important; }
+  .cheer-theme .nav-cta:hover { background: #e60d83; }
+  /* Shared football/cheer page utility classes that surface on cheer sub-pages */
+  .cheer-theme .fb-philosophy-card { border-left-color: var(--pink); }
+  .cheer-theme .fb-mummers-banner { border-color: var(--pink); }
+  .cheer-theme .fb-mummers-date { color: var(--pink); }
+  .cheer-theme .fb-included-pill { background: var(--pink); color: var(--white); }
+  .cheer-theme .fb-bullet-check { background: var(--pink); color: var(--white); }
   /* Slim value strip for cheer landing */
   .ch-value-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--border); border-radius: 16px; overflow: hidden; background: #fff; }
   .ch-value-strip > div { padding: 24px 20px; text-align: center; border-right: 1px solid var(--border); }
@@ -158,6 +159,16 @@
   .ticker-item.cheer-ref { color: var(--pink); }
   /* Footer cheer link hover */
   .footer-links a[href*="cheer"]:hover { color: var(--pink); }
+  /* Homepage program dropdown: cheer card uses pink so the cheer brand identity carries through */
+  #programCheer .gda-chevron { background: var(--pink); }
+  #programCheer .gda-chevron svg { stroke: var(--white); }
+  #programCheer.gda-card.is-open { border-color: var(--pink); background: rgba(255,20,147,0.06); }
+  #programCheer.gda-card.is-open .gda-title { color: var(--pink); }
+  #programCheer .gda-badge { background: var(--pink); color: var(--white); }
+  /* Coaches page: head-coach-cheer tag gets pink */
+  .coach-tag-cheer { background: rgba(255,20,147,0.1) !important; color: var(--pink) !important; border-color: rgba(255,20,147,0.25) !important; }
+  /* Contact page: cheer info card gets pink left rail */
+  .info-card.is-cheer { border-left-color: var(--pink) !important; }
 
   /* ============ DIAGONAL PROGRAM SPLIT (homepage) ============ */
   .diag-programs { position: relative; aspect-ratio: 16/10; max-width: 1200px; margin: 0 auto; background: var(--smoke); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); box-shadow: 0 20px 60px rgba(0,0,0,0.06); }
