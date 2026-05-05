@@ -123,13 +123,15 @@
 }
 
 .football-theme .ch-value-strip {
-  background: linear-gradient(135deg, #ffffff 0%, #f7f8fb 100%) !important;
-  border: 2px solid var(--black) !important;
-  box-shadow: 10px 10px 0 rgba(10,10,10,0.12), 0 18px 45px rgba(0,0,0,0.08) !important;
+  background: var(--white) !important;
+  border: 1px solid var(--border) !important;
+  border-radius: 16px !important;
+  box-shadow: none !important;
+  overflow: hidden !important;
 }
 
 .football-theme .ch-value-strip > div {
-  background: rgba(255,255,255,0.58) !important;
+  background: transparent !important;
 }
 
 .football-theme .ch-value-strip > div:nth-child(1) .ch-val-num,
@@ -150,11 +152,18 @@
 .football-theme .ch-val-num {
   background: transparent !important;
   color: var(--black) !important;
-  text-shadow: 0 0 16px rgba(232,255,0,0.34) !important;
+  text-shadow: none !important;
 }
 
 .football-theme .ch-val-label {
   color: var(--mid-gray) !important;
+}
+
+.football-theme .wc-card.is-active,
+.football-theme .wc-card.is-dark.is-active {
+  box-shadow: none !important;
+  filter: none !important;
+  transform: none !important;
 }
 
 .football-theme .carousel-dots span,
