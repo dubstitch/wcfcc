@@ -47,49 +47,56 @@
 }
 
 .football-theme .ch-hero-meta {
-  display: flex !important;
+  display: grid !important;
+  grid-template-columns: auto auto auto !important;
   align-items: center !important;
-  flex-wrap: nowrap !important;
-  gap: 12px !important;
+  justify-content: start !important;
+  column-gap: 12px !important;
+  row-gap: 6px !important;
   margin: 18px 0 18px !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
   font-size: clamp(16px, 1.8vw, 22px) !important;
+  font-weight: 800 !important;
   letter-spacing: 2.4px !important;
+  text-transform: uppercase !important;
   white-space: nowrap !important;
 }
 
-.football-theme .ch-hero-meta span:not(.sep) {
-  display: inline-flex !important;
-  align-items: center !important;
-  font-size: 0 !important;
-}
-
-.football-theme .ch-hero-meta span:not(.sep):first-of-type::before {
-  content: 'JUN 15 - JUL 24, 2026';
-  display: inline-block !important;
-  font-size: clamp(16px, 1.8vw, 22px) !important;
-  font-weight: 900 !important;
-}
-
-.football-theme .ch-hero-meta span:not(.sep):nth-of-type(2)::before {
-  content: '$275 ALL INCLUSIVE';
-  display: inline-block !important;
-  font-size: clamp(16px, 1.8vw, 22px) !important;
-  font-weight: 900 !important;
-}
-
-.football-theme .ch-hero-meta span:not(.sep):last-child,
-.football-theme .ch-hero-meta .sep:last-of-type {
+.football-theme .ch-hero-meta span {
   display: none !important;
 }
 
-.football-theme .ch-hero-meta .sep {
+.football-theme .ch-hero-meta::before {
+  content: 'JUN 15 - JUL 24, 2026' !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: var(--mid-gray) !important;
+  font-size: clamp(16px, 1.8vw, 22px) !important;
+  font-weight: 900 !important;
+}
+
+.football-theme .ch-hero-meta::after {
+  content: '$275 ALL INCLUSIVE' !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  color: var(--mid-gray) !important;
+  font-size: clamp(16px, 1.8vw, 22px) !important;
+  font-weight: 900 !important;
+}
+
+.football-theme .ch-hero-meta .sep:first-child {
   display: inline-flex !important;
   width: 7px !important;
   height: 7px !important;
   background: var(--yellow) !important;
   border: 1px solid var(--black) !important;
   border-radius: 999px !important;
+  grid-column: 1 !important;
+  grid-row: 1 !important;
 }
+
+.football-theme .ch-hero-meta::before { grid-column: 2 !important; grid-row: 1 !important; }
+.football-theme .ch-hero-meta::after { grid-column: 3 !important; grid-row: 1 !important; }
 
 .football-theme .hero-actions {
   display: flex !important;
@@ -248,6 +255,15 @@
   .football-theme .hero-actions {
     flex-wrap: wrap !important;
     white-space: normal !important;
+  }
+
+  .football-theme .ch-hero-meta {
+    grid-template-columns: auto auto !important;
+  }
+
+  .football-theme .ch-hero-meta::after {
+    grid-column: 2 !important;
+    grid-row: 2 !important;
   }
 
   .football-theme .hero + section::before {
