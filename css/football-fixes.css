@@ -41,7 +41,7 @@
 }
 
 .football-theme .hero-sub::before {
-  content: 'Four weeks of combine testing, position training, football fundamentals, and Friday night 7 on 7 competition. Built to develop disciplined, confident athletes who understand the game.';
+  content: 'Six weeks of combine testing, position training, football fundamentals, and Friday night 7 on 7 competition. Built to develop disciplined, confident athletes who understand the game.';
   font-size: clamp(16px, 1.6vw, 19px) !important;
   line-height: 1.65 !important;
 }
@@ -62,13 +62,13 @@
 }
 
 .football-theme .ch-hero-meta span:not(.sep):first-of-type::before {
-  content: 'JUN 15 - JUL 11, 2026';
+  content: 'JUN 15 - JUL 24, 2026';
   font-size: clamp(16px, 1.8vw, 22px) !important;
   font-weight: 900 !important;
 }
 
 .football-theme .ch-hero-meta span:not(.sep):nth-of-type(2)::before {
-  content: '$175 ALL INCLUSIVE';
+  content: '$275 ALL INCLUSIVE';
   font-size: clamp(16px, 1.8vw, 22px) !important;
   font-weight: 900 !important;
 }
@@ -122,48 +122,25 @@
   border-color: var(--black) !important;
 }
 
-.football-theme .ch-value-strip {
-  background: var(--white) !important;
-  border: 1px solid var(--border) !important;
-  border-radius: 16px !important;
-  box-shadow: none !important;
-  overflow: hidden !important;
+.football-theme .hero + section {
+  display: none !important;
 }
 
-.football-theme .ch-value-strip > div {
-  background: transparent !important;
-}
-
-.football-theme .ch-value-strip > div:nth-child(1) .ch-val-num,
-.football-theme .ch-value-strip > div:nth-child(3) .ch-val-num {
-  font-size: 0 !important;
-}
-
-.football-theme .ch-value-strip > div:nth-child(1) .ch-val-num::before {
-  content: '4 WKS';
-  font-size: clamp(34px, 4vw, 52px) !important;
-}
-
-.football-theme .ch-value-strip > div:nth-child(3) .ch-val-num::before {
-  content: '$175';
-  font-size: clamp(34px, 4vw, 52px) !important;
-}
-
-.football-theme .ch-val-num {
-  background: transparent !important;
-  color: var(--black) !important;
-  text-shadow: none !important;
-}
-
-.football-theme .ch-val-label {
-  color: var(--mid-gray) !important;
-}
-
-.football-theme .wc-card.is-active,
-.football-theme .wc-card.is-dark.is-active {
+.football-theme .wc-carousel .wc-card,
+.football-theme .wc-carousel .wc-card.is-active,
+.football-theme .wc-carousel .wc-card.is-dark,
+.football-theme .wc-carousel .wc-card.is-dark.is-active,
+.football-theme .wc-carousel .wc-card:first-child,
+.football-theme .wc-carousel .wc-card:last-child {
   box-shadow: none !important;
   filter: none !important;
   transform: none !important;
+  outline: 0 !important;
+}
+
+.football-theme .wc-carousel .wc-card.is-active,
+.football-theme .wc-carousel .wc-card.is-dark.is-active {
+  border-color: inherit !important;
 }
 
 .football-theme .carousel-dots span,
@@ -213,13 +190,13 @@
 }
 
 .football-theme .gameday-intro::before {
-  content: 'Athletes compete live every Friday at the Turf Stadium, finish with Championship Day in the final week, and continue the experience at the Alsatia Mummers Parade in October.';
+  content: 'Athletes compete live every Friday at the Turf Stadium, finish with Championship Day, and continue the experience at the Alsatia Mummers Parade in October.';
   font-size: 16px !important;
   line-height: 1.7 !important;
 }
 
 .football-theme .final-cta p::before {
-  content: 'Four weeks. Combine testing. Friday night competition. Championship Day. The Mummers Parade. All included.';
+  content: 'Six weeks. Combine testing. Friday night competition. Championship Day. The Mummers Parade. All included.';
   font-size: 18px !important;
   line-height: 1.6 !important;
 }
