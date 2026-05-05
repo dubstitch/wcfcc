@@ -58,17 +58,21 @@
 }
 
 .football-theme .ch-hero-meta span:not(.sep) {
+  display: inline-flex !important;
+  align-items: center !important;
   font-size: 0 !important;
 }
 
 .football-theme .ch-hero-meta span:not(.sep):first-of-type::before {
   content: 'JUN 15 - JUL 24, 2026';
+  display: inline-block !important;
   font-size: clamp(16px, 1.8vw, 22px) !important;
   font-weight: 900 !important;
 }
 
 .football-theme .ch-hero-meta span:not(.sep):nth-of-type(2)::before {
   content: '$275 ALL INCLUSIVE';
+  display: inline-block !important;
   font-size: clamp(16px, 1.8vw, 22px) !important;
   font-weight: 900 !important;
 }
@@ -79,10 +83,12 @@
 }
 
 .football-theme .ch-hero-meta .sep {
+  display: inline-flex !important;
   width: 7px !important;
   height: 7px !important;
   background: var(--yellow) !important;
   border: 1px solid var(--black) !important;
+  border-radius: 999px !important;
 }
 
 .football-theme .hero-actions {
