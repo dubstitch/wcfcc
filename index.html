@@ -163,40 +163,48 @@
       </div>
       <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.5);">Two elite programs. One championship experience. Built for kids who are serious about getting better.</p>
     </div>
-    <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.4);font-size:13px;margin:0 0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Tap a side to expand</p>
-    <div class="diag-programs anim anim-d4" id="diagPrograms">
-      <button class="diag-card diag-football" type="button" onclick="diagOpen('football')" aria-label="Open Football">
-        <div class="diag-content">
-          <span class="diag-tag">Football</span>
-          <h3 class="diag-title">FOOTBALL<br>COMBINE CAMP</h3>
-          <p class="diag-desc">An intensive 6-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p>
-          <ul class="diag-features">
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Combine testing &amp; skill tracking</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Position specific training</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Weekly 7 on 7 competition</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Championship Day with trophies</li>
-          </ul>
-          <p class="diag-meta">3 Divisions &middot; Boost / Nitro / Turbo &middot; Ages 9&ndash;17</p>
-          <a href="pages/football.html" class="diag-cta">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.4);font-size:13px;margin:0 0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Tap a program to expand</p>
+    <div class="gameday-accordion anim anim-d4">
+      <div class="gda-card is-open" id="programFootball">
+        <button class="gda-trigger" type="button" onclick="toggleGDA('programFootball')" aria-label="Toggle Football Combine Camp">
+          <div class="gda-trigger-left">
+            <span class="gda-title">FOOTBALL COMBINE CAMP</span>
+            <span class="gda-subtitle">Combine testing, position training &amp; weekly 7 on 7</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body">
+          <div class="gda-body-inner">
+            <p class="gda-desc">An intensive 6-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p>
+            <p class="gda-detail"><strong>Combine testing</strong> &amp; skill tracking</p>
+            <p class="gda-detail"><strong>Position specific training</strong></p>
+            <p class="gda-detail"><strong>Weekly 7 on 7 competition</strong></p>
+            <p class="gda-detail"><strong>Championship Day</strong> with trophies</p>
+            <p class="gda-highlight">3 Divisions &middot; Boost / Nitro / Turbo &middot; Ages 9&ndash;17</p>
+            <a href="pages/football.html" class="gda-badge" style="text-decoration:none;">Learn More &rarr;</a>
+          </div>
         </div>
-        <span class="diag-tab-label">Football <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </button>
-      <button class="diag-card diag-cheer" type="button" onclick="diagOpen('cheer')" aria-label="Open Cheer">
-        <div class="diag-content">
-          <span class="diag-tag">Cheer</span>
-          <h3 class="diag-title">SIDELINE<br>CHEER CAMP</h3>
-          <p class="diag-desc">A 6-week sideline cheer program designed to build confident young women through technique, teamwork, and real game-day performance experience.</p>
-          <ul class="diag-features">
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Sideline cheers, motions &amp; jumps</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Choreographed sideline dances</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Weekly game day performances</li>
-            <li><span class="check-icon"><svg viewBox="0 0 12 12"><path d="M2 6l3 3 5-5"/></svg></span>Mummers Parade performance</li>
-          </ul>
-          <p class="diag-meta">Confidence &middot; Performance &middot; Ages 8&ndash;17</p>
-          <a href="pages/cheer.html" class="diag-cta">Learn More <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+      </div>
+      <div class="gda-card" id="programCheer">
+        <button class="gda-trigger" type="button" onclick="toggleGDA('programCheer')" aria-label="Toggle Sideline Cheer Camp">
+          <div class="gda-trigger-left">
+            <span class="gda-title">SIDELINE CHEER CAMP</span>
+            <span class="gda-subtitle">Sideline cheers, choreography &amp; game day performance</span>
+          </div>
+          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
+        </button>
+        <div class="gda-body">
+          <div class="gda-body-inner">
+            <p class="gda-desc">A 6-week sideline cheer program designed to build confident young women through technique, teamwork, and real game-day performance experience.</p>
+            <p class="gda-detail"><strong>Sideline cheers</strong>, motions &amp; jumps</p>
+            <p class="gda-detail"><strong>Choreographed sideline dances</strong></p>
+            <p class="gda-detail"><strong>Weekly game day performances</strong></p>
+            <p class="gda-detail"><strong>Mummers Parade performance</strong></p>
+            <p class="gda-highlight">Confidence &middot; Performance &middot; Ages 8&ndash;17</p>
+            <a href="pages/cheer.html" class="gda-badge" style="text-decoration:none;">Learn More &rarr;</a>
+          </div>
         </div>
-        <span class="diag-tab-label">Cheer <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
-      </button>
+      </div>
     </div>
   </div>
 </section>
@@ -319,8 +327,10 @@
 <script>
   function toggleGDA(id) {
     var card = document.getElementById(id);
+    if (!card) return;
+    var group = card.closest('.gameday-accordion') || document;
     var isOpen = card.classList.contains('is-open');
-    document.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
+    group.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
     if (!isOpen) card.classList.add('is-open');
   }
 </script>
