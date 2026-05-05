@@ -2,14 +2,14 @@
 
 .football-theme .hero {
   min-height: auto !important;
-  padding-bottom: 24px !important;
+  padding-bottom: 12px !important;
 }
 
 .football-theme .hero-inner {
   grid-template-columns: 1fr !important;
   gap: 0 !important;
   padding-top: 24px !important;
-  padding-bottom: 24px !important;
+  padding-bottom: 16px !important;
 }
 
 .football-theme .hero-badge {
@@ -187,6 +187,24 @@
 .football-theme .fb-combine-card {
   background: rgba(255,255,255,0.05) !important;
   border: 1px solid rgba(255,255,255,0.14) !important;
+}
+
+.football-theme .fb-combine-card .drill-row {
+  position: relative !important;
+  display: flex !important;
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+.football-theme .fb-combine-card .drill-diamond {
+  font-size: 0 !important;
+  width: 10px !important;
+  height: 10px !important;
+  min-width: 10px !important;
+  margin-top: 8px !important;
+  border-radius: 999px !important;
+  background: var(--yellow) !important;
+  box-shadow: 0 0 10px rgba(232,255,0,0.75) !important;
 }
 
 .football-theme .gameday-intro,
