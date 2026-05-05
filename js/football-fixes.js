@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
   const meta = document.querySelector('.football-theme .ch-hero-meta');
   if (meta) {
-    meta.innerHTML = '<span class="sep"></span><span><strong>JUN 15</strong> &ndash; JUL 11, 2026</span><span class="sep"></span><span><strong>$175</strong> ALL INCLUSIVE</span>';
+    meta.innerHTML = '<span class="sep"></span><span><strong>JUN 15</strong> &ndash; JUL 10, 2026</span><span class="sep"></span><span><strong>$175</strong> ALL INCLUSIVE</span>';
   }
 
   const trainingPlanButton = document.querySelector('.football-theme .ch-hero-cta.fb-secondary-cta');
