@@ -18,6 +18,7 @@
   gap: 10px !important;
   background: var(--black) !important;
   color: var(--yellow) !important;
+  border: 2px solid var(--black) !important;
   border-radius: 100px !important;
   padding: 10px 22px !important;
   font-family: 'Barlow Condensed', sans-serif !important;
@@ -35,33 +36,84 @@
   border-radius: 50% !important;
 }
 
+.football-theme .ch-hero-meta {
+  display: flex !important;
+  align-items: center !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+  margin: 18px 0 18px !important;
+  font-size: clamp(15px, 1.7vw, 20px) !important;
+  letter-spacing: 2.4px !important;
+  white-space: nowrap !important;
+}
+
+.football-theme .ch-hero-meta span:last-child,
+.football-theme .ch-hero-meta .sep:last-of-type {
+  display: none !important;
+}
+
+.football-theme .ch-hero-meta .sep {
+  width: 7px !important;
+  height: 7px !important;
+  background: var(--yellow) !important;
+  border: 1px solid var(--black) !important;
+}
+
+.football-theme .hero-actions {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 10px !important;
+  max-width: 100% !important;
+}
+
 .football-theme .hero .age-chip {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  min-height: 36px !important;
-  padding: 8px 18px !important;
+  min-height: 38px !important;
+  padding: 8px 16px !important;
+  border: 2px solid var(--black) !important;
   border-radius: 999px !important;
   background: var(--yellow) !important;
   color: var(--black) !important;
   box-shadow: 0 6px 18px rgba(232,255,0,0.28) !important;
   font-family: 'Barlow Condensed', sans-serif !important;
-  font-size: 13px !important;
+  font-size: clamp(11px, 1.4vw, 14px) !important;
   font-weight: 900 !important;
-  letter-spacing: 2px !important;
+  letter-spacing: 1.8px !important;
   text-transform: uppercase !important;
   line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.football-theme .ch-hero-cta {
+  border: 2px solid var(--black) !important;
 }
 
 .football-theme .ch-hero-cta.fb-secondary-cta {
   background: var(--yellow) !important;
   color: var(--black) !important;
-  border-color: var(--yellow) !important;
+  border-color: var(--black) !important;
+}
+
+.football-theme .ch-value-strip {
+  background: linear-gradient(135deg, #ffffff 0%, #f7f8fb 100%) !important;
+  border: 2px solid var(--black) !important;
+  box-shadow: 10px 10px 0 rgba(10,10,10,0.12), 0 18px 45px rgba(0,0,0,0.08) !important;
+}
+
+.football-theme .ch-value-strip > div {
+  background: rgba(255,255,255,0.58) !important;
 }
 
 .football-theme .ch-val-num {
   background: transparent !important;
   color: var(--black) !important;
+  text-shadow: 0 0 16px rgba(232,255,0,0.34) !important;
+}
+
+.football-theme .ch-val-label {
+  color: var(--mid-gray) !important;
 }
 
 .football-theme .carousel-dots span,
@@ -75,6 +127,7 @@
 .football-theme .carousel-dot.is-active,
 .football-theme .carousel-dots .active {
   background: var(--yellow) !important;
+  border: 1px solid var(--black) !important;
 }
 
 .football-theme .fb-combine-section {
@@ -84,4 +137,12 @@
 .football-theme .fb-combine-card {
   background: rgba(255,255,255,0.05) !important;
   border: 1px solid rgba(255,255,255,0.14) !important;
+}
+
+@media (max-width: 720px) {
+  .football-theme .ch-hero-meta,
+  .football-theme .hero-actions {
+    flex-wrap: wrap !important;
+    white-space: normal !important;
+  }
 }
