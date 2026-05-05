@@ -123,7 +123,39 @@
 }
 
 .football-theme .hero + section {
+  display: block !important;
+  height: 56px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: var(--black) !important;
+  border-top: 4px solid var(--yellow) !important;
+  border-bottom: 4px solid var(--yellow) !important;
+}
+
+.football-theme .hero + section .container,
+.football-theme .hero + section .ch-value-strip {
   display: none !important;
+}
+
+.football-theme .hero + section::before {
+  content: '6 WEEKS OF TRAINING   ◆   AGES 9-17   ◆   $275 ALL INCLUSIVE   ◆   SPONSOR 1   ◆   SPONSOR 2   ◆   SPONSOR 3   ◆   SPONSOR 4   ◆   SPONSOR 5   ◆   SPONSOR 6   ◆   6 WEEKS OF TRAINING   ◆   AGES 9-17   ◆   $275 ALL INCLUSIVE   ◆   SPONSOR 1   ◆   SPONSOR 2   ◆   SPONSOR 3   ◆   SPONSOR 4   ◆   SPONSOR 5   ◆   SPONSOR 6   ◆';
+  display: inline-block !important;
+  white-space: nowrap !important;
+  min-width: max-content !important;
+  height: 48px !important;
+  line-height: 48px !important;
+  color: var(--white) !important;
+  font-family: 'Barlow Condensed', sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  letter-spacing: 4px !important;
+  text-transform: uppercase !important;
+  animation: footballTickerMove 32s linear infinite !important;
+}
+
+@keyframes footballTickerMove {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }
 
 .football-theme .wc-carousel .wc-card,
@@ -206,5 +238,10 @@
   .football-theme .hero-actions {
     flex-wrap: wrap !important;
     white-space: normal !important;
+  }
+
+  .football-theme .hero + section::before {
+    font-size: 16px !important;
+    letter-spacing: 3px !important;
   }
 }
