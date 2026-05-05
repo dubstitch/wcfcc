@@ -1,0 +1,47 @@
+.diag-programs {
+  display: block !important;
+  min-height: 0 !important;
+  height: auto !important;
+  clip-path: none !important;
+  transform: none !important;
+}
+
+.diag-programs .diag-card {
+  display: block !important;
+  width: 100% !important;
+  min-height: 0 !important;
+  height: auto !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  clip-path: none !important;
+  transform: none !important;
+  position: static !important;
+}
+
+.diag-programs .diag-card + .diag-card {
+  margin-top: 14px !important;
+}
+
+.diag-programs .diag-content,
+.diag-programs .diag-tab-label {
+  display: none !important;
+}
+
+.diag-programs .gda-card {
+  display: block !important;
+}
+
+.diag-programs .gda-body {
+  display: grid !important;
+  grid-template-rows: 0fr !important;
+  transition: grid-template-rows .35s ease !important;
+}
+
+.diag-programs .gda-card.is-open .gda-body {
+  grid-template-rows: 1fr !important;
+}
+
+.diag-programs .gda-body-inner {
+  overflow: hidden !important;
+}
