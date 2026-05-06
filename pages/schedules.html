@@ -41,13 +41,20 @@
       <div class="section-eyebrow">Key Dates</div>
       <h2 class="section-title">SUMMER<br><span class="accent">2026</span></h2>
     </div>
-    <div class="anim anim-d2 info-grid cols-3" style="margin-top:48px;">
-      <div class="info-card"><h3>Summer Camp</h3><p><strong style="color:var(--black);">June 15 &mdash; July 10, 2026</strong></p><p style="margin-top:8px;">Four full weeks of training. Practices weekday evenings, full camp nights every Friday.</p></div>
-      <div class="info-card"><h3>Championship Day</h3><p><strong style="color:var(--black);">Friday, July 10, 2026</strong></p><p style="margin-top:8px;">The final Friday of camp. Tailgate, championship games, full cheer routine, trophies.</p></div>
-      <div class="info-card"><h3>Post Camp Practices</h3><p><strong style="color:var(--black);">August &mdash; October 2026</strong></p><p style="margin-top:8px;">3 sessions per month. Stay sharp for fall teams. Build the WCFCC parade float.</p></div>
-      <div class="info-card"><h3>Mummers Parade</h3><p><strong style="color:var(--black);">October 31, 2026</strong></p><p style="margin-top:8px;">Downtown Hagerstown. 70,000+ spectators. Football demos and cheer routines on the parade route.</p></div>
-      <div class="info-card"><h3>Registration Deadline</h3><p><strong style="color:var(--black);">April 30, 2026</strong></p><p style="margin-top:8px;">Spots fill on a first-come basis. Don&rsquo;t wait.</p></div>
-      <div class="info-card"><h3>Full Camp Nights</h3><p><strong style="color:var(--black);">Fridays, 5:15 PM &mdash; 7:45 PM</strong></p><p style="margin-top:8px;">Shared football and cheer nights with 7 on 7 games, performances, team competitions, and media content.</p></div>
+    <div class="anim anim-d2 wc-acc" style="margin-top:32px;">
+      <div class="wc-acc-item" data-acc-item data-acc-group="key-dates">
+        <button class="wc-acc-trigger" onclick="toggleAcc(this)"><span>View Key Dates</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+        <div class="wc-acc-body"><div class="wc-acc-body-inner">
+          <div class="info-grid cols-3">
+            <div class="info-card"><h3>Summer Camp</h3><p><strong style="color:var(--black);">June 15 &mdash; July 10, 2026</strong></p><p style="margin-top:8px;">Four full weeks of training. Practices weekday evenings, full camp nights every Friday.</p></div>
+            <div class="info-card"><h3>Championship Day</h3><p><strong style="color:var(--black);">Friday, July 10, 2026</strong></p><p style="margin-top:8px;">The final Friday of camp. Tailgate, championship games, full cheer routine, trophies.</p></div>
+            <div class="info-card"><h3>Post Camp Practices</h3><p><strong style="color:var(--black);">August &mdash; October 2026</strong></p><p style="margin-top:8px;">3 sessions per month. Stay sharp for fall teams. Build the WCFCC parade float.</p></div>
+            <div class="info-card"><h3>Mummers Parade</h3><p><strong style="color:var(--black);">October 31, 2026</strong></p><p style="margin-top:8px;">Downtown Hagerstown. 70,000+ spectators. Football demos and cheer routines on the parade route.</p></div>
+            <div class="info-card"><h3>Registration Deadline</h3><p><strong style="color:var(--black);">April 30, 2026</strong></p><p style="margin-top:8px;">Spots fill on a first-come basis. Don&rsquo;t wait.</p></div>
+            <div class="info-card"><h3>Full Camp Nights</h3><p><strong style="color:var(--black);">Fridays, 5:15 PM &mdash; 7:45 PM</strong></p><p style="margin-top:8px;">Shared football and cheer nights with 7 on 7 games, performances, team competitions, and media content.</p></div>
+          </div>
+        </div></div>
+      </div>
     </div>
   </div>
 </section>
@@ -64,10 +71,17 @@
         <button class="wc-tab is-active" data-tab-group="schedule" data-tab="football" onclick="switchTab(this)">Football</button>
         <button class="wc-tab" data-tab-group="schedule" data-tab="cheer" onclick="switchTab(this)">Cheer</button>
       </div>
-      <div class="ch-hero-meta" style="justify-content:center;margin:26px auto 34px;font-size:15px;gap:10px;text-align:center;">
-        <span class="sep"></span><span><strong>CAMP DATES</strong> June 15, 2026 &mdash; July 10, 2026</span>
-        <span class="sep"></span><span><strong>CAMP TIMES</strong> Monday &mdash; Friday &middot; 5:15 PM &mdash; 7:45 PM</span>
-        <span class="sep"></span><span><strong>WEEKLY CAMP SCHEDULE</strong> Position-focused training by day</span>
+      <div class="wc-acc" style="margin:26px auto 34px;">
+        <div class="wc-acc-item" data-acc-item data-acc-group="schedule-details">
+          <button class="wc-acc-trigger" onclick="toggleAcc(this)"><span>View Camp Dates, Times &amp; Weekly Schedule</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+          <div class="wc-acc-body"><div class="wc-acc-body-inner">
+            <div class="ch-hero-meta" style="justify-content:center;margin:0;font-size:15px;gap:10px;text-align:center;">
+              <span class="sep"></span><span><strong>CAMP DATES</strong> June 15, 2026 &mdash; July 10, 2026</span>
+              <span class="sep"></span><span><strong>CAMP TIMES</strong> Monday &mdash; Friday &middot; 5:15 PM &mdash; 7:45 PM</span>
+              <span class="sep"></span><span><strong>WEEKLY CAMP SCHEDULE</strong> Position-focused training by day</span>
+            </div>
+          </div></div>
+        </div>
       </div>
       <div data-tab-panel-group="schedule" data-tab-panel="football" class="is-active">
         <div class="info-grid cols-3">
