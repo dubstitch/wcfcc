@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </button>
         <div class="gda-body">
           <div class="gda-body-inner">
-            <p class="gda-desc">An intensive 6-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p>
+            <p class="gda-desc">An intensive 4-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p>
             <p class="gda-detail"><strong>Training:</strong> Combine testing, skill tracking, and position specific coaching</p>
             <p class="gda-detail"><strong>Competition:</strong> Weekly 7 on 7 game reps every Friday</p>
             <p class="gda-detail"><strong>Finale:</strong> Championship Day with trophies</p>
