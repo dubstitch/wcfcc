@@ -8,6 +8,11 @@
 <link rel="stylesheet" href="../css/site.css">
 <style>
 .cheer-theme .wc-carousel .wc-card,.cheer-theme .wc-carousel .wc-card.is-active,.cheer-theme .wc-carousel .wc-card.is-dark,.cheer-theme .wc-carousel .wc-card.is-dark.is-active,.cheer-theme .wc-carousel .wc-card:first-child,.cheer-theme .wc-carousel .wc-card:last-child{box-shadow:none!important;filter:none!important;transform:none!important;outline:0!important}.cheer-theme .wc-carousel .wc-card.is-active,.cheer-theme .wc-carousel .wc-card.is-dark.is-active{border-color:inherit!important}
+.wc-card .wc-week-label{font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:2px;color:var(--pink);text-transform:uppercase;margin-bottom:6px;display:block;}
+.wc-card .wc-bullets{margin:14px 0 0;padding:0;list-style:none;}
+.wc-card .wc-bullets li{font-family:'Barlow',sans-serif;font-size:12px;line-height:1.55;padding:4px 0 4px 14px;position:relative;}
+.wc-card.is-dark .wc-bullets li{color:rgba(255,255,255,0.7);}
+.wc-card .wc-bullets li::before{content:'';position:absolute;left:0;top:11px;width:6px;height:6px;border-radius:50%;background:var(--yellow);}
 </style>
 </head>
 <body class="cheer-theme">
@@ -61,40 +66,8 @@
   </div>
 </section>
 
-<!-- CURRICULUM + 6-WEEK PROGRESSION (combined) -->
-<section id="curriculum" style="background:var(--black);padding:80px 0;position:relative;overflow:hidden;">
-  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,20,147,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">CURRICULUM</div>
-  <div class="container" style="position:relative;z-index:2;">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">The Journey</div>
-      <h2 class="section-title" style="color:var(--white);">CHEER<br><span class="accent">CURRICULUM</span></h2>
-      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:620px;margin-top:14px;">Every rep builds toward the next Friday performance. Athletes progress through six weeks of sideline cheers, motion technique, choreography, jumps, teamwork, and showmanship.</p>
-    </div>
-
-    <div class="anim anim-d2 wc-carousel" data-wc-carousel data-wc-visible="3,2,1" style="margin-top:48px;">
-      <div class="wc-carousel-viewport"><div class="wc-carousel-track" data-wc-track>
-        <div class="wc-card is-dark is-active"><div class="wc-num">1</div><h3>FOUNDATIONS</h3><p>Cheer voice, motion placement, counts, jump prep, and first sideline cheers.</p></div>
-        <div class="wc-card is-dark"><div class="wc-num">2</div><h3>GAME READY</h3><p>Friday sideline cheers, formations, crowd confidence, and the opening section of the final routine.</p></div>
-        <div class="wc-card is-dark"><div class="wc-num">3</div><h3>JUMPS &amp; ENERGY</h3><p>Jump sequence, sharper motions, stronger timing, and performance energy.</p></div>
-        <div class="wc-card is-dark"><div class="wc-num">4</div><h3>STUNTS &amp; TEAMWORK</h3><p>Safe stunt or pyramid basics, team timing, spacing, and routine transitions.</p></div>
-        <div class="wc-card is-dark"><div class="wc-num">5</div><h3>FULL ROUTINE</h3><p>Connect every section, clean motions, sharpen spacing, and practice full routine reps.</p></div>
-        <div class="wc-card is-dark is-active"><div class="wc-num">6</div><h3>SHOWCASE</h3><p>Championship Day performance, final routine presentation, sideline confidence, and team celebration.</p></div>
-      </div></div>
-      <div class="carousel-controls" style="margin-top:32px;">
-        <button class="carousel-btn prev" data-wc-prev aria-label="Previous"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg></button>
-        <div class="carousel-dots" data-wc-dots></div>
-        <button class="carousel-btn next" data-wc-next aria-label="Next"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
-      </div>
-    </div>
-
-    <div class="anim anim-d3 ch-skill-pills">
-      <span>Sideline Cheers</span><span>Motions</span><span>Jumps</span><span>Dance</span><span>Formations</span><span>Stunts</span><span>Showmanship</span><span>Teamwork</span>
-    </div>
-  </div>
-</section>
-
 <!-- AGE GROUP EXPECTATIONS (Sparkle / Stars) -->
-<section style="background:var(--white);padding:64px 0;">
+<section style="background:var(--smoke);padding:64px 0;">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow">Divisions</div>
@@ -120,8 +93,82 @@
   </div>
 </section>
 
+<!-- CURRICULUM + 4-WEEK PROGRESSION -->
+<section id="curriculum" style="background:var(--black);padding:80px 0;position:relative;overflow:hidden;">
+  <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Bebas Neue',sans-serif;font-size:200px;color:rgba(255,20,147,0.04);white-space:nowrap;pointer-events:none;letter-spacing:-5px;">CURRICULUM</div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="anim anim-d1">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">The Journey</div>
+      <h2 class="section-title" style="color:var(--white);">CHEER<br><span class="accent">PROGRESSION</span></h2>
+      <p style="font-size:16px;color:rgba(255,255,255,0.65);line-height:1.7;max-width:620px;margin-top:14px;">Every rep builds toward Championship Day. Athletes progress week by week through cheers, motion technique, the routine, and Friday game day reps.</p>
+    </div>
+
+    <div class="anim anim-d2 wc-carousel" data-wc-carousel data-wc-visible="3,2,1" style="margin-top:48px;">
+      <div class="wc-carousel-viewport"><div class="wc-carousel-track" data-wc-track>
+        <div class="wc-card is-dark is-active">
+          <div class="wc-num">1</div>
+          <span class="wc-week-label">Week 1</span>
+          <h3>CHEER BASICS + FIRST ROUTINE PIECE</h3>
+          <p>Athletes learn camp expectations, basic motions, counts, beginner chants and cheers, and the first piece of the Championship Day routine. By Friday, they begin building confidence by practicing what they learned during game day activities.</p>
+          <ul class="wc-bullets">
+            <li>Basic motions and counts</li>
+            <li>Beginner chants and cheers</li>
+            <li>First routine section</li>
+            <li>Friday game day practice</li>
+          </ul>
+        </div>
+        <div class="wc-card is-dark">
+          <div class="wc-num">2</div>
+          <span class="wc-week-label">Week 2</span>
+          <h3>MORE CHEERS + ROUTINE BUILDING</h3>
+          <p>Athletes continue building technique while learning additional chants, cheers, and the next section of the Championship Day routine. Coaches focus on timing, sharper motions, confidence, and connecting material from previous weeks.</p>
+          <ul class="wc-bullets">
+            <li>Additional chants and cheers</li>
+            <li>Second routine section</li>
+            <li>Timing and motion clean up</li>
+            <li>Friday game day practice</li>
+          </ul>
+        </div>
+        <div class="wc-card is-dark">
+          <div class="wc-num">3</div>
+          <span class="wc-week-label">Week 3</span>
+          <h3>FINAL ROUTINE SECTION + FULL RUN THROUGHS</h3>
+          <p>Athletes learn the final section of the Championship Day routine and begin practicing the routine together in fuller run throughs. The focus shifts toward memory, confidence, teamwork, transitions, and stronger overall execution.</p>
+          <ul class="wc-bullets">
+            <li>Final routine section</li>
+            <li>Full routine run throughs</li>
+            <li>Transition and timing practice</li>
+            <li>Friday game day preparation</li>
+          </ul>
+        </div>
+        <div class="wc-card is-dark is-active">
+          <div class="wc-num">4</div>
+          <span class="wc-week-label">Week 4</span>
+          <h3>ROUTINE CLEAN UP + CHAMPIONSHIP DAY PREP</h3>
+          <p>Athletes spend the final week polishing the full routine and preparing for Championship Day performances. Coaches focus on cleaner motions, sharper timing, stronger confidence, and bringing the team together before the final event.</p>
+          <ul class="wc-bullets">
+            <li>Full routine clean up</li>
+            <li>Performance confidence</li>
+            <li>Timing and synchronization</li>
+            <li>Championship Day preparation</li>
+          </ul>
+        </div>
+      </div></div>
+      <div class="carousel-controls" style="margin-top:32px;">
+        <button class="carousel-btn prev" data-wc-prev aria-label="Previous"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg></button>
+        <div class="carousel-dots" data-wc-dots></div>
+        <button class="carousel-btn next" data-wc-next aria-label="Next"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+      </div>
+    </div>
+
+    <div class="anim anim-d3 ch-skill-pills">
+      <span>Sideline Cheers</span><span>Motions</span><span>Jumps</span><span>Dance</span><span>Formations</span><span>Stunts</span><span>Showmanship</span><span>Teamwork</span>
+    </div>
+  </div>
+</section>
+
 <!-- STANDARDS as horizontal carousel -->
-<section style="background:var(--smoke);padding:64px 0;">
+<section style="background:var(--white);padding:64px 0;">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow">Safety First</div>
@@ -144,7 +191,7 @@
 </section>
 
 <!-- BEYOND THE SIDELINE: condensed accordion (Game Day Fridays + Mummers Parade) -->
-<section class="gameday-banner" style="padding:72px 0;">
+<section class="gameday-banner" style="padding:72px 0;background:#1A0612;">
   <div class="gameday-inner">
     <div class="gameday-left anim anim-d1">
       <div class="section-eyebrow">Beyond Practice</div>
