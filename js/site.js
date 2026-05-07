@@ -216,18 +216,10 @@ function initRegistrationFormModal() {
   });
 }
 
-function getWcTermsDateStamp() {
-  var now = new Date();
-  var y = now.getFullYear();
-  var m = String(now.getMonth() + 1).padStart(2, '0');
-  var d = String(now.getDate()).padStart(2, '0');
-  return y + '-' + m + '-' + d;
-}
-
 function initTermsAgreementGate() {
-  var storageKey = 'wcfccTermsAccepted:' + getWcTermsDateStamp();
+  var storageKey = 'wcfccTermsAcceptedSitewide';
   try {
-    if (window.sessionStorage && sessionStorage.getItem(storageKey) === 'yes') return;
+    if (window.localStorage && localStorage.getItem(storageKey) === 'yes') return;
   } catch (err) {}
 
   var modal = document.createElement('div');
@@ -245,7 +237,7 @@ function initTermsAgreementGate() {
   button.addEventListener('click', function() {
     if (!checkbox.checked) return;
     try {
-      if (window.sessionStorage) sessionStorage.setItem(storageKey, 'yes');
+      if (window.localStorage) localStorage.setItem(storageKey, 'yes');
     } catch (err) {}
     modal.remove();
     document.documentElement.classList.remove('terms-gate-active');
