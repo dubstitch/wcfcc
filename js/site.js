@@ -159,3 +159,77 @@ document.addEventListener('DOMContentLoaded', function() {
   initAnim();
   initCarousels();
 });
+
+
+// ============ PORTFOLIO ARCHIVE MODE ============
+// Preserve internal navigation and interactive components, but never open
+// historical registration forms, payments, mail clients or phone dialers.
+(function () {
+  var sourceScript = document.currentScript;
+  if (sourceScript && sourceScript.src) {
+    var archiveStyles = document.createElement('link');
+    archiveStyles.rel = 'stylesheet';
+    archiveStyles.href = new URL('../css/archive.css', sourceScript.src).href;
+    document.head.appendChild(archiveStyles);
+  }
+
+  function initPortfolioArchive() {
+    if (!document.body || document.documentElement.hasAttribute('data-portfolio-archive')) return;
+    document.documentElement.setAttribute('data-portfolio-archive', 'true');
+
+    var notice = document.createElement('aside');
+    notice.className = 'portfolio-archive-notice';
+    notice.setAttribute('role', 'note');
+    notice.innerHTML = '<span class="archive-note-marker">PORTFOLIO ARCHIVE</span><span>This 2026 project is preserved as an interactive demo. Registration, forms, payments and contact actions are unavailable.</span>';
+    document.body.insertBefore(notice, document.body.firstChild);
+
+    var lockIcon = '<svg viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
+    document.querySelectorAll('a[href]').forEach(function (link) {
+      var destination = (link.getAttribute('href') || '').trim();
+      if (!/^(https?:|mailto:|tel:)/i.test(destination)) return;
+      var label = (link.textContent || '').replace(/\s+/g, ' ').trim() || 'External action';
+      link.removeAttribute('href');
+      link.removeAttribute('target');
+      link.removeAttribute('rel');
+      link.classList.add('demo-locked-link');
+      link.setAttribute('role', 'link');
+      link.setAttribute('aria-disabled', 'true');
+      link.setAttribute('aria-label', label + ', unavailable in portfolio archive');
+      link.setAttribute('title', 'Unavailable in this portfolio archive');
+      link.setAttribute('tabindex', '0');
+      var icon = document.createElement('span');
+      icon.className = 'demo-lock-icon';
+      icon.setAttribute('aria-hidden', 'true');
+      icon.innerHTML = lockIcon;
+      link.appendChild(icon);
+      link.addEventListener('click', function (event) { event.preventDefault(); event.stopPropagation(); });
+      link.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') event.preventDefault();
+      });
+    });
+
+    document.querySelectorAll('form').forEach(function (form) {
+      form.removeAttribute('onsubmit');
+      form.setAttribute('aria-label', 'Archived contact form, disabled');
+      form.addEventListener('submit', function (event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+      }, true);
+      var message = document.createElement('p');
+      message.className = 'demo-form-notice';
+      message.setAttribute('role', 'note');
+      message.textContent = 'This form is part of the original website design and is disabled in the portfolio archive.';
+      form.insertBefore(message, form.firstChild);
+      form.querySelectorAll('input, textarea, select, button').forEach(function (control) {
+        control.disabled = true;
+        control.setAttribute('aria-disabled', 'true');
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initPortfolioArchive);
+  } else {
+    initPortfolioArchive();
+  }
+})();
