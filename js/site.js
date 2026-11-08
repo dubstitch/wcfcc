@@ -73,13 +73,21 @@ function initCarousel(root) {
       var dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === current ? ' active' : '');
       dot.type = 'button';
+      dot.setAttribute('aria-label', 'Show carousel position ' + (i + 1) + ' of ' + totalSlides());
       (function(idx) { dot.addEventListener('click', function() { stopAuto(); goTo(idx); startAuto(); }); })(i);
       dotsContainer.appendChild(dot);
     }
   }
   function updateDots() {
     if (!dotsContainer) return;
-    dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) { d.classList.toggle('active', i === current); });
+    dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+      if (i === current) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
+    });
+    Array.from(cards).forEach(function(card, i) {
+      card.classList.toggle('is-active', i === current);
+    });
   }
   function setCardSizes() {
     var w = window.innerWidth;
@@ -115,7 +123,8 @@ function initCarousel(root) {
   window.addEventListener('resize', function() { setCardSizes(); buildDots(); goTo(Math.min(current, totalSlides() - 1)); });
   setCardSizes();
   buildDots();
-  startAuto();
+  goTo(0);
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) startAuto();
 }
 
 function initCarousels() {
