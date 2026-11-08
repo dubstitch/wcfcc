@@ -13,20 +13,32 @@ function toggleGDA(id) {
   var card = document.getElementById(id);
   if (!card) return;
   var isOpen = card.classList.contains('is-open');
-  document.querySelectorAll('.gda-card').forEach(function(c) { c.classList.remove('is-open'); });
+  var group = card.closest('.gameday-accordion') || card.parentElement;
+  group.querySelectorAll('.gda-card').forEach(function(c) {
+    c.classList.remove('is-open');
+    var trigger = c.querySelector('.gda-trigger');
+    if (trigger) trigger.setAttribute('aria-expanded', 'false');
+  });
   if (!isOpen) card.classList.add('is-open');
+  var btn = card.querySelector('.gda-trigger');
+  if (btn) btn.setAttribute('aria-expanded', String(!isOpen));
 }
 
 function toggleAcc(btn) {
   var item = btn.closest('[data-acc-item]');
   if (!item) return;
+  var wasOpen = item.classList.contains('is-open');
   var group = item.getAttribute('data-acc-group') || '';
   if (group) {
     document.querySelectorAll('[data-acc-item][data-acc-group="' + group + '"]').forEach(function(el) {
-      if (el !== item) el.classList.remove('is-open');
+      if (el !== item) {
+        el.classList.remove('is-open');
+        el.querySelector('.wc-acc-trigger')?.setAttribute('aria-expanded', 'false');
+      }
     });
   }
-  item.classList.toggle('is-open');
+  item.classList.toggle('is-open', !wasOpen);
+  btn.setAttribute('aria-expanded', String(!wasOpen));
 }
 
 function initAnim() {
@@ -164,6 +176,28 @@ function loadSeasonAccordionScript() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('[data-acc-item]').forEach(function(item, index) {
+    var btn = item.querySelector('.wc-acc-trigger');
+    var panel = item.querySelector('.wc-acc-body');
+    if (!btn) return;
+    btn.setAttribute('aria-expanded', String(item.classList.contains('is-open')));
+    if (panel) {
+      var id = panel.id || 'wc-acc-panel-' + index;
+      panel.id = id;
+      btn.setAttribute('aria-controls', id);
+    }
+  });
+  document.querySelectorAll('.gda-card').forEach(function(item,index) {
+    var btn = item.querySelector('.gda-trigger');
+    var panel = item.querySelector('.gda-body');
+    if (!btn) return;
+    btn.setAttribute('aria-expanded', String(item.classList.contains('is-open')));
+    if (panel) {
+      var id=panel.id || 'wc-gda-panel-' + index;
+      panel.id=id;
+      btn.setAttribute('aria-controls',id);
+    }
+  });
   loadSeasonAccordionScript();
   initAnim();
   initCarousels();
