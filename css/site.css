@@ -808,3 +808,33 @@ a[href*="cheer.html"]:focus-visible { outline-color: var(--cheer-pink) !importan
 @media (prefers-reduced-motion: reduce) {
  .wc-carousel-track, .wc-acc-body, .wc-acc-chevron, .gda-body, .gda-chevron { transition-duration: .01ms !important; animation-duration: .01ms !important; }
 }
+
+
+/* Explicit contrast refinements after visual review. */
+.cheer-theme .cheer-age-section .section-title .accent,
+.cheer-theme .cheer-standards-section .section-title .accent {
+  color: var(--cheer-pink) !important;
+  -webkit-text-stroke: 1.5px #111;
+  paint-order: stroke fill;
+}
+.cheer-theme .cheer-age-section .wc-acc-trigger [style*="background:var(--pink)"],
+.cheer-theme .age-chip:not(.alt) { color:#111 !important; }
+.cheer-theme .ch-hero-tagline { color:#111 !important; }
+.cheer-theme .ch-hero-tagline svg { fill:#111 !important; }
+.cheer-theme .wc-card .wc-week-label { color:#9c004e; }
+.cheer-theme .cheer-standards-section .wc-card p {color:#393939;}
+.cheer-theme .cheer-standards-section .wc-card .wc-num {
+  border:2px solid #171717;
+}
+.cheer-theme .cheer-standards-section .carousel-dot:not(.active) {
+  background:#74777e;
+  border:1px solid #292929;
+}
+nav .nav-links a[href*="cheer.html"],
+.nav-mobile-menu a[href*="cheer.html"] {
+  color:#ff99c9;
+}
+footer .footer-links a[href*="cheer.html"] {color:#ff99c9;}
+.cheer-theme nav .nav-links a[href*="cheer.html"] {
+  color:#ff99c9;
+}
