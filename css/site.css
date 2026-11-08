@@ -691,3 +691,120 @@ html, body { overflow-x: clip; overscroll-behavior-x: none; }
 .wc-form textarea { min-height: 120px; resize: vertical; }
 .wc-form button { background: var(--black); color: var(--yellow); font-family: 'Barlow Condensed',sans-serif; font-size: 15px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase; padding: 14px 28px; border-radius: 8px; border: none; cursor: pointer; }
 .wc-form button:hover { background: var(--charcoal); }
+
+
+/* 2026 portfolio finish: Volt contrast and cheer-first palette.
+   Retains alternating surfaces while never using Volt alone as a border
+   on very light surfaces. */
+:root { --volt: #e8ff00; --cheer-pink: #ed2588; --cheer-pink-ink: #ab0056; }
+a:focus-visible, button:focus-visible, [role="button"]:focus-visible {
+  outline: 3px solid #111 !important;
+  outline-offset: 4px;
+}
+nav a:focus-visible, .nav-mobile-menu a:focus-visible,
+[style*="background:var(--black)"] a:focus-visible,
+.gameday-banner a:focus-visible,
+.gameday-banner button:focus-visible,
+.programs button:focus-visible, .programs a:focus-visible,
+.cheer-curriculum button:focus-visible {
+  outline-color: var(--volt) !important;
+}
+/* Every open accordion must have a readable outline against its surface. */
+.wc-acc-item.is-open { border: 2px solid #171717; }
+.wc-acc-item.is-dark.is-open { border: 2px solid var(--volt); }
+.wc-acc-item.is-open .wc-acc-chevron,
+.wc-acc-item .wc-acc-chevron {
+  border: 2px solid #171717;
+  background: var(--volt);
+}
+.wc-acc-item .wc-acc-chevron svg { stroke: #111; }
+.wc-acc-item.is-dark .wc-acc-chevron { border-color: var(--volt); }
+.wc-acc-item.is-dark .wc-acc-chevron svg { stroke: #111; }
+.wc-acc-trigger:focus-visible { outline-offset: -4px; }
+.wc-carousel .wc-card.is-active:not(.is-dark) {
+  border: 2px solid #171717;
+  box-shadow: 0 12px 34px rgba(0,0,0,.14);
+}
+.wc-carousel .wc-card.is-dark.is-active { border: 2px solid var(--volt); }
+.wc-carousel .wc-card.is-active .wc-num {
+  box-shadow: inset 0 0 0 2px #171717;
+}
+.carousel-dot { min-width: 13px; min-height: 13px; background: #6d7076; }
+.carousel-dot.active { background: #181818; width: 24px; }
+.carousel-dot:focus-visible { outline-offset: 5px; }
+.gda-card.is-open:not(.is-dark) { border-color: var(--volt); }
+.gda-card:focus-within { outline: 2px solid var(--volt); outline-offset: 3px; }
+.gda-trigger:focus-visible { outline: 3px solid var(--volt) !important; outline-offset: -4px; }
+.fb-age-section .wc-acc-item.is-open { border-color: #171717; }
+.fb-age-section .wc-acc-chevron { border: 2px solid #171717; }
+.fb-age-section .wc-acc-trigger [style*="background:var(--yellow)"] {
+  box-shadow: inset 0 0 0 2px #171717;
+}
+/* Homepage references to cheer are pink, not the football Volt. */
+#programCheer { border-color: rgba(237,37,136,.5); }
+#programCheer.is-open { border-color: var(--cheer-pink); box-shadow: 0 0 0 1px var(--cheer-pink); }
+#programCheer .gda-title { color: #ff78b8; }
+#programCheer .gda-chevron { background: var(--cheer-pink); border: 2px solid #ffb9db; }
+#programCheer .gda-chevron svg { stroke: #111; }
+#programCheer .gda-highlight { color: #ffc0dc; }
+#programCheer .gda-badge { background: var(--cheer-pink); color: #111; }
+a[href*="cheer.html"]:focus-visible { outline-color: var(--cheer-pink) !important; }
+
+/* Cheer: cream, blush, black, white, ink, pink. No muddy purple. */
+.cheer-theme .hero { background: #fff9fc; }
+.cheer-theme .cheer-age-section { background: #ffe4ef !important; }
+.cheer-theme .cheer-curriculum { background: #111216 !important; }
+.cheer-theme .cheer-standards-section { background: #f2f4f7 !important; }
+.cheer-theme .cheer-gameday { background: #111216 !important; }
+.cheer-theme .final-cta { background: var(--cheer-pink) !important; }
+.cheer-theme .final-cta h2,
+.cheer-theme .final-cta h2 span,
+.cheer-theme .final-cta p,
+.cheer-theme .final-cta .section-eyebrow { color: #101114 !important; }
+.cheer-theme .final-cta h2 span { -webkit-text-stroke: 1px #101114; }
+.cheer-theme .final-cta .btn-cta-main { background: #101114; color: #ffffff; }
+.cheer-theme .final-cta .btn-cta-outline { color: #101114; border-color: #101114; }
+.cheer-theme .ch-hero-tagline { background: var(--cheer-pink); color: #101114; }
+.cheer-theme .ch-hero-tagline svg { fill: #101114 !important; }
+.cheer-theme .section-eyebrow::before { background: var(--cheer-pink); }
+.cheer-theme .cheer-curriculum .section-eyebrow::before,
+.cheer-theme .cheer-gameday .section-eyebrow::before { background: var(--volt); }
+.cheer-theme .cheer-age-section .wc-acc-item.is-open {
+  border: 2px solid var(--cheer-pink);
+}
+.cheer-theme .cheer-age-section .wc-acc-chevron {
+  background: var(--cheer-pink);
+  border: 2px solid #111;
+}
+.cheer-theme .cheer-age-section .wc-acc-chevron svg { stroke: #111; }
+.cheer-theme .cheer-age-section .wc-acc-trigger [style*="background:var(--yellow)"] {
+  background: var(--volt) !important;
+  box-shadow: inset 0 0 0 2px #111;
+}
+.cheer-theme .cheer-standards-section .wc-card.is-active {
+  border-color: var(--cheer-pink) !important;
+  border-width: 2px !important;
+  box-shadow: 0 10px 30px rgba(237,37,136,.13) !important;
+}
+.cheer-theme .cheer-standards-section .wc-card.is-active .wc-num {
+  background: var(--cheer-pink);
+  color: #111;
+  box-shadow: inset 0 0 0 2px #111;
+}
+.cheer-theme .cheer-standards-section .wc-card:not(.is-active) {
+  border: 1px solid rgba(17,17,17,.17);
+}
+.cheer-theme .cheer-standards-section .carousel-dot.active { background: var(--cheer-pink); }
+.cheer-theme .cheer-standards-section .carousel-dot { border: 1px solid #222; }
+.cheer-theme .cheer-gameday .gda-card.is-open {
+  border: 2px solid var(--cheer-pink);
+}
+.cheer-theme .cheer-gameday .gda-chevron {
+  background: var(--cheer-pink);
+  border: 2px solid var(--volt);
+}
+.cheer-theme .cheer-gameday .gda-chevron svg { stroke: #111; }
+/* Preserve reduced-motion access to all content. */
+@media (prefers-reduced-motion: reduce) {
+ .wc-carousel-track, .wc-acc-body, .wc-acc-chevron, .gda-body, .gda-chevron { transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}
