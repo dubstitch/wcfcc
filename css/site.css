@@ -1551,3 +1551,318 @@ body.cheer-theme .ch-hero-tagline {
  outline:3px solid #fff !important;
  outline-offset:4px;
 }
+
+
+/* ============================================================
+   HOMEPAGE 2026 PORTFOLIO QA: PROGRAM CHOICE + FIELD EXPERIENCE
+   ============================================================ */
+.programs {
+  transition:background-color .32s ease,background-image .32s ease;
+  background:#101114;
+  position:relative;
+  isolation:isolate;
+}
+.programs .programs-header {margin-bottom:28px;}
+.programs .programs-choice-caption {
+  margin:0 0 15px;
+  color:#e4e8eb;
+  font:800 13px/1.5 'Barlow Condensed',sans-serif;
+  letter-spacing:1.9px;
+}
+.program-choice-tabs {
+  display:flex;
+  width:min(100%,810px);
+  gap:12px;
+  margin:0 0 20px;
+}
+.program-choice {
+  appearance:none;
+  display:flex;
+  align-items:center;
+  gap:14px;
+  min-height:88px;
+  min-width:0;
+  flex:1 1 0;
+  cursor:pointer;
+  text-align:left;
+  padding:17px 22px;
+  border:1px solid #6e737a;
+  border-radius:15px;
+  background:rgba(255,255,255,.07);
+  color:#fff;
+  transition:background .25s ease,border-color .25s ease,box-shadow .25s ease;
+}
+.program-choice:hover,.program-choice:focus-visible {
+  background:rgba(255,255,255,.13);
+  outline:3px solid #e8ff00;
+  outline-offset:2px;
+}
+.program-choice-icon {
+  display:grid;place-items:center;
+  flex:0 0 42px;width:42px;height:42px;
+  border-radius:50%;
+  border:1px solid #989da4;
+  background:#30343b;
+  color:#fff;
+  font:800 18px/1 'Bebas Neue',sans-serif;
+}
+.program-choice strong {
+  display:block;
+  font:800 clamp(19px,2.4vw,28px)/1 'Bebas Neue',sans-serif;
+  letter-spacing:1px;
+}
+.program-choice small {
+  display:block;
+  margin-top:5px;
+  font:600 13px/1.4 'Barlow',sans-serif;
+  color:#e1e4e8;
+}
+.program-choice[data-tab=football].is-active {
+  background:#e8ff00;
+  color:#101114;
+  border:2px solid #fff;
+}
+.program-choice[data-tab=football].is-active small {color:#2c3336;}
+.program-choice[data-tab=football].is-active .program-choice-icon {
+  background:#101114;color:#e8ff00;border-color:#101114;
+}
+.program-choice[data-tab=cheer].is-active {
+  background:#c51870;
+  color:#fff;
+  border:2px solid #fff;
+}
+.program-choice[data-tab=cheer].is-active small {color:#fff;}
+.program-choice[data-tab=cheer].is-active .program-choice-icon {
+  background:#fff;color:#870845;border-color:#fff;
+}
+.programs[data-active-program=cheer] {
+  background:linear-gradient(145deg,#811044 0%,#aa155a 55%,#c51870 100%);
+}
+.programs[data-active-program=cheer] .programs-header .section-title .accent {
+  color:#ffdded;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+}
+.programs[data-active-program=cheer] .programs-header .section-eyebrow::before {
+  background:#fff;
+  border-color:#fff;
+}
+.program-feature {
+  min-width:0;
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) minmax(190px,.55fr);
+  gap:25px;
+  align-items:stretch;
+  border-radius:18px;
+  padding:clamp(25px,4vw,54px);
+  background:linear-gradient(135deg,#292b32,#17191e);
+  border:1px solid #71757d;
+  color:#fff;
+  overflow:hidden;
+}
+.program-feature[hidden] {display:none !important;}
+.program-feature[data-tab-panel=cheer] {
+  background:linear-gradient(135deg,#fff2f7,#ffd4e8);
+  border-color:#f3a1c8;
+  color:#101114;
+}
+.program-feature-kicker {
+  display:block;margin-bottom:13px;
+  font:800 14px/1.35 'Barlow Condensed',sans-serif;
+  color:#e8ff00;
+  letter-spacing:2px;
+}
+.program-feature[data-tab-panel=cheer] .program-feature-kicker {
+  color:#910947;
+}
+.program-feature h3 {
+  font:400 clamp(42px,6vw,83px)/.94 'Bebas Neue',sans-serif;
+  letter-spacing:1.1px;
+}
+.program-feature h3 span {color:#e8ff00;}
+.program-feature[data-tab-panel=cheer] h3 span {color:#aa0d56;}
+.program-feature p {
+  color:#f0f1f5;
+  font:400 clamp(16px,1.7vw,18px)/1.7 'Barlow',sans-serif;
+  max-width:670px;
+  margin:20px 0 23px;
+}
+.program-feature[data-tab-panel=cheer] p {color:#33343a;}
+.program-feature-points {
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:27px;
+}
+.program-feature-points span {
+  color:#fff;
+  border:1px solid #9ca0a6;
+  border-radius:100px;
+  padding:8px 12px;
+  font:800 13px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:.5px;
+}
+.program-feature[data-tab-panel=cheer] .program-feature-points span {
+  border-color:#c51870;
+  color:#880a45;
+}
+.program-feature-link {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  text-decoration:none;
+  border-radius:9px;
+  background:#e8ff00;
+  color:#101114;
+  padding:15px 22px;
+  font:800 17px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:.6px;
+}
+.program-feature-link svg {width:19px;height:19px;}
+.program-feature[data-tab-panel=cheer] .program-feature-link {
+  background:#ad0d58;color:#fff;
+}
+.program-feature-link:hover,.program-feature-link:focus-visible {
+  outline:3px solid #fff;
+  outline-offset:3px;
+  box-shadow:0 4px 16px rgba(0,0,0,.22);
+}
+.program-feature-side {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:220px;
+  border-radius:14px;
+  border:1px solid #6b7077;
+  background:radial-gradient(ellipse at center,#434951 0%,#292f35 60%,#1b1d21 100%);
+}
+.program-feature[data-tab-panel=cheer] .program-feature-side {
+  border-color:#e57daa;
+  background:radial-gradient(ellipse at center,#ffabd1 0%,#ed6da9 60%,#c02b76 100%);
+}
+.program-feature-number {
+  font:400 clamp(100px,12vw,180px)/1 'Bebas Neue',sans-serif;
+  color:#e8ff00;
+}
+.program-feature[data-tab-panel=cheer] .program-feature-number {color:#fff;}
+.program-feature-side-caption {
+  margin:0 12px;
+  color:#fff;
+  font:800 14px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.5px;
+  text-align:center;
+}
+.programs[data-active-program=cheer] .program-feature-side-caption {color:#471126;}
+/* Stadium green with subtle yard stripes behind translucent white cards. */
+.field-experience {
+  position:relative;
+  isolation:isolate;
+  background:
+    radial-gradient(ellipse at 50% 0%,rgba(180,226,170,.22),transparent 70%),
+    repeating-linear-gradient(90deg,#153f2e 0,#153f2e 82px,#174934 82px,#174934 164px);
+  color:#fff;
+}
+.field-experience::before {
+  content:"";
+  position:absolute;inset:0;
+  background:
+    repeating-linear-gradient(0deg,transparent 0,transparent 111px,rgba(255,255,255,.13) 112px,rgba(255,255,255,.13) 114px),
+    linear-gradient(rgba(0,0,0,.1),rgba(0,0,0,.16));
+  pointer-events:none;
+}
+.field-experience .container {position:relative;z-index:1;}
+.field-experience .section-title {color:#fff;}
+.field-experience .section-title .accent {
+  color:#e8ff00;
+  -webkit-text-stroke:1px #0c2018;
+}
+.field-experience .section-eyebrow,.field-experience .section-subtitle {color:#eaf5ef !important;}
+.field-experience .exp-card {
+  background:rgba(255,255,255,.95);
+  border:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(7px);
+}
+.field-experience .carousel-controls .carousel-dot:not(.active) {
+  background:#d0d8da;
+  border:1px solid #284135;
+}
+.field-experience .carousel-controls .carousel-dot.active {
+  background:#e8ff00;
+  border:1px solid #0d1e13;
+}
+/* Reviews: one persistent active card, pink cheer families, no click jump. */
+.testimonials .testimonial-card {
+  transform:none !important;
+  border:2px solid #ccd1d6;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+  transition:border-color .22s ease,box-shadow .22s ease;
+}
+.testimonials .testimonial-card:hover {
+  transform:none !important;
+  box-shadow:0 3px 14px rgba(0,0,0,.05);
+}
+.testimonials .testimonial-card.is-active,
+.testimonials .testimonial-card.is-active:hover {
+  border-color:#101114;
+  box-shadow:0 10px 28px rgba(12,14,17,.16),inset 0 -5px 0 #e8ff00;
+}
+.testimonials .testimonial-card.is-cheer {
+  background:#b51261;
+  border-color:#970947;
+}
+.testimonials .testimonial-card.is-cheer .testimonial-text,
+.testimonials .testimonial-card.is-cheer .author-name,
+.testimonials .testimonial-card.is-cheer .author-role {color:#fff !important;}
+.testimonials .testimonial-card.is-cheer .testimonial-author {
+  border-top-color:rgba(255,255,255,.48);
+}
+.testimonials .testimonial-card.is-cheer .author-avatar {
+  background:#fff;
+  color:#95094c;
+}
+.testimonials .testimonial-card.is-cheer .quote-mark {
+  color:#fff;
+  -webkit-text-stroke:0;
+}
+.testimonials .testimonial-card.is-cheer.is-active {
+  border-color:#101114;
+  box-shadow:0 10px 28px rgba(12,14,17,.16),inset 0 -5px 0 #e8ff00;
+}
+.testimonials .testimonial-card::before {display:none;}
+.testimonials .carousel-controls .carousel-dot.active {
+  background:#c51870;
+  border:1px solid #101114;
+}
+.testimonials .carousel-controls .carousel-dot:not(.active) {
+  background:#757a82;
+}
+body.has-ticker > .final-cta .btn-cta-outline {
+  color:#101114 !important;
+  border:3px solid #101114 !important;
+  background:rgba(255,255,255,.06);
+  font-weight:800;
+}
+body.has-ticker > .final-cta .btn-cta-outline:hover,
+body.has-ticker > .final-cta .btn-cta-outline:focus-visible {
+  background:#101114 !important;
+  color:#fff !important;
+}
+@media(max-width:768px) {
+  .program-choice-tabs {gap:9px;}
+  .program-choice {padding:13px 12px;gap:9px;min-height:74px;}
+  .program-choice-icon {flex-basis:32px;width:32px;height:32px;font-size:16px;}
+  .program-choice strong {font-size:clamp(17px,4.8vw,23px);}
+  .program-choice small {font-size:11px;}
+  .program-feature {grid-template-columns:minmax(0,1fr);padding:25px;}
+  .program-feature-side {display:none;}
+  .programs-header {margin-bottom:22px !important;}
+}
+@media(max-width:374px){
+  .program-choice {padding:10px 9px;}
+  .program-choice-icon {display:none;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .programs,.program-choice,.testimonial-card {transition:none !important;}
+}
