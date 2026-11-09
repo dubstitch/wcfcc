@@ -132,7 +132,7 @@
      fixed position or layout spacer to cause premature snapping. -->
 
 
-<section class="programs" id="programs">
+<section class="programs" id="programs" data-active-program="football">
   <div class="container">
     <div class="programs-header">
       <div>
@@ -141,53 +141,45 @@
       </div>
       <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.5);">Two elite programs. One championship experience. Built for kids who are serious about getting better.</p>
     </div>
-    <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.4);font-size:13px;margin:0 0 24px;font-family:'Barlow Condensed',sans-serif;font-weight:700;letter-spacing:2px;text-transform:uppercase;">Tap a program to expand</p>
-    <div class="gameday-accordion anim anim-d4">
-      <div class="gda-card is-open" id="programFootball">
-        <button class="gda-trigger" type="button" onclick="toggleGDA('programFootball')" aria-label="Toggle Football Combine Camp">
-          <div class="gda-trigger-left">
-            <span class="gda-title">FOOTBALL COMBINE CAMP</span>
-            <span class="gda-subtitle">Combine testing, position training &amp; weekly 7 on 7</span>
+    <p class="programs-choice-caption">SELECT A PROGRAM TO EXPLORE</p>
+    <div class="program-choice-tabs" role="tablist" aria-label="Camp programs">
+      <button type="button" class="program-choice is-active" id="home-program-football" role="tab" data-tab-group="home" data-tab="football" aria-selected="true" aria-controls="home-panel-football" onclick="switchTab(this)">
+        <span class="program-choice-icon" aria-hidden="true">01</span><span><strong>FOOTBALL</strong><small>Combine &amp; competition</small></span>
+      </button>
+      <button type="button" class="program-choice" id="home-program-cheer" role="tab" data-tab-group="home" data-tab="cheer" aria-selected="false" aria-controls="home-panel-cheer" onclick="switchTab(this)">
+        <span class="program-choice-icon" aria-hidden="true">02</span><span><strong>SIDELINE CHEER</strong><small>Confidence &amp; performance</small></span>
+      </button>
+    </div>
+    <div class="program-choice-content anim anim-d4" aria-live="off">
+      <div id="home-panel-football" class="program-feature is-active" role="tabpanel" aria-labelledby="home-program-football" data-tab-panel-group="home" data-tab-panel="football">
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE FOOTBALL EXPERIENCE</span>
+          <h3>BUILD THE GAME.<br><span>OWN THE FIELD.</span></h3>
+          <p>Four weeks built around combine testing, position specific training, and Friday 7 on 7. Athletes can track their development while building confidence and football IQ.</p>
+          <div class="program-feature-points">
+            <span>BOOST · NITRO · TURBO</span><span>AGES 9 TO 17</span><span>4 WEEKS</span>
           </div>
-          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="gda-body">
-          <div class="gda-body-inner">
-            <p class="gda-desc">An intensive 4-week combine style training program built to develop athletic skill, game strategy, and competitive edge through structured evaluation and 7 on 7 competition.</p>
-            <p class="gda-detail"><strong>Combine testing</strong> &amp; skill tracking</p>
-            <p class="gda-detail"><strong>Position specific training</strong></p>
-            <p class="gda-detail"><strong>Weekly 7 on 7 competition</strong></p>
-            <p class="gda-detail"><strong>Championship Day</strong> with trophies</p>
-            <p class="gda-highlight">3 Divisions &middot; Boost / Nitro / Turbo &middot; Ages 9&ndash;17</p>
-            <a href="pages/football.html" class="gda-badge" style="text-decoration:none;">Learn More &rarr;</a>
-          </div>
+          <a class="program-feature-link" href="pages/football.html">Explore Football <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
+        <div class="program-feature-side" aria-hidden="true"><span class="program-feature-number">07</span><span class="program-feature-side-caption">FRIDAY GAME DAY REPS</span></div>
       </div>
-      <div class="gda-card" id="programCheer">
-        <button class="gda-trigger" type="button" onclick="toggleGDA('programCheer')" aria-label="Toggle Sideline Cheer Camp">
-          <div class="gda-trigger-left">
-            <span class="gda-title">SIDELINE CHEER CAMP</span>
-            <span class="gda-subtitle">Sideline cheers, choreography &amp; game day performance</span>
+      <div id="home-panel-cheer" class="program-feature" role="tabpanel" aria-labelledby="home-program-cheer" data-tab-panel-group="home" data-tab-panel="cheer" hidden>
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE CHEER EXPERIENCE</span>
+          <h3>FIND YOUR VOICE.<br><span>TAKE THE SIDELINE.</span></h3>
+          <p>A sideline cheer experience centered on sharp motions, choreography, performance confidence, team connection, and shared Friday nights with Football.</p>
+          <div class="program-feature-points">
+            <span>SPARKLE · STARS</span><span>SKILL PROGRESSION</span><span>FRIDAY PERFORMANCES</span>
           </div>
-          <div class="gda-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div>
-        </button>
-        <div class="gda-body">
-          <div class="gda-body-inner">
-            <p class="gda-desc">A 4-week sideline cheer program designed to build confident young women through technique, teamwork, and real game-day performance experience.</p>
-            <p class="gda-detail"><strong>Sideline cheers</strong>, motions &amp; jumps</p>
-            <p class="gda-detail"><strong>Choreographed sideline dances</strong></p>
-            <p class="gda-detail"><strong>Weekly game day performances</strong></p>
-            <p class="gda-detail"><strong>Mummers Parade performance</strong></p>
-            <p class="gda-highlight">Confidence &middot; Performance &middot; Ages 8&ndash;17</p>
-            <a href="pages/cheer.html" class="gda-badge" style="text-decoration:none;">Learn More &rarr;</a>
-          </div>
+          <a class="program-feature-link" href="pages/cheer.html">Explore Cheer <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
         </div>
+        <div class="program-feature-side" aria-hidden="true"><span class="program-feature-number">★</span><span class="program-feature-side-caption">SIDELINE ENERGY</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section class="experience">
+<section class="experience field-experience">
   <div class="container">
     <div class="experience-header">
       <div>
@@ -231,12 +223,20 @@
     for (var i = 0; i < totalSlides(); i++) {
       var dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+      dot.type = 'button';
       dot.setAttribute('aria-label', 'View carousel position ' + (i + 1) + ' of ' + totalSlides());
       (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
       dotsContainer.appendChild(dot);
     }
   }
-  function updateDots() { dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) { d.classList.toggle('active', i === current); }); }
+  function updateDots() {
+    dotsContainer.querySelectorAll('.carousel-dot').forEach(function(d, i) {
+      d.classList.toggle('active', i === current);
+      if (i === current) d.setAttribute('aria-current', 'true');
+      else d.removeAttribute('aria-current');
+    });
+    cards.forEach(function(card,i) { card.classList.toggle('is-active', i === current); });
+  }
   function getCardWidth() { return cards[0].offsetWidth + 20; }
   function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)'; updateDots(); }
   function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
@@ -324,27 +324,27 @@
     </div>
     <div class="experience-carousel-wrapper">
       <div class="experience-carousel" id="testCarousel">
-        <div class="testimonial-card" >
+        <div class="testimonial-card is-active">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">WCFCC has been a game changer for my son. The coaching staff genuinely cares about every single kid and it shows every Friday on that field. His confidence has completely transformed.</p>
           <div class="testimonial-author"><div class="author-avatar">TW</div><div><div class="author-name">Tasha Williams</div><div class="author-role">Football Parent</div></div></div>
         </div>
-        <div class="testimonial-card" >
+        <div class="testimonial-card is-cheer">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">My daughter joined with zero experience and now she's thriving. The cheer coaches met her exactly where she was.</p>
           <div class="testimonial-author"><div class="author-avatar">MR</div><div><div class="author-name">Marcus Reed</div><div class="author-role">Cheer Parent</div></div></div>
         </div>
-        <div class="testimonial-card" >
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">The organization and commitment from WCFCC is outstanding. My son looks forward to camp every single week.</p>
           <div class="testimonial-author"><div class="author-avatar">LC</div><div><div class="author-name">Lisa Chen</div><div class="author-role">Football Parent</div></div></div>
         </div>
-        <div class="testimonial-card" >
+        <div class="testimonial-card is-cheer">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">Game Day Fridays are incredible. Watching my daughter perform with so much pride every week never gets old.</p>
           <div class="testimonial-author"><div class="author-avatar">NH</div><div><div class="author-name">Nicole Harris</div><div class="author-role">Cheer Parent</div></div></div>
         </div>
-        <div class="testimonial-card" >
+        <div class="testimonial-card">
           <span class="quote-mark">&ldquo;</span>
           <p class="testimonial-text">The all inclusive fee is such a relief. Everything is covered. Coach Kahlil's dedication to these kids is remarkable.</p>
           <div class="testimonial-author"><div class="author-avatar">KM</div><div><div class="author-name">Kevin Martinez</div><div class="author-role">Football Parent</div></div></div>
@@ -398,7 +398,7 @@
   function goTo(idx) { current = Math.max(0, Math.min(idx, totalSlides() - 1)); carousel.style.transform = 'translateX(-' + (current * getCardWidth()) + 'px)'; updateDots(); }
   function next() { goTo(current >= totalSlides() - 1 ? 0 : current + 1); }
   function prev() { goTo(current <= 0 ? totalSlides() - 1 : current - 1); }
-  function startAuto() { autoTimer = setInterval(next, 4000); }
+  function startAuto() { if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches && !document.hidden) autoTimer = setInterval(next, 5500); }
   function stopAuto() { clearInterval(autoTimer); }
   nextBtn.addEventListener('click', function() { stopAuto(); next(); startAuto(); });
   prevBtn.addEventListener('click', function() { stopAuto(); prev(); startAuto(); });
@@ -408,7 +408,7 @@
   carousel.addEventListener('touchstart', function(e) { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
   carousel.addEventListener('touchend', function(e) { var diff = touchStartX - e.changedTouches[0].clientX; if (Math.abs(diff) > 40) { diff > 0 ? next() : prev(); } startAuto(); });
   window.addEventListener('resize', function() { setCardSizes(); buildDots(); goTo(0); });
-  window.addEventListener('DOMContentLoaded', function() { setCardSizes(); buildDots(); startAuto(); });
+  window.addEventListener('DOMContentLoaded', function() { setCardSizes(); buildDots(); goTo(0); startAuto(); });
 })();
 </script>
 
