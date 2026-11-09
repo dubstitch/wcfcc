@@ -1174,3 +1174,9 @@ section[style*="background:var(--black)"] .section-eyebrow {
 .football-theme .fb-combine-section .section-eyebrow {
  color:#f2f4f7 !important;
 }
+
+/* The football page has a later inline stylesheet using !important.
+   Higher specificity keeps the testing eyebrow readable on black. */
+body.football-theme section.fb-combine-section .section-eyebrow {
+  color:#f2f4f7 !important;
+}
