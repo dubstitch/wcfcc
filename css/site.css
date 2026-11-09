@@ -904,3 +904,90 @@ section[style*="background:var(--black)"] .section-eyebrow::before {
 .gameday-banner .gda-detail strong {color:#fff;}
 .gameday-banner .gda-chevron {border:2px solid var(--wc-volt);}
 .gameday-banner .gda-chevron svg {stroke:var(--wc-ink);}
+
+/* Cheer: readable pink, Volt with pink edge, and stars away from content. */
+.cheer-theme .hero .hero-inner {z-index:4;}
+.cheer-theme .ch-sparkle {z-index:1;opacity:.55;}
+.cheer-theme .ch-sparkle.sp-1 {top:20px;right:6%;}
+.cheer-theme .ch-sparkle.sp-2 {top:auto;bottom:10%;right:9%;}
+.cheer-theme .ch-sparkle.sp-3 {left:auto;right:20%;bottom:13%;}
+.cheer-theme .ch-sparkle.sp-4 {left:auto;right:24%;top:30px;}
+@media(max-width:768px) {
+ .cheer-theme .ch-sparkle.sp-2,.cheer-theme .ch-sparkle.sp-3 {display:none;}
+ .cheer-theme .ch-sparkle.sp-1 {top:15px;right:20px;width:20px;height:20px;}
+ .cheer-theme .ch-sparkle.sp-4 {top:auto;right:12px;bottom:14px;width:16px;height:16px;}
+}
+.cheer-theme .age-chip,
+.cheer-theme .age-chip.is-pink,
+.cheer-theme .cheer-age-section .wc-acc-trigger > span > span[style*="background:var(--yellow)"] {
+ background:var(--wc-volt) !important;color:var(--wc-ink) !important;
+ border:2px solid var(--wc-cheer) !important;box-shadow:none !important;
+}
+.cheer-theme .cheer-age-section .wc-acc-item.is-open {
+ border:2px solid var(--wc-cheer-dark) !important;box-shadow:inset 0 0 0 2px var(--wc-volt);
+}
+.cheer-theme .cheer-age-section .wc-acc-chevron {
+ background:var(--wc-cheer);border:2px solid var(--wc-volt);
+ box-shadow:0 0 0 1px var(--wc-cheer-dark);
+}
+.cheer-theme .cheer-age-section .wc-acc-chevron svg {stroke:var(--wc-ink);}
+.cheer-theme .cheer-age-section .wc-acc-trigger {color:var(--wc-ink);}
+.cheer-theme .cheer-age-section .wc-acc-body-inner {color:#34383d;}
+.cheer-theme .ch-hero-meta {
+ gap:10px 18px;color:#3d4045;font-size:clamp(12px,1.5vw,15px);line-height:1.45;
+}
+.cheer-theme .ch-meta-item {display:inline-flex;align-items:baseline;gap:10px;white-space:normal;}
+.cheer-theme .ch-meta-item .sep {
+ display:inline-block;align-self:center;width:9px;height:9px;min-width:9px;
+ background:var(--wc-volt);border:1.5px solid var(--wc-ink);box-shadow:0 0 0 1px #fff;
+}
+.cheer-theme .cheer-curriculum .wc-card.is-dark {
+ background:#1c1e23;border:1px solid #676b72;
+}
+.cheer-theme .cheer-curriculum .wc-card.is-dark.is-active {
+ border:2px solid var(--wc-volt);box-shadow:0 6px 30px rgba(232,255,0,.14);
+}
+.cheer-theme .cheer-curriculum .wc-week-label {
+ display:block;font-family:'Barlow Condensed',sans-serif;color:#ff9dca !important;
+ font-size:clamp(15px,1.5vw,17px);font-weight:800;line-height:1.4;
+ letter-spacing:1px;text-transform:uppercase;margin:0 0 12px;
+}
+.cheer-theme .cheer-curriculum .wc-card h3 {
+ color:#fff;font-size:clamp(23px,2vw,29px);line-height:1.15;
+}
+.cheer-theme .cheer-curriculum .wc-card.is-dark p,
+.cheer-theme .cheer-curriculum .wc-card.is-dark .wc-bullets,
+.cheer-theme .cheer-curriculum .wc-card.is-dark .wc-bullets li {
+ color:#f0f2f5 !important;font-size:clamp(15px,1.45vw,17px) !important;line-height:1.62 !important;
+}
+.cheer-theme .cheer-curriculum .wc-card .wc-num {
+ background:var(--wc-volt);border:2px solid var(--wc-cheer);color:var(--wc-ink);
+}
+.cheer-theme .cheer-curriculum .wc-card.is-active .wc-num {
+ background:var(--wc-volt);color:var(--wc-ink);
+}
+.cheer-theme .ch-skill-pills span {
+ color:#ffbad9;background:rgba(237,37,136,.15);border:1px solid #ff8abe;
+}
+.cheer-theme .cheer-standards-section .wc-card.is-active {
+ border:2px solid var(--wc-cheer-dark) !important;
+}
+.cheer-theme .cheer-standards-section .wc-card .wc-num {
+ background:var(--wc-volt);border:2px solid var(--wc-ink);color:var(--wc-ink);
+}
+.cheer-theme .cheer-standards-section .carousel-dot.active {
+ background:var(--wc-cheer-dark);
+}
+.cheer-theme .cheer-standards-section .wc-card p {font-size:15px;line-height:1.62;}
+.cheer-theme .final-cta {
+ background:linear-gradient(160deg,#ffd7e8 0%,#ffbedb 100%) !important;
+}
+.cheer-theme .final-cta .section-eyebrow,
+.cheer-theme .final-cta p {color:#34313a !important;}
+.cheer-theme .final-cta h2 span {
+ color:var(--wc-cheer-dark) !important;-webkit-text-stroke:1px var(--wc-ink) !important;
+}
+.cheer-theme .final-cta .btn-cta-main {background:var(--wc-ink);color:#fff;}
+.cheer-theme .final-cta .btn-cta-outline {
+ background:transparent;color:var(--wc-ink);border:2px solid var(--wc-ink);
+}
