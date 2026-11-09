@@ -47,6 +47,8 @@ for(const device of devices) {
   });
   if(metrics.width>metrics.viewport+3)problem(device.name,path,"horizontal overflow "+JSON.stringify(metrics));
   if(metrics.archive===null)problem(device.name,path,"missing archive note");
+  if(path==="index.html"&&!(await page.locator(".portfolio-archive-notice").innerText()).includes("successful 2025 season"))
+    problem(device.name,path,"archive wording does not communicate 2025 success");
   if(metrics.hero!==null&&metrics.archive!==null&&metrics.hero-metrics.archive>8)problem(device.name,path,"gap between archive and section "+JSON.stringify(metrics));
   if(metrics.content!==null&&metrics.archive!==null&&metrics.content-metrics.archive>100)problem(device.name,path,"hero content delayed after archive "+JSON.stringify(metrics));
   if(!metrics.formDisabled)problem(device.name,path,"archived form not disabled");
@@ -76,6 +78,36 @@ for(const device of devices) {
       if(rv<100||rv>148)problem(device.name,path,"reviews anchor misses section top "+rv);
     }
   }
+  if(path==="pages/football.html") {
+    const details=await page.evaluate(()=>{
+      const price=[...document.querySelectorAll(".ch-meta-item")].find(x=>x.textContent.includes("$175"));
+      const dot=price?.querySelector(".sep")?.getBoundingClientRect();
+      const label=price?.querySelector("span:last-child")?.getBoundingClientRect();
+      return {
+        positionCards:document.querySelectorAll(".fb-position-card").length,
+        gameIqCards:document.querySelectorAll(".fb-game-step").length,
+        dotRight:dot?.right,labelLeft:label?.left,
+        priceY:label?.top,dotY:dot?.top
+      };
+    });
+    if(details.positionCards!==4||details.gameIqCards!==3)problem(device.name,path,"missing football deep dive "+JSON.stringify(details));
+    if(!(details.dotRight<=details.labelLeft&&Math.abs(details.priceY-details.dotY)<18))
+      problem(device.name,path,"football price dot orphaned "+JSON.stringify(details));
+  }
+  if(path==="pages/registration.html") {
+    const cheer=await page.evaluate(()=>{
+      const card=document.querySelector(".registration-cheer-card");
+      const heading=card?.querySelector("h3");
+      const form=card?.querySelector('a[href*="forms.gle"]');
+      return {
+        exists:!!card,headingColor:heading?getComputedStyle(heading).color:null,
+        background:card?getComputedStyle(card).backgroundImage:null,
+        buttonColor:form?getComputedStyle(form).color:null
+      };
+    });
+    if(!cheer.exists||cheer.headingColor!=="rgb(255, 255, 255)"||!cheer.background?.includes("linear-gradient"))
+      problem(device.name,path,"Cheer registration not pink and readable "+JSON.stringify(cheer));
+  }
   if(path==="pages/cheer.html"){
     const meta=await page.evaluate(()=>{
       const group=[...document.querySelectorAll(".ch-meta-item")].find(x=>x.textContent.includes("$175"));
@@ -84,6 +116,34 @@ for(const device of devices) {
       return {dotLeft:dot?.left,dotRight:dot?.right,titleLeft:title?.left};
     });
     if(!(meta.dotRight<meta.titleLeft&&meta.dotLeft>=0))problem(device.name,path,"$175 dot missing or misplaced "+JSON.stringify(meta));
+    const palette=await page.evaluate(()=>{
+      const tag=document.querySelector(".ch-hero-tagline");
+      const chips=[...document.querySelectorAll(".hero .age-chip")];
+      const ageChip=document.querySelector(".cheer-age-section .wc-acc-trigger > span > span");
+      return {
+        taglineColor:getComputedStyle(tag).color,
+        pillColors:chips.map(el=>getComputedStyle(el).backgroundColor),
+        pillText:chips.map(el=>getComputedStyle(el).color),
+        agePillColor:getComputedStyle(ageChip).backgroundColor,
+        agePillBorder:getComputedStyle(ageChip).borderTopWidth
+      };
+    });
+    if(palette.taglineColor!=="rgb(255, 255, 255)"||
+       palette.pillText.some(x=>x!=="rgb(255, 255, 255)")||
+       new Set(palette.pillColors).size!==1||
+       palette.agePillBorder!=="0px")
+      problem(device.name,path,"inconsistent Cheer palette "+JSON.stringify(palette));
+
+  }
+  if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"&&["pages/football.html","pages/cheer.html","pages/registration.html"].includes(path)) {
+    const target=path==="pages/football.html"?".fb-position-lab":path==="pages/cheer.html"?".cheer-age-section":".registration-cheer-card";
+    const element=page.locator(target);
+    if(await element.count()) {
+      await element.scrollIntoViewIfNeeded();
+      await page.waitForTimeout(170);
+      const shot=await page.screenshot({type:"jpeg",quality:42});
+      console.log("DETAIL_SHOT_BASE64:"+name+"-"+path+":"+shot.toString("base64"));
+    }
   }
   if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"&&
     ["index.html","pages/football.html","pages/cheer.html","pages/schedules.html","pages/contact.html","pages/coaches.html"].includes(path)&&shots<12) {
