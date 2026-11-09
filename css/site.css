@@ -1164,3 +1164,13 @@ section[style*="background:var(--black)"] .section-eyebrow {
 .cheer-theme .final-cta .section-eyebrow {
  color:#292d31 !important;
 }
+
+/* Final faint-text exceptions found by cross-viewport audits. */
+.programs .section-subtitle,
+.programs .section-subtitle[style],
+.programs-header .section-subtitle {
+ color:#e2e5eb !important;
+}
+.football-theme .fb-combine-section .section-eyebrow {
+ color:#f2f4f7 !important;
+}
