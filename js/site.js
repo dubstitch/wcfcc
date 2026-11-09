@@ -192,6 +192,11 @@ function switchTab(btn) {
   if (group === 'home') {
     var feature=document.getElementById('programs');
     if(feature) feature.dataset.activeProgram=key;
+    var intro=document.getElementById('home-panel-intro');
+    if(intro) {
+      intro.hidden=true;
+      intro.classList.remove('is-active');
+    }
   }
   if (group === 'schedule') {
     var schedule=document.querySelector('.schedule-chooser');
@@ -231,16 +236,17 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.setAttribute('aria-controls',id);
     }
   });
-  document.querySelectorAll('.wc-tabs[role="tablist"]').forEach(function(tablist) {
+  document.querySelectorAll('.wc-tabs[role="tablist"], .program-choice-tabs[role="tablist"]').forEach(function(tablist) {
     var tabs=Array.from(tablist.querySelectorAll('[data-tab-group][data-tab]'));
     if(!tabs.length)return;
+    var hasSelection=tabs.some(function(tab){return tab.classList.contains('is-active');});
     tabs.forEach(function(tab,i) {
       var group=tab.getAttribute('data-tab-group'),key=tab.getAttribute('data-tab');
       var panel=document.querySelector('[data-tab-panel-group="'+group+'"][data-tab-panel="'+key+'"]');
       tab.setAttribute('role','tab');
       tab.id=tab.id||'wc-tab-'+group+'-'+key;
       tab.setAttribute('aria-selected',String(tab.classList.contains('is-active')));
-      tab.tabIndex=tab.classList.contains('is-active')?0:-1;
+      tab.tabIndex=tab.classList.contains('is-active')?0:(!hasSelection && i===0?0:-1);
       if(panel) {
         panel.setAttribute('role','tabpanel');
         panel.id=panel.id||'wc-panel-'+group+'-'+key;
