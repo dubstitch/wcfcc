@@ -189,6 +189,14 @@ function switchTab(btn) {
     p.classList.toggle('is-active',active);
     p.hidden=!active;
   });
+  if (group === 'home') {
+    var feature=document.getElementById('programs');
+    if(feature) feature.dataset.activeProgram=key;
+  }
+  if (group === 'schedule') {
+    var schedule=document.querySelector('.schedule-chooser');
+    if(schedule) schedule.dataset.activeProgram=key;
+  }
 }
 
 function loadSeasonAccordionScript() {
@@ -254,6 +262,28 @@ document.addEventListener('DOMContentLoaded', function() {
       tabs[next].focus();
       switchTab(tabs[next]);
     });
+  });
+  // Native, keyboard-friendly control for the compact key dates slider.
+  document.querySelectorAll('[data-date-scroll]').forEach(function(root) {
+    var track=root.querySelector('[data-date-track]');
+    var prev=root.querySelector('[data-date-prev]');
+    var next=root.querySelector('[data-date-next]');
+    if(!track||!prev||!next) return;
+    function step(dir) {
+      var card=track.querySelector('.schedule-date-card');
+      var gap=parseFloat(getComputedStyle(track).columnGap)||14;
+      var width=card?card.getBoundingClientRect().width+gap:track.clientWidth;
+      track.scrollBy({left:dir*width,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    }
+    prev.addEventListener('click',function(){step(-1);});
+    next.addEventListener('click',function(){step(1);});
+    function update() {
+      prev.disabled=track.scrollLeft<3;
+      next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-3;
+    }
+    track.addEventListener('scroll',update,{passive:true});
+    window.addEventListener('resize',update,{passive:true});
+    update();
   });
   document.querySelectorAll('a[href="#testimonials"]').forEach(function(link) {
     link.addEventListener('click',function(event) {
