@@ -991,3 +991,90 @@ section[style*="background:var(--black)"] .section-eyebrow::before {
 .cheer-theme .final-cta .btn-cta-outline {
  background:transparent;color:var(--wc-ink);border:2px solid var(--wc-ink);
 }
+
+/* Archive geometry, ticker and deep-link offsets. The archive banner
+   already clears the fixed 64px nav, so never add that padding twice. */
+html {scroll-padding-top:116px;}
+body.has-ticker {--wc-scroll-offset:116px;}
+body.has-portfolio-archive > .hero,
+body.has-portfolio-archive.cheer-theme > .hero {
+ padding-top:6px !important;padding-bottom:clamp(26px,5vw,54px);
+}
+body.has-portfolio-archive > .hero .hero-inner {
+ padding-top:clamp(12px,2.5vw,26px);
+}
+body.has-portfolio-archive > .page-header {
+ padding-top:clamp(32px,4.5vw,62px) !important;
+ padding-bottom:clamp(36px,4.5vw,60px);
+}
+.ticker,.ticker.is-sticky {
+ position:sticky !important;top:64px;left:auto;right:auto;
+ z-index:91;width:100%;box-shadow:0 4px 14px rgba(0,0,0,.14);
+}
+.ticker-spacer,.ticker-spacer.active {display:none !important;}
+#testimonials {scroll-margin-top:116px !important;}
+@media(max-width:768px) {
+ html {scroll-padding-top:110px;}
+ body.has-ticker {--wc-scroll-offset:110px;}
+ #testimonials {scroll-margin-top:110px !important;}
+}
+@media(prefers-reduced-motion:reduce) {
+ .ticker-track {animation:none !important;transform:none !important;}
+ html {scroll-behavior:auto;}
+}
+.hero-camp-name {
+ font-family:'Barlow Condensed',sans-serif;font-size:clamp(14px,1.8vw,19px);
+ color:var(--wc-ink);text-transform:uppercase;letter-spacing:1.5px;
+ font-weight:800;line-height:1.35;margin:0 0 16px;
+}
+.cheer-leader-card {
+ background:linear-gradient(160deg,#ffd4e8 0%,#ffbddc 100%);
+ border:2px solid var(--wc-cheer-dark);border-radius:20px;padding:40px;
+}
+.cheer-leader-pills {display:flex;flex-wrap:wrap;gap:8px;}
+.cheer-leader-pills span {
+ padding:7px 12px;border-radius:7px;background:rgba(16,17,20,.09);
+ color:var(--wc-ink);border:1px solid rgba(16,17,20,.2);
+ font-family:'Barlow Condensed',sans-serif;font-size:13px;
+ font-weight:800;letter-spacing:1px;text-transform:uppercase;
+}
+.schedule-facts {
+ display:grid;grid-template-columns:repeat(3,minmax(0,1fr));
+ gap:12px;margin:26px auto 34px;
+}
+.schedule-fact {
+ display:flex;flex-direction:column;gap:7px;min-width:0;
+ padding:17px 18px;background:#fff;border:1px solid #a9afb8;
+ border-left:4px solid var(--wc-ink);border-radius:10px;
+ box-shadow:inset 3px 0 0 var(--wc-volt);
+}
+.schedule-fact strong {
+ color:var(--wc-ink);font-family:'Barlow Condensed',sans-serif;
+ font-size:clamp(15px,1.6vw,18px);letter-spacing:1px;line-height:1.25;
+}
+.schedule-fact span {
+ color:#343940;font-size:clamp(14px,1.35vw,16px);line-height:1.55;
+}
+@media(max-width:900px) {.schedule-facts {grid-template-columns:1fr;}}
+.wc-form > div {display:flex;flex-direction:column;gap:9px;}
+.wc-form label {
+ display:block;margin-bottom:0;font-size:15px;
+ letter-spacing:1.2px;color:var(--wc-ink);
+}
+.wc-form input,.wc-form textarea,.wc-form select {
+ font-size:16px;line-height:1.5;min-height:46px;
+}
+.wc-form :disabled {
+ opacity:1 !important;color:#2f343a !important;
+ background:#f7f8fa !important;border-color:#a5abb3 !important;
+}
+.wc-form button:disabled {background:#3d434a !important;color:#fff !important;}
+.page-header .page-eyebrow {color:#41454a;}
+.page-header .page-sub {color:#454950;}
+.page-header.is-dark .page-eyebrow,
+.page-header.is-dark .page-sub {color:#e8ebef;}
+@media(max-width:768px) {
+ .cheer-leader-card {padding:clamp(22px,5vw,36px);}
+ body.has-portfolio-archive > .hero .hero-inner {padding-top:12px;}
+ .hero-camp-name {margin-bottom:16px;}
+}
