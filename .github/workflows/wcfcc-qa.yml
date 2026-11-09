@@ -1,7 +1,7 @@
 name: WCFCC accessible portfolio archive QA
 on:
   push:
-    branches: [main, "repair/contrast-and-interactions"]
+    branches: [main, "repair/contrast-and-interactions", "repair/cheer-palette-football-depth"]
     paths:
       - "index.html"
       - "pages/**"
