@@ -297,7 +297,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var notice = document.createElement('aside');
     notice.className = 'portfolio-archive-notice';
     notice.setAttribute('role', 'note');
-    notice.innerHTML = '<span class="archive-note-marker">PORTFOLIO ARCHIVE</span><span>This 2026 project is preserved as an interactive demo. Registration, forms, payments and contact actions are unavailable.</span>';
+    notice.innerHTML = '<span class="archive-note-marker">PORTFOLIO ARCHIVE</span><span>Following a successful 2025 season, plans for 2026 were postponed until further notice, with hopes of returning in 2027. This portfolio archive preserves the planned camp experience; registration and contact are unavailable.</span>';
     document.body.insertBefore(notice, document.body.firstChild);
     // URL fragments are evaluated before this dynamically inserted notice.
     // Re-align the reviews heading beneath the fixed nav and sticky ticker.
