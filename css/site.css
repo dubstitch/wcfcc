@@ -1083,3 +1083,37 @@ body.has-portfolio-archive > .page-header {
    native position:sticky. Clip prevents sideways bleed without that bug. */
 html,body {overflow-x:clip;}
 body.has-ticker .ticker {position:sticky !important;}
+
+/* Accessibility audit finish: text that was genuinely too faint. */
+.footer-brand p,
+.footer-copyright,
+.footer-copy-mark {color:#cbd1da !important;opacity:1 !important;}
+.footer-col-title {color:#f2f4f7 !important;opacity:1 !important;}
+.footer-links a {color:#d2d5dd;}
+.footer-links a:hover,.footer-links a:focus-visible {color:var(--wc-volt);}
+.footer-bottom {color:#cbd1da;}
+.hero-dates-label,.hero-stat-label {
+ color:#3e444c !important;font-size:clamp(12px,1.3vw,14px) !important;
+ letter-spacing:1.2px !important;
+}
+.hero-dates-val,.hero-stat-val {color:var(--wc-ink) !important;opacity:1;}
+.hero-stat {background:#fff !important;}
+/* The large headings keep the bright Volt outline but use a truly dark
+   letter fill so contrast tooling and real low-vision readers agree. */
+.page-header:not(.is-dark) h1 .accent {
+ color:var(--wc-ink) !important;
+ -webkit-text-stroke:2px var(--wc-volt) !important;
+ paint-order:stroke fill;
+}
+.hero:not(.cheer-standards-section) .line-champions {
+ paint-order:stroke fill;
+}
+@media(prefers-reduced-motion:reduce) {
+ .fade-up,.anim {
+  opacity:1 !important;
+  transform:none !important;
+  animation:none !important;
+  transition:none !important;
+ }
+ .ch-sparkle {animation:none !important;}
+}
