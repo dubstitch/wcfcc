@@ -39,3 +39,76 @@ document.addEventListener('DOMContentLoaded', () => {
     pill.style.setProperty('white-space', 'nowrap', 'important');
   });
 });
+
+
+/* Drill carousel arrows and native, keyboard-accessible Week selector. */
+document.addEventListener('DOMContentLoaded', () => {
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const behavior = () => reduce ? 'auto' : 'smooth';
+  const skillTrack = document.getElementById('fb-skill-track');
+  const prev = document.querySelector('[data-skill-prev]');
+  const next = document.querySelector('[data-skill-next]');
+  if (skillTrack && prev && next) {
+    const cards = [...skillTrack.querySelectorAll('.fb-guided-card')];
+    let selected = 0;
+    const syncButtons = () => {
+      prev.disabled = selected <= 0 || skillTrack.scrollWidth <= skillTrack.clientWidth + 3;
+      next.disabled = selected >= cards.length - 1 || skillTrack.scrollWidth <= skillTrack.clientWidth + 3;
+    };
+    const select = (index, move = true) => {
+      selected = Math.max(0, Math.min(cards.length - 1, index));
+      if (move && skillTrack.scrollWidth > skillTrack.clientWidth + 3) {
+        const card = cards[selected];
+        const left = skillTrack.scrollLeft + card.getBoundingClientRect().left - skillTrack.getBoundingClientRect().left - 5;
+        skillTrack.scrollTo({left, behavior: behavior()});
+      }
+      syncButtons();
+    };
+    prev.addEventListener('click', () => select(selected - 1));
+    next.addEventListener('click', () => select(selected + 1));
+    cards.forEach((card,index) => card.addEventListener('focus', () => select(index)));
+    skillTrack.addEventListener('scroll', () => {
+      const left = skillTrack.getBoundingClientRect().left;
+      let distance = Infinity;
+      cards.forEach((card,index) => {
+        const delta = Math.abs(card.getBoundingClientRect().left - left - 5);
+        if (delta < distance) {distance = delta;selected = index;}
+      });
+      syncButtons();
+    }, {passive:true});
+    window.addEventListener('resize',syncButtons,{passive:true});
+    syncButtons();
+  }
+
+  const timeline = document.getElementById('fb-timeline-track');
+  const slider = document.getElementById('fb-timeline-range');
+  const output = document.getElementById('fb-timeline-output');
+  if (timeline && slider && output) {
+    const weeks = [...timeline.querySelectorAll('.fb-timeline-item')];
+    const selectWeek = (index, move = true) => {
+      const chosen = Math.max(0, Math.min(weeks.length - 1, index));
+      slider.value = String(chosen + 1);
+      slider.style.setProperty('--week-progress', chosen * 100 / Math.max(1,weeks.length - 1) + '%');
+      output.textContent = 'WEEK ' + (chosen + 1) + ' OF ' + weeks.length;
+      weeks.forEach((week,i) => week.classList.toggle('is-selected',i === chosen));
+      if (move && timeline.scrollWidth > timeline.clientWidth + 3) {
+        const week = weeks[chosen];
+        const left = timeline.scrollLeft + week.getBoundingClientRect().left - timeline.getBoundingClientRect().left - 5;
+        timeline.scrollTo({left,behavior:behavior()});
+      }
+    };
+    slider.addEventListener('input', () => selectWeek(Number(slider.value) - 1));
+    weeks.forEach((week,index) => week.addEventListener('focus',() => selectWeek(index)));
+    timeline.addEventListener('scroll', () => {
+      if (timeline.scrollWidth <= timeline.clientWidth + 3) return;
+      const left = timeline.getBoundingClientRect().left;
+      let closest = 0, distance = Infinity;
+      weeks.forEach((week,i) => {
+        const delta = Math.abs(week.getBoundingClientRect().left - left - 5);
+        if (delta < distance) {distance=delta;closest=i;}
+      });
+      selectWeek(closest,false);
+    }, {passive:true});
+    selectWeek(0,false);
+  }
+});
