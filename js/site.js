@@ -1,5 +1,20 @@
 // ============ WCFCC SITE JS ============
 
+function scrollToWcfccSection(target) {
+  if (!target) return;
+  var ticker = document.getElementById('stickyTicker');
+  var offset = 64 + (ticker ? ticker.offsetHeight : 0) + 4;
+  var html = document.documentElement;
+  var previous = html.style.scrollBehavior;
+  var top = Math.max(0,target.getBoundingClientRect().top+window.scrollY-offset);
+  // Exact and immediate: do not let the page's global smooth scroll
+  // position the reviews heading midway underneath the sticky ticker.
+  html.style.scrollBehavior = 'auto';
+  window.scrollTo(0,top);
+  requestAnimationFrame(function(){html.style.scrollBehavior=previous;});
+}
+
+
 // Mobile menu toggle
 function toggleMobileMenu() {
   var m = document.getElementById('navMobileMenu');
@@ -240,6 +255,17 @@ document.addEventListener('DOMContentLoaded', function() {
       switchTab(tabs[next]);
     });
   });
+  document.querySelectorAll('a[href="#testimonials"]').forEach(function(link) {
+    link.addEventListener('click',function(event) {
+      var target=document.getElementById('testimonials');
+      if(!target)return;
+      event.preventDefault();
+      if(window.location.hash!=='#testimonials') {
+        history.pushState(null,'','#testimonials');
+      }
+      scrollToWcfccSection(target);
+    });
+  });
   var mobileButton=document.getElementById('navHamburger');
   if(mobileButton) {
     mobileButton.setAttribute('aria-expanded','false');
@@ -279,9 +305,7 @@ document.addEventListener('DOMContentLoaded', function() {
       window.addEventListener('load', function() {
         var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
         if(!target)return;
-        var offset=64+(document.body.classList.contains('has-ticker')?
-          (document.getElementById('stickyTicker')?.offsetHeight||46):0)+4;
-        window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.scrollY-offset),behavior:'auto'});
+        scrollToWcfccSection(target);
       },{once:true});
     }
 
