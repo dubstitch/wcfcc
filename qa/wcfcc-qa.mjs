@@ -108,6 +108,105 @@ for(const device of devices) {
     if(!cheer.exists||cheer.headingColor!=="rgb(255, 255, 255)"||!cheer.background?.includes("linear-gradient"))
       problem(device.name,path,"Cheer registration not pink and readable "+JSON.stringify(cheer));
   }
+  if(path==="index.html") {
+    const tabs=page.locator('#programs [role="tab"]');
+    if(await tabs.count()!==2)problem(device.name,path,"home program tabs missing");
+    else {
+      await tabs.nth(1).click();
+      const selected=await page.evaluate(()=>({
+        selected:document.getElementById("programs").dataset.activeProgram,
+        visible:!!document.querySelector("#home-panel-cheer:not([hidden])"),
+        hidden:document.querySelector("#home-panel-football")?.hidden,
+        panelBg:getComputedStyle(document.getElementById("programs")).backgroundImage
+      }));
+      if(selected.selected!=="cheer"||!selected.visible||!selected.hidden)
+        problem(device.name,path,"home Cheer tab failed "+JSON.stringify(selected));
+      if(device.name==="phone"&&process.env.SHOW_SHOTS==="1") {
+        await page.locator("#programs").scrollIntoViewIfNeeded();
+        await page.waitForTimeout(200);
+        const shot=await page.screenshot({type:"jpeg",quality:46});
+        console.log("DETAIL_SHOT_BASE64:"+name+"-home-cheer:"+shot.toString("base64"));
+      }
+      await tabs.nth(0).click();
+      if(await page.locator("#programs").getAttribute("data-active-program")!=="football")
+        problem(device.name,path,"returning to Football failed");
+    }
+    const review=await page.evaluate(()=>{
+      const cards=[...document.querySelectorAll("#testCarousel .testimonial-card")];
+      const active=cards.filter(el=>el.classList.contains("is-active"));
+      const colored=cards.filter(el=>el.classList.contains("is-cheer"));
+      const dot=document.querySelector(".field-experience .carousel-dot.active");
+      const bg=dot?getComputedStyle(dot).backgroundColor:null;
+      return {active:active.length,cheer:colored.length,bg,field:!!document.querySelector(".field-experience")};
+    });
+    if(review.active!==1||review.cheer!==2||!review.field)
+      problem(device.name,path,"review active/cheer and field presentation "+JSON.stringify(review));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"){
+      await page.locator("#testimonials").scrollIntoViewIfNeeded();
+      await page.waitForTimeout(180);
+      const shot=await page.screenshot({type:"jpeg",quality:46});
+      console.log("DETAIL_SHOT_BASE64:"+name+"-reviews:"+shot.toString("base64"));
+    }
+  }
+  if(path==="pages/schedules.html") {
+    const details=await page.evaluate(()=>{
+      const program=document.querySelector(".schedule-chooser");
+      const dates=document.querySelector(".schedule-key-dates");
+      return {programBeforeDates:!!(program&&dates&&(program.compareDocumentPosition(dates)&Node.DOCUMENT_POSITION_FOLLOWING)),
+        count:document.querySelectorAll(".schedule-date-card").length};
+    });
+    if(!details.programBeforeDates||details.count!==6)
+      problem(device.name,path,"schedule sections and dates missing "+JSON.stringify(details));
+    await page.locator('.schedule-program-tabs [data-tab="cheer"]').click();
+    const cheer=await page.evaluate(()=>({
+      chosen:document.querySelector(".schedule-chooser")?.dataset.activeProgram,
+      panelVisible:!document.querySelector('[data-tab-panel-group="schedule"][data-tab-panel="cheer"]')?.hidden,
+      footballHidden:document.querySelector('[data-tab-panel-group="schedule"][data-tab-panel="football"]')?.hidden
+    }));
+    if(cheer.chosen!=="cheer"||!cheer.panelVisible||!cheer.footballHidden)
+      problem(device.name,path,"schedule cheer program switch failed "+JSON.stringify(cheer));
+    const prev=page.locator("[data-date-prev]"),next=page.locator("[data-date-next]");
+    const before=await page.locator("[data-date-track]").evaluate(el=>el.scrollLeft);
+    await next.click();
+    await page.waitForTimeout(480);
+    const after=await page.locator("[data-date-track]").evaluate(el=>el.scrollLeft);
+    if(after<=before&&device.width<900)problem(device.name,path,"dates did not scroll "+JSON.stringify({before,after}));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"){
+      await page.locator(".schedule-chooser").scrollIntoViewIfNeeded();
+      const shot=await page.screenshot({type:"jpeg",quality:46});
+      console.log("DETAIL_SHOT_BASE64:"+name+"-schedule-cheer:"+shot.toString("base64"));
+    }
+  }
+  if(path==="pages/faq.html") {
+    const ids=["registration-payment","camp-details","safety-policies","game-day-details"];
+    const anchors=await page.locator(".faq-jump-grid a").evaluateAll(links=>links.map(a=>a.getAttribute("href")));
+    if(ids.some(id=>!anchors.includes("#"+id)||!page))problem(device.name,path,"FAQ links incomplete "+JSON.stringify(anchors));
+    await page.locator('.faq-jump-grid a[href="#game-day-details"]').click();
+    await page.waitForTimeout(350);
+    const hash=await page.evaluate(()=>location.hash);
+    if(hash!=="#game-day-details")problem(device.name,path,"FAQ anchor did not navigate: "+hash);
+  }
+  if(path==="pages/football.html") {
+    const details=await page.evaluate(()=>{
+      const lab=document.querySelector(".fb-position-lab"),progress=document.querySelector(".fb-progression-focus"),combine=document.querySelector(".fb-combine-separate");
+      return {lab:!!lab,progress:!!progress,combine:!!combine,
+        arrow:!!document.querySelector(".fb-friday-link .fa-solid.fa-arrow-right"),
+        metadata:getComputedStyle(document.querySelector(".ch-hero-meta")).fontSize,
+        bg1:progress?getComputedStyle(progress).backgroundImage:null,
+        bg2:combine?getComputedStyle(combine).backgroundImage:null};
+    });
+    if(!details.lab||!details.progress||!details.combine||!details.arrow)
+      problem(device.name,path,"football structure or icon missing "+JSON.stringify(details));
+    if(details.bg1===details.bg2)problem(device.name,path,"football sections indistinguishable "+JSON.stringify(details));
+  }
+  if(path==="pages/cheer.html") {
+    const expanded=await page.evaluate(()=>({
+      practice:document.querySelectorAll(".cheer-practice-card").length,
+      stages:document.querySelectorAll(".cheer-performance-grid article").length
+    }));
+    if(expanded.practice!==3||expanded.stages!==3)
+      problem(device.name,path,"new Cheer program sections missing "+JSON.stringify(expanded));
+  }
   if(path==="pages/cheer.html"){
     const meta=await page.evaluate(()=>{
       const group=[...document.querySelectorAll(".ch-meta-item")].find(x=>x.textContent.includes("$175"));
