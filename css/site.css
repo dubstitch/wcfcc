@@ -1117,3 +1117,50 @@ body.has-ticker .ticker {position:sticky !important;}
  }
  .ch-sparkle {animation:none !important;}
 }
+
+/* Final WCAG contrast remediation. Paint a visible Volt halo on light
+   headings without allowing the glyph foreground to become fluorescent. */
+.page-header:not(.is-dark) h1 .accent,
+body:not(.cheer-theme) .hero-h1 .line-champions {
+ color:var(--wc-ink) !important;
+ -webkit-text-stroke:0 !important;
+ text-shadow:
+  2px 0 0 var(--wc-volt),-2px 0 0 var(--wc-volt),
+  0 2px 0 var(--wc-volt),0 -2px 0 var(--wc-volt),
+  2px 2px 0 var(--wc-volt),-2px -2px 0 var(--wc-volt);
+}
+/* On black, Volt works best without an indistinct stroke covering
+   the lettering. The hairline black shadow gives it definition. */
+.gameday-banner .gd-accent,
+.gameday-banner .section-title span[style*="-webkit-text-stroke"],
+.cheer-theme .cheer-curriculum .section-title .accent {
+ color:var(--wc-volt) !important;
+ -webkit-text-stroke:0 !important;
+ text-shadow:
+  1px 1px 0 var(--wc-ink),
+  -1px -1px 0 var(--wc-ink),
+  1px -1px 0 var(--wc-ink),
+  -1px 1px 0 var(--wc-ink);
+}
+/* Dark section subtitles and eyebrow labels need legible actual text,
+   not decorative 40% opacity white. */
+.programs-header .section-eyebrow,
+.gameday-banner .section-eyebrow,
+#progression .section-eyebrow,
+#curriculum .section-eyebrow,
+.fb-combine-section .section-eyebrow,
+section[style*="background:var(--black)"] .section-eyebrow {
+ color:#e1e5ec !important;
+}
+.programs-header .section-subtitle {
+ color:#e1e5ec !important;
+}
+.programs .gda-subtitle,
+#programFootball .gda-subtitle,
+#programCheer .gda-subtitle {
+ color:#e0e3e8 !important;
+}
+.final-cta .section-eyebrow,
+.cheer-theme .final-cta .section-eyebrow {
+ color:#292d31 !important;
+}
