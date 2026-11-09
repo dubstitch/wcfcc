@@ -35,41 +35,24 @@
   </div>
 </header>
 
-<section style="background:var(--smoke);padding:80px 0;">
-  <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">Key Dates</div>
-      <h2 class="section-title">SUMMER<br><span class="accent">2026</span></h2>
-    </div>
-    <div class="anim anim-d2 info-grid cols-3" style="margin-top:48px;">
-      <div class="info-card"><h3>Summer Camp</h3><p><strong style="color:var(--black);">June 15 &mdash; July 10, 2026</strong></p><p style="margin-top:8px;">Four full weeks of training. Practices weekday evenings, full camp nights every Friday.</p></div>
-      <div class="info-card"><h3>Championship Day</h3><p><strong style="color:var(--black);">Friday, July 10, 2026</strong></p><p style="margin-top:8px;">The final Friday of camp. Tailgate, championship games, full cheer routine, trophies.</p></div>
-      <div class="info-card"><h3>Post Camp Practices</h3><p><strong style="color:var(--black);">August &mdash; October 2026</strong></p><p style="margin-top:8px;">3 sessions per month. Stay sharp for fall teams. Build the WCFCC parade float.</p></div>
-      <div class="info-card"><h3>Mummers Parade</h3><p><strong style="color:var(--black);">October 31, 2026</strong></p><p style="margin-top:8px;">Downtown Hagerstown. 70,000+ spectators. Football demos and cheer routines on the parade route.</p></div>
-      <div class="info-card"><h3>Registration Deadline</h3><p><strong style="color:var(--black);">May 31, 2026</strong></p><p style="margin-top:8px;">Spots fill on a first-come basis. Don&rsquo;t wait.</p></div>
-      <div class="info-card"><h3>Full Camp Nights</h3><p><strong style="color:var(--black);">Fridays, 5:30 PM &mdash; 8:00 PM</strong></p><p style="margin-top:8px;">Shared football and cheer nights with 7 on 7 games, performances, team competitions, and media content.</p></div>
-    </div>
-  </div>
-</section>
-
-<section style="background:var(--white);padding:80px 0;">
+<section class="schedule-chooser" data-active-program="football">
   <div class="container">
     <div class="anim anim-d1">
       <div class="section-eyebrow">Weekly Schedule</div>
       <h2 class="section-title">PICK YOUR<br><span class="accent">PROGRAM</span></h2>
-      <p class="section-subtitle" style="margin-top:16px;">Football and cheer practice on different weeknights. Game day Fridays are shared.</p>
+      <p class="section-subtitle" style="margin-top:16px;">Choose Football or Cheer to see the program specific weekly experience. Game Day Fridays bring both programs together.</p>
     </div>
     <div class="anim anim-d2" style="margin-top:28px;">
-      <div class="wc-tabs" role="tablist">
-        <button class="wc-tab is-active" data-tab-group="schedule" data-tab="football" onclick="switchTab(this)">Football</button>
-        <button class="wc-tab" data-tab-group="schedule" data-tab="cheer" onclick="switchTab(this)">Cheer</button>
+      <div class="wc-tabs schedule-program-tabs" role="tablist" aria-label="Choose camp program">
+        <button type="button" class="wc-tab is-active" data-tab-group="schedule" data-tab="football" onclick="switchTab(this)">Football</button>
+        <button type="button" class="wc-tab" data-tab-group="schedule" data-tab="cheer" onclick="switchTab(this)">Cheer</button>
       </div>
       <div class="schedule-facts" aria-label="Camp dates and weekly schedule">
         <div class="schedule-fact"><strong>CAMP DATES</strong><span>June 15, 2026 &mdash; July 10, 2026</span></div>
         <div class="schedule-fact"><strong>CAMP TIMES</strong><span>Mon &mdash; Thu &middot; 5:15&ndash;7:45 PM<br>Fri &middot; 5:30&ndash;8:00 PM</span></div>
-        <div class="schedule-fact"><strong>WEEKLY CAMP SCHEDULE</strong><span>Position-focused training by day</span></div>
+        <div class="schedule-fact"><strong>WEEKLY CAMP SCHEDULE</strong><span>Select a program to explore training by day</span></div>
       </div>
-      <div data-tab-panel-group="schedule" data-tab-panel="football" class="is-active">
+      <div data-tab-panel-group="schedule" data-tab-panel="football" class="is-active schedule-program-panel">
         <div class="info-grid cols-3">
           <div class="info-card"><h3>Mondays</h3><p><strong style="color:var(--black);">DLs &amp; Linebackers</strong></p><p style="margin-top:8px;">Combine drills, position work, conditioning, competition periods.</p></div>
           <div class="info-card"><h3>Tuesdays</h3><p><strong style="color:var(--black);">DBs &amp; Tight Ends</strong></p><p style="margin-top:8px;">Footwork, coverage drills, ball skills, speed &amp; agility work.</p></div>
@@ -79,13 +62,37 @@
         </div>
         <p style="text-align:center;color:var(--mid-gray);font-size:13px;margin-top:24px;">Practice locations confirmed at registration.</p>
       </div>
-      <div data-tab-panel-group="schedule" data-tab-panel="cheer">
+      <div data-tab-panel-group="schedule" data-tab-panel="cheer" class="schedule-program-panel schedule-cheer-panel">
         <div class="info-grid cols-3">
           <div class="info-card"><h3>Tuesdays</h3><p><strong style="color:var(--black);">Cheer Practice</strong></p><p style="margin-top:8px;">Cheers, motions, jumps, choreography.</p></div>
           <div class="info-card"><h3>Thursdays</h3><p><strong style="color:var(--black);">Cheer Practice</strong></p><p style="margin-top:8px;">Routine work, conditioning, formations.</p></div>
           <div class="info-card"><h3>Fridays</h3><p><strong style="color:var(--black);">Full Camp Nights</strong></p><p style="margin-top:8px;">7 on 7 games, cheer performances, team competitions, media &amp; social content nights.</p></div>
         </div>
         <p style="text-align:center;color:var(--mid-gray);font-size:13px;margin-top:24px;">Practice locations confirmed at registration.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="schedule-key-dates" id="key-dates" aria-labelledby="key-dates-title">
+  <div class="container">
+    <div class="schedule-dates-header">
+      <div><div class="section-eyebrow">The 2026 Plan</div><h2 class="section-title" id="key-dates-title">KEY <span class="accent">DATES</span></h2></div>
+      <p>Important milestones from the archived camp schedule. Browse horizontally for the full timeline.</p>
+    </div>
+    <div class="schedule-date-browser" data-date-scroll>
+      <div class="schedule-date-track" data-date-track role="region" aria-roledescription="carousel" aria-label="Key camp dates" tabindex="0">
+        <article class="schedule-date-card"><span class="schedule-date-index">01</span><span class="schedule-date-kicker">CAMP OPENS</span><h3>JUNE 15</h3><strong>Monday, June 15, 2026</strong><p>The planned first day of four weeks of camp.</p></article>
+<article class="schedule-date-card"><span class="schedule-date-index">02</span><span class="schedule-date-kicker">FINAL CAMP DAY</span><h3>JULY 10</h3><strong>Friday, July 10, 2026</strong><p>Championship Day closes the four week summer program.</p></article>
+<article class="schedule-date-card"><span class="schedule-date-index">03</span><span class="schedule-date-kicker">FALL PRACTICES</span><h3>AUG · OCT</h3><strong>August through October</strong><p>The planned postcamp sessions leading toward the fall parade.</p></article>
+<article class="schedule-date-card"><span class="schedule-date-index">04</span><span class="schedule-date-kicker">MUMMERS PARADE</span><h3>OCTOBER 31</h3><strong>Saturday, October 31, 2026</strong><p>The planned community performance in downtown Hagerstown.</p></article>
+<article class="schedule-date-card"><span class="schedule-date-index">05</span><span class="schedule-date-kicker">REGISTRATION</span><h3>MAY 31</h3><strong>Sunday, May 31, 2026</strong><p>The registration deadline in the archived 2026 program.</p></article>
+<article class="schedule-date-card"><span class="schedule-date-index">06</span><span class="schedule-date-kicker">GAME DAY</span><h3>FRIDAYS</h3><strong>5:30 to 8:00 PM</strong><p>Shared football and cheer activities on the planned Friday schedule.</p></article>
+      </div>
+      <div class="schedule-date-controls">
+        <button type="button" data-date-prev aria-label="Previous dates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 19l-7-7 7-7"/></svg></button>
+        <span>SCROLL TO EXPLORE DATES</span>
+        <button type="button" data-date-next aria-label="Next dates"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </div>
   </div>
