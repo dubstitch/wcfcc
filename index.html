@@ -52,6 +52,7 @@
   <div class="hero-inner">
     <div class="hero-left">
       <div class="hero-badge fade-up delay-1"><span class="dot"></span>WCFCC Summer 2026 &mdash; Project Archive</div>
+      <p class="hero-camp-name fade-up delay-1">Washington County Football Combine Camp</p>
       <h1 class="hero-h1 fade-up delay-2">
         <span class="line-building">BUILDING</span>
         <span class="line-champions">CHAMPIONS</span>
@@ -127,32 +128,9 @@
     <span class="ticker-item sponsor-item">Athlete First <span class="sep">&#9670;</span></span>
   </div>
 </div>
-<script>
-  (function() {
-    var ticker = document.getElementById('stickyTicker');
-    var spacer = document.getElementById('tickerSpacer');
-    var navH = 64;
-    var tickerTop = null;
-    function getTickerTop() {
-      ticker.classList.remove('is-sticky');
-      spacer.classList.remove('active');
-      tickerTop = ticker.getBoundingClientRect().top + window.pageYOffset;
-    }
-    function onScroll() {
-      if (tickerTop === null) getTickerTop();
-      if (window.pageYOffset + navH >= tickerTop) {
-        ticker.classList.add('is-sticky');
-        spacer.classList.add('active');
-      } else {
-        ticker.classList.remove('is-sticky');
-        spacer.classList.remove('active');
-      }
-    }
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', function() { tickerTop = null; onScroll(); });
-    window.addEventListener('DOMContentLoaded', function() { getTickerTop(); onScroll(); });
-  })();
-</script>
+<!-- The ticker uses native CSS sticky positioning. No scroll-triggered
+     fixed position or layout spacer to cause premature snapping. -->
+
 
 <section class="programs" id="programs">
   <div class="container">
@@ -220,13 +198,7 @@
     </div>
     <div class="experience-carousel-wrapper">
       <div class="experience-carousel" id="expCarousel">
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 2L3 7l9 5 9-5-9-5zM3 17l9 5 9-5M3 12l9 5 9-5"/></svg></div><div class="exp-title">ELITE TRAINING</div><div class="exp-desc">Combine style evaluation with position specific coaching from experienced staff who genuinely invest in every athlete's growth week over week.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></div><div class="exp-title">GAME DAY FRIDAYS</div><div class="exp-desc">Every Friday is game day at our turf stadium. Football runs 7 on 7 scrimmages while cheer performs sideline routines. Real game reps every single week.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/><path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div><div class="exp-title">CHAMPIONSHIP DAY</div><div class="exp-desc">Week 4 is Championship Day. Football players compete for the title. Cheer squads perform their final showcase. Trophies, families, and full stadium energy.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg></div><div class="exp-title">ALL INCLUSIVE</div><div class="exp-desc">$175. That's it. No hidden fees. Your uniform, your gear, your Mummers Parade experience. Everything included so families can focus on the fun.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="exp-title">SAFE COACHING</div><div class="exp-desc">All coaches are background checked and trained in youth sports safety protocols. The safety of every athlete is not negotiable.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div><div class="exp-title">CLEAR COMMUNICATION</div><div class="exp-desc">Families stay informed with regular updates and transparent policies. No surprises. Just straight talk and consistent follow through.</div></div>
-        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="exp-title">COMMUNITY FOCUS</div><div class="exp-desc">More than a team, it's a family. WCFCC is rooted in Hagerstown and built to invest back into the community that shows up for us.</div></div>
+        <div class="exp-card"><div class="exp-icon"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M2 20v-2a7 7 0 0 1 14 0v2M17 15a5 5 0 0 1 5 5"/></svg></div><div class="exp-title">COMMUNITY FOCUS</div><div class="exp-desc">More than a team, it's a family. WCFCC is rooted in Hagerstown and built to invest back into the community that shows up for us.</div></div>
       </div>
     </div>
     <div class="carousel-controls">
@@ -253,6 +225,7 @@
     for (var i = 0; i < totalSlides(); i++) {
       var dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'View carousel position ' + (i + 1) + ' of ' + totalSlides());
       (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
       dotsContainer.appendChild(dot);
     }
@@ -280,7 +253,7 @@
   <div class="gameday-inner">
     <div class="gameday-left anim anim-d1">
       <div class="section-eyebrow">Built Different</div>
-      <h2 class="section-title" style="color:white;">THE FULL<br><span style="color:var(--yellow);-webkit-text-stroke:3px rgba(255,255,255,0.4);paint-order:stroke fill;">SEASON</span></h2>
+      <h2 class="section-title" style="color:white;">THE FULL<br><span style="color:var(--yellow);-webkit-text-stroke:3px var(--black);paint-order:stroke fill;">SEASON</span></h2>
       <p class="gameday-intro">Every Friday, camp moves to our turf stadium for the most exciting day of the week. Live game reps, real performances, and full energy from week one all the way to Championship Day.</p>
     </div>
     <div class="gameday-accordion anim anim-d2">
@@ -396,6 +369,7 @@
     for (var i = 0; i < totalSlides(); i++) {
       var dot = document.createElement('button');
       dot.className = 'carousel-dot' + (i === current ? ' active' : '');
+      dot.setAttribute('aria-label', 'View carousel position ' + (i + 1) + ' of ' + totalSlides());
       (function(idx) { dot.addEventListener('click', function() { goTo(idx); }); })(i);
       dotsContainer.appendChild(dot);
     }
