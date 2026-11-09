@@ -94,6 +94,73 @@ for(const device of devices) {
     if(!(details.dotRight<=details.labelLeft&&Math.abs(details.priceY-details.dotY)<18))
       problem(device.name,path,"football price dot orphaned "+JSON.stringify(details));
   }
+  if(path==="index.html") {
+    const field=await page.locator(".field-experience").evaluate(el=>({
+      image:getComputedStyle(el).backgroundImage,
+      cards:el.querySelectorAll(".exp-card").length
+    }));
+    if(!field.image.includes("Artificial_turf.jpg")||field.cards!==7)
+      problem(device.name,path,"Real stadium turf missing or cards changed "+JSON.stringify(field));
+    const tabs=page.locator(".program-choice");
+    const defaultTabs=await tabs.evaluateAll(els=>els.map(el=>({
+      kind:el.dataset.tab,bg:getComputedStyle(el).backgroundColor,text:getComputedStyle(el).color
+    })));
+    if(!defaultTabs[1].bg.includes("255")||defaultTabs[1].bg==="rgba(0, 0, 0, 0)")
+      problem(device.name,path,"Inactive Cheer tab lost pink identity "+JSON.stringify(defaultTabs));
+    await page.locator('.program-choice[data-tab="cheer"]').click();
+    const activeTheme=await page.locator("#programs").evaluate(el=>({
+      background:getComputedStyle(el).backgroundImage,
+      titleColor:getComputedStyle(el.querySelector(".programs-header .section-title")).color
+    }));
+    const footballInactive=await page.locator('.program-choice[data-tab="football"]').evaluate(el=>getComputedStyle(el).backgroundColor);
+    if(!activeTheme.background.includes("linear-gradient")||footballInactive!=="rgb(232, 255, 0)")
+      problem(device.name,path,"Cheer selection or inactive Football colors incorrect "+JSON.stringify({activeTheme,footballInactive}));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1") {
+      await page.locator(".field-experience").scrollIntoViewIfNeeded();
+      const shot=await page.screenshot({type:"jpeg",quality:42});
+      console.log("DESIGN_SHOT_BASE64:"+name+"-stadium:"+shot.toString("base64"));
+      await page.locator("#programs").scrollIntoViewIfNeeded();
+      const shot2=await page.screenshot({type:"jpeg",quality:42});
+      console.log("DESIGN_SHOT_BASE64:"+name+"-cheer-selection:"+shot2.toString("base64"));
+    }
+  }
+  if(path==="pages/football.html") {
+    const guided=await page.evaluate(()=>{
+      const el=document.querySelector(".fb-guided-grid");
+      return {
+        count:document.querySelectorAll(".fb-guided-card").length,
+        timeline:document.querySelectorAll(".fb-combine-guide .fb-timeline-item").length,
+        columns:el?getComputedStyle(el).gridTemplateColumns:null,
+        spill:el?el.scrollWidth-el.clientWidth:Infinity
+      };
+    });
+    if(guided.count!==4||guided.timeline!==4||guided.spill>2)
+      problem(device.name,path,"Guided combine layout incomplete "+JSON.stringify(guided));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1") {
+      await page.locator(".fb-guided-grid").scrollIntoViewIfNeeded();
+      const shot=await page.screenshot({type:"jpeg",quality:42});
+      console.log("DESIGN_SHOT_BASE64:"+name+"-combine:"+shot.toString("base64"));
+    }
+  }
+  if(path==="pages/cheer.html") {
+    const indicator=await page.locator(".cheer-curriculum .carousel-dot.active").first().evaluate(el=>({
+      background:getComputedStyle(el).backgroundColor,
+      border:getComputedStyle(el).borderTopColor,
+      width:el.getBoundingClientRect().width
+    }));
+    if(indicator.background!=="rgb(255, 44, 153)"||indicator.border!=="rgb(255, 255, 255)")
+      problem(device.name,path,"Cheer progression indicator blends into background "+JSON.stringify(indicator));
+  }
+  if(path==="pages/contact.html") {
+    const cheer=await page.locator(".contact-cheer-card").evaluate(el=>({
+      bg:getComputedStyle(el).backgroundImage,
+      border:getComputedStyle(el).borderLeftColor,
+      name:getComputedStyle(el.querySelector("h3")).color
+    }));
+    if(!cheer.bg.includes("linear-gradient")||cheer.border==="rgb(232, 255, 0)")
+      problem(device.name,path,"Contact Cheer card uses inconsistent color "+JSON.stringify(cheer));
+  }
+
   if(path==="pages/registration.html") {
     const cheer=await page.evaluate(()=>{
       const card=document.querySelector(".registration-cheer-card");
