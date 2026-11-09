@@ -1536,3 +1536,18 @@ body.cheer-theme .cheer-age-section .wc-acc-trigger:focus-visible {
   .fb-game-step {padding:27px;}
   .registration-cheer-card {padding:25px;}
 }
+
+/* Final mobile visual check: readable numbering and a legible Cheer badge. */
+.fb-day-number { color:#4a515b !important; }
+body.cheer-theme .ch-hero-tagline {
+ font-size:15px !important;
+ letter-spacing:1.2px !important;
+ line-height:1.35;
+}
+.registration-cheer-card .demo-locked-link {
+ opacity:1 !important;
+}
+.registration-cheer-card .demo-locked-link:focus-visible {
+ outline:3px solid #fff !important;
+ outline-offset:4px;
+}
