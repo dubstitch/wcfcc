@@ -300,6 +300,31 @@
   @media (max-width:768px) {
     .fb-combine-clean { grid-template-columns: 1fr; }
   }
+
+/* Football local theme previously overrode accessible black outlines. */
+.football-theme .fb-age-section .wc-acc-chevron,
+.football-theme .fb-age-section .wc-acc-item.is-open,
+.football-theme .wc-card:not(.is-dark) .wc-num {
+  border-color:var(--fb-black) !important;
+}
+.football-theme .wc-card:not(.is-dark).is-active {
+  border:2px solid var(--fb-black) !important;
+}
+.football-theme .hero .age-chip {
+  border:2px solid var(--fb-black) !important;
+}
+.football-theme .ch-hero-meta .sep {
+  display:inline-block;
+  width:9px;height:9px;min-width:9px;
+  border:1.5px solid var(--fb-black) !important;
+  box-shadow:0 0 0 1px #fff;
+}
+.football-theme .ch-hero-cta.fb-secondary-cta {
+  border-color:var(--fb-black) !important;
+}
+.football-theme .wc-carousel:not(.is-dark) .carousel-dot.active {
+  border:2px solid var(--fb-black) !important;
+}
 </style>
 </head>
 <body class="football-theme">
