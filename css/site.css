@@ -838,3 +838,69 @@ footer .footer-links a[href*="cheer.html"] {color:#ff99c9;}
 .cheer-theme nav .nav-links a[href*="cheer.html"] {
   color:#ff99c9;
 }
+
+/* WCFCC contrast system. Volt requires a dark edge on pale surfaces. */
+:root { --wc-ink:#101114; --wc-volt:#e8ff00; --wc-cheer:#ed2588; --wc-cheer-dark:#a80055; }
+.section-eyebrow::before,.page-header .page-eyebrow::before {
+ height:4px;min-width:28px;background:var(--wc-volt);
+ border:1px solid var(--wc-ink);box-sizing:border-box;border-radius:1px;
+}
+.gameday-banner .section-eyebrow::before,
+.programs .section-eyebrow::before,
+section[style*="background:var(--black)"] .section-eyebrow::before {
+ border-color:var(--wc-volt);height:3px;
+}
+.cheer-theme .section-eyebrow::before {background:var(--wc-volt);border-color:var(--wc-cheer-dark);}
+.cheer-theme .cheer-curriculum .section-eyebrow::before,
+.cheer-theme .cheer-gameday .section-eyebrow::before {border-color:var(--wc-volt);}
+.fb-age-section .wc-acc-item.is-open {
+ border:2px solid var(--wc-ink) !important;box-shadow:inset 0 0 0 2px var(--wc-volt);
+}
+.fb-age-section .wc-acc-trigger > span > span[style*="background:var(--yellow)"],
+.cheer-age-section .wc-acc-trigger > span > span[style*="background:var(--yellow)"] {
+ box-shadow:inset 0 0 0 2px var(--wc-ink) !important;color:var(--wc-ink) !important;
+}
+.fb-age-section .wc-acc-chevron,
+.wc-acc-item:not(.is-dark) .wc-acc-chevron {
+ background:var(--wc-volt);border:2px solid var(--wc-ink);
+}
+.wc-acc-item:not(.is-dark).is-open {border:2px solid var(--wc-ink);}
+.wc-acc-trigger {font-size:clamp(17px,2vw,21px);line-height:1.25;}
+.wc-acc-body-inner {font-size:clamp(15px,1.65vw,17px);line-height:1.65;}
+.wc-acc-body-inner p {color:#34383d;}
+.info-card:not(.is-dark) {
+ border:1px solid #b8bec6;border-left:5px solid var(--wc-ink) !important;
+ box-shadow:inset 4px 0 0 var(--wc-volt);padding-left:clamp(25px,3vw,36px);
+}
+.info-card:not(.is-dark) ul li::before {
+ box-shadow:0 0 0 1px var(--wc-ink);background:var(--wc-volt);
+}
+.info-card:not(.is-dark) h3 {color:var(--wc-ink);}
+.info-card p,.info-card li {color:#41454b;}
+.info-card.is-dark {border-left-color:var(--wc-volt) !important;}
+.experience .exp-icon {
+ border:2px solid var(--wc-ink);background:var(--wc-volt);color:var(--wc-ink);
+}
+.exp-icon svg {width:25px;height:25px;stroke:var(--wc-ink);fill:none;stroke-width:1.9;}
+.experience .exp-card::before {
+ background:var(--wc-ink);border-top:2px solid var(--wc-volt);height:5px;
+}
+.testimonials .quote-mark {
+ color:var(--wc-volt);-webkit-text-stroke:2px var(--wc-ink);paint-order:stroke fill;
+}
+.testimonials .author-role {color:#52565a;}
+.carousel-controls .carousel-dot:not(.active) {background:#6c7278;}
+.carousel-controls .carousel-dot.active {background:var(--wc-ink);}
+.carousel-controls .carousel-dot:focus-visible {
+ outline:2px solid var(--wc-ink);outline-offset:5px;
+}
+.gameday-banner .gd-accent,
+.gameday-banner .section-title span[style*="-webkit-text-stroke"] {
+ color:var(--wc-volt) !important;
+ -webkit-text-stroke:2px var(--wc-ink) !important;paint-order:stroke fill;
+}
+.gameday-banner .gda-subtitle {color:#c9cad2 !important;}
+.gameday-banner .gda-detail {color:#d8dbe1;}
+.gameday-banner .gda-detail strong {color:#fff;}
+.gameday-banner .gda-chevron {border:2px solid var(--wc-volt);}
+.gameday-banner .gda-chevron svg {stroke:var(--wc-ink);}
