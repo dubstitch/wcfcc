@@ -141,6 +141,19 @@ for(const device of devices) {
     });
     if(review.active!==1||review.cheer!==2||!review.field)
       problem(device.name,path,"review active/cheer and field presentation "+JSON.stringify(review));
+    const cta=await page.locator('.final-cta .btn-cta-outline').evaluate(el=>({
+      color:getComputedStyle(el).color,
+      border:getComputedStyle(el).borderTopWidth,
+      borderColor:getComputedStyle(el).borderTopColor
+    }));
+    if(cta.color!=="rgb(16, 17, 20)"||parseFloat(cta.border)<2)
+      problem(device.name,path,"View Programs button too faint "+JSON.stringify(cta));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"){
+      await page.locator(".field-experience").scrollIntoViewIfNeeded();
+      await page.waitForTimeout(180);
+      const shot=await page.screenshot({type:"jpeg",quality:46});
+      console.log("DETAIL_SHOT_BASE64:"+name+"-field-experience:"+shot.toString("base64"));
+    }
     if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"){
       await page.locator("#testimonials").scrollIntoViewIfNeeded();
       await page.waitForTimeout(180);
@@ -181,6 +194,20 @@ for(const device of devices) {
     const ids=["registration-payment","camp-details","safety-policies","game-day-details"];
     const anchors=await page.locator(".faq-jump-grid a").evaluateAll(links=>links.map(a=>a.getAttribute("href")));
     if(ids.some(id=>!anchors.includes("#"+id)||!page))problem(device.name,path,"FAQ links incomplete "+JSON.stringify(anchors));
+    const topicMenu=await page.locator("nav.faq-jump-nav").evaluate(el=>({
+      position:getComputedStyle(el).position,
+      top:el.getBoundingClientRect().top,
+      pageHeaderBottom:document.querySelector(".page-header").getBoundingClientRect().bottom,
+      height:el.getBoundingClientRect().height
+    }));
+    if(topicMenu.position==="fixed"||topicMenu.height<100||Math.abs(topicMenu.top-topicMenu.pageHeaderBottom)>8)
+      problem(device.name,path,"FAQ index misplaced or fixed "+JSON.stringify(topicMenu));
+    if(device.name==="phone"&&process.env.SHOW_SHOTS==="1"){
+      await page.locator(".faq-jump-nav").scrollIntoViewIfNeeded();
+      await page.waitForTimeout(150);
+      const shot=await page.screenshot({type:"jpeg",quality:46});
+      console.log("DETAIL_SHOT_BASE64:"+name+"-faq-nav:"+shot.toString("base64"));
+    }
     await page.locator('.faq-jump-grid a[href="#game-day-details"]').click();
     await page.waitForTimeout(350);
     const hash=await page.evaluate(()=>location.hash);
