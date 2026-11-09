@@ -2832,3 +2832,66 @@ body.football-theme .fb-combine-guide .fb-combine-card > h3 {display:block;margi
 @media(prefers-reduced-motion:reduce){
   .fb-guided-grid,.fb-timeline-track {scroll-behavior:auto;}
 }
+
+/* WCFCC program chooser: a genuine shared introduction until a path is selected. */
+.programs[data-active-program="overview"] {
+  background:#101114;
+}
+.program-feature-intro {
+  background:
+    radial-gradient(ellipse at 100% 0%,rgba(255,85,172,.12),transparent 48%),
+    linear-gradient(140deg,#292d36 0%,#1a1c22 75%,#14171d 100%);
+  border-color:#81858f;
+}
+.program-feature-intro .program-feature-kicker {color:#dce2eb;}
+.program-feature-intro h3 span {color:#e8ff00;}
+.program-feature-intro .program-feature-points {margin-bottom:0;}
+.program-intro-side {
+  gap:2px;
+  background:
+    radial-gradient(ellipse at 10% 12%,rgba(232,255,0,.16),transparent 62%),
+    radial-gradient(ellipse at 95% 92%,rgba(255,44,153,.24),transparent 60%),
+    #242933;
+  border-color:#777e89;
+  padding:26px 12px;
+}
+.program-intro-football,
+.program-intro-cheer {
+  font:400 clamp(43px,5vw,70px)/.94 'Bebas Neue',sans-serif;
+  letter-spacing:1px;
+  text-align:center;
+}
+.program-intro-football {color:#e8ff00;}
+.program-intro-cheer {color:#ff83c2;}
+.program-intro-plus {
+  font:700 30px/1 'Barlow',sans-serif;
+  color:#eef1f5;
+}
+.program-intro-side .program-feature-side-caption {
+  margin-top:18px;
+  color:#eef1f5;
+}
+
+/* Fine, actual four-point stardust; never floating above Cheer page content. */
+body.cheer-theme .hero .ch-stardust {
+  display:block;
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  z-index:1;
+  opacity:.7;
+  overflow:hidden;
+  pointer-events:none;
+  user-select:none;
+  -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.50) 0%,transparent 23%,transparent 69%,rgba(0,0,0,.85) 100%);
+  mask-image:linear-gradient(90deg,rgba(0,0,0,.50) 0%,transparent 23%,transparent 69%,rgba(0,0,0,.85) 100%);
+}
+body.cheer-theme .hero .hero-inner {position:relative;z-index:4;}
+@media(max-width:768px) {
+  body.cheer-theme .hero .ch-stardust {
+    opacity:.48;
+    -webkit-mask-image:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,transparent 17%,transparent 81%,rgba(0,0,0,.42) 100%);
+    mask-image:linear-gradient(to bottom,rgba(0,0,0,.45) 0%,transparent 17%,transparent 81%,rgba(0,0,0,.42) 100%);
+  }
+}

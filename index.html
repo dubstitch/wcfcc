@@ -132,7 +132,7 @@
      fixed position or layout spacer to cause premature snapping. -->
 
 
-<section class="programs" id="programs" data-active-program="football">
+<section class="programs" id="programs" data-active-program="overview">
   <div class="container">
     <div class="programs-header">
       <div>
@@ -143,15 +143,31 @@
     </div>
     <p class="programs-choice-caption">SELECT A PROGRAM TO EXPLORE</p>
     <div class="program-choice-tabs" role="tablist" aria-label="Camp programs">
-      <button type="button" class="program-choice is-active" id="home-program-football" role="tab" data-tab-group="home" data-tab="football" aria-selected="true" aria-controls="home-panel-football" onclick="switchTab(this)">
+      <button type="button" class="program-choice" id="home-program-football" role="tab" data-tab-group="home" data-tab="football" aria-selected="false" aria-controls="home-panel-football" tabindex="0" onclick="switchTab(this)">
         <span class="program-choice-icon" aria-hidden="true">01</span><span><strong>FOOTBALL</strong><small>Combine &amp; competition</small></span>
       </button>
-      <button type="button" class="program-choice" id="home-program-cheer" role="tab" data-tab-group="home" data-tab="cheer" aria-selected="false" aria-controls="home-panel-cheer" onclick="switchTab(this)">
+      <button type="button" class="program-choice" id="home-program-cheer" role="tab" data-tab-group="home" data-tab="cheer" aria-selected="false" aria-controls="home-panel-cheer" tabindex="-1" onclick="switchTab(this)">
         <span class="program-choice-icon" aria-hidden="true">02</span><span><strong>SIDELINE CHEER</strong><small>Confidence &amp; performance</small></span>
       </button>
     </div>
-    <div class="program-choice-content anim anim-d4" aria-live="off">
-      <div id="home-panel-football" class="program-feature is-active" role="tabpanel" aria-labelledby="home-program-football" data-tab-panel-group="home" data-tab-panel="football">
+    <div class="program-choice-content anim anim-d4" aria-live="polite">
+      <div id="home-panel-intro" class="program-feature program-feature-intro is-active" role="region" aria-label="Explore our football and cheer programs">
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE WCFCC EXPERIENCE</span>
+          <h3>DIFFERENT STRENGTHS.<br><span>ONE TEAM SPIRIT.</span></h3>
+          <p>Some athletes thrive on the field. Others bring the sideline to life. At WCFCC, both paths build skills, confidence, friendships, and a sense of belonging. Football and cheer come together for Friday game days and Championship Day. Choose a program above to see what makes each experience special.</p>
+          <div class="program-feature-points">
+            <span>SKILL BUILDING</span><span>TEAMWORK</span><span>CONFIDENCE</span>
+          </div>
+        </div>
+        <div class="program-feature-side program-intro-side" aria-hidden="true">
+          <span class="program-intro-football">FOOTBALL</span>
+          <span class="program-intro-plus">+</span>
+          <span class="program-intro-cheer">CHEER</span>
+          <span class="program-feature-side-caption">ONE WCFCC COMMUNITY</span>
+        </div>
+      </div>
+      <div id="home-panel-football" class="program-feature" role="tabpanel" aria-labelledby="home-program-football" data-tab-panel-group="home" data-tab-panel="football" hidden>
         <div class="program-feature-main">
           <span class="program-feature-kicker">THE FOOTBALL EXPERIENCE</span>
           <h3>BUILD THE GAME.<br><span>OWN THE FIELD.</span></h3>
