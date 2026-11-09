@@ -5,7 +5,12 @@ function toggleMobileMenu() {
   var m = document.getElementById('navMobileMenu');
   var h = document.getElementById('navHamburger');
   if (m) m.classList.toggle('is-open');
-  if (h) h.classList.toggle('is-open');
+  if (h) {
+    h.classList.toggle('is-open');
+    h.setAttribute('aria-expanded', String(m && m.classList.contains('is-open')));
+    if (m && !m.id) m.id='navMobileMenu';
+    if (m) h.setAttribute('aria-controls', m.id);
+  }
 }
 
 // Game-day accordion toggle
@@ -159,10 +164,15 @@ function switchTab(btn) {
   var key = btn.getAttribute('data-tab');
   if (!group || !key) return;
   document.querySelectorAll('[data-tab-group="' + group + '"][data-tab]').forEach(function(t) {
-    t.classList.toggle('is-active', t.getAttribute('data-tab') === key);
+    var active=t.getAttribute('data-tab')===key;
+    t.classList.toggle('is-active',active);
+    t.setAttribute('aria-selected',String(active));
+    t.tabIndex=active?0:-1;
   });
   document.querySelectorAll('[data-tab-panel-group="' + group + '"]').forEach(function(p) {
-    p.classList.toggle('is-active', p.getAttribute('data-tab-panel') === key);
+    var active=p.getAttribute('data-tab-panel')===key;
+    p.classList.toggle('is-active',active);
+    p.hidden=!active;
   });
 }
 
@@ -198,6 +208,43 @@ document.addEventListener('DOMContentLoaded', function() {
       btn.setAttribute('aria-controls',id);
     }
   });
+  document.querySelectorAll('.wc-tabs[role="tablist"]').forEach(function(tablist) {
+    var tabs=Array.from(tablist.querySelectorAll('[data-tab-group][data-tab]'));
+    if(!tabs.length)return;
+    tabs.forEach(function(tab,i) {
+      var group=tab.getAttribute('data-tab-group'),key=tab.getAttribute('data-tab');
+      var panel=document.querySelector('[data-tab-panel-group="'+group+'"][data-tab-panel="'+key+'"]');
+      tab.setAttribute('role','tab');
+      tab.id=tab.id||'wc-tab-'+group+'-'+key;
+      tab.setAttribute('aria-selected',String(tab.classList.contains('is-active')));
+      tab.tabIndex=tab.classList.contains('is-active')?0:-1;
+      if(panel) {
+        panel.setAttribute('role','tabpanel');
+        panel.id=panel.id||'wc-panel-'+group+'-'+key;
+        panel.setAttribute('aria-labelledby',tab.id);
+        panel.hidden=!panel.classList.contains('is-active');
+        tab.setAttribute('aria-controls',panel.id);
+      }
+    });
+    tablist.addEventListener('keydown',function(event){
+      var index=tabs.indexOf(document.activeElement);
+      if(index<0)return;
+      var next=index;
+      if(event.key==='ArrowRight')next=(index+1)%tabs.length;
+      else if(event.key==='ArrowLeft')next=(index+tabs.length-1)%tabs.length;
+      else if(event.key==='Home')next=0;
+      else if(event.key==='End')next=tabs.length-1;
+      else return;
+      event.preventDefault();
+      tabs[next].focus();
+      switchTab(tabs[next]);
+    });
+  });
+  var mobileButton=document.getElementById('navHamburger');
+  if(mobileButton) {
+    mobileButton.setAttribute('aria-expanded','false');
+    mobileButton.setAttribute('aria-controls','navMobileMenu');
+  }
   loadSeasonAccordionScript();
   initAnim();
   initCarousels();
@@ -219,12 +266,24 @@ document.addEventListener('DOMContentLoaded', function() {
   function initPortfolioArchive() {
     if (!document.body || document.documentElement.hasAttribute('data-portfolio-archive')) return;
     document.documentElement.setAttribute('data-portfolio-archive', 'true');
+    document.body.classList.add('has-portfolio-archive');
 
     var notice = document.createElement('aside');
     notice.className = 'portfolio-archive-notice';
     notice.setAttribute('role', 'note');
     notice.innerHTML = '<span class="archive-note-marker">PORTFOLIO ARCHIVE</span><span>This 2026 project is preserved as an interactive demo. Registration, forms, payments and contact actions are unavailable.</span>';
     document.body.insertBefore(notice, document.body.firstChild);
+    // URL fragments are evaluated before this dynamically inserted notice.
+    // Re-align the reviews heading beneath the fixed nav and sticky ticker.
+    if (window.location.hash) {
+      window.addEventListener('load', function() {
+        var target = document.getElementById(decodeURIComponent(window.location.hash.slice(1)));
+        if(!target)return;
+        var offset=64+(document.body.classList.contains('has-ticker')?
+          (document.getElementById('stickyTicker')?.offsetHeight||46):0)+4;
+        window.scrollTo({top:Math.max(0,target.getBoundingClientRect().top+window.scrollY-offset),behavior:'auto'});
+      },{once:true});
+    }
 
     var lockIcon = '<svg viewBox="0 0 24 24" width="14" height="14" focusable="false" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>';
     document.querySelectorAll('a[href]').forEach(function (link) {
