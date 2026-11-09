@@ -59,6 +59,8 @@ for(const device of devices) {
     problem(device.name,path,"AXE "+v.id+" "+JSON.stringify(targets));
   }
   if(path==="index.html"){
+    const experienceCards=await page.locator("#expCarousel .exp-card").count();
+    if(experienceCards!==7)problem(device.name,path,"experience card regression: "+experienceCards+" of 7");
     const ticker=page.locator("#stickyTicker");
     const t=await ticker.evaluate(el=>({top:el.getBoundingClientRect().top,docY:el.getBoundingClientRect().top+scrollY,style:getComputedStyle(el).position}));
     if(t.style!=="sticky")problem(device.name,path,"ticker position="+t.style);
