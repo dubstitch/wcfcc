@@ -1078,3 +1078,8 @@ body.has-portfolio-archive > .page-header {
  body.has-portfolio-archive > .hero .hero-inner {padding-top:12px;}
  .hero-camp-name {margin-bottom:16px;}
 }
+
+/* Overflow-x:hidden creates a scrolling ancestor in WebKit and can disable
+   native position:sticky. Clip prevents sideways bleed without that bug. */
+html,body {overflow-x:clip;}
+body.has-ticker .ticker {position:sticky !important;}
