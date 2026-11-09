@@ -2761,3 +2761,74 @@ body.football-theme .fb-combine-guide .fb-timeline-item p {
   .fb-guided-card {transition:none !important;}
   .fb-guided-card:hover {transform:none !important;}
 }
+
+
+/* The combine playbook is a compact horizontal walkthrough on phones.
+   On wider screens it reads as four cards in a single visual row.
+   No second JavaScript carousel or extra page scrolling required. */
+.fb-guided-swipe-hint {
+  margin:0 0 13px;
+  font:800 13px/1.4 'Barlow Condensed',sans-serif;
+  color:#2e353b;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.fb-guided-swipe-hint > span {font-size:20px;vertical-align:middle;margin-left:8px;}
+body.football-theme .fb-combine-guide > .fb-combine-card {
+  display:block !important;
+}
+body.football-theme .fb-combine-guide .fb-combine-card > h3 {display:block;margin-bottom:24px;}
+.fb-timeline-track {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  min-width:0;
+}
+@media(max-width:1060px){
+  .fb-timeline-track {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:700px){
+  body.football-theme .fb-combine-clean.fb-combine-guide {min-width:0;}
+  .fb-guided-grid,
+  .fb-timeline-track {
+    display:flex;
+    flex-wrap:nowrap;
+    align-items:stretch;
+    gap:14px;
+    width:100%;
+    min-width:0;
+    padding:7px 5px 18px;
+    overflow-x:auto;
+    overflow-y:hidden;
+    overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;
+    scroll-padding-inline:5px;
+    scrollbar-width:thin;
+    scrollbar-color:#545a63 transparent;
+    -webkit-overflow-scrolling:touch;
+  }
+  .fb-guided-grid:focus-visible,
+  .fb-timeline-track:focus-visible {
+    outline:3px solid #101114;
+    outline-offset:-2px;
+  }
+  .fb-guided-grid .fb-guided-card {
+    flex:0 0 min(81vw,315px);
+    min-width:0;
+    height:auto;
+    min-height:310px;
+    scroll-snap-align:start;
+  }
+  .fb-timeline-track .fb-timeline-item {
+    flex:0 0 min(72vw,300px);
+    scroll-snap-align:start;
+    padding:12px 10px 15px 18px !important;
+    min-height:155px;
+  }
+  .fb-guided-head {margin-bottom:16px;}
+  .fb-guided-card .fb-guided-category {margin-top:15px;}
+  .fb-guided-card h4 {font-size:clamp(24px,7vw,32px);}
+}
+@media(prefers-reduced-motion:reduce){
+  .fb-guided-grid,.fb-timeline-track {scroll-behavior:auto;}
+}
