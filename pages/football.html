@@ -520,30 +520,36 @@
           <h3 id="fb-drill-title">SIX DRILLS. FOUR SKILL GROUPS.</h3>
           <p>Explore what each test measures, then follow how athletes move from Week 1 baseline to Week 4 progress.</p>
         </div>
-        <p class="fb-guided-swipe-hint">Explore the four skill groups <span aria-hidden="true">→</span></p>
-        <div class="fb-guided-grid" role="region" aria-label="Combine drills across four skill groups" tabindex="0">
-          <article class="fb-guided-card">
+        <div class="fb-guided-nav">
+          <p class="fb-guided-swipe-hint">Explore the four skill groups <span aria-hidden="true">→</span></p>
+          <div class="fb-guided-nav-buttons" aria-label="Skill group carousel controls">
+            <button type="button" class="fb-guided-nav-btn" data-skill-prev aria-label="Previous skill group" aria-controls="fb-skill-track" disabled><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19 8 12l7-7"/></svg></button>
+            <button type="button" class="fb-guided-nav-btn" data-skill-next aria-label="Next skill group" aria-controls="fb-skill-track"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 5 7 7-7 7"/></svg></button>
+          </div>
+        </div>
+        <div class="fb-guided-grid" id="fb-skill-track" role="region" aria-label="Combine drills across four skill groups" tabindex="0">
+          <article class="fb-guided-card" tabindex="0">
             <span class="fb-guided-count" aria-hidden="true">01</span>
             <span class="fb-guided-category">SPEED</span>
             <h4>40 Yard Dash</h4>
             <p>Measures straight line speed and acceleration over a set distance.</p>
             <div class="fb-guided-benefit"><strong>THE FOCUS</strong><span>Explosive starts, controlled drive and running form.</span></div>
           </article>
-          <article class="fb-guided-card">
+          <article class="fb-guided-card" tabindex="0">
             <span class="fb-guided-count" aria-hidden="true">02</span>
             <span class="fb-guided-category">AGILITY</span>
             <h4>20 Yard Shuttle + 3 Cone Drill</h4>
             <p>Measures lateral quickness, changes of direction and body control.</p>
             <div class="fb-guided-benefit"><strong>THE FOCUS</strong><span>Footwork, balance and sharp transitions.</span></div>
           </article>
-          <article class="fb-guided-card">
+          <article class="fb-guided-card" tabindex="0">
             <span class="fb-guided-count" aria-hidden="true">03</span>
             <span class="fb-guided-category">POWER</span>
             <h4>Broad Jump + Vertical Jump</h4>
             <p>Measures lower body explosiveness through distance and height.</p>
             <div class="fb-guided-benefit"><strong>THE FOCUS</strong><span>Takeoff mechanics, coordination and explosive movement.</span></div>
           </article>
-          <article class="fb-guided-card">
+          <article class="fb-guided-card" tabindex="0">
             <span class="fb-guided-count" aria-hidden="true">04</span>
             <span class="fb-guided-category">TECHNIQUE</span>
             <h4>Position Specific Drills</h4>
@@ -554,23 +560,27 @@
       </div>
       <div class="fb-combine-card">
         <h3>TESTING TIMELINE</h3>
-        <div class="fb-timeline-track" role="region" aria-label="Four week testing timeline" tabindex="0">
-        <div class="fb-timeline-item">
+        <div class="fb-timeline-track" id="fb-timeline-track" role="region" aria-label="Four week testing timeline" tabindex="0">
+        <div class="fb-timeline-item" tabindex="0">
           <span class="fb-timeline-label">WEEK 1 &middot; BASELINE</span>
           <p>Athletes complete every combine drill to set personal baseline numbers in speed, agility, power, and position skill.</p>
         </div>
-        <div class="fb-timeline-item">
+        <div class="fb-timeline-item" tabindex="0">
           <span class="fb-timeline-label">WEEK 2 &middot; DEVELOP</span>
           <p>Coaches break down baseline results and athletes train the specific drills, mechanics, and footwork that move their numbers.</p>
         </div>
-        <div class="fb-timeline-item">
+        <div class="fb-timeline-item" tabindex="0">
           <span class="fb-timeline-label">WEEK 3 &middot; APPLY</span>
           <p>Combine skills get applied to position work and Friday 7 on 7 reps so athletes feel the gains in live competition.</p>
         </div>
-        <div class="fb-timeline-item">
+        <div class="fb-timeline-item" tabindex="0">
           <span class="fb-timeline-label">WEEK 4 &middot; RE-TEST</span>
           <p>Final combine evaluation. Athletes re-test every drill from Week 1 and walk away with a measurable progress report.</p>
         </div>
+        </div>
+        <div class="fb-timeline-selector">
+          <input class="fb-timeline-range" id="fb-timeline-range" type="range" min="1" max="4" step="1" value="1" aria-label="Drag to choose a testing week" aria-controls="fb-timeline-track" style="--week-progress:0%;">
+          <output class="fb-timeline-output" for="fb-timeline-range" id="fb-timeline-output" aria-live="polite">WEEK 1 OF 4</output>
         </div>
       </div>
     </div>
