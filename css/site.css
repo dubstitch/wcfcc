@@ -1866,3 +1866,308 @@ body.has-ticker > .final-cta .btn-cta-outline:focus-visible {
 @media(prefers-reduced-motion:reduce) {
   .programs,.program-choice,.testimonial-card {transition:none !important;}
 }
+
+
+/* ============================================================
+   PROGRAM DETAIL REFINEMENTS: LEGIBLE HERO + SEPARATE FOOTBALL
+   ============================================================ */
+body.football-theme .hero .ch-hero-meta,
+body.cheer-theme .hero .ch-hero-meta {
+  font-size:clamp(15px,1.7vw,18px) !important;
+  letter-spacing:.6px !important;
+  line-height:1.55;
+  gap:12px 22px !important;
+}
+body.football-theme .hero .ch-meta-item,
+body.cheer-theme .hero .ch-meta-item {
+  min-height:28px;
+  gap:10px !important;
+  flex-shrink:0;
+  max-width:100%;
+}
+body.football-theme .hero .ch-meta-item span:last-child,
+body.cheer-theme .hero .ch-meta-item span:last-child {
+  font-size:inherit !important;
+  letter-spacing:inherit !important;
+  line-height:1.5;
+}
+body.football-theme .hero .age-chip {
+  font-size:clamp(20px,2.4vw,26px) !important;
+  line-height:1.1;
+  letter-spacing:1.2px;
+  padding:11px 17px !important;
+  border:2px solid #101114 !important;
+  border-radius:12px !important;
+  box-shadow:4px 4px 0 #101114 !important;
+  background:#e8ff00 !important;
+  color:#101114 !important;
+  transition:box-shadow .2s ease,transform .2s ease;
+}
+body.football-theme .hero .age-chip:nth-child(2) {background:#fffbc9 !important;}
+body.football-theme .hero .age-chip:nth-child(3) {background:#d9e4e5 !important;}
+.football-theme .fb-progression-focus {
+  background:
+    radial-gradient(ellipse at 65% 4%,rgba(232,255,0,.07),transparent 48%),
+    linear-gradient(145deg,#171a1e 0%,#090d12 100%) !important;
+  border-bottom:7px solid #e8ff00;
+}
+body.football-theme section.fb-combine-section.fb-combine-separate {
+  background:linear-gradient(160deg,#f7f8f9 0%,#eceff1 100%) !important;
+  color:#101114 !important;
+  border-top:0;
+  border-bottom:1px solid #c9ced4;
+}
+body.football-theme section.fb-combine-section.fb-combine-separate .section-title,
+body.football-theme section.fb-combine-section.fb-combine-separate .section-subtitle {
+  color:#16191c !important;
+}
+body.football-theme section.fb-combine-section.fb-combine-separate .section-title .accent {
+  color:#101114 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:2px 0 #e8ff00,-2px 0 #e8ff00,0 2px #e8ff00,0 -2px #e8ff00;
+}
+body.football-theme section.fb-combine-section.fb-combine-separate .section-eyebrow {
+  color:#42464d !important;
+}
+body.football-theme .fb-combine-separate .fb-combine-card {
+  background:#fff !important;
+  border:1px solid #b9c0c6 !important;
+  border-top:5px solid #101114 !important;
+  box-shadow:0 12px 25px rgba(23,29,33,.055);
+}
+body.football-theme .fb-combine-separate .fb-combine-card h3 {
+  color:#101114 !important;
+  border-bottom:3px solid #e8ff00;
+  display:inline-block;
+  padding-bottom:5px;
+}
+body.football-theme .fb-combine-separate .drill-text,
+body.football-theme .fb-combine-separate .fb-timeline-item p {
+  color:#343940 !important;
+  font-size:clamp(15px,1.55vw,17px) !important;
+  line-height:1.6;
+}
+body.football-theme .fb-combine-separate .drill-text strong {color:#101114 !important;}
+body.football-theme .fb-combine-separate .fb-timeline-item {
+  border-left:2px solid #afb6bc !important;
+}
+body.football-theme .fb-combine-separate .fb-timeline-label {
+  background:#101114 !important;
+  color:#e8ff00 !important;
+}
+body.football-theme .fb-combine-separate .fb-timeline-item::before {
+  background:#e8ff00;
+  box-shadow:0 0 0 2px #101114 !important;
+}
+.fb-friday-link .fa-arrow-right {font-size:16px;display:inline-block;}
+/* ============================================================
+   CHEER: VIBRANT PINK FROM THE REGISTRATION PALETTE
+   ============================================================ */
+:root {--cheer-action:#c51870;--cheer-action-dark:#a00d54;--cheer-surface:#fff3f8;--cheer-muted:#ffd9e9;}
+body.cheer-theme .hero {
+  background:linear-gradient(138deg,#fff9fc 0%,#fff1f8 70%,#ffe5f1 100%) !important;
+}
+body.cheer-theme .hero .age-chip,
+body.cheer-theme .hero .age-chip.is-pink,
+body.cheer-theme .ch-hero-tagline {
+  background:var(--cheer-action) !important;
+  color:#fff !important;
+  box-shadow:0 7px 20px rgba(163,15,83,.17) !important;
+}
+body.cheer-theme .cheer-age-section {background:var(--cheer-surface) !important;}
+body.cheer-theme .cheer-age-section .wc-acc-item.is-open {
+  border:2px solid var(--cheer-action) !important;
+}
+body.cheer-theme .cheer-age-section .wc-acc-chevron,
+body.cheer-theme .cheer-age-section .wc-acc-trigger > span > span[style*="background:var(--yellow)"] {
+  background:var(--cheer-action) !important;
+  border:0 !important;
+  color:#fff !important;
+}
+body.cheer-theme .cheer-age-section .section-title .accent,
+body.cheer-theme .cheer-standards-section .section-title .accent {
+  color:var(--cheer-action-dark) !important;
+}
+body.cheer-theme .cheer-curriculum .wc-card.is-dark.is-active {
+  border-color:#ff9dc8 !important;
+}
+body.cheer-theme .cheer-curriculum .wc-week-label {
+  color:#ffb9d9 !important;
+}
+body.cheer-theme .cheer-curriculum .wc-card .wc-num {
+  border-color:var(--cheer-action) !important;
+}
+body.cheer-theme .cheer-standards-section .wc-card.is-active {
+  border:2px solid var(--cheer-action) !important;
+}
+body.cheer-theme .cheer-standards-section .wc-card .wc-num {
+  border-color:#101114 !important;
+}
+body.cheer-theme .cheer-gameday .gda-card.is-open {
+  border:2px solid #ff97c8 !important;
+}
+body.cheer-theme .cheer-gameday .gda-chevron {
+  background:var(--cheer-action) !important;
+  border:2px solid #e8ff00 !important;
+}
+body.cheer-theme .cheer-gameday .gda-badge {
+  background:#ffdded !important;
+  color:#6d0837 !important;
+  border:1px solid #e685b4;
+}
+body.cheer-theme .final-cta {
+  background:linear-gradient(155deg,#ffe4f0,#ffb8d7) !important;
+}
+body.cheer-theme .final-cta h2 span {
+  color:var(--cheer-action-dark) !important;
+  -webkit-text-stroke:1px #101114 !important;
+}
+body.cheer-theme .ch-skill-pills span {color:#ffe1ef;border-color:#f496c1;}
+/* Cheer leader shares the softer pink language, not a heavy berry block. */
+.cheer-leader-card {
+  background:linear-gradient(145deg,#fff2f8,#ffd1e6) !important;
+  border:2px solid var(--cheer-action) !important;
+  box-shadow:0 12px 27px rgba(156,16,80,.09);
+}
+.cheer-leader-card h3 {color:#101114 !important;}
+.cheer-leader-card p {color:#34323b !important;}
+.cheer-leader-pills span {
+  background:#fff !important;
+  color:#7b103e !important;
+  border:1px solid #d981aa !important;
+}
+/* The two newly added editorial chapters expand the program without
+   inventing additional services or changing the camp's stated offerings. */
+.cheer-practice-lab {
+  position:relative;
+  overflow:hidden;
+  padding:clamp(65px,8vw,100px) 0;
+  background:linear-gradient(150deg,#fff 0%,#fff5fa 100%);
+}
+.cheer-practice-heading .section-title .accent {
+  color:#a60d53 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+.cheer-practice-heading .section-subtitle {
+  max-width:700px;
+  color:#41454c;
+}
+.cheer-practice-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:20px;
+  margin-top:42px;
+}
+.cheer-practice-card {
+  min-width:0;
+  background:#fff;
+  border:1px solid #e3b8ce;
+  border-radius:18px;
+  padding:clamp(25px,3vw,38px);
+  box-shadow:0 10px 28px rgba(136,18,78,.06);
+  border-top:5px solid var(--cheer-action);
+}
+.cheer-practice-number {
+  display:block;
+  font:400 36px/1 'Bebas Neue',sans-serif;
+  color:#99114d;
+  margin-bottom:20px;
+}
+.cheer-practice-icon {
+  display:grid;
+  place-items:center;
+  border-radius:13px;
+  width:52px;height:52px;
+  margin-bottom:20px;
+  background:#ffe0ed;color:#950a4c;
+}
+.cheer-practice-icon svg {width:28px;height:28px;}
+.cheer-practice-card h3 {
+  font:400 clamp(25px,3vw,35px)/1.1 'Bebas Neue',sans-serif;
+  letter-spacing:.6px;
+  color:#101114;
+  margin-bottom:12px;
+}
+.cheer-practice-card p {
+  color:#42414a;
+  font-size:clamp(15px,1.55vw,17px);
+  line-height:1.7;
+}
+.cheer-practice-tag {
+  display:inline-flex;
+  align-items:center;
+  margin-top:24px;
+  border:1px solid #d67ea7;
+  border-radius:100px;
+  padding:8px 12px;
+  color:#891046;
+  font:800 13px/1.25 'Barlow Condensed',sans-serif;
+  letter-spacing:.4px;
+}
+.cheer-performance-path {
+  padding:clamp(60px,7vw,94px) 0;
+  background:linear-gradient(155deg,#fbe4ee,#ffe8f2);
+}
+.cheer-performance-intro {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:30px;
+  align-items:end;
+}
+.cheer-performance-intro .section-title .accent {
+  color:#a30d52 !important;-webkit-text-stroke:0 !important;text-shadow:none !important;
+}
+.cheer-performance-intro > p {
+  color:#39363b;
+  font-size:clamp(16px,1.65vw,18px);
+  line-height:1.7;
+}
+.cheer-performance-grid {
+  display:grid;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:18px;
+  margin-top:40px;
+}
+.cheer-performance-grid article {
+  background:rgba(255,255,255,.88);
+  padding:clamp(25px,3vw,38px);
+  min-width:0;
+  border:1px solid #e6aac8;
+  border-radius:15px;
+  border-left:5px solid var(--cheer-action);
+}
+.cheer-performance-step {
+  display:block;
+  color:#941148;
+  font:800 14px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:1.1px;
+  margin-bottom:15px;
+}
+.cheer-performance-grid h3 {
+  color:#101114;
+  font:400 clamp(26px,3vw,36px)/1.05 'Bebas Neue',sans-serif;
+  margin-bottom:14px;
+}
+.cheer-performance-grid p {
+  color:#42414a;
+  font-size:clamp(15px,1.5vw,17px);
+  line-height:1.65;
+}
+@media(max-width:900px){
+  .cheer-practice-grid,.cheer-performance-grid {grid-template-columns:1fr;}
+  .cheer-performance-intro {grid-template-columns:1fr;}
+  .cheer-practice-grid {gap:16px;}
+}
+@media(max-width:768px){
+  body.football-theme .hero .ch-hero-meta,
+  body.cheer-theme .hero .ch-hero-meta {
+    font-size:15px !important;
+    letter-spacing:.15px !important;
+    gap:9px 13px !important;
+  }
+  body.football-theme .hero .age-chip {
+    font-size:21px !important;padding:10px 14px !important;
+    box-shadow:3px 3px 0 #101114 !important;
+  }
+}
