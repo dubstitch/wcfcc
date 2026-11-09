@@ -2471,3 +2471,293 @@ body.has-ticker .programs[data-active-program=cheer] .programs-header .section-t
   -webkit-text-stroke:0 !important;
   text-shadow:none !important;
 }
+
+
+/* 2026 final art-direction refinements: real stadium turf photograph.
+   Photo: Gustamons, Wikimedia Commons, CC BY-SA 4.0.
+   https://commons.wikimedia.org/wiki/File:Artificial_turf.jpg
+   Photo is not modified; a CSS overlay preserves heading contrast.
+   Avoid synthetic checkboards and repeating field-stripe graphics. */
+body .field-experience {
+  background-image:
+    linear-gradient(180deg, rgba(2,35,20,.78), rgba(3,46,26,.76)),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Artificial_turf.jpg/960px-Artificial_turf.jpg") !important;
+  background-color:#103923 !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+body .field-experience::before {
+  background:linear-gradient(95deg,rgba(0,18,11,.17),transparent 45%,rgba(0,18,11,.23)) !important;
+}
+body .field-experience .section-title,
+body .field-experience .section-subtitle {color:#fff !important;}
+body .field-experience .exp-card {
+  background:rgba(255,255,255,.94) !important;
+  backdrop-filter:blur(9px);
+  -webkit-backdrop-filter:blur(9px);
+  border:1px solid rgba(255,255,255,.9);
+}
+.field-photo-credit {
+  position:relative;
+  z-index:2;
+  margin:22px auto 0;
+  padding:0 26px;
+  text-align:center;
+  font:500 11px/1.6 'Barlow',sans-serif;
+  color:#edf7ef;
+}
+.field-photo-credit a {color:#fff;text-underline-offset:3px;}
+.field-photo-credit a:focus-visible {outline:2px solid #e8ff00;outline-offset:3px;}
+/* Program-specific tabs keep their brand colors even when inactive.
+   Hot pink is intentionally paired with dark lettering at all states. */
+:root {
+  --wc-cheer-pop:#ff2c99;
+  --wc-cheer-bright:#ff8cc9;
+  --wc-cheer-ink:#380721;
+  --wc-cheer-plum:#79073e;
+}
+.programs .program-choice[data-tab="cheer"]:not(.is-active) {
+  background:#ff9bd3 !important;
+  color:#28081a !important;
+  border:2px solid #ffb7e0 !important;
+}
+.programs .program-choice[data-tab="cheer"]:not(.is-active) small {color:#39162a !important;}
+.programs .program-choice[data-tab="cheer"]:not(.is-active) .program-choice-icon {
+  color:#fff !important;background:#8c0e4b !important;border:1px solid #8c0e4b !important;
+}
+.programs .program-choice[data-tab="football"]:not(.is-active) {
+  background:#e8ff00 !important;
+  border:2px solid #101114 !important;
+  color:#101114 !important;
+}
+.programs .program-choice[data-tab="football"]:not(.is-active) small {color:#25292c !important;}
+.programs .program-choice[data-tab="football"]:not(.is-active) .program-choice-icon {
+  background:#101114 !important;
+  color:#e8ff00 !important;
+  border-color:#101114 !important;
+}
+.programs .program-choice[data-tab="cheer"].is-active {
+  background:#ff2c99 !important;
+  color:#240719 !important;
+  border:2px solid #240719 !important;
+}
+.programs .program-choice[data-tab="cheer"].is-active small {color:#33091f !important;}
+.programs .program-choice[data-tab="cheer"].is-active .program-choice-icon {
+  color:#fff !important;
+  background:#8d0b47 !important;
+  border-color:#8d0b47 !important;
+}
+.programs .program-choice:focus-visible {
+  outline:3px solid #fff !important;
+  outline-offset:3px !important;
+}
+.programs[data-active-program="cheer"] {
+  background:linear-gradient(143deg,#ff92cc 0%,#ff63b3 43%,#ef3798 100%) !important;
+}
+.programs[data-active-program="cheer"] .programs-header .section-title,
+.programs[data-active-program="cheer"] .programs-header .section-title .accent,
+.programs[data-active-program="cheer"] .programs-header .section-subtitle,
+.programs[data-active-program="cheer"] .programs-header .section-eyebrow,
+.programs[data-active-program="cheer"] .programs-choice-caption {
+  color:#280719 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+.programs[data-active-program="cheer"] .programs-header .section-eyebrow::before {
+  background:#3a081f !important;
+  border-color:#3a081f !important;
+}
+.programs[data-active-program="cheer"] .program-feature[data-tab-panel="cheer"] {
+  background:linear-gradient(145deg,#fff4fa,#ffe1f0 70%,#ffd1e7) !important;
+  border:2px solid #b50e64 !important;
+  box-shadow:0 16px 44px rgba(101,4,48,.12);
+}
+.programs[data-active-program="cheer"] .program-feature[data-tab-panel="cheer"] h3 span {
+  color:#ad0a55 !important;
+}
+.programs[data-active-program="cheer"] .program-feature[data-tab-panel="cheer"] .program-feature-link {
+  background:#aa0858 !important;
+  color:#fff !important;
+  border:2px solid #500527 !important;
+}
+.programs[data-active-program="cheer"] .program-feature[data-tab-panel="cheer"] .program-feature-link:focus-visible {
+  outline:3px solid #101114;
+  outline-offset:3px;
+}
+.testimonials .carousel-controls .carousel-dot.active,
+.testimonials .carousel-dot.active {
+  background:#ff2c99 !important;
+  border:2px solid #171015 !important;
+  width:24px !important;
+  height:10px !important;
+  border-radius:100px;
+}
+.testimonials .carousel-controls .carousel-dot:not(.active) {
+  border:1px solid #4c5057;
+  background:#858a93 !important;
+}
+/* Cheer progression's selected state must stay obvious on charcoal.
+   Match the hot-pink family, with a white outer edge. */
+body.cheer-theme .cheer-curriculum .carousel-controls .carousel-dot.active,
+body.cheer-theme .cheer-curriculum .carousel-dots .carousel-dot.active {
+  background:#ff2c99 !important;
+  border:2px solid #fff !important;
+  box-shadow:0 0 0 2px #19191d !important;
+  width:25px !important;
+  min-width:25px;
+  height:12px !important;
+  opacity:1 !important;
+}
+body.cheer-theme .cheer-curriculum .carousel-controls .carousel-dot:not(.active) {
+  background:#c4cad2 !important;
+  border:1px solid #fff !important;
+  width:10px !important;
+  height:10px !important;
+  opacity:1 !important;
+}
+body.cheer-theme .cheer-curriculum .carousel-controls .carousel-btn:focus-visible,
+body.cheer-theme .cheer-curriculum .carousel-dot:focus-visible {
+  outline:3px solid #fff !important;
+  outline-offset:4px;
+}
+/* Contact: match the successful gradient treatment of the Cheer page. */
+body .contact-cheer-card {
+  background:linear-gradient(145deg,#fff3fa 0%,#ffd0e8 100%) !important;
+  border:1px solid #d57aab !important;
+  border-left:5px solid #6f103a !important;
+  box-shadow:inset 4px 0 0 #ff2c99,0 10px 24px rgba(111,16,58,.08) !important;
+}
+body .contact-cheer-card h3 {color:#8f0a49 !important;}
+body .contact-cheer-card p,
+body .contact-cheer-card a {color:#25111e !important;}
+body .contact-cheer-card a:focus-visible {outline:3px solid #8f0a49;outline-offset:3px;}
+/* Combine drills: four compact visual categories and a clear progress rail.
+   The native layout is readable without swiping, excessive scrolling or JS. */
+body.football-theme .fb-combine-clean.fb-combine-guide {
+  display:block !important;
+}
+body.football-theme .fb-guided-drills {
+  background:transparent;
+  border:none;
+}
+.fb-guided-head {max-width:800px;margin:0 0 25px;}
+.fb-guided-head .fb-guided-eyebrow {
+  color:#343c43;
+  font:800 13px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.7px;
+}
+.fb-guided-head h3 {
+  display:block;
+  width:fit-content;
+  border-bottom:4px solid #101114 !important;
+  font:400 clamp(32px,4vw,52px)/1.03 'Bebas Neue',sans-serif;
+  color:#101114;
+  margin:7px 0 12px;
+}
+.fb-guided-head p {
+  color:#393f47;
+  font:400 clamp(15px,1.5vw,17px)/1.6 'Barlow',sans-serif;
+}
+.fb-guided-grid {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+}
+.fb-guided-card {
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  min-width:0;
+  border:1px solid #aeb5be;
+  border-top:5px solid #111317;
+  background:#fff;
+  border-radius:14px;
+  padding:clamp(18px,2.4vw,28px);
+  box-shadow:0 8px 25px rgba(20,23,29,.07);
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.fb-guided-card:hover,.fb-guided-card:focus-within {
+  transform:translateY(-4px);
+  box-shadow:0 14px 32px rgba(20,23,29,.15);
+}
+.fb-guided-count {
+  align-self:flex-start;
+  display:grid;
+  place-items:center;
+  width:44px;height:44px;
+  border:2px solid #111317;
+  border-radius:10px;
+  background:#e8ff00;
+  color:#111317;
+  font:400 25px/1 'Bebas Neue',sans-serif;
+}
+.fb-guided-category {
+  display:block;
+  color:#484c54;
+  margin-top:20px;
+  font:800 13px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:1.7px;
+}
+.fb-guided-card h4 {
+  font:400 clamp(24px,2.45vw,32px)/1.1 'Bebas Neue',sans-serif;
+  color:#111317;
+  margin:9px 0 13px;
+  letter-spacing:.3px;
+}
+.fb-guided-card p {font:400 15px/1.62 'Barlow',sans-serif;color:#3c4249;}
+.fb-guided-benefit {
+  display:flex;
+  flex-direction:column;
+  gap:7px;
+  padding-top:16px;
+  margin-top:auto;
+}
+.fb-guided-benefit strong {
+  color:#252a2f;
+  font:800 12px/1.35 'Barlow Condensed',sans-serif;
+  letter-spacing:1.2px;
+}
+.fb-guided-benefit span {color:#3c4249;font-size:14px;line-height:1.55;}
+body.football-theme .fb-combine-guide > .fb-combine-card {
+  margin-top:24px;
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:14px;
+  padding:clamp(21px,3vw,34px);
+  background:linear-gradient(135deg,#fff,#f4f5f7) !important;
+}
+.fb-combine-guide > .fb-combine-card h3 {
+  grid-column:1 / -1;
+  display:block !important;
+  width:fit-content;
+  border-bottom:4px solid #101114 !important;
+  font-size:clamp(30px,3.4vw,43px);
+}
+body.football-theme .fb-combine-guide .fb-timeline-item {
+  min-width:0;
+  margin:0 !important;
+  border-left:3px solid #101114 !important;
+  padding:3px 5px 3px 16px !important;
+}
+body.football-theme .fb-combine-guide .fb-timeline-item::before {
+  background:#e8ff00 !important;
+  border:2px solid #101114 !important;
+}
+body.football-theme .fb-combine-guide .fb-timeline-item p {
+  font-size:clamp(14px,1.4vw,16px) !important;
+  color:#3b4148 !important;
+}
+@media(max-width:1060px) {
+  .fb-guided-grid {grid-template-columns:repeat(2,minmax(0,1fr));}
+  body.football-theme .fb-combine-guide > .fb-combine-card {grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media(max-width:560px) {
+  .fb-guided-grid {grid-template-columns:1fr;gap:12px;}
+  body.football-theme .fb-combine-guide > .fb-combine-card {grid-template-columns:1fr;}
+  .fb-guided-card {padding:22px;}
+}
+@media(prefers-reduced-motion:reduce) {
+  .fb-guided-card {transition:none !important;}
+  .fb-guided-card:hover {transform:none !important;}
+}
