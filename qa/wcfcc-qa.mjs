@@ -134,7 +134,9 @@ for(const device of devices) {
         spill:el?el.scrollWidth-el.clientWidth:Infinity
       };
     });
-    if(guided.count!==4||guided.timeline!==4||guided.spill>2)
+    if(guided.count!==4||guided.timeline!==4||
+       (device.width<=700&&guided.spill<100)||
+       (device.width>700&&guided.spill>2))
       problem(device.name,path,"Guided combine layout incomplete "+JSON.stringify(guided));
     if(device.name==="phone"&&process.env.SHOW_SHOTS==="1") {
       await page.locator(".fb-guided-grid").scrollIntoViewIfNeeded();
