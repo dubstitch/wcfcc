@@ -3170,3 +3170,77 @@ body.cheer-theme .hero .ch-hero-meta strong {
   body nav .nav-cta-desktop {display:inline-flex}
   body .nav-mobile-menu {display:none !important}
 }
+
+/* A single identical star on each side of Reviews eliminates visual
+   asymmetry from mixed inline SVG sizing and the older flex/grid overrides. */
+body nav a.nav-reviews {
+  display:inline-grid !important;
+  grid-template-columns:15px max-content 15px !important;
+  column-gap:9px !important;
+  justify-content:center !important;
+  align-items:center !important;
+  justify-items:center !important;
+  width:max-content !important;
+  min-width:0 !important;
+  padding-inline:13px !important;
+  line-height:1 !important;
+}
+body nav a.nav-reviews > svg {display:none !important}
+body nav a.nav-reviews::before,
+body nav a.nav-reviews::after {
+  content:"" !important;
+  display:block !important;
+  width:15px !important;
+  height:15px !important;
+  background-color:#101114;
+  clip-path:polygon(50% 0%,63% 35%,100% 38%,72% 60%,81% 96%,50% 76%,19% 96%,28% 60%,0% 38%,37% 35%);
+  flex:none !important;
+}
+body nav a.nav-reviews .nav-reviews-label {
+  display:block !important;
+  grid-column:2 !important;
+  margin:0 !important;
+  padding:0 !important;
+  letter-spacing:.8px !important;
+  white-space:nowrap !important;
+}
+@media(max-width:390px){
+  body nav a.nav-reviews {
+    grid-template-columns:13px max-content 13px !important;
+    column-gap:6px !important;
+    padding-inline:9px !important;
+  }
+  body nav a.nav-reviews::before,body nav a.nav-reviews::after {
+    width:13px !important;height:13px !important;
+  }
+}
+/* Visible carousel indicators on pale sections and dark sections alike. */
+body .carousel-controls .carousel-dot:not(.active) {
+  background:#555b64 !important;
+  border:2px solid #f9fafb !important;
+  box-shadow:0 0 0 1px rgba(10,12,16,.25) !important;
+  width:13px !important;
+  height:13px !important;
+  opacity:1 !important;
+}
+body .carousel-controls .carousel-dot.active {
+  opacity:1 !important;
+  box-shadow:0 0 0 2px rgba(10,12,16,.28) !important;
+}
+body .carousel-controls .carousel-btn.prev {
+  background:#252931 !important;
+  color:#fff !important;
+  border:2px solid #f8f9fb !important;
+  box-shadow:0 3px 14px rgba(0,0,0,.22) !important;
+}
+body .carousel-controls .carousel-btn.next {
+  background:#101114 !important;
+  color:#e8ff00 !important;
+  border:2px solid #d7e3da !important;
+  box-shadow:0 3px 14px rgba(0,0,0,.22) !important;
+}
+body .carousel-controls .carousel-btn:focus-visible,
+body .carousel-controls .carousel-dot:focus-visible {
+  outline:3px solid #df2386 !important;
+  outline-offset:3px !important;
+}
