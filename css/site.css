@@ -2999,3 +2999,44 @@ body.cheer-theme .hero .ch-hero-meta .ch-meta-item > span:last-child {
 @media(prefers-reduced-motion:reduce) {
  .fb-guided-nav-btn,.fb-timeline-item {transition:none;}
 }
+
+
+/* November 10: symmetrically balanced review link in the shared navigation.
+   Preserve both stars, button content and its existing anchor behavior. */
+nav .nav-reviews {
+  display:inline-grid !important;
+  grid-template-columns:16px max-content 16px;
+  justify-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+  column-gap:8px !important;
+  padding:10px 13px !important;
+  line-height:1 !important;
+  text-align:center;
+}
+nav .nav-reviews svg {
+  display:block;
+  width:15px !important;
+  height:15px !important;
+  position:static !important;
+  inset:auto !important;
+  transform:none !important;
+  margin:0 !important;
+  vertical-align:middle;
+  flex:none;
+}
+nav .nav-reviews .nav-reviews-label {
+  display:block;
+  white-space:nowrap;
+  line-height:1.05;
+  letter-spacing:1.2px;
+}
+@media(max-width:390px) {
+  nav .nav-reviews {
+    grid-template-columns:13px max-content 13px;
+    column-gap:5px !important;
+    padding:9px 8px !important;
+  }
+  nav .nav-reviews svg {width:13px !important;height:13px !important}
+  nav .nav-reviews .nav-reviews-label {font-size:13px;letter-spacing:.9px}
+}
