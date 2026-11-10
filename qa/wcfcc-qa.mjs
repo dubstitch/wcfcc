@@ -164,18 +164,22 @@ for(const device of devices) {
   }
 
   if(path==="pages/registration.html") {
+    // The requested editorial form layout replaces the old pink boxed card.
+    // Preserve the distinct cheer identity and readable call to action.
     const cheer=await page.evaluate(()=>{
-      const card=document.querySelector(".registration-cheer-card");
-      const heading=card?.querySelector("h3");
-      const form=card?.querySelector('a[href*="forms.gle"]');
+      const row=document.querySelector('.registration-form-row[data-registration-program="cheer"]');
+      const heading=row?.querySelector("h3");
+      const action=row?.querySelector(".registration-form-action");
       return {
-        exists:!!card,headingColor:heading?getComputedStyle(heading).color:null,
-        background:card?getComputedStyle(card).backgroundImage:null,
-        buttonColor:form?getComputedStyle(form).color:null
+        exists:!!row,
+        headingColor:heading?getComputedStyle(heading).color:null,
+        actionBackground:action?getComputedStyle(action).backgroundColor:null,
+        actionColor:action?getComputedStyle(action).color:null
       };
     });
-    if(!cheer.exists||cheer.headingColor!=="rgb(255, 255, 255)"||!cheer.background?.includes("linear-gradient"))
-      problem(device.name,path,"Cheer registration not pink and readable "+JSON.stringify(cheer));
+    if(!cheer.exists||cheer.headingColor!=="rgb(23, 27, 33)"||
+       cheer.actionBackground!=="rgb(190, 31, 109)"||cheer.actionColor!=="rgb(255, 255, 255)")
+      problem(device.name,path,"Cheer registration lost clear pink identity "+JSON.stringify(cheer));
   }
   if(path==="index.html") {
     const tabs=page.locator('#programs [role="tab"]');
