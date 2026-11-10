@@ -6,6 +6,7 @@
 <title>Schedules | WCFCC</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css?v=20261110stars2">
+<link rel="stylesheet" href="../css/schedule-finish.css?v=20261110a">
 </head>
 <body>
 
@@ -47,28 +48,92 @@
         <button type="button" class="wc-tab is-active" data-tab-group="schedule" data-tab="football" onclick="switchTab(this)">Football</button>
         <button type="button" class="wc-tab" data-tab-group="schedule" data-tab="cheer" onclick="switchTab(this)">Cheer</button>
       </div>
-      <div class="schedule-facts" aria-label="Camp dates and weekly schedule">
-        <div class="schedule-fact"><strong>CAMP DATES</strong><span>June 15, 2026 &mdash; July 10, 2026</span></div>
-        <div class="schedule-fact"><strong>CAMP TIMES</strong><span>Mon &mdash; Thu &middot; 5:15&ndash;7:45 PM<br>Fri &middot; 5:30&ndash;8:00 PM</span></div>
-        <div class="schedule-fact"><strong>WEEKLY CAMP SCHEDULE</strong><span>Select a program to explore training by day</span></div>
-      </div>
-      <div data-tab-panel-group="schedule" data-tab-panel="football" class="is-active schedule-program-panel">
-        <div class="info-grid cols-3">
-          <div class="info-card"><h3>Mondays</h3><p><strong style="color:var(--black);">DLs &amp; Linebackers</strong></p><p style="margin-top:8px;">Combine drills, position work, conditioning, competition periods.</p></div>
-          <div class="info-card"><h3>Tuesdays</h3><p><strong style="color:var(--black);">DBs &amp; Tight Ends</strong></p><p style="margin-top:8px;">Footwork, coverage drills, ball skills, speed &amp; agility work.</p></div>
-          <div class="info-card"><h3>Wednesdays</h3><p><strong style="color:var(--black);">OL &amp; Special Teams</strong></p><p style="margin-top:8px;">Blocking fundamentals, hand placement, kicking/punting/snapping, strength competitions.</p></div>
-          <div class="info-card"><h3>Thursdays</h3><p><strong style="color:var(--black);">QBs, RBs &amp; WRs</strong></p><p style="margin-top:8px;">Route running, QB mechanics, RB vision drills, timing work.</p></div>
-          <div class="info-card"><h3>Fridays</h3><p><strong style="color:var(--black);">Full Camp Nights</strong></p><p style="margin-top:8px;">7 on 7 games, cheer performances, team competitions, media &amp; social content nights.</p></div>
+      <div class="schedule-brief" aria-label="Camp schedule essentials">
+        <div class="schedule-brief-primary">
+          <span class="schedule-brief-label">SUMMER CAMP 2026</span>
+          <strong>JUN 15 <span aria-hidden="true">/</span> JUL 10</strong>
+          <span class="schedule-brief-note">Four weeks of skill building, practice and Friday night games.</span>
         </div>
-        <p style="text-align:center;color:var(--mid-gray);font-size:13px;margin-top:24px;">Practice locations confirmed at registration.</p>
-      </div>
-      <div data-tab-panel-group="schedule" data-tab-panel="cheer" class="schedule-program-panel schedule-cheer-panel">
-        <div class="info-grid cols-3">
-          <div class="info-card"><h3>Tuesdays</h3><p><strong style="color:var(--black);">Cheer Practice</strong></p><p style="margin-top:8px;">Cheers, motions, jumps, choreography.</p></div>
-          <div class="info-card"><h3>Thursdays</h3><p><strong style="color:var(--black);">Cheer Practice</strong></p><p style="margin-top:8px;">Routine work, conditioning, formations.</p></div>
-          <div class="info-card"><h3>Fridays</h3><p><strong style="color:var(--black);">Full Camp Nights</strong></p><p style="margin-top:8px;">7 on 7 games, cheer performances, team competitions, media &amp; social content nights.</p></div>
+        <div class="schedule-brief-time">
+          <span class="schedule-brief-label">MONDAY TO THURSDAY</span>
+          <strong>5:15 <span>TO</span> 7:45 PM</strong>
         </div>
-        <p style="text-align:center;color:var(--mid-gray);font-size:13px;margin-top:24px;">Practice locations confirmed at registration.</p>
+        <div class="schedule-brief-time schedule-brief-friday">
+          <span class="schedule-brief-label">FRIDAY GAME NIGHTS</span>
+          <strong>5:30 <span>TO</span> 8:00 PM</strong>
+        </div>
+      </div>
+      <div data-tab-panel-group="schedule" data-tab-panel="football" class="is-active schedule-program-panel schedule-runway">
+        <div class="schedule-runway-heading">
+          <div>
+            <span class="schedule-runway-overline">FOOTBALL COMBINE CAMP</span>
+            <h3>YOUR WEEK <span>ON THE FIELD.</span></h3>
+          </div>
+          <p>Dedicated position work Monday through Thursday. Everyone comes together for Friday game nights.</p>
+        </div>
+        <ol class="schedule-day-list" aria-label="Football weekly training plan">
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">01</span>
+            <span class="schedule-day-name">MON <small>Monday</small></span>
+            <div class="schedule-day-content"><h4>Defensive lines and linebackers</h4><p>Combine drills, position work, conditioning and competition periods.</p></div>
+            <span class="schedule-day-tag">DEFENSE</span>
+          </li>
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">02</span>
+            <span class="schedule-day-name">TUE <small>Tuesday</small></span>
+            <div class="schedule-day-content"><h4>Defensive backs and tight ends</h4><p>Footwork, coverage drills, ball skills, speed and agility.</p></div>
+            <span class="schedule-day-tag">FOOTWORK</span>
+          </li>
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">03</span>
+            <span class="schedule-day-name">WED <small>Wednesday</small></span>
+            <div class="schedule-day-content"><h4>Offensive line and special teams</h4><p>Blocking fundamentals, hand placement, kicking, punting, snapping and strength competitions.</p></div>
+            <span class="schedule-day-tag">FUNDAMENTALS</span>
+          </li>
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">04</span>
+            <span class="schedule-day-name">THU <small>Thursday</small></span>
+            <div class="schedule-day-content"><h4>Quarterbacks, running backs and receivers</h4><p>Route running, quarterback mechanics, running back vision drills and timing work.</p></div>
+            <span class="schedule-day-tag">OFFENSE</span>
+          </li>
+          <li class="schedule-day schedule-day-feature">
+            <span class="schedule-day-marker" aria-hidden="true">05</span>
+            <span class="schedule-day-name">FRI <small>Friday</small></span>
+            <div class="schedule-day-content"><h4>Friday night under the lights</h4><p>7 on 7 games, cheer performances, team competitions, media and social content nights.</p></div>
+            <span class="schedule-day-tag">GAME DAY</span>
+          </li>
+        </ol>
+        <p class="schedule-runway-footnote">Practice locations are confirmed at registration.</p>
+      </div>
+      <div data-tab-panel-group="schedule" data-tab-panel="cheer" class="schedule-program-panel schedule-runway schedule-cheer-panel">
+        <div class="schedule-runway-heading">
+          <div>
+            <span class="schedule-runway-overline">SIDELINE CHEER CAMP</span>
+            <h3>OWN THE <span>SIDELINE.</span></h3>
+          </div>
+          <p>Technique and routines during the week, followed by a shared game night with the whole camp.</p>
+        </div>
+        <ol class="schedule-day-list" aria-label="Cheer weekly training plan">
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">01</span>
+            <span class="schedule-day-name">TUE <small>Tuesday</small></span>
+            <div class="schedule-day-content"><h4>Cheers, motions and jumps</h4><p>Build sideline fundamentals, confident projection and choreography.</p></div>
+            <span class="schedule-day-tag">TECHNIQUE</span>
+          </li>
+          <li class="schedule-day">
+            <span class="schedule-day-marker" aria-hidden="true">02</span>
+            <span class="schedule-day-name">THU <small>Thursday</small></span>
+            <div class="schedule-day-content"><h4>Rehearse the performance</h4><p>Routine work, conditioning, formations and group timing.</p></div>
+            <span class="schedule-day-tag">ROUTINE</span>
+          </li>
+          <li class="schedule-day schedule-day-feature">
+            <span class="schedule-day-marker" aria-hidden="true">03</span>
+            <span class="schedule-day-name">FRI <small>Friday</small></span>
+            <div class="schedule-day-content"><h4>Bring the Friday energy</h4><p>7 on 7 games, cheer performances, team competitions, media and social content nights.</p></div>
+            <span class="schedule-day-tag">GAME NIGHT</span>
+          </li>
+        </ol>
+        <p class="schedule-runway-footnote">Practice locations are confirmed at registration.</p>
       </div>
     </div>
   </div>
