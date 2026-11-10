@@ -26,6 +26,7 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]){
       oldCards:s.querySelectorAll('.schedule-fact,.info-grid,.info-card').length,
       football:panels[0].querySelectorAll('.schedule-day').length,
       cheer:panels[1].querySelectorAll('.schedule-day').length,
+      fridayText:getComputedStyle(panels[0].querySelector('.schedule-day-feature p')).color,
       darkFriday:getComputedStyle(panels[0].querySelector('.schedule-day-feature')).backgroundImage,
       width:document.documentElement.scrollWidth,viewport:innerWidth,
       panelDisplay:getComputedStyle(container).display
@@ -41,6 +42,9 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]){
    });
    if(cheer.theme!=='cheer'||cheer.footballVisible||!cheer.cheerVisible||cheer.days!==3)
      issues.push(name+' cheer schedule tab '+JSON.stringify(cheer));
+   const fridayInk=await page.evaluate(()=>getComputedStyle(document.querySelector('.schedule-cheer-panel .schedule-day-feature .schedule-day-content p')).color);
+   if(fridayInk!=='rgb(245, 237, 242)'||initial.fridayText!=='rgb(245, 237, 242)')
+     issues.push(name+' Friday descriptions lack high contrast '+JSON.stringify({football:initial.fridayText,cheer:fridayInk}));
 
    await page.goto('http://127.0.0.1:8765/pages/cheer.html',{waitUntil:'domcontentloaded'});
    await page.locator('a[href="#curriculum"]').click();
