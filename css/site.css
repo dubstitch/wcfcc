@@ -3104,3 +3104,69 @@ body.cheer-theme .hero .ch-hero-meta strong {
   color:#101114 !important;
   font-weight:900 !important;
 }
+
+/* Navigation responsiveness: the full seven-link desktop navigation is only
+   permitted at actual desktop widths. Tablets, phones, and phone landscape
+   use the same compact logo / Reviews / menu layout. */
+@media (max-width:1399px) {
+  body nav {
+    padding-inline:clamp(12px,2.5vw,24px) !important;
+    justify-content:space-between !important;
+    gap:12px !important;
+    width:100% !important;
+    max-width:100% !important;
+    min-width:0 !important;
+  }
+  body nav > .nav-logo {flex:0 0 auto !important;white-space:nowrap}
+  body nav > .nav-links {display:none !important}
+  body nav .nav-cta-desktop {display:none !important}
+  body nav .nav-hamburger {
+    display:flex !important;
+    flex:0 0 32px !important;
+    align-items:center;
+    justify-content:center;
+    min-width:32px;
+    min-height:40px;
+  }
+  body nav > div:last-child {
+    display:flex !important;
+    align-items:center !important;
+    justify-content:flex-end !important;
+    gap:clamp(7px,1.8vw,12px) !important;
+    flex:0 1 auto;
+    min-width:0;
+  }
+  body nav .nav-reviews {
+    display:inline-flex !important;
+    flex:0 0 auto !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:clamp(5px,1vw,8px) !important;
+    white-space:nowrap !important;
+  }
+  body .nav-mobile-menu {
+    top:64px;
+    max-height:calc(100vh - 64px);
+    max-height:calc(100dvh - 64px);
+    overflow-y:auto;
+    overscroll-behavior:contain;
+    -webkit-overflow-scrolling:touch;
+  }
+}
+@media (max-width:370px) {
+  body nav {padding-inline:10px !important;gap:6px !important}
+  body nav > .nav-logo {font-size:25px !important;letter-spacing:2px !important}
+  body nav > div:last-child {gap:6px !important}
+  body nav .nav-reviews {padding:9px 7px !important;gap:5px !important}
+  body nav .nav-reviews .nav-reviews-label {font-size:13px !important;letter-spacing:.6px !important}
+  body nav .nav-reviews svg {width:12px !important;height:12px !important;flex-basis:12px !important}
+  body nav .nav-hamburger {flex-basis:28px !important;min-width:28px !important}
+}
+/* Only a large desktop gets the expanded navigation. Closing the menu by
+   resizing won't leave a hidden mobile dropdown over the desktop links. */
+@media (min-width:1400px) {
+  body nav > .nav-links {display:flex}
+  body nav .nav-hamburger {display:none}
+  body nav .nav-cta-desktop {display:inline-flex}
+  body .nav-mobile-menu {display:none !important}
+}
