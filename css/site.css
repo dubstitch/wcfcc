@@ -3244,3 +3244,33 @@ body .carousel-controls .carousel-dot:focus-visible {
   outline:3px solid #df2386 !important;
   outline-offset:3px !important;
 }
+
+/* Final Reviews optical spacing: R and S get the same *visible* breathing
+   room. This corrects glyph ink spacing, not just equal grid columns. */
+body nav a.nav-reviews {
+  grid-template-columns:15px max-content 15px !important;
+  column-gap:7px !important;
+  padding-inline:12px !important;
+}
+body nav a.nav-reviews::before {
+  transform:translateX(0) !important;
+}
+body nav a.nav-reviews::after {
+  transform:translateX(-3px) !important;
+}
+body nav a.nav-reviews .nav-reviews-label {
+  letter-spacing:.65px !important;
+}
+@media(max-width:390px){
+  body nav a.nav-reviews {
+    grid-template-columns:13px max-content 13px !important;
+    column-gap:6px !important;
+    padding-inline:9px !important;
+  }
+  body nav a.nav-reviews::after {transform:translateX(-2px) !important;}
+}
+/* Anchor target is the start of the curriculum's background, not its
+   heading text. The custom click handler resolves the fixed header. */
+body.cheer-theme #curriculum {
+  scroll-margin-top:0 !important;
+}
