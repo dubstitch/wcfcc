@@ -6,6 +6,7 @@
 <title>Registration &amp; Forms | WCFCC</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<link rel="stylesheet" href="../css/portfolio-visual-refinements.css?v=20261110">
 </head>
 <body>
 
@@ -41,81 +42,137 @@
   </div>
 </header>
 
-<section style="background:var(--smoke);padding:80px 0;">
+<section class="registration-process" aria-labelledby="registration-steps-title">
   <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">How It Works</div>
-      <h2 class="section-title">FIVE STEP<br><span class="accent">PROCESS</span></h2>
+    <div class="section-eyebrow anim anim-d1">How It Works</div>
+    <h2 class="section-title anim anim-d2" id="registration-steps-title">FIVE STEP<br><span class="accent">PROCESS</span></h2>
+    <p class="registration-process-lead anim anim-d2">Five clear steps from choosing the right camp to getting everything ready for the field.</p>
+    <ol class="registration-steps anim anim-d3">
+      <li><span class="registration-step-number" aria-hidden="true">01</span><h3>CHOOSE PROGRAM</h3><p>Football (ages 9&ndash;17) or Sideline Cheer (ages 8&ndash;17). Pick the program that fits your athlete.</p></li>
+      <li><span class="registration-step-number" aria-hidden="true">02</span><h3>FILL OUT FORM</h3><p>Complete the Google Form for your program. Takes about 5 minutes.</p></li>
+      <li><span class="registration-step-number" aria-hidden="true">03</span><h3>SUBMIT PAYMENT</h3><p>$175 per athlete. Credit, debit, or cash. Payment plans available on request.</p></li>
+      <li><span class="registration-step-number" aria-hidden="true">04</span><h3>UPLOAD DOCUMENTS</h3><p>Birth certificate, medical release, code of conduct, photo release.</p></li>
+      <li><span class="registration-step-number" aria-hidden="true">05</span><h3>CONFIRMATION</h3><p>We email you within 48 hours with everything you need before camp starts.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="programs registration-programs" id="registration-programs" data-active-program="overview">
+  <div class="container">
+    <div class="programs-header">
+      <div>
+        <div class="section-eyebrow anim anim-d1" style="color:rgba(255,255,255,0.4);">Programs</div>
+        <h2 class="section-title anim anim-d2" style="color:var(--white);">CHOOSE YOUR<br><span class="accent">PATH</span></h2>
+      </div>
+      <p class="section-subtitle anim anim-d3" style="color:rgba(255,255,255,0.5);">Two elite programs. One championship experience. Built for kids who are serious about getting better.</p>
     </div>
-    <div class="anim anim-d2 wc-carousel" data-wc-carousel data-wc-visible="3,2,1" style="margin-top:48px;">
-      <div class="wc-carousel-viewport"><div class="wc-carousel-track" data-wc-track>
-        <div class="wc-card is-active"><div class="wc-num">1</div><h3>CHOOSE PROGRAM</h3><p>Football (ages 9&ndash;17) or Sideline Cheer (ages 8&ndash;17). Pick the program that fits your athlete.</p></div>
-        <div class="wc-card"><div class="wc-num">2</div><h3>FILL OUT FORM</h3><p>Complete the Google Form for your program. Takes about 5 minutes.</p></div>
-        <div class="wc-card"><div class="wc-num">3</div><h3>SUBMIT PAYMENT</h3><p>$175 per athlete. Credit, debit, or cash. Payment plans available on request.</p></div>
-        <div class="wc-card"><div class="wc-num">4</div><h3>UPLOAD DOCUMENTS</h3><p>Birth certificate, medical release, code of conduct, photo release.</p></div>
-        <div class="wc-card is-active"><div class="wc-num">5</div><h3>CONFIRMATION</h3><p>We email you within 48 hours with everything you need before camp starts.</p></div>
-      </div></div>
-      <div class="carousel-controls" style="margin-top:32px;">
-        <button class="carousel-btn prev" data-wc-prev aria-label="Previous"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 19l-7-7 7-7"/></svg></button>
-        <div class="carousel-dots" data-wc-dots></div>
-        <button class="carousel-btn next" data-wc-next aria-label="Next"><svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 5l7 7-7 7"/></svg></button>
+    <p class="programs-choice-caption">SELECT A PROGRAM TO EXPLORE</p>
+    <div class="program-choice-tabs" role="tablist" aria-label="Camp programs">
+      <button type="button" class="program-choice" id="registration-program-football" role="tab" data-tab-group="registration" data-tab="football" aria-selected="false" aria-controls="registration-panel-football" tabindex="0" onclick="switchTab(this)">
+        <span class="program-choice-icon" aria-hidden="true">01</span><span><strong>FOOTBALL</strong><small>Combine &amp; competition</small></span>
+      </button>
+      <button type="button" class="program-choice" id="registration-program-cheer" role="tab" data-tab-group="registration" data-tab="cheer" aria-selected="false" aria-controls="registration-panel-cheer" tabindex="-1" onclick="switchTab(this)">
+        <span class="program-choice-icon" aria-hidden="true">02</span><span><strong>SIDELINE CHEER</strong><small>Confidence &amp; performance</small></span>
+      </button>
+    </div>
+    <div class="program-choice-content anim anim-d4" aria-live="polite">
+      <div id="registration-panel-intro" class="program-feature program-feature-intro is-active" role="region" aria-label="Explore our football and cheer programs">
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE WCFCC EXPERIENCE</span>
+          <h3>DIFFERENT STRENGTHS.<br><span>ONE TEAM SPIRIT.</span></h3>
+          <p>Some athletes thrive on the field. Others bring the sideline to life. At WCFCC, both paths build skills, confidence, friendships, and a sense of belonging. Football and cheer come together for Friday game days and Championship Day. Choose a program above to see what makes each experience special.</p>
+          <div class="program-feature-points">
+            <span>SKILL BUILDING</span><span>TEAMWORK</span><span>CONFIDENCE</span>
+          </div>
+        </div>
+        <div class="program-feature-side program-intro-side" aria-hidden="true">
+          <span class="program-intro-football">FOOTBALL</span>
+          <span class="program-intro-plus">+</span>
+          <span class="program-intro-cheer">CHEER</span>
+          <span class="program-feature-side-caption">ONE WCFCC COMMUNITY</span>
+        </div>
+      </div>
+      <div id="registration-panel-football" class="program-feature" role="tabpanel" aria-labelledby="registration-program-football" data-tab-panel-group="registration" data-tab-panel="football" hidden>
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE FOOTBALL EXPERIENCE</span>
+          <h3>BUILD THE GAME.<br><span>OWN THE FIELD.</span></h3>
+          <p>Four weeks built around combine testing, position specific training, and Friday 7 on 7. Athletes can track their development while building confidence and football IQ.</p>
+          <div class="program-feature-points">
+            <span>BOOST · NITRO · TURBO</span><span>AGES 9 TO 17</span><span>4 WEEKS</span>
+          </div>
+          <a class="program-feature-link" href="#football-registration">View Football registration <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="program-feature-side" aria-hidden="true"><span class="program-feature-number">07</span><span class="program-feature-side-caption">FRIDAY GAME DAY REPS</span></div>
+      </div>
+      <div id="registration-panel-cheer" class="program-feature" role="tabpanel" aria-labelledby="registration-program-cheer" data-tab-panel-group="registration" data-tab-panel="cheer" hidden>
+        <div class="program-feature-main">
+          <span class="program-feature-kicker">THE CHEER EXPERIENCE</span>
+          <h3>FIND YOUR VOICE.<br><span>TAKE THE SIDELINE.</span></h3>
+          <p>A sideline cheer experience centered on sharp motions, choreography, performance confidence, team connection, and shared Friday nights with Football.</p>
+          <div class="program-feature-points">
+            <span>SPARKLE · STARS</span><span>SKILL PROGRESSION</span><span>FRIDAY PERFORMANCES</span>
+          </div>
+          <a class="program-feature-link" href="#cheer-registration">View Cheer registration <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+        </div>
+        <div class="program-feature-side" aria-hidden="true"><span class="program-feature-number">★</span><span class="program-feature-side-caption">SIDELINE ENERGY</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section style="background:var(--white);padding:80px 0;">
+<section class="registration-forms" aria-labelledby="registration-forms-title">
   <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">Sign Up</div>
-      <h2 class="section-title">CHOOSE YOUR<br><span class="accent">PROGRAM</span></h2>
-    </div>
-    <div class="anim anim-d2 grid-2" style="margin-top:48px;">
-      <div style="background:var(--black);border-radius:20px;padding:40px;border:2px solid var(--dark-gray);">
-        <span style="display:inline-block;background:rgba(232,255,0,0.1);color:var(--yellow);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px;border:1px solid rgba(232,255,0,0.2);">Football</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--white);line-height:0.95;margin-bottom:14px;">FOOTBALL<br>COMBINE CAMP</h3>
-        <p style="color:rgba(255,255,255,0.6);font-size:14px;line-height:1.6;margin-bottom:24px;">Ages 9&ndash;17 &middot; Boost / Nitro / Turbo divisions &middot; 4 weeks plus Mummers Parade.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:32px;">
-          <li style="color:rgba(255,255,255,0.85);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--yellow);">&#10003;</span>Combine testing &amp; weekly skill tracking</li>
-          <li style="color:rgba(255,255,255,0.85);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--yellow);">&#10003;</span>Position specific training</li>
-          <li style="color:rgba(255,255,255,0.85);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--yellow);">&#10003;</span>Friday 7 on 7 game days</li>
-          <li style="color:rgba(255,255,255,0.85);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--yellow);">&#10003;</span>Championship Day with trophies</li>
+    <div class="section-eyebrow anim anim-d1">Sign Up</div>
+    <h2 class="section-title anim anim-d2" id="registration-forms-title">PROGRAM<br><span class="accent">REGISTRATION</span></h2>
+    <p class="registration-forms-intro anim anim-d3">Each program has its own registration form. Review the details for your athlete's path, then open the corresponding form.</p>
+    <div class="registration-form-row anim anim-d2" id="football-registration" data-registration-program="football">
+      <div class="registration-form-heading">
+        <span class="registration-form-number" aria-hidden="true">01</span>
+        <h3>FOOTBALL<br>COMBINE CAMP</h3>
+        <p>Ages 9&ndash;17 &middot; Boost / Nitro / Turbo divisions &middot; 4 weeks plus Mummers Parade.</p>
+      </div>
+      <div class="registration-form-content">
+        <ul>
+          <li>Combine testing &amp; weekly skill tracking</li>
+          <li>Position specific training</li>
+          <li>Friday 7 on 7 game days</li>
+          <li>Championship Day with trophies</li>
         </ul>
-        <a href="https://forms.gle/wV2gKzqeawdzCvZR7" class="btn-cta-main" style="display:inline-block;background:var(--yellow);color:var(--black);">Open Football Form</a>
-        <div class="wc-acc" style="margin-top:18px;">
-          <div class="wc-acc-item" data-acc-item data-acc-group="football-additional-forms" style="background:rgba(255,255,255,0.04);border-color:rgba(255,255,255,0.12);">
-            <button class="wc-acc-trigger" type="button" onclick="toggleAcc(this)" style="color:var(--white);"><span>Additional Forms</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
-            <div class="wc-acc-body"><div class="wc-acc-body-inner">
-              <div style="display:flex;flex-direction:column;gap:10px;">
-                <a href="https://forms.gle/xT6o77c71zuo8LJBA" style="color:var(--yellow);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Medical Release</a>
-                <a href="https://forms.gle/jRrMT4Ke1vdLFQwq7" style="color:var(--yellow);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Code of Conduct</a>
-                <a href="https://forms.gle/xVVmdbv9Yd1JEgxG7" style="color:var(--yellow);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Photo / Video Release</a>
-              </div>
-            </div></div>
+        <a href="https://forms.gle/wV2gKzqeawdzCvZR7" class="registration-form-action">Open Football Form</a>
+        <div class="wc-acc">
+          <div class="wc-acc-item" data-acc-item data-acc-group="football-additional-forms">
+            <button class="wc-acc-trigger" type="button" onclick="toggleAcc(this)"><span>Additional Forms</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+            <div class="wc-acc-body"><div class="wc-acc-body-inner"><div class="registration-additional-links">
+              <a href="https://forms.gle/xT6o77c71zuo8LJBA">Medical Release</a>
+              <a href="https://forms.gle/jRrMT4Ke1vdLFQwq7">Code of Conduct</a>
+              <a href="https://forms.gle/xVVmdbv9Yd1JEgxG7">Photo / Video Release</a>
+            </div></div></div>
           </div>
         </div>
       </div>
-      <div class="registration-cheer-card">
-        <span style="display:inline-block;background:rgba(0,0,0,0.08);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:11px;font-weight:800;letter-spacing:2.5px;text-transform:uppercase;padding:6px 14px;border-radius:100px;margin-bottom:20px;border:1px solid rgba(0,0,0,0.1);">Cheer</span>
-        <h3 style="font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--black);line-height:0.95;margin-bottom:14px;">SIDELINE<br>CHEER CAMP</h3>
-        <p style="color:rgba(0,0,0,0.65);font-size:14px;line-height:1.6;margin-bottom:24px;">Ages 8&ndash;17 &middot; All experience levels welcome &middot; 4 weeks plus Mummers Parade.</p>
-        <ul style="list-style:none;display:flex;flex-direction:column;gap:8px;margin-bottom:32px;">
-          <li style="color:rgba(0,0,0,0.8);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--black);">&#10003;</span>Sideline cheers, motions, jumps</li>
-          <li style="color:rgba(0,0,0,0.8);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--black);">&#10003;</span>Choreographed routines</li>
-          <li style="color:rgba(0,0,0,0.8);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--black);">&#10003;</span>Friday game day performances</li>
-          <li style="color:rgba(0,0,0,0.8);font-family:'Barlow Condensed',sans-serif;font-size:14px;display:flex;gap:10px;"><span style="color:var(--black);">&#10003;</span>Mummers Parade route performance</li>
+    </div>
+    <div class="registration-form-row anim anim-d3" id="cheer-registration" data-registration-program="cheer">
+      <div class="registration-form-heading">
+        <span class="registration-form-number" aria-hidden="true">02</span>
+        <h3>SIDELINE<br>CHEER CAMP</h3>
+        <p>Ages 8&ndash;17 &middot; All experience levels welcome &middot; 4 weeks plus Mummers Parade.</p>
+      </div>
+      <div class="registration-form-content">
+        <ul>
+          <li>Sideline cheers, motions, jumps</li>
+          <li>Choreographed routines</li>
+          <li>Friday game day performances</li>
+          <li>Mummers Parade route performance</li>
         </ul>
-        <a href="https://forms.gle/q4E5crqzfRM8tqco7" style="display:inline-block;background:var(--black);color:var(--yellow);font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:800;letter-spacing:2px;text-transform:uppercase;padding:18px 40px;border-radius:8px;text-decoration:none;">Open Cheer Form</a>
-        <div class="wc-acc" style="margin-top:18px;">
-          <div class="wc-acc-item" data-acc-item data-acc-group="cheer-additional-forms" style="background:rgba(0,0,0,0.04);border-color:rgba(0,0,0,0.12);">
-            <button class="wc-acc-trigger" type="button" onclick="toggleAcc(this)" style="color:var(--black);"><span>Additional Forms</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
-            <div class="wc-acc-body"><div class="wc-acc-body-inner">
-              <div style="display:flex;flex-direction:column;gap:10px;">
-                <a href="https://forms.gle/xT6o77c71zuo8LJBA" style="color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Medical Release</a>
-                <a href="https://forms.gle/jRrMT4Ke1vdLFQwq7" style="color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Code of Conduct</a>
-                <a href="https://forms.gle/xVVmdbv9Yd1JEgxG7" style="color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;text-decoration:none;">Photo / Video Release</a>
-              </div>
-            </div></div>
+        <a href="https://forms.gle/q4E5crqzfRM8tqco7" class="registration-form-action">Open Cheer Form</a>
+        <div class="wc-acc">
+          <div class="wc-acc-item" data-acc-item data-acc-group="cheer-additional-forms">
+            <button class="wc-acc-trigger" type="button" onclick="toggleAcc(this)"><span>Additional Forms</span><div class="wc-acc-chevron"><svg viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg></div></button>
+            <div class="wc-acc-body"><div class="wc-acc-body-inner"><div class="registration-additional-links">
+              <a href="https://forms.gle/xT6o77c71zuo8LJBA">Medical Release</a>
+              <a href="https://forms.gle/jRrMT4Ke1vdLFQwq7">Code of Conduct</a>
+              <a href="https://forms.gle/xVVmdbv9Yd1JEgxG7">Photo / Video Release</a>
+            </div></div></div>
           </div>
         </div>
       </div>
@@ -123,41 +180,41 @@
   </div>
 </section>
 
-<section style="background:var(--black);padding:80px 0;">
+<section class="registration-documents" aria-labelledby="registration-docs-title">
   <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow" style="color:rgba(255,255,255,0.4);">Required Documents</div>
-      <h2 class="section-title" style="color:var(--white);">FORMS<br><span class="accent">CHECKLIST</span></h2>
-      <p style="color:rgba(255,255,255,0.6);font-size:16px;line-height:1.7;max-width:640px;margin-top:16px;">Five forms total. The registration form goes in at signup. The other four must be turned in before the first practice.</p>
+    <div class="registration-doc-header anim anim-d1">
+      <div class="section-eyebrow">Required Documents</div>
+      <h2 class="section-title" id="registration-docs-title" style="color:var(--white);">FORMS<br><span class="accent">CHECKLIST</span></h2>
+      <p>Five forms total. The registration form goes in at signup. The other four must be turned in before the first practice.</p>
     </div>
-    <div class="anim anim-d2 info-grid cols-3" style="margin-top:48px;">
-      <div class="info-card is-dark"><h3>1. Registration Form</h3><p><strong style="color:var(--white);">Due:</strong> At signup</p><p style="margin-top:8px;">Athlete info, parent/guardian contact, program selection.</p></div>
-      <div class="info-card is-dark"><h3>2. Birth Certificate</h3><p><strong style="color:var(--white);">Due:</strong> Before first practice</p><p style="margin-top:8px;">Required to verify age division placement.</p></div>
-      <div class="info-card is-dark"><h3>3. Medical Release</h3><p><strong style="color:var(--white);">Due:</strong> Before first practice</p><p style="margin-top:8px;">Allergies, conditions, emergency contacts, treatment authorization.</p></div>
-      <div class="info-card is-dark"><h3>4. Code of Conduct</h3><p><strong style="color:var(--white);">Due:</strong> Before first practice</p><p style="margin-top:8px;">Athlete + parent expectations and signatures.</p></div>
-      <div class="info-card is-dark"><h3>5. Photo / Video Release</h3><p><strong style="color:var(--white);">Due:</strong> Before first practice</p><p style="margin-top:8px;">Permission for camp photos and video used in promotion.</p></div>
-      <div class="info-card is-dark" style="border-left-color:var(--white);"><h3>Need a Form?</h3><p>Email us and we&rsquo;ll send the file or a link.</p><p style="margin-top:8px;"><a href="mailto:WCFootballcombinecamp@gmail.com" style="color:var(--yellow);">WCFootballcombinecamp@gmail.com</a></p></div>
+    <ol class="registration-doc-list anim anim-d2">
+      <li><span class="registration-doc-num" aria-hidden="true">01</span><div><h3>Registration Form</h3><p><strong>Due:</strong> At signup</p><p>Athlete info, parent/guardian contact, program selection.</p></div></li>
+      <li><span class="registration-doc-num" aria-hidden="true">02</span><div><h3>Birth Certificate</h3><p><strong>Due:</strong> Before first practice</p><p>Required to verify age division placement.</p></div></li>
+      <li><span class="registration-doc-num" aria-hidden="true">03</span><div><h3>Medical Release</h3><p><strong>Due:</strong> Before first practice</p><p>Allergies, conditions, emergency contacts, treatment authorization.</p></div></li>
+      <li><span class="registration-doc-num" aria-hidden="true">04</span><div><h3>Code of Conduct</h3><p><strong>Due:</strong> Before first practice</p><p>Athlete + parent expectations and signatures.</p></div></li>
+      <li><span class="registration-doc-num" aria-hidden="true">05</span><div><h3>Photo / Video Release</h3><p><strong>Due:</strong> Before first practice</p><p>Permission for camp photos and video used in promotion.</p></div></li>
+    </ol>
+    <div class="registration-doc-help">
+      <h3>NEED A FORM?</h3>
+      <p>Email us and we&rsquo;ll send the file or a link. <a href="mailto:WCFootballcombinecamp@gmail.com">WCFootballcombinecamp@gmail.com</a></p>
     </div>
   </div>
 </section>
 
-<section class="experience" style="padding:80px 0;">
+<section class="registration-policies" aria-labelledby="registration-policy-title">
   <div class="container">
-    <div class="anim anim-d1">
-      <div class="section-eyebrow">Policies</div>
-      <h2 class="section-title">THE<br><span class="accent">FINE PRINT</span></h2>
-    </div>
-    <div class="anim anim-d2 info-grid" style="margin-top:48px;">
-      <div class="info-card"><h3>Fee</h3><p><strong style="color:var(--black);">$175 per athlete.</strong> Covers uniform, all four weeks of training, Friday game days, Championship Day, post-camp practices, and Mummers Parade.</p></div>
-      <div class="info-card"><h3>Deadline</h3><p>Registration closes <strong style="color:var(--black);">May 31, 2026.</strong> Spots are limited and divisions fill on a first-come basis.</p></div>
-      <div class="info-card"><h3>Payment Methods</h3><p>Credit card, debit card, or cash. Payment plans available on request &mdash; just ask.</p></div>
-      <div class="info-card"><h3>Refund Policy</h3><p>100% refund up to 2 weeks before camp starts. 50% up to 1 week before. After camp begins, no refund except medical withdrawals (prorated, director discretion).</p></div>
-      <div class="info-card"><h3>Attendance</h3><p>Athletes who miss more than 3 practices are not eligible to participate in Championship Day games.</p></div>
-      <div class="info-card"><h3>Equipment</h3><p>All camp gear is WCFCC property. Athletes are responsible for keeping it. Lost or damaged gear is replaced at parent cost.</p></div>
+    <div class="section-eyebrow anim anim-d1">Policies</div>
+    <h2 class="section-title anim anim-d2" id="registration-policy-title">THE<br><span class="accent">FINE PRINT</span></h2>
+    <div class="registration-policy-list anim anim-d3">
+      <div><h3>Fee</h3><p><strong>$175 per athlete.</strong> Covers uniform, all four weeks of training, Friday game days, Championship Day, post-camp practices, and Mummers Parade.</p></div>
+      <div><h3>Deadline</h3><p>Registration closes <strong>May 31, 2026.</strong> Spots are limited and divisions fill on a first-come basis.</p></div>
+      <div><h3>Payment Methods</h3><p>Credit card, debit card, or cash. Payment plans available on request &mdash; just ask.</p></div>
+      <div><h3>Refund Policy</h3><p>100% refund up to 2 weeks before camp starts. 50% up to 1 week before. After camp begins, no refund except medical withdrawals (prorated, director discretion).</p></div>
+      <div><h3>Attendance</h3><p>Athletes who miss more than 3 practices are not eligible to participate in Championship Day games.</p></div>
+      <div><h3>Equipment</h3><p>All camp gear is WCFCC property. Athletes are responsible for keeping it. Lost or damaged gear is replaced at parent cost.</p></div>
     </div>
   </div>
 </section>
-
 <section class="final-cta">
   <div class="container">
     <div class="final-cta-inner anim anim-d1">
