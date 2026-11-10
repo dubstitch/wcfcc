@@ -1,7 +1,9 @@
 /*
   Focused November 10 design refinements.
   Only the homepage and the registration experience load this sheet.
-  The original turf image is recovered from the earlier site implementation.
+  Original turf photograph: Gustamons, Wikimedia Commons, CC BY-SA 4.0.
+  https://commons.wikimedia.org/wiki/File:Artificial_turf.jpg
+  https://creativecommons.org/licenses/by-sa/4.0/
 */
 
 /* Restore the exact existing turf PHOTO, not generated field graphics.
@@ -72,6 +74,12 @@ body .programs .program-choice-icon {
   height:clamp(33px,4vw,43px);
 }
 body .programs .program-feature {min-height:clamp(410px,34vw,500px);}
+/* Default state has a dark background; the generic heading accent was black. */
+body .programs[data-active-program="overview"] .programs-header .section-title .accent {
+  color:#e8ff00 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
 body .programs .program-feature-main {min-width:0}
 body .programs .program-feature .program-feature-points span {max-width:100%}
 
@@ -153,7 +161,7 @@ body .programs .program-choice[data-tab="cheer"].is-active .program-choice-icon 
   border-color:#6c123f !important;
 }
 body .programs .program-choice[data-tab="cheer"]:not(.is-active) {
-  background:#eab0d2 !important;
+  background:#ff64b1 !important;
   border:2px solid #ffc4e4 !important;
   color:#2b1321 !important;
 }
@@ -319,7 +327,7 @@ body .testimonials .carousel-controls .carousel-dot:focus-visible {
 .registration-form-row:last-child {border-bottom:2px solid #15191c}
 .registration-form-row .registration-form-heading .registration-form-number {
   font:400 clamp(70px,10vw,133px)/.86 'Bebas Neue',sans-serif;
-  color:#c8cdd0;
+  color:#52606b;
   display:block;
 }
 .registration-form-row[data-registration-program=cheer] .registration-form-heading .registration-form-number {color:#d95194}
@@ -393,6 +401,14 @@ body .testimonials .carousel-controls .carousel-dot:focus-visible {
 .registration-form-row .registration-additional-links a:focus-visible {outline:3px solid #ad2e77;outline-offset:4px}
 
 .registration-documents {background:#181e23 !important;padding:clamp(68px,8vw,105px) 0 !important;color:#fff}
+.registration-documents .registration-doc-header .section-eyebrow {
+  color:#f7f9fb !important;
+}
+.registration-documents .registration-doc-header .section-title .accent {
+  color:#e8ff00 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
 .registration-documents .registration-doc-header p {
   font:500 16px/1.7 'Barlow',sans-serif;color:#d5dee2;max-width:690px;
   margin-top:15px;
@@ -412,7 +428,15 @@ body .testimonials .carousel-controls .carousel-dot:focus-visible {
 .registration-doc-help {border-top:1px solid #64737b;grid-column:1/-1;padding:25px 0;color:#fff}
 .registration-doc-help h3 {color:#e8ff00;font:400 30px/1.1 'Bebas Neue',sans-serif;margin:0 0 7px}
 .registration-doc-help p {color:#e4e9ed;font-size:16px}
-.registration-doc-help a {color:#e8ff00;text-underline-offset:4px;overflow-wrap:anywhere}
+.registration-doc-help a,
+.registration-doc-help a.demo-locked-link {
+  color:#e8ff00 !important;
+  text-decoration:underline !important;
+  text-decoration-thickness:2px !important;
+  text-underline-offset:4px;
+  overflow-wrap:anywhere;
+  font-weight:800;
+}
 
 .registration-policies {background:#f6f7f8 !important;padding:clamp(68px,8vw,105px) 0 !important}
 .registration-policies .registration-policy-list {
@@ -456,4 +480,29 @@ body .testimonials .carousel-controls .carousel-dot:focus-visible {
 }
 @media(prefers-reduced-motion:reduce) {
   body .programs .program-choice {transition:none !important}
+}
+
+/* The Reviews navigation balance applies immediately on the two pages
+   using this versioned stylesheet, in addition to the shared site styles. */
+nav .nav-reviews {
+  display:inline-grid !important;
+  grid-template-columns:16px max-content 16px;
+  justify-content:center !important;
+  justify-items:center !important;
+  align-items:center !important;
+  column-gap:8px !important;
+  padding:10px 13px !important;
+  line-height:1 !important;
+  text-align:center;
+}
+nav .nav-reviews svg {
+  display:block;width:15px !important;height:15px !important;
+  position:static !important;inset:auto !important;
+  transform:none !important;margin:0 !important;
+}
+nav .nav-reviews .nav-reviews-label {display:block;white-space:nowrap;letter-spacing:1.2px;line-height:1.05}
+@media(max-width:390px) {
+  nav .nav-reviews {grid-template-columns:13px max-content 13px;column-gap:5px !important;padding:9px 8px !important}
+  nav .nav-reviews svg {width:13px !important;height:13px !important}
+  nav .nav-reviews .nav-reviews-label {font-size:13px;letter-spacing:.9px}
 }
