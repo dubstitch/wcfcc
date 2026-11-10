@@ -80,35 +80,90 @@ document.addEventListener('DOMContentLoaded', () => {
     syncButtons();
   }
 
+  // The testing timeline is one interactive story, not a row of static cards.
+  // Pointer capture keeps dragging reliable even when the finger moves off the rail.
   const timeline = document.getElementById('fb-timeline-track');
-  const slider = document.getElementById('fb-timeline-range');
+  const rail = document.getElementById('fb-timeline-rail');
   const output = document.getElementById('fb-timeline-output');
-  if (timeline && slider && output) {
+  if (timeline && rail && output) {
     const weeks = [...timeline.querySelectorAll('.fb-timeline-item')];
-    const selectWeek = (index, move = true) => {
-      const chosen = Math.max(0, Math.min(weeks.length - 1, index));
-      slider.value = String(chosen + 1);
-      slider.style.setProperty('--week-progress', chosen * 100 / Math.max(1,weeks.length - 1) + '%');
-      output.textContent = 'WEEK ' + (chosen + 1) + ' OF ' + weeks.length;
-      weeks.forEach((week,i) => week.classList.toggle('is-selected',i === chosen));
-      if (move && timeline.scrollWidth > timeline.clientWidth + 3) {
-        const week = weeks[chosen];
-        const left = timeline.scrollLeft + week.getBoundingClientRect().left - timeline.getBoundingClientRect().left - 5;
-        timeline.scrollTo({left,behavior:behavior()});
-      }
-    };
-    slider.addEventListener('input', () => selectWeek(Number(slider.value) - 1));
-    weeks.forEach((week,index) => week.addEventListener('focus',() => selectWeek(index)));
-    timeline.addEventListener('scroll', () => {
-      if (timeline.scrollWidth <= timeline.clientWidth + 3) return;
-      const left = timeline.getBoundingClientRect().left;
-      let closest = 0, distance = Infinity;
+    const markers = [...rail.querySelectorAll('.fb-timeline-marker')];
+    const experience = rail.closest('.fb-timeline-experience');
+    const names = weeks.map((week,index) => {
+      const label=week.querySelector('.fb-timeline-label')?.textContent || '';
+      const description=label.split('·')[1]?.trim() || 'Week '+(index+1);
+      return 'Week '+(index+1)+': '+description;
+    });
+    let selected = 0;
+    let dragging = null;
+    const selectWeek = index => {
+      const next = Math.max(0,Math.min(weeks.length-1,index));
+      selected = next;
+      const progress = weeks.length > 1 ? next/(weeks.length-1) : 0;
+      experience.style.setProperty('--timeline-progress',String(progress));
+      rail.setAttribute('aria-valuenow',String(next+1));
+      rail.setAttribute('aria-valuemax',String(weeks.length));
+      rail.setAttribute('aria-valuetext',names[next]);
+      output.textContent = 'WEEK '+(next+1)+' OF '+weeks.length;
       weeks.forEach((week,i) => {
-        const delta = Math.abs(week.getBoundingClientRect().left - left - 5);
-        if (delta < distance) {distance=delta;closest=i;}
+        const active = i===next;
+        week.classList.toggle('is-selected',active);
+        week.setAttribute('aria-hidden',String(!active));
+        week.inert=!active;
       });
-      selectWeek(closest,false);
-    }, {passive:true});
-    selectWeek(0,false);
+      markers.forEach((marker,i)=>marker.classList.toggle('is-passed',i<=next));
+    };
+    const updateFromPoint = clientY => {
+      const bounds = rail.getBoundingClientRect();
+      const inset = parseFloat(getComputedStyle(rail).getPropertyValue('--rail-inset')) || 24;
+      const travel = Math.max(1,bounds.height - 2*inset);
+      const fraction = Math.max(0,Math.min(1,(clientY - bounds.top - inset)/travel));
+      selectWeek(Math.round(fraction*(weeks.length-1)));
+    };
+    rail.addEventListener('pointerdown',event=>{
+      if (event.button!==0 || !event.isPrimary) return;
+      event.preventDefault();
+      rail.focus({preventScroll:true});
+      dragging=event.pointerId;
+      rail.classList.add('is-dragging');
+      try {rail.setPointerCapture(event.pointerId);} catch (_) {}
+      updateFromPoint(event.clientY);
+    });
+    rail.addEventListener('pointermove',event=>{
+      if (dragging!==event.pointerId) return;
+      event.preventDefault();
+      updateFromPoint(event.clientY);
+    });
+    const endDrag=event=>{
+      if (dragging!==event.pointerId) return;
+      dragging=null;
+      rail.classList.remove('is-dragging');
+      try {
+        if(rail.hasPointerCapture(event.pointerId))rail.releasePointerCapture(event.pointerId);
+      } catch (_) {}
+    };
+    rail.addEventListener('pointerup',endDrag);
+    rail.addEventListener('pointercancel',endDrag);
+    rail.addEventListener('lostpointercapture',event=>{
+      if(dragging===event.pointerId){dragging=null;rail.classList.remove('is-dragging');}
+    });
+    rail.addEventListener('keydown',event=>{
+      let next=selected;
+      switch(event.key){
+        case 'ArrowDown':
+        case 'ArrowRight':
+        case 'PageDown': next+=1; break;
+        case 'ArrowUp':
+        case 'ArrowLeft':
+        case 'PageUp': next-=1; break;
+        case 'Home': next=0; break;
+        case 'End': next=weeks.length-1; break;
+        default:return;
+      }
+      event.preventDefault();
+      event.stopPropagation();
+      selectWeek(next);
+    });
+    selectWeek(0);
   }
 });
