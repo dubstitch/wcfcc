@@ -10,14 +10,19 @@
    Preserve the intentionally caption-free treatment. */
 body .field-experience {
   background-color:#103923 !important;
-  background-image:
-    linear-gradient(180deg,rgba(2,35,20,.76),rgba(3,46,26,.74)),
-    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Artificial_turf.jpg/960px-Artificial_turf.jpg") !important;
+  background-image:url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Artificial_turf.jpg/960px-Artificial_turf.jpg") !important;
   background-size:cover !important;
   background-position:center center !important;
   background-repeat:no-repeat !important;
 }
 body .field-experience::before { background:none !important; }
+/* The photo is unfiltered and unobscured. Use shadows on letters rather
+   than a dark layer or any photographic caption. */
+body .field-experience .section-title,
+body .field-experience .section-eyebrow,
+body .field-experience .section-subtitle {
+  text-shadow:0 2px 4px rgba(0,18,10,.93),0 3px 14px rgba(0,18,10,.72) !important;
+}
 
 /* Keep the exact ticker movement and sticky behavior. Symbols and copy only. */
 .ticker .ticker-track .ticker-item,
