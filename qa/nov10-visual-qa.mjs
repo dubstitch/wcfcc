@@ -27,7 +27,9 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
     const navIcons=[...nav.querySelectorAll('svg')];
     const label=nav.querySelector('.nav-reviews-label').getBoundingClientRect();
     const stars=navIcons.map(x=>x.getBoundingClientRect());
-    const imageStyle=getComputedStyle(document.querySelector('.field-experience')).backgroundImage;
+    const field=document.querySelector('.field-experience');
+    const imageStyle=getComputedStyle(field).backgroundImage;
+    const overlayStyle=getComputedStyle(field,'::before').backgroundImage;
     return {
       cards:tabs.map(x=>x.getBoundingClientRect().height),
       tickerCount:ticker.length,
@@ -38,13 +40,14 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
       navGapLeft:label.left-stars[0].right,
       navGapRight:stars[1].left-label.right,
       photo:imageStyle.includes('Artificial_turf.jpg'),
+      unfilteredPhoto:!imageStyle.includes('gradient')&&overlayStyle==='none',
       noCaption:!document.querySelector('.field-photo-credit'),
       overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth
     };
    });
    check(home.tickerCount===36&&home.stars===36&&home.diamonds===0,name+' ticker not 36 star separators '+JSON.stringify(home));
    check(new Set(home.fonts).size===1&&new Set(home.colors).size===1,name+' ticker text visual inconsistency');
-   check(home.photo&&home.noCaption,name+' missing original turf photo or unexpected credit caption');
+   check(home.photo&&home.noCaption&&home.unfilteredPhoto,name+' original turf photo obscured or caption unexpectedly restored');
    check(home.cards.length===2&&Math.abs(home.cards[0]-home.cards[1])<2,name+' uneven homepage program tabs '+home.cards);
    check(Math.abs(home.navGapLeft-home.navGapRight)<2.5,name+' nav stars are not centered '+JSON.stringify(home));
    check(home.overflow<=3,name+' homepage horizontal overflow '+home.overflow);
