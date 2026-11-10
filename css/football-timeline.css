@@ -1,0 +1,322 @@
+/* Football testing timeline: vertical neon slider with one live week card.
+   Deliberately loaded after the legacy inline and site styles. */
+body.football-theme .fb-combine-guide .fb-timeline-experience {
+  --timeline-volt:#e8ff00;
+  --timeline-progress:0;
+  display:grid;
+  grid-template-columns:clamp(92px,13vw,144px) minmax(0,1fr);
+  align-items:stretch;
+  gap:clamp(20px,3.5vw,44px);
+  width:100%;
+  min-width:0;
+  padding:clamp(21px,3vw,34px);
+  border:1px solid #414b41;
+  border-radius:22px;
+  background:
+    radial-gradient(ellipse at 0 54%,rgba(232,255,0,.095),transparent 52%),
+    linear-gradient(145deg,#161c1b,#101417 78%);
+  box-shadow:0 13px 30px rgba(11,16,19,.18),
+    inset 0 0 42px rgba(232,255,0,.027);
+  color:#f6f7f4;
+  isolation:isolate;
+}
+body.football-theme .fb-combine-guide .fb-timeline-selector {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:15px;
+  min-width:0;
+  width:100%;
+  max-width:none;
+  margin:0;
+  padding:0;
+}
+.fb-timeline-drag-label {
+  font:800 12px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:1.8px;
+  text-align:center;
+  text-transform:uppercase;
+  color:#d3f03b;
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail {
+  --rail-inset:24px;
+  position:relative;
+  flex:none;
+  display:block;
+  width:100px;
+  max-width:100%;
+  height:300px;
+  min-width:0;
+  border-radius:20px;
+  cursor:grab;
+  touch-action:none;
+  user-select:none;
+  -webkit-user-select:none;
+  outline:none;
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail.is-dragging {cursor:grabbing}
+body.football-theme .fb-combine-guide .fb-timeline-rail:focus-visible {
+  outline:3px solid #f5ff8e;
+  outline-offset:5px;
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail::before {
+  content:'';
+  position:absolute;
+  top:var(--rail-inset);
+  bottom:var(--rail-inset);
+  left:30px;
+  width:5px;
+  border-radius:10px;
+  background:linear-gradient(#616c60,#858e83,#616c60);
+  box-shadow:0 0 0 1px rgba(255,255,255,.13),0 0 15px rgba(232,255,0,.12);
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail-progress {
+  position:absolute;
+  top:var(--rail-inset);
+  left:30px;
+  width:5px;
+  height:calc((100% - 2 * var(--rail-inset)) * var(--timeline-progress));
+  border-radius:10px;
+  background:var(--timeline-volt);
+  box-shadow:0 0 9px rgba(232,255,0,.8),
+    0 0 23px rgba(232,255,0,.65),0 0 42px rgba(232,255,0,.36);
+  pointer-events:none;
+  transition:height .22s cubic-bezier(.2,.8,.2,1);
+}
+body.football-theme .fb-combine-guide .fb-timeline-marker {
+  position:absolute;
+  left:0;
+  width:100%;
+  height:44px;
+  transform:translateY(-50%);
+  display:flex;
+  align-items:center;
+  pointer-events:none;
+}
+body.football-theme .fb-combine-guide .fb-timeline-marker:nth-of-type(2) {top:var(--rail-inset)}
+body.football-theme .fb-combine-guide .fb-timeline-marker:nth-of-type(3) {top:calc(var(--rail-inset) + (100% - 2 * var(--rail-inset)) / 3)}
+body.football-theme .fb-combine-guide .fb-timeline-marker:nth-of-type(4) {top:calc(var(--rail-inset) + (100% - 2 * var(--rail-inset)) * 2 / 3)}
+body.football-theme .fb-combine-guide .fb-timeline-marker:nth-of-type(5) {top:calc(100% - var(--rail-inset))}
+body.football-theme .fb-combine-guide .fb-timeline-marker::before {
+  content:'';
+  position:absolute;
+  left:25px;
+  top:50%;
+  width:15px;
+  height:15px;
+  border:2px solid #acbca7;
+  border-radius:50%;
+  transform:translateY(-50%);
+  background:#151b19;
+  box-shadow:0 0 7px rgba(232,255,0,.11);
+}
+body.football-theme .fb-combine-guide .fb-timeline-marker.is-passed::before {
+  background:var(--timeline-volt);
+  border-color:var(--timeline-volt);
+  box-shadow:0 0 10px #e8ff00bb,0 0 25px #e8ff0055;
+}
+body.football-theme .fb-combine-guide .fb-timeline-marker span {
+  margin-left:54px;
+  color:#e8eadf;
+  font:800 15px/1 'Barlow Condensed',sans-serif;
+  letter-spacing:1.2px;
+}
+body.football-theme .fb-combine-guide .fb-timeline-marker.is-passed span {color:var(--timeline-volt)}
+body.football-theme .fb-combine-guide .fb-timeline-handle {
+  position:absolute;
+  z-index:3;
+  top:calc(var(--rail-inset) + (100% - 2 * var(--rail-inset)) * var(--timeline-progress));
+  left:32.5px;
+  transform:translate(-50%,-50%);
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  border:3px solid #e8ff00;
+  background:#171e1a;
+  color:#f2ff80;
+  font:900 21px/1 'Barlow Condensed',sans-serif;
+  box-shadow:0 0 0 5px rgba(232,255,0,.17),
+    0 0 14px rgba(232,255,0,.83),0 0 36px rgba(232,255,0,.38);
+  pointer-events:none;
+  transition:top .22s cubic-bezier(.2,.8,.2,1),box-shadow .2s ease;
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail.is-dragging .fb-timeline-handle,
+body.football-theme .fb-combine-guide .fb-timeline-rail.is-dragging .fb-timeline-rail-progress {
+  transition:none;
+}
+body.football-theme .fb-combine-guide .fb-timeline-rail.is-dragging .fb-timeline-handle {
+  box-shadow:0 0 0 7px rgba(232,255,0,.24),
+    0 0 25px rgba(232,255,0,.9),0 0 52px rgba(232,255,0,.5);
+}
+.fb-timeline-hint {
+  text-align:center;
+  font:600 12px/1.45 'Barlow',sans-serif;
+  color:#d1d5ca !important;
+  max-width:130px;
+  margin:0 !important;
+}
+body.football-theme .fb-combine-guide .fb-timeline-content {
+  min-width:0;
+  display:flex;
+  flex-direction:column;
+  align-items:stretch;
+  justify-content:center;
+  gap:13px;
+}
+body.football-theme .fb-combine-guide .fb-timeline-track {
+  display:grid !important;
+  grid-template-columns:minmax(0,1fr) !important;
+  position:relative;
+  align-items:stretch;
+  overflow:visible !important;
+  width:100% !important;
+  max-width:100%;
+  min-width:0 !important;
+  padding:0 !important;
+  margin:0;
+  gap:0 !important;
+  scroll-snap-type:none !important;
+  scroll-padding:0 !important;
+}
+body.football-theme .fb-combine-guide .fb-timeline-item {
+  grid-area:1 / 1;
+  display:flex !important;
+  flex-direction:column;
+  justify-content:center;
+  align-self:stretch;
+  width:100% !important;
+  max-width:100% !important;
+  min-width:0 !important;
+  min-height:220px !important;
+  height:auto !important;
+  margin:0 !important;
+  padding:clamp(19px,3vw,32px) !important;
+  background:linear-gradient(145deg,#252c2b,#1d2325);
+  border:1px solid rgba(232,255,0,.36) !important;
+  border-left:4px solid var(--timeline-volt) !important;
+  border-radius:16px;
+  box-shadow:0 0 28px rgba(232,255,0,.075),inset 0 0 24px rgba(232,255,0,.025);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(12px) scale(.99);
+  pointer-events:none;
+  transition:opacity .3s ease,transform .34s ease,visibility 0s linear .34s;
+  overflow-wrap:break-word;
+}
+body.football-theme .fb-combine-guide .fb-timeline-item::before {content:none !important}
+body.football-theme .fb-combine-guide .fb-timeline-item.is-selected {
+  visibility:visible;
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+  transition:opacity .3s ease,transform .34s ease,visibility 0s;
+  box-shadow:0 0 27px rgba(232,255,0,.14),
+    0 0 53px rgba(232,255,0,.07),inset 0 0 26px rgba(232,255,0,.04);
+}
+body.football-theme .fb-combine-guide .fb-timeline-label {
+  align-self:flex-start;
+  display:inline-block;
+  max-width:100%;
+  padding:7px 12px;
+  margin-bottom:12px;
+  background:var(--timeline-volt) !important;
+  color:#14181a !important;
+  border-radius:999px;
+  white-space:normal;
+  font:800 15px/1.2 'Barlow Condensed',sans-serif;
+  letter-spacing:1px;
+  box-shadow:0 0 16px rgba(232,255,0,.25);
+}
+body.football-theme .fb-combine-guide .fb-timeline-item p {
+  color:#f2f4ee !important;
+  margin:0;
+  font:500 clamp(15px,1.5vw,17px)/1.7 'Barlow',sans-serif !important;
+}
+body.football-theme .fb-combine-guide .fb-timeline-output {
+  display:block;
+  min-width:0;
+  text-align:left;
+  color:#e8ff00 !important;
+  font:800 13px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.4px;
+  text-transform:uppercase;
+  white-space:normal;
+}
+body.football-theme .fb-combine-guide .fb-timeline-output::before {
+  content:'●';
+  font-size:10px;
+  display:inline-block;
+  margin-right:7px;
+  vertical-align:1px;
+  color:#e8ff00;
+  text-shadow:0 0 12px #e8ff00;
+}
+/* The interactive rail remains vertical on every screen, including phones. */
+@media(max-width:700px) {
+  body.football-theme .fb-combine-guide .fb-timeline-experience {
+    grid-template-columns:90px minmax(0,1fr);
+    gap:clamp(11px,3.6vw,20px);
+    padding:clamp(13px,3vw,21px);
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-rail {
+    width:80px;
+    height:270px;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-item {
+    flex:initial !important;
+    min-height:235px !important;
+    padding:clamp(15px,3.7vw,24px) !important;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-label {font-size:13px}
+  body.football-theme .fb-combine-guide .fb-timeline-item p {font-size:15px !important}
+  .fb-timeline-drag-label {font-size:11px;letter-spacing:1px}
+  body.football-theme .fb-combine-guide .fb-timeline-hint {font-size:11px !important}
+}
+@media(max-width:390px) {
+  body.football-theme .fb-combine-guide .fb-timeline-experience {
+    grid-template-columns:69px minmax(0,1fr);
+    gap:8px;
+    padding:11px;
+    border-radius:16px;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-rail {
+    width:65px;
+    height:265px;
+    --rail-inset:25px;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-rail::before,
+  body.football-theme .fb-combine-guide .fb-timeline-rail-progress {left:21px}
+  body.football-theme .fb-combine-guide .fb-timeline-marker::before {left:16px}
+  body.football-theme .fb-combine-guide .fb-timeline-marker span {margin-left:43px;font-size:12px}
+  body.football-theme .fb-combine-guide .fb-timeline-handle {
+    left:23.5px;width:39px;height:39px;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-item {
+    padding:13px !important;
+    min-height:235px !important;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-item p {
+    font-size:14px !important;
+    line-height:1.55 !important;
+  }
+  body.football-theme .fb-combine-guide .fb-timeline-label {
+    padding:6px 9px;
+    font-size:12px;
+  }
+}
+@media(orientation:landscape) and (max-height:450px) {
+  body.football-theme .fb-combine-guide .fb-timeline-experience {gap:20px;padding:17px}
+  body.football-theme .fb-combine-guide .fb-timeline-rail {height:235px}
+  body.football-theme .fb-combine-guide .fb-timeline-item {min-height:190px !important}
+}
+@media(prefers-reduced-motion:reduce) {
+  body.football-theme .fb-combine-guide .fb-timeline-rail-progress,
+  body.football-theme .fb-combine-guide .fb-timeline-handle,
+  body.football-theme .fb-combine-guide .fb-timeline-item,
+  body.football-theme .fb-combine-guide .fb-timeline-item.is-selected {
+    transition:none !important;
+  }
+}
