@@ -40,14 +40,17 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
       navGapLeft:label.left-stars[0].right,
       navGapRight:stars[1].left-label.right,
       photo:imageStyle.includes('Artificial_turf.jpg'),
-      unfilteredPhoto:!imageStyle.includes('gradient')&&overlayStyle==='none',
+      nightPhoto:imageStyle.includes('linear-gradient')&&overlayStyle==='none',
+      borders:tabs.map(x=>getComputedStyle(x).borderTopWidth),
       noCaption:!document.querySelector('.field-photo-credit'),
       overflow:document.documentElement.scrollWidth-document.documentElement.clientWidth
     };
    });
    check(home.tickerCount===36&&home.stars===36&&home.diamonds===0,name+' ticker not 36 star separators '+JSON.stringify(home));
    check(new Set(home.fonts).size===1&&new Set(home.colors).size===1,name+' ticker text visual inconsistency');
-   check(home.photo&&home.noCaption&&home.unfilteredPhoto,name+' original turf photo obscured or caption unexpectedly restored');
+   check(home.photo&&home.noCaption&&home.nightPhoto,name+' night turf photo treatment or caption incorrect');
+   check(home.borders.length===2&&home.borders.every(x=>x==='2px'),name+' mismatched chooser borders '+JSON.stringify(home.borders));
+   check(screen.width>680||home.cards.every(x=>x<=114),name+' chooser remains oversized on phone '+JSON.stringify(home.cards));
    check(home.cards.length===2&&Math.abs(home.cards[0]-home.cards[1])<2,name+' uneven homepage program tabs '+home.cards);
    check(Math.abs(home.navGapLeft-home.navGapRight)<2.5,name+' nav stars are not centered '+JSON.stringify(home));
    check(home.overflow<=3,name+' homepage horizontal overflow '+home.overflow);
@@ -70,6 +73,7 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
      const tabs=[...document.querySelectorAll('.registration-programs .program-choice')];
      return {
        heights:tabs.map(t=>t.getBoundingClientRect().height),
+       borders:tabs.map(t=>getComputedStyle(t).borderTopWidth),
        steps:document.querySelectorAll('.registration-steps li').length,
        docs:document.querySelectorAll('.registration-doc-list li').length,
        policy:document.querySelectorAll('.registration-policy-list > div').length,
@@ -79,6 +83,8 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
      };
    });
    check(reg.heights.length===2&&Math.abs(reg.heights[0]-reg.heights[1])<2,name+' registration tabs uneven '+JSON.stringify(reg));
+   check(reg.borders.every(x=>x==='2px'),name+' registration tabs have inconsistent borders '+JSON.stringify(reg));
+   check(screen.width>680||reg.heights.every(x=>x<=114),name+' registration tabs oversized on phone '+JSON.stringify(reg.heights));
    check(reg.steps===5&&reg.docs===5&&reg.policy===6&&reg.formRows===2&&reg.oldCards===0,name+' registration structure '+JSON.stringify(reg));
    check(reg.overflow<=3,name+' registration horizontal overflow '+reg.overflow);
    await page.locator('#registration-program-cheer').click();
