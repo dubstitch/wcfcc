@@ -3040,3 +3040,67 @@ nav .nav-reviews .nav-reviews-label {
   nav .nav-reviews svg {width:13px !important;height:13px !important}
   nav .nav-reviews .nav-reviews-label {font-size:13px;letter-spacing:.9px}
 }
+
+/* Final mobile visual QA: exact icon symmetry and readable camp dates. */
+nav .nav-reviews {
+  display:inline-flex !important;
+  align-items:center !important;
+  justify-content:center !important;
+  gap:8px !important;
+  padding:10px 12px !important;
+  box-sizing:border-box !important;
+  white-space:nowrap !important;
+}
+nav .nav-reviews svg {
+  display:block !important;
+  width:14px !important;
+  height:14px !important;
+  flex:0 0 14px !important;
+  position:static !important;
+  inset:auto !important;
+  top:auto !important;
+  margin:0 !important;
+  transform:none !important;
+}
+nav .nav-reviews .nav-reviews-label {
+  display:block !important;
+  flex:0 0 auto !important;
+  margin:0 !important;
+  padding:0 !important;
+  line-height:1 !important;
+  letter-spacing:1px !important;
+  white-space:nowrap !important;
+}
+@media(max-width:390px) {
+  nav .nav-reviews {gap:6px !important;padding:9px 9px !important}
+  nav .nav-reviews svg {width:13px !important;height:13px !important;flex-basis:13px !important}
+}
+body.football-theme .hero .ch-hero-meta,
+body.cheer-theme .hero .ch-hero-meta {
+  font-size:clamp(17px,1.75vw,20px) !important;
+  color:#292e34 !important;
+  font-weight:800 !important;
+  letter-spacing:.35px !important;
+  line-height:1.45 !important;
+  gap:12px 18px !important;
+}
+body.football-theme .hero .ch-hero-meta .ch-meta-item,
+body.cheer-theme .hero .ch-hero-meta .ch-meta-item {
+  display:inline-flex !important;
+  align-items:center !important;
+  gap:9px !important;
+  flex-shrink:0;
+  max-width:100%;
+}
+body.football-theme .hero .ch-hero-meta .ch-meta-item > span:last-child,
+body.cheer-theme .hero .ch-hero-meta .ch-meta-item > span:last-child {
+  font-size:inherit !important;
+  color:inherit !important;
+  line-height:1.45 !important;
+  white-space:normal !important;
+}
+body.football-theme .hero .ch-hero-meta strong,
+body.cheer-theme .hero .ch-hero-meta strong {
+  color:#101114 !important;
+  font-weight:900 !important;
+}
