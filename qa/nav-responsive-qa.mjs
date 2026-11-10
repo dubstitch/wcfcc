@@ -27,11 +27,27 @@ for(const [name,engine] of [['chromium',chromium],['webkit',webkit]]){
       return {vw:innerWidth,nav:box(nav),logo:box(nav.querySelector('.nav-logo')),review:box(review),burger:box(burger),
         menu:getComputedStyle(document.querySelector('.nav-mobile-menu')).display,links:display(links),
         reviewVisible:display(review),burgerVisible:display(burger),registerVisible:display(register),
+        reviewsOptics:(()=>{
+          const label=review.querySelector('.nav-reviews-label').getBoundingClientRect();
+          const button=review.getBoundingClientRect();
+          const before=getComputedStyle(review,'::before');
+          const after=getComputedStyle(review,'::after');
+          return {
+            centerDifference:Math.abs((label.left+label.right)/2-(button.left+button.right)/2),
+            beforeWidth:parseFloat(before.width),
+            afterWidth:parseFloat(after.width),
+            svgHidden:[...review.querySelectorAll('svg')].every(x=>getComputedStyle(x).display==='none')
+          };
+        })(),
         documentWidth:document.documentElement.scrollWidth};
     });
     const where=name+' '+size.name+' '+url;
     const compact=size.width<=1399;
     const visibleBox=(b)=>b.left>=-1&&b.right<=status.vw+1;
+    if(status.reviewsOptics.centerDifference>1.5 ||
+       Math.abs(status.reviewsOptics.beforeWidth-status.reviewsOptics.afterWidth)>0.5 ||
+       !status.reviewsOptics.svgHidden)
+      errors.push(where+' Reviews stars are not truly symmetrical '+JSON.stringify(status.reviewsOptics));
     if(compact){
       if(status.links||status.registerVisible||!status.burgerVisible||!status.reviewVisible)errors.push(where+' incorrect compact controls '+JSON.stringify(status));
       if(!visibleBox(status.logo)||!visibleBox(status.review)||!visibleBox(status.burger))errors.push(where+' compact item clipped '+JSON.stringify(status));
