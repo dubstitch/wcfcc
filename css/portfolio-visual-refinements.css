@@ -511,3 +511,79 @@ nav .nav-reviews .nav-reviews-label {display:block;white-space:nowrap;letter-spa
   nav .nav-reviews svg {width:13px !important;height:13px !important}
   nav .nav-reviews .nav-reviews-label {font-size:13px;letter-spacing:.9px}
 }
+
+/* Night game contrast over the exact original stadium turf photograph.
+   The photograph remains visible, with no caption or credit overlay. */
+body .field-experience {
+  background-image:
+    linear-gradient(95deg,rgba(3,11,18,.79) 0%,rgba(3,11,18,.69) 54%,rgba(3,11,18,.58) 100%),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Artificial_turf.jpg/960px-Artificial_turf.jpg") !important;
+}
+body .field-experience::before {background:none !important}
+body .field-experience .section-title,
+body .field-experience .section-subtitle,
+body .field-experience .section-eyebrow {
+  color:#fff !important;
+  text-shadow:0 2px 9px rgba(0,0,0,.68) !important;
+}
+body .field-experience .section-title .accent {
+  color:#e8ff00 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:0 2px 9px rgba(0,0,0,.72) !important;
+}
+/* Both program tabs use an identical actual border-box height and border
+   width, including the compact registration version. */
+body .programs .program-choice-tabs {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+  align-items:stretch !important;
+  gap:12px !important;
+}
+body .programs .program-choice {
+  box-sizing:border-box !important;
+  display:flex !important;
+  align-items:center !important;
+  align-self:stretch !important;
+  width:100% !important;
+  height:116px !important;
+  min-height:116px !important;
+  max-height:116px !important;
+  min-width:0 !important;
+  padding:15px 17px !important;
+  gap:12px !important;
+  border-width:2px !important;
+  border-style:solid !important;
+  border-radius:16px !important;
+}
+body .programs .program-choice[data-tab="football"] {border-color:#17191e !important}
+body .programs .program-choice[data-tab="cheer"] {border-color:#ffe7f3 !important}
+body .programs .program-choice > span:last-child {min-width:0 !important;flex:1 1 auto}
+body .programs .program-choice strong {line-height:1.07 !important}
+body .programs .program-choice small {margin-top:5px !important;line-height:1.3 !important}
+@media(max-width:680px) {
+  body .programs .program-choice-tabs {gap:10px !important}
+  body .programs .program-choice {
+    height:112px !important;
+    min-height:112px !important;
+    max-height:112px !important;
+    padding:11px 10px !important;
+    gap:8px !important;
+  }
+  body .programs .program-choice strong {font-size:clamp(17px,4.6vw,20px) !important}
+  body .programs .program-choice small {font-size:11px !important;line-height:1.28 !important}
+  body .programs .program-choice-icon {
+    width:32px !important;height:32px !important;
+    flex:0 0 32px !important;
+  }
+}
+@media(max-width:350px) {
+  body .programs .program-choice {padding:9px 7px !important;gap:6px !important}
+  body .programs .program-choice-icon {width:28px !important;height:28px !important;flex-basis:28px !important}
+  body .programs .program-choice strong {font-size:16px !important}
+  body .programs .program-choice small {font-size:10.5px !important}
+}
+/* The shared Reviews button had a grid layout with an uneven optical gap.
+   Make its two real SVG stars symmetric on both archive pages. */
+nav .nav-reviews {display:inline-flex !important;gap:8px !important;align-items:center !important;justify-content:center !important}
+nav .nav-reviews svg {flex:0 0 14px !important}
+@media(max-width:390px) {nav .nav-reviews {gap:6px !important}nav .nav-reviews svg {flex-basis:13px !important}}
