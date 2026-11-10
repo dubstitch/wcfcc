@@ -79,6 +79,7 @@ for(const [browserName,browserEngine] of [['chromium',chromium],['webkit',webkit
    });
    assert(end.value==='4'&&end.active.length===1&&end.active[0]==='4'&&end.hidden===3&&end.progress==='1',
     label+' vertical drag to Week 4 failed '+JSON.stringify(end));
+   await rail.scrollIntoViewIfNeeded();
    const newBox=await rail.boundingBox();
    const xBack=newBox.x+Math.min(newBox.width/3,25);
    const bottomHit=await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.id||document.elementFromPoint(x,y)?.className||'',{x:xBack,y:newBox.y+newBox.height-25});
