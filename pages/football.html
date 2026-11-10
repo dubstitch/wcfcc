@@ -327,6 +327,7 @@
   border:2px solid var(--fb-black) !important;
 }
 </style>
+<link rel="stylesheet" href="../css/football-timeline.css?v=20261110a">
 </head>
 <body class="football-theme">
 
@@ -559,28 +560,46 @@
         </div>
       </div>
       <div class="fb-combine-card">
-        <h3>TESTING TIMELINE</h3>
-        <div class="fb-timeline-track" id="fb-timeline-track" role="region" aria-label="Four week testing timeline" tabindex="0">
-        <div class="fb-timeline-item" tabindex="0">
-          <span class="fb-timeline-label">WEEK 1 &middot; BASELINE</span>
+        <h3 id="fb-timeline-title">TESTING TIMELINE</h3>
+        <div class="fb-timeline-experience" style="--timeline-progress:0">
+          <div class="fb-timeline-selector">
+            <span class="fb-timeline-drag-label">HOLD + DRAG</span>
+            <div class="fb-timeline-rail" id="fb-timeline-rail" role="slider" tabindex="0"
+              aria-label="Testing timeline week" aria-orientation="vertical"
+              aria-valuemin="1" aria-valuemax="4" aria-valuenow="1"
+              aria-valuetext="Week 1: Baseline" aria-controls="fb-timeline-track"
+              aria-describedby="fb-timeline-instructions">
+              <span class="fb-timeline-rail-progress" aria-hidden="true"></span>
+              <span class="fb-timeline-marker is-passed" aria-hidden="true"><span>01</span></span>
+              <span class="fb-timeline-marker" aria-hidden="true"><span>02</span></span>
+              <span class="fb-timeline-marker" aria-hidden="true"><span>03</span></span>
+              <span class="fb-timeline-marker" aria-hidden="true"><span>04</span></span>
+              <span class="fb-timeline-handle" aria-hidden="true">&#8597;</span>
+            </div>
+            <p class="fb-timeline-hint" id="fb-timeline-instructions">Drag up or down to explore each week. Use arrow keys on the slider.</p>
+          </div>
+          <div class="fb-timeline-content">
+            <div class="fb-timeline-track" id="fb-timeline-track" role="region"
+              aria-label="Four week testing timeline">
+          <article class="fb-timeline-item is-selected" data-week="1" role="group" aria-label="Week 1" aria-hidden="false">
+<span class="fb-timeline-label">WEEK 1 &middot; BASELINE</span>
           <p>Athletes complete every combine drill to set personal baseline numbers in speed, agility, power, and position skill.</p>
-        </div>
-        <div class="fb-timeline-item" tabindex="0">
-          <span class="fb-timeline-label">WEEK 2 &middot; DEVELOP</span>
+          </article>
+          <article class="fb-timeline-item" data-week="2" role="group" aria-label="Week 2" aria-hidden="true" inert>
+<span class="fb-timeline-label">WEEK 2 &middot; DEVELOP</span>
           <p>Coaches break down baseline results and athletes train the specific drills, mechanics, and footwork that move their numbers.</p>
-        </div>
-        <div class="fb-timeline-item" tabindex="0">
-          <span class="fb-timeline-label">WEEK 3 &middot; APPLY</span>
+          </article>
+          <article class="fb-timeline-item" data-week="3" role="group" aria-label="Week 3" aria-hidden="true" inert>
+<span class="fb-timeline-label">WEEK 3 &middot; APPLY</span>
           <p>Combine skills get applied to position work and Friday 7 on 7 reps so athletes feel the gains in live competition.</p>
-        </div>
-        <div class="fb-timeline-item" tabindex="0">
-          <span class="fb-timeline-label">WEEK 4 &middot; RE-TEST</span>
+          </article>
+          <article class="fb-timeline-item" data-week="4" role="group" aria-label="Week 4" aria-hidden="true" inert>
+<span class="fb-timeline-label">WEEK 4 &middot; RE-TEST</span>
           <p>Final combine evaluation. Athletes re-test every drill from Week 1 and walk away with a measurable progress report.</p>
-        </div>
-        </div>
-        <div class="fb-timeline-selector">
-          <input class="fb-timeline-range" id="fb-timeline-range" type="range" min="1" max="4" step="1" value="1" aria-label="Drag to choose a testing week" aria-controls="fb-timeline-track" style="--week-progress:0%;">
-          <output class="fb-timeline-output" for="fb-timeline-range" id="fb-timeline-output" aria-live="polite">WEEK 1 OF 4</output>
+          </article>
+            </div>
+            <output class="fb-timeline-output" id="fb-timeline-output" role="status" aria-live="polite" aria-atomic="true">WEEK 1 OF 4</output>
+          </div>
         </div>
       </div>
     </div>
@@ -750,6 +769,6 @@
 </footer>
 
 <script src="../js/site.js"></script>
-<script src="../js/football-fixes.js"></script>
+<script src="../js/football-fixes.js?v=20261110a"></script>
 </body>
 </html>
