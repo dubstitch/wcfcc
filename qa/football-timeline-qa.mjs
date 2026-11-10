@@ -79,12 +79,16 @@ for(const [browserName,browserEngine] of [['chromium',chromium],['webkit',webkit
    });
    assert(end.value==='4'&&end.active.length===1&&end.active[0]==='4'&&end.hidden===3&&end.progress==='1',
     label+' vertical drag to Week 4 failed '+JSON.stringify(end));
-   await page.mouse.move(x,box.y+box.height-25);
+   const newBox=await rail.boundingBox();
+   const xBack=newBox.x+Math.min(newBox.width/3,25);
+   const bottomHit=await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.id||document.elementFromPoint(x,y)?.className||'',{x:xBack,y:newBox.y+newBox.height-25});
+   await page.mouse.move(xBack,newBox.y+newBox.height-25);
    await page.mouse.down();
-   await page.mouse.move(x,box.y+25,{steps:12});
+   await page.mouse.move(xBack,newBox.y+25,{steps:12});
    await page.mouse.up();
    await page.waitForTimeout(80);
-   assert(await rail.getAttribute('aria-valuenow')==='1',label+' drag back to Week 1 failed');
+   const valueBack=await rail.getAttribute('aria-valuenow');
+   assert(valueBack==='1',label+' drag back to Week 1 failed '+JSON.stringify({valueBack,bottomHit,box:newBox}));
    if(process.env.SHOW_SHOTS==='1'&&browserName==='chromium'&&['phone','desktop'].includes(size.name)){
     await page.screenshot({path:'/tmp/timeline-'+size.name+'.png'});
    }
