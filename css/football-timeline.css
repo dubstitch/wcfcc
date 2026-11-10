@@ -420,5 +420,5 @@ body.football-theme .fb-combine-guide .fb-timeline-label {
   body.football-theme .fb-combine-guide .fb-timeline-item {padding:15px !important}
 }
 @media(orientation:landscape) and (max-height:450px) {
-  body.football-theme .fb-combine-guide .fb-timeline-rail {height:276px !important}
+  body.football-theme .fb-combine-guide .fb-timeline-rail {width:120px !important;height:276px !important}
 }
