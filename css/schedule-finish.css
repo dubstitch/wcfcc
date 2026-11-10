@@ -1,0 +1,299 @@
+/*
+  WCFCC: editorial weekly training runway
+  Keeps the existing Football/Cheer tabs and all camp information.
+  Replaces the previous row of generic cards with a typographic timeline.
+*/
+.schedule-chooser {
+  --schedule-accent:#d9f900;
+  --schedule-dark:#111419;
+  background:linear-gradient(160deg,#eceff0 0%,#f7f8f7 58%,#e9eef0 100%) !important;
+  padding-block:clamp(60px,7vw,98px) !important;
+}
+.schedule-chooser[data-active-program=cheer] {
+  --schedule-accent:#ff6cae;
+  --schedule-dark:#251821;
+  background:linear-gradient(160deg,#f6edf2,#fff8fb 62%,#f2e9f0) !important;
+}
+.schedule-chooser .section-subtitle {max-width:770px;color:#343840 !important}
+.schedule-chooser .schedule-program-tabs {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  width:min(100%,660px);
+  padding:6px;
+  background:#e3e7e9;
+  border:1px solid #8f9ba1;
+  border-radius:14px;
+  gap:6px;
+  margin-bottom:clamp(22px,3vw,37px);
+}
+.schedule-chooser .schedule-program-tabs .wc-tab {
+  min-height:52px;
+  width:100%;
+  min-width:0;
+  padding:12px clamp(10px,2vw,22px);
+  border-radius:9px;
+  font:800 clamp(18px,2.4vw,25px)/1.15 'Barlow Condensed',sans-serif;
+  text-transform:uppercase;
+  letter-spacing:1px;
+}
+.schedule-chooser .schedule-brief {
+  display:grid;
+  grid-template-columns:minmax(0,1.35fr) repeat(2,minmax(0,.8fr));
+  align-items:stretch;
+  background:#151a1f;
+  border:1px solid #343941;
+  border-radius:clamp(14px,2vw,21px) clamp(14px,2vw,21px) 0 0;
+  overflow:hidden;
+  box-shadow:0 16px 36px rgba(28,31,37,.12);
+}
+.schedule-chooser[data-active-program=cheer] .schedule-brief {
+  background:#2a1c27;
+  border-color:#65445b;
+}
+.schedule-brief > div {
+  min-width:0;
+  padding:clamp(19px,2.6vw,31px);
+}
+.schedule-brief > div + div {border-left:1px solid rgba(255,255,255,.2)}
+.schedule-brief-label {
+  display:block;
+  color:#dce1e5;
+  font:800 12px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.65px;
+}
+.schedule-brief-primary strong {
+  display:block;
+  margin:8px 0;
+  color:#e8ff00;
+  font:400 clamp(30px,3.5vw,52px)/.98 'Bebas Neue',sans-serif;
+  letter-spacing:.45px;
+}
+.schedule-brief-primary strong span {color:#d7e0da;opacity:.75;padding-inline:4px}
+.schedule-brief-note {
+  display:block;
+  max-width:290px;
+  color:#edf1f4;
+  font:500 14px/1.55 'Barlow',sans-serif;
+}
+.schedule-brief-time {
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+  justify-content:center;
+  gap:13px;
+}
+.schedule-brief-time strong {
+  color:#fff;
+  font:400 clamp(26px,2.8vw,42px)/1 'Bebas Neue',sans-serif;
+  letter-spacing:.2px;
+  white-space:normal;
+}
+.schedule-brief-time strong span {color:#b7c8c9;font-size:.56em;vertical-align:middle}
+.schedule-brief-friday strong {color:#e8ff00}
+.schedule-chooser[data-active-program=cheer] .schedule-brief-primary strong,
+.schedule-chooser[data-active-program=cheer] .schedule-brief-friday strong {color:#ffa3d1}
+.schedule-chooser .schedule-runway {
+  background:rgba(255,255,255,.79);
+  border:1px solid #c3cbd1;
+  border-top:0;
+  padding:clamp(22px,3.7vw,48px);
+  border-radius:0 0 clamp(14px,2vw,21px) clamp(14px,2vw,21px);
+  box-shadow:0 22px 43px rgba(38,45,51,.085);
+}
+.schedule-chooser[data-active-program=cheer] .schedule-runway {
+  background:rgba(255,255,255,.85);
+  border-color:#d3adc4;
+}
+.schedule-runway-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:20px;
+  margin-bottom:clamp(25px,3.2vw,37px);
+}
+.schedule-runway-heading > div {flex:1 1 55%;min-width:0}
+.schedule-runway-overline {
+  display:block;
+  margin-bottom:10px;
+  color:#48515d;
+  font:800 12px/1.4 'Barlow Condensed',sans-serif;
+  letter-spacing:1.5px;
+}
+.schedule-runway-heading h3 {
+  margin:0;
+  font:400 clamp(36px,4.6vw,64px)/.95 'Bebas Neue',sans-serif;
+  letter-spacing:.15px;
+  color:#121619;
+}
+.schedule-runway-heading h3 span {color:#586b09}
+.schedule-chooser[data-active-program=cheer] .schedule-runway-heading h3 span {color:#a71960}
+.schedule-runway-heading > p {
+  flex:0 1 380px;
+  color:#323c42;
+  font:500 clamp(14px,1.45vw,16px)/1.6 'Barlow',sans-serif;
+}
+.schedule-day-list {
+  position:relative;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.schedule-day-list::before {
+  content:"";
+  position:absolute;
+  top:33px;
+  bottom:36px;
+  left:22px;
+  width:2px;
+  border-radius:99px;
+  background:linear-gradient(#66757c,#cad2d5);
+  pointer-events:none;
+}
+.schedule-chooser[data-active-program=cheer] .schedule-day-list::before {
+  background:linear-gradient(#a52a6c,#dcc3d4);
+}
+.schedule-day {
+  position:relative;
+  display:grid;
+  grid-template-columns:46px minmax(62px,105px) minmax(0,1fr) minmax(0,112px);
+  align-items:center;
+  gap:clamp(11px,2vw,28px);
+  min-width:0;
+  padding:clamp(15px,2vw,26px) 0;
+  border-bottom:1px solid #ccd2d5;
+}
+.schedule-day:last-child {border-bottom:0}
+.schedule-day-marker {
+  position:relative;
+  z-index:1;
+  display:grid;
+  place-items:center;
+  width:44px;height:44px;
+  background:#f4f6f6;
+  border:2px solid #65737b;
+  border-radius:50%;
+  font:800 13px/1 'Barlow Condensed',sans-serif;
+  color:#323c42;
+  font-variant-numeric:tabular-nums;
+}
+.schedule-chooser[data-active-program=cheer] .schedule-day-marker {
+  border-color:#9d3974;
+  color:#843055;
+  background:#fff7fb;
+}
+.schedule-day-name {
+  color:#151a20;
+  font:400 clamp(31px,4vw,49px)/.85 'Bebas Neue',sans-serif;
+  letter-spacing:.3px;
+}
+.schedule-day-name small {
+  display:block;
+  margin-top:8px;
+  color:#4c555e;
+  font:650 12px/1.2 'Barlow',sans-serif;
+  letter-spacing:0;
+}
+.schedule-day-content {min-width:0}
+.schedule-day-content h4 {
+  margin:0 0 6px;
+  color:#161b20;
+  font:700 clamp(19px,2.25vw,27px)/1.14 'Barlow Condensed',sans-serif;
+  letter-spacing:.2px;
+}
+.schedule-day-content p {
+  margin:0;
+  color:#3e4952;
+  font:500 clamp(14px,1.5vw,16px)/1.55 'Barlow',sans-serif;
+}
+.schedule-day-tag {
+  display:inline-flex;
+  justify-content:center;
+  justify-self:end;
+  align-items:center;
+  width:auto;
+  max-width:100%;
+  padding:7px 10px;
+  border:1px solid #8e9a9e;
+  border-radius:999px;
+  color:#263039;
+  background:#ecf0ed;
+  font:800 clamp(10px,1.1vw,12px)/1.2 'Barlow Condensed',sans-serif;
+  letter-spacing:1px;
+  text-align:center;
+}
+.schedule-day-feature {
+  background:linear-gradient(105deg,#161a1e,#30373d);
+  border:1px solid #49515a;
+  border-radius:14px;
+  margin-top:13px;
+  padding-inline:clamp(13px,2vw,26px);
+  box-shadow:0 10px 25px rgba(20,24,29,.17);
+}
+.schedule-day-feature .schedule-day-marker {background:#e8ff00;border-color:#e8ff00;color:#101114}
+.schedule-day-feature .schedule-day-name,
+.schedule-day-feature .schedule-day-content h4 {color:#f5f7f6}
+.schedule-day-feature .schedule-day-name small,
+.schedule-day-feature .schedule-day-content p {color:#e2e7e6}
+.schedule-day-feature .schedule-day-tag {
+  background:#e8ff00;
+  border-color:#e8ff00;
+  color:#111418;
+}
+.schedule-chooser[data-active-program=cheer] .schedule-day-feature {
+  background:linear-gradient(110deg,#382432,#602942);
+  border-color:#a05a7e;
+}
+.schedule-chooser[data-active-program=cheer] .schedule-day-feature .schedule-day-marker,
+.schedule-chooser[data-active-program=cheer] .schedule-day-feature .schedule-day-tag {
+  background:#ffa3d1;
+  border-color:#ffa3d1;
+  color:#2d1526;
+}
+.schedule-runway-footnote {
+  margin:27px 0 0;
+  color:#414b54;
+  font:650 14px/1.5 'Barlow',sans-serif;
+}
+@media(max-width:900px) {
+  .schedule-brief {grid-template-columns:1fr 1fr !important}
+  .schedule-brief-primary {grid-column:1/-1;border-bottom:1px solid rgba(255,255,255,.2)}
+  .schedule-brief > .schedule-brief-time:nth-child(2) {border-left:0}
+  .schedule-runway-heading {display:block}
+  .schedule-runway-heading > p {margin-top:14px;max-width:610px}
+  .schedule-day {grid-template-columns:46px 80px minmax(0,1fr);gap:17px}
+  .schedule-day-tag {grid-column:3;justify-self:start;margin-top:-6px}
+}
+@media(max-width:600px) {
+  .schedule-chooser .schedule-program-tabs {width:100%}
+  .schedule-chooser .schedule-program-tabs .wc-tab {font-size:19px}
+  .schedule-brief > div {padding:16px}
+  .schedule-brief-label {font-size:10px;letter-spacing:1px}
+  .schedule-brief-time {gap:7px}
+  .schedule-brief-time strong {font-size:clamp(22px,6vw,32px)}
+  .schedule-brief-note {font-size:13px}
+  .schedule-chooser .schedule-runway {padding:18px 15px 22px}
+  .schedule-day-list::before {left:17px}
+  .schedule-day {
+    grid-template-columns:36px minmax(0,1fr);
+    align-items:start;
+    gap:7px 12px;
+    padding:16px 0;
+  }
+  .schedule-day-marker {width:34px;height:34px;font-size:12px}
+  .schedule-day-name {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    gap:11px;
+    font-size:31px;
+    grid-column:2;
+  }
+  .schedule-day-name small {margin:0;font-size:13px}
+  .schedule-day-content {grid-column:2;padding-bottom:4px}
+  .schedule-day-content h4 {font-size:23px}
+  .schedule-day-tag {grid-column:2;margin:0}
+  .schedule-day-feature {padding:15px 10px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .schedule-chooser .schedule-runway,.schedule-chooser .schedule-day * {transition:none !important}
+}
