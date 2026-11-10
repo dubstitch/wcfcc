@@ -1,0 +1,459 @@
+/*
+  Focused November 10 design refinements.
+  Only the homepage and the registration experience load this sheet.
+  The original turf image is recovered from the earlier site implementation.
+*/
+
+/* Restore the exact existing turf PHOTO, not generated field graphics.
+   Preserve the intentionally caption-free treatment. */
+body .field-experience {
+  background-color:#103923 !important;
+  background-image:
+    linear-gradient(180deg,rgba(2,35,20,.76),rgba(3,46,26,.74)),
+    url("https://upload.wikimedia.org/wikipedia/commons/thumb/1/17/Artificial_turf.jpg/960px-Artificial_turf.jpg") !important;
+  background-size:cover !important;
+  background-position:center center !important;
+  background-repeat:no-repeat !important;
+}
+body .field-experience::before { background:none !important; }
+
+/* Keep the exact ticker movement and sticky behavior. Symbols and copy only. */
+.ticker .ticker-track .ticker-item,
+.ticker .ticker-track .ticker-item.cheer-ref,
+.ticker .ticker-track .ticker-item.sponsor-item {
+  font:800 clamp(13px,1.15vw,15px)/1.4 'Barlow Condensed',sans-serif !important;
+  letter-spacing:1.35px !important;
+  color:#fff !important;
+  opacity:1 !important;
+  text-transform:uppercase;
+  white-space:nowrap;
+  padding-inline:clamp(16px,2vw,25px);
+}
+.ticker .ticker-track .ticker-item .sep-bright,
+.ticker .ticker-track .ticker-item .sep {
+  display:inline-block;
+  color:#e8ff00 !important;
+  font-size:15px !important;
+  line-height:1;
+  margin-left:3px;
+  opacity:1 !important;
+  text-shadow:0 0 9px rgba(232,255,0,.32);
+}
+
+/* Shared homepage/registration program chooser: equal tab sizes at EVERY width. */
+body .programs .program-choice-tabs {
+  display:grid !important;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  align-items:stretch;
+  gap:clamp(9px,1.5vw,16px);
+  width:min(100%,895px);
+}
+body .programs .program-choice {
+  width:100%;
+  min-width:0;
+  min-height:98px !important;
+  height:100%;
+  align-items:center;
+  justify-content:flex-start;
+  gap:clamp(9px,1.5vw,16px);
+  padding:clamp(13px,1.8vw,19px);
+  box-sizing:border-box;
+  overflow-wrap:anywhere;
+}
+body .programs .program-choice > span:last-child {min-width:0}
+body .programs .program-choice strong {
+  font-size:clamp(19px,2.4vw,28px);
+  line-height:1.08;
+}
+body .programs .program-choice small {font-size:clamp(11px,1.1vw,13px);line-height:1.35}
+body .programs .program-choice-icon {
+  flex:0 0 clamp(33px,4vw,43px);
+  width:clamp(33px,4vw,43px);
+  height:clamp(33px,4vw,43px);
+}
+body .programs .program-feature {min-height:clamp(410px,34vw,500px);}
+body .programs .program-feature-main {min-width:0}
+body .programs .program-feature .program-feature-points span {max-width:100%}
+
+/* Cheer adopts the SAME premium charcoal treatment as football, in pink. */
+body .programs[data-active-program="cheer"] {
+  background:
+    radial-gradient(ellipse at 12% 0%,rgba(255,44,153,.16),transparent 54%),
+    linear-gradient(140deg,#19141d 0%,#2a1725 55%,#17131b 100%) !important;
+  border-top:2px solid rgba(255,83,170,.62);
+  border-bottom:2px solid rgba(255,83,170,.62);
+}
+body .programs[data-active-program="cheer"] .programs-header .section-title,
+body .programs[data-active-program="cheer"] .programs-header .section-subtitle,
+body .programs[data-active-program="cheer"] .programs-header .section-eyebrow,
+body .programs[data-active-program="cheer"] .programs-choice-caption {
+  color:#fff2f8 !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+body .programs[data-active-program="cheer"] .programs-header .section-title .accent {
+  color:#ff67b1 !important;
+  text-shadow:none !important;
+  -webkit-text-stroke:0 !important;
+}
+body .programs[data-active-program="cheer"] .programs-header .section-eyebrow::before {
+  background:#ff67b1 !important;
+  border-color:#ff67b1 !important;
+}
+body .programs[data-active-program="cheer"] .program-feature[data-tab-panel="cheer"] {
+  background:linear-gradient(137deg,#31232e,#231b27 76%,#1b171e) !important;
+  border:1px solid #d7639f !important;
+  color:#fff !important;
+  box-shadow:0 12px 30px rgba(0,0,0,.17),0 0 26px rgba(255,44,153,.035) !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] h3,
+body .programs .program-feature[data-tab-panel="cheer"] p {
+  color:#fceff8 !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] h3 span {
+  color:#ff7fbe !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-kicker {
+  color:#ff9fcd !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-points span {
+  color:#ffe5f2 !important;
+  border:1px solid #d378a9 !important;
+  background:rgba(255,64,159,.07);
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-link {
+  background:#f43492 !important;
+  color:#180e18 !important;
+  border:2px solid #ffc4e3 !important;
+  font-weight:900 !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-link:hover {
+  background:#ff8cc6 !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-side {
+  border:1px solid #a94f80 !important;
+  background:radial-gradient(ellipse at center,#62354f 0%,#402639 58%,#231b27 100%) !important;
+}
+body .programs .program-feature[data-tab-panel="cheer"] .program-feature-number {
+  color:#ff85c1 !important;
+  text-shadow:0 0 22px rgba(255,57,158,.2);
+}
+body .programs[data-active-program="cheer"] .program-feature-side-caption {
+  color:#ffe1ee !important;
+}
+body .programs .program-choice[data-tab="cheer"].is-active {
+  background:#ff4ba4 !important;
+  border:2px solid #ffe7f3 !important;
+  color:#1c0b19 !important;
+}
+body .programs .program-choice[data-tab="cheer"].is-active small {color:#331527 !important}
+body .programs .program-choice[data-tab="cheer"].is-active .program-choice-icon {
+  color:#fff !important;
+  background:#6c123f !important;
+  border-color:#6c123f !important;
+}
+body .programs .program-choice[data-tab="cheer"]:not(.is-active) {
+  background:#eab0d2 !important;
+  border:2px solid #ffc4e4 !important;
+  color:#2b1321 !important;
+}
+body .programs .program-choice[data-tab="cheer"]:not(.is-active) small {color:#412237 !important}
+body .programs .program-choice:focus-visible {outline:3px solid #fff !important;outline-offset:3px}
+
+/* Family feedback: restrained charcoal stage, bright white football and blush
+   cheer surfaces; clear active indicator without competing neon borders. */
+body .testimonials {
+  background:linear-gradient(160deg,#191d23 0%,#242832 57%,#171b21 100%) !important;
+  color:#fff !important;
+  overflow:hidden;
+}
+body .testimonials .section-eyebrow {color:#ffd9ed !important}
+body .testimonials .section-eyebrow::before {background:#ff73b7 !important}
+body .testimonials .section-title {color:#fff !important}
+body .testimonials .section-title .accent {
+  color:#ff85c1 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:none !important;
+}
+body .testimonials .testimonial-card,
+body .testimonials .testimonial-card.is-cheer {
+  background:#fcfafb !important;
+  color:#1b1f27 !important;
+  border:1px solid #dedde2 !important;
+  border-bottom:4px solid #b3bcc2 !important;
+  border-radius:18px;
+  transform:none !important;
+  box-shadow:0 12px 32px rgba(0,0,0,.17) !important;
+}
+body .testimonials .testimonial-card.is-cheer {
+  background:#fff0f7 !important;
+  border-color:#edb2d1 !important;
+  border-bottom-color:#c93c80 !important;
+}
+body .testimonials .testimonial-card.is-active {
+  border-color:#d8e990 !important;
+  border-bottom-color:#e8ff00 !important;
+  box-shadow:0 12px 33px rgba(0,0,0,.2),0 0 0 2px rgba(232,255,0,.4) !important;
+}
+body .testimonials .testimonial-card.is-cheer.is-active {
+  border-color:#ff90c9 !important;
+  border-bottom-color:#f23390 !important;
+  box-shadow:0 12px 33px rgba(0,0,0,.2),0 0 0 2px rgba(255,104,181,.45) !important;
+}
+body .testimonials .testimonial-card .testimonial-text,
+body .testimonials .testimonial-card.is-cheer .testimonial-text {
+  color:#293039 !important;
+  opacity:1 !important;
+}
+body .testimonials .testimonial-card .author-name,
+body .testimonials .testimonial-card.is-cheer .author-name {color:#17202a !important}
+body .testimonials .testimonial-card .author-role,
+body .testimonials .testimonial-card.is-cheer .author-role {color:#515966 !important}
+body .testimonials .testimonial-card .quote-mark {color:#75858d !important}
+body .testimonials .testimonial-card.is-cheer .quote-mark {color:#b82b76 !important}
+body .testimonials .testimonial-card .testimonial-author {border-top-color:#d3d6dd !important}
+body .testimonials .testimonial-card .author-avatar {
+  background:#e3e8eb !important;
+  color:#25323a !important;
+}
+body .testimonials .testimonial-card.is-cheer .author-avatar {
+  background:#f8c7df !important;
+  color:#702047 !important;
+}
+body .testimonials .carousel-controls .carousel-btn {
+  background:#fff !important;
+  color:#1d2229 !important;
+  border:1px solid #c5cbd3 !important;
+}
+body .testimonials .carousel-controls .carousel-dot:not(.active) {
+  background:#c1c8d0 !important;
+  border:1px solid #f6f6f6 !important;
+}
+body .testimonials .carousel-controls .carousel-dot.active {
+  background:#ff68ae !important;
+  border:1px solid #ffc5e0 !important;
+}
+body .testimonials .carousel-controls .carousel-btn:focus-visible,
+body .testimonials .carousel-controls .carousel-dot:focus-visible {
+  outline:3px solid #fff !important;
+  outline-offset:3px;
+}
+
+/* Registration: a visual guide with NO generic card grids. */
+.registration-process {
+  background:#edf0f3 !important;
+  padding:clamp(66px,8vw,102px) 0 !important;
+}
+.registration-process .registration-process-lead {
+  color:#323c42;
+  max-width:680px;
+  font:500 clamp(16px,1.6vw,19px)/1.55 'Barlow',sans-serif;
+  margin-top:16px;
+}
+.registration-steps {
+  display:grid;
+  grid-template-columns:repeat(5,minmax(0,1fr));
+  gap:0;
+  list-style:none;
+  padding:0;
+  margin:clamp(35px,5vw,66px) 0 0;
+  border-top:3px solid #161b20;
+}
+.registration-steps li {
+  min-width:0;
+  position:relative;
+  padding:30px clamp(13px,2vw,24px) 18px 0;
+  margin:0;
+}
+.registration-steps li::before {
+  content:'';
+  position:absolute;
+  top:-9px;left:0;
+  width:15px;height:15px;border-radius:50%;
+  background:#e8ff00;
+  border:3px solid #171b1f;
+  box-shadow:0 0 0 3px #edf0f3;
+}
+.registration-step-number {
+  display:block;
+  font:400 clamp(55px,7vw,100px)/.9 'Bebas Neue',sans-serif;
+  color:#313a41;
+  margin-bottom:14px;
+  letter-spacing:-1px;
+}
+.registration-steps h3 {
+  font:400 clamp(24px,2.4vw,36px)/1.05 'Bebas Neue',sans-serif;
+  color:#14191e;
+  margin:0 0 12px;
+}
+.registration-steps p {
+  font:500 15px/1.65 'Barlow',sans-serif;
+  color:#454d54;
+  max-width:260px;
+  margin:0;
+}
+.registration-programs {padding-block:clamp(68px,8vw,104px);}
+.registration-programs .program-feature-link {
+  white-space:normal;
+}
+.registration-programs .programs-header .section-title {color:#fff}
+.registration-forms {
+  padding:clamp(68px,8vw,104px) 0 !important;
+  background:#fff !important;
+}
+.registration-forms .registration-forms-intro {
+  font:500 clamp(16px,1.6vw,18px)/1.6 'Barlow',sans-serif;
+  color:#434951;
+  max-width:720px;
+  margin-top:16px;
+}
+.registration-form-row {
+  display:grid;
+  grid-template-columns:minmax(200px,.9fr) minmax(0,1.55fr);
+  gap:clamp(25px,4.2vw,65px);
+  align-items:start;
+  padding:clamp(31px,5vw,55px) 0;
+  border-top:2px solid #15191c;
+  scroll-margin-top:115px;
+}
+.registration-form-row:last-child {border-bottom:2px solid #15191c}
+.registration-form-row .registration-form-heading .registration-form-number {
+  font:400 clamp(70px,10vw,133px)/.86 'Bebas Neue',sans-serif;
+  color:#c8cdd0;
+  display:block;
+}
+.registration-form-row[data-registration-program=cheer] .registration-form-heading .registration-form-number {color:#d95194}
+.registration-form-row h3 {
+  color:#171b21;
+  font:400 clamp(40px,5vw,68px)/.93 'Bebas Neue',sans-serif;
+  margin:9px 0 16px;
+}
+.registration-form-row .registration-form-heading p {
+  font:500 16px/1.6 'Barlow',sans-serif;
+  color:#4a525b;
+  max-width:400px;
+}
+.registration-form-row .registration-form-content ul {
+  list-style:none;
+  padding:0;margin:0 0 27px;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:13px 24px;
+}
+.registration-form-row .registration-form-content li {
+  font:600 15px/1.4 'Barlow',sans-serif;
+  padding:0 0 12px 23px;
+  min-width:0;
+  position:relative;
+  border-bottom:1px solid #d2d9de;
+  color:#252c33;
+}
+.registration-form-row .registration-form-content li::before {
+  content:'★';position:absolute;left:0;top:0;color:#677900;font-size:14px;
+}
+.registration-form-row[data-registration-program=cheer] .registration-form-content li::before {color:#bf286d}
+.registration-form-row .registration-form-action {
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:15px 25px;
+  min-height:48px;
+  background:#e8ff00;
+  color:#101114;
+  text-decoration:none;
+  border-radius:7px;
+  font:800 16px/1.3 'Barlow Condensed',sans-serif;
+  letter-spacing:1px;
+  text-transform:uppercase;
+}
+.registration-form-row[data-registration-program=cheer] .registration-form-action {
+  background:#be1f6d;color:#fff;
+}
+.registration-form-row .wc-acc {margin-top:22px}
+.registration-form-row .wc-acc-item {
+  background:transparent !important;
+  border:1px solid #bac3cb !important;
+  color:#1a2027 !important;
+}
+.registration-form-row .wc-acc-trigger {color:#21272d !important;}
+.registration-form-row .wc-acc-body-inner {
+  background:#f4f6f7;
+  color:#20282f;
+}
+.registration-form-row .registration-additional-links {
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px 24px;
+}
+.registration-form-row .registration-additional-links a {
+  color:#222831 !important;
+  text-decoration:underline;
+  text-underline-offset:3px;
+  font:700 14px/1.45 'Barlow',sans-serif;
+}
+.registration-form-row .registration-form-action:focus-visible,
+.registration-form-row .registration-additional-links a:focus-visible {outline:3px solid #ad2e77;outline-offset:4px}
+
+.registration-documents {background:#181e23 !important;padding:clamp(68px,8vw,105px) 0 !important;color:#fff}
+.registration-documents .registration-doc-header p {
+  font:500 16px/1.7 'Barlow',sans-serif;color:#d5dee2;max-width:690px;
+  margin-top:15px;
+}
+.registration-doc-list {list-style:none;padding:0;margin:45px 0 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:clamp(26px,6vw,86px)}
+.registration-doc-list li {
+  display:grid;
+  grid-template-columns:50px minmax(0,1fr);
+  gap:15px;
+  padding:22px 0 25px;
+  border-top:1px solid #64737b;
+}
+.registration-doc-num {font:400 40px/1 'Bebas Neue',sans-serif;color:#e8ff00}
+.registration-doc-list h3 {font:400 clamp(23px,2.5vw,32px)/1.1 'Bebas Neue',sans-serif;color:#fff;margin:0 0 7px}
+.registration-doc-list p {color:#d9e2e5;line-height:1.55;font-size:15px;margin:4px 0}
+.registration-doc-list strong {color:#e8ff00}
+.registration-doc-help {border-top:1px solid #64737b;grid-column:1/-1;padding:25px 0;color:#fff}
+.registration-doc-help h3 {color:#e8ff00;font:400 30px/1.1 'Bebas Neue',sans-serif;margin:0 0 7px}
+.registration-doc-help p {color:#e4e9ed;font-size:16px}
+.registration-doc-help a {color:#e8ff00;text-underline-offset:4px;overflow-wrap:anywhere}
+
+.registration-policies {background:#f6f7f8 !important;padding:clamp(68px,8vw,105px) 0 !important}
+.registration-policies .registration-policy-list {
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
+  column-gap:clamp(30px,6vw,92px);
+  margin-top:45px;
+}
+.registration-policies .registration-policy-list > div {
+  border-top:2px solid #131820;
+  padding:23px 0 27px;
+}
+.registration-policies .registration-policy-list h3 {
+  font:400 clamp(27px,3vw,36px)/1.1 'Bebas Neue',sans-serif;
+  color:#161d24;
+  margin:0 0 12px;
+}
+.registration-policies .registration-policy-list p {
+  font:500 15px/1.72 'Barlow',sans-serif;color:#3a434c;
+}
+.registration-policies .registration-policy-list strong {color:#171c22 !important}
+@media(max-width:850px) {
+  .registration-steps {grid-template-columns:repeat(2,minmax(0,1fr));border-top:0;gap:12px 26px}
+  .registration-steps li {border-top:2px solid #151a1f;padding-top:24px}
+  .registration-steps li::before {top:-9px}
+  .registration-form-row {grid-template-columns:1fr;gap:19px}
+  .registration-form-row .registration-form-heading .registration-form-number {font-size:85px}
+}
+@media(max-width:680px) {
+  body .programs .program-choice {min-height:108px !important;padding:12px 9px;gap:8px}
+  body .programs .program-choice-icon {flex-basis:32px;width:32px;height:32px}
+  body .programs .program-choice strong {font-size:clamp(17px,4.3vw,23px)}
+  body .programs .program-choice small {font-size:11px}
+  body .programs .program-feature {min-height:0;gap:18px}
+  .registration-steps {grid-template-columns:1fr}
+  .registration-steps li {display:grid;grid-template-columns:77px minmax(0,1fr);gap:0 15px}
+  .registration-step-number {grid-row:span 2;font-size:63px}
+  .registration-steps h3 {margin:0 0 7px}
+  .registration-form-row .registration-form-content ul {grid-template-columns:1fr}
+  .registration-doc-list,.registration-policies .registration-policy-list {grid-template-columns:1fr}
+  .registration-doc-list li {grid-template-columns:42px 1fr}
+}
+@media(prefers-reduced-motion:reduce) {
+  body .programs .program-choice {transition:none !important}
+}
