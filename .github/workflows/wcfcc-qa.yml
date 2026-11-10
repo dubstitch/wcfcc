@@ -32,6 +32,8 @@ jobs:
         run: |
           python3 -m http.server 8765 --bind 127.0.0.1 >/tmp/wcfcc-http.log 2>&1 &
           sleep 2
+      - name: Verify requested homepage and registration visual refinements
+        run: node qa/nov10-visual-qa.mjs
       - name: Verify vertical testing timeline drag and card transitions
         run: node qa/football-timeline-qa.mjs
       - name: Audit pages
