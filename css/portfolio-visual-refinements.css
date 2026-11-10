@@ -587,3 +587,33 @@ body .programs .program-choice small {margin-top:5px !important;line-height:1.3 
 nav .nav-reviews {display:inline-flex !important;gap:8px !important;align-items:center !important;justify-content:center !important}
 nav .nav-reviews svg {flex:0 0 14px !important}
 @media(max-width:390px) {nav .nav-reviews {gap:6px !important}nav .nav-reviews svg {flex-basis:13px !important}}
+
+/* Focused contrast on Registration's Cheer experience:
+   rich blush text against the charcoal panel and luminous ivory CTA. */
+body .registration-programs #registration-panel-cheer h3 span {
+  color:#ffd5e9 !important;
+  -webkit-text-stroke:0 !important;
+  text-shadow:0 1px 0 rgba(0,0,0,.2) !important;
+}
+body .registration-programs #registration-panel-cheer .program-feature-link {
+  color:#261527 !important;
+  background:#ffe4f2 !important;
+  border:2px solid #ffe4f2 !important;
+  box-shadow:0 8px 24px rgba(255,102,168,.24),inset 0 1px 0 rgba(255,255,255,.9) !important;
+  text-decoration:none !important;
+  font-weight:900 !important;
+}
+body .registration-programs #registration-panel-cheer .program-feature-link svg {
+  color:#261527 !important;
+  stroke:#261527 !important;
+}
+body .registration-programs #registration-panel-cheer .program-feature-link:is(:hover,:focus-visible){
+  color:#1f1021 !important;
+  background:#fff6fb !important;
+  border-color:#fff !important;
+  box-shadow:0 10px 28px rgba(255,102,168,.33) !important;
+}
+body .registration-programs #registration-panel-cheer .program-feature-link:focus-visible {
+  outline:3px solid #fff !important;
+  outline-offset:4px !important;
+}
