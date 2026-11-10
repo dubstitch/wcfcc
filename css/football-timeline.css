@@ -19,6 +19,7 @@ body.football-theme .fb-combine-guide .fb-timeline-experience {
     inset 0 0 42px rgba(232,255,0,.027);
   color:#f6f7f4;
   isolation:isolate;
+  overflow-anchor:none;
 }
 body.football-theme .fb-combine-guide .fb-timeline-selector {
   display:flex;
