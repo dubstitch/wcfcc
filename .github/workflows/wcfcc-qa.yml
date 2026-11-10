@@ -36,6 +36,8 @@ jobs:
         run: node qa/nav-responsive-qa.mjs
       - name: Verify requested homepage and registration visual refinements
         run: node qa/nov10-visual-qa.mjs
+      - name: Verify final schedule and precise Cheer anchor
+        run: node qa/finish-schedule-qa.mjs
       - name: Verify vertical testing timeline drag and card transitions
         run: node qa/football-timeline-qa.mjs
       - name: Audit pages
