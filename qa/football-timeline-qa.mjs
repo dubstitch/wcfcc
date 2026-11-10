@@ -79,17 +79,26 @@ for(const [browserName,browserEngine] of [['chromium',chromium],['webkit',webkit
    });
    assert(end.value==='4'&&end.active.length===1&&end.active[0]==='4'&&end.hidden===3&&end.progress==='1',
     label+' vertical drag to Week 4 failed '+JSON.stringify(end));
-   await rail.scrollIntoViewIfNeeded();
+   // The page is intentionally vertically scrollable in phone landscape.
+   // Ensure our simulated finger lands inside the VISIBLE portion of the rail.
+   await page.evaluate(()=>{
+     const el=document.getElementById('fb-timeline-rail');
+     const b=el.getBoundingClientRect();
+     if(b.bottom>innerHeight-23)window.scrollBy({top:b.bottom-(innerHeight-23),behavior:'instant'});
+   });
+   await page.waitForTimeout(55);
    const newBox=await rail.boundingBox();
    const xBack=newBox.x+Math.min(newBox.width/3,25);
-   const bottomHit=await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.id||document.elementFromPoint(x,y)?.className||'',{x:xBack,y:newBox.y+newBox.height-25});
-   await page.mouse.move(xBack,newBox.y+newBox.height-25);
+   const yStart=Math.min(newBox.y+newBox.height-25,size.height-28);
+   const yEnd=Math.max(newBox.y+25,28);
+   const bottomHit=await page.evaluate(({x,y})=>document.elementFromPoint(x,y)?.id||document.elementFromPoint(x,y)?.className||'',{x:xBack,y:yStart});
+   await page.mouse.move(xBack,yStart);
    await page.mouse.down();
-   await page.mouse.move(xBack,newBox.y+25,{steps:12});
+   await page.mouse.move(xBack,yEnd,{steps:12});
    await page.mouse.up();
    await page.waitForTimeout(80);
    const valueBack=await rail.getAttribute('aria-valuenow');
-   assert(valueBack==='1',label+' drag back to Week 1 failed '+JSON.stringify({valueBack,bottomHit,box:newBox}));
+   assert(valueBack==='1',label+' drag back to Week 1 failed '+JSON.stringify({valueBack,bottomHit,box:newBox,yStart,yEnd}));
    if(process.env.SHOW_SHOTS==='1'&&browserName==='chromium'&&['phone','desktop'].includes(size.name)){
     await page.screenshot({path:'/tmp/timeline-'+size.name+'.png'});
    }
