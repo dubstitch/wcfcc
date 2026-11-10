@@ -189,10 +189,12 @@ function switchTab(btn) {
     p.classList.toggle('is-active',active);
     p.hidden=!active;
   });
-  if (group === 'home') {
-    var feature=document.getElementById('programs');
+  if (group === 'home' || group === 'registration') {
+    // Each instance owns its own background and introduction.
+    // The registration copy must never toggle the homepage's controls.
+    var feature=btn.closest('.programs');
     if(feature) feature.dataset.activeProgram=key;
-    var intro=document.getElementById('home-panel-intro');
+    var intro=feature && feature.querySelector('.program-feature-intro');
     if(intro) {
       intro.hidden=true;
       intro.classList.remove('is-active');
