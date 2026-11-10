@@ -297,3 +297,19 @@
 @media(prefers-reduced-motion:reduce) {
   .schedule-chooser .schedule-runway,.schedule-chooser .schedule-day * {transition:none !important}
 }
+
+/* Final visual QA: existing Cheer panel rules force dark paragraph ink.
+   The Friday feature has a plum background, so win that cascade explicitly. */
+body .schedule-chooser .schedule-program-panel .schedule-day-feature .schedule-day-content p,
+body .schedule-chooser[data-active-program="cheer"] .schedule-program-panel .schedule-day-feature .schedule-day-content p {
+  color:#f5edf2 !important;
+  opacity:1 !important;
+}
+body .schedule-chooser .schedule-program-panel .schedule-day-feature .schedule-day-content h4,
+body .schedule-chooser[data-active-program="cheer"] .schedule-program-panel .schedule-day-feature .schedule-day-content h4 {
+  color:#fff !important;
+}
+body .schedule-chooser .schedule-program-panel .schedule-day-feature .schedule-day-name,
+body .schedule-chooser .schedule-program-panel .schedule-day-feature .schedule-day-name small {
+  color:#fff !important;
+}
