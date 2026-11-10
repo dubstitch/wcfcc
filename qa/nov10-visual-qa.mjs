@@ -24,9 +24,10 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
     const tabs=[...document.querySelectorAll('#programs .program-choice')];
     const ticker=[...document.querySelectorAll('.ticker-track .ticker-item')];
     const nav=document.querySelector('nav .nav-reviews');
-    const navIcons=[...nav.querySelectorAll('svg')];
     const label=nav.querySelector('.nav-reviews-label').getBoundingClientRect();
-    const stars=navIcons.map(x=>x.getBoundingClientRect());
+    const button=nav.getBoundingClientRect();
+    const before=getComputedStyle(nav,'::before');
+    const after=getComputedStyle(nav,'::after');
     const field=document.querySelector('.field-experience');
     const imageStyle=getComputedStyle(field).backgroundImage;
     const overlayStyle=getComputedStyle(field,'::before').backgroundImage;
@@ -37,8 +38,11 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
       diamonds:ticker.filter(x=>x.textContent.includes('◆')).length,
       fonts:ticker.map(x=>getComputedStyle(x).fontSize),
       colors:ticker.map(x=>getComputedStyle(x).color),
-      navGapLeft:label.left-stars[0].right,
-      navGapRight:stars[1].left-label.right,
+      navSymmetry:{
+        centerDifference:Math.abs((label.left+label.right)/2-(button.left+button.right)/2),
+        beforeWidth:parseFloat(before.width),
+        afterWidth:parseFloat(after.width)
+      },
       photo:imageStyle.includes('Artificial_turf.jpg'),
       nightPhoto:imageStyle.includes('linear-gradient')&&overlayStyle==='none',
       borders:tabs.map(x=>getComputedStyle(x).borderTopWidth),
@@ -52,7 +56,7 @@ for(const [engineName,engine] of [['chromium',chromium],['webkit',webkit]]) {
    check(home.borders.length===2&&home.borders.every(x=>x==='2px'),name+' mismatched chooser borders '+JSON.stringify(home.borders));
    check(screen.width>680||home.cards.every(x=>x<=114),name+' chooser remains oversized on phone '+JSON.stringify(home.cards));
    check(home.cards.length===2&&Math.abs(home.cards[0]-home.cards[1])<2,name+' uneven homepage program tabs '+home.cards);
-   check(Math.abs(home.navGapLeft-home.navGapRight)<2.5,name+' nav stars are not centered '+JSON.stringify(home));
+   check(home.navSymmetry.centerDifference<1.5&&Math.abs(home.navSymmetry.beforeWidth-home.navSymmetry.afterWidth)<.5,name+' nav stars are not centered '+JSON.stringify(home.navSymmetry));
    check(home.overflow<=3,name+' homepage horizontal overflow '+home.overflow);
    const homeCheer=page.locator('#home-program-cheer');
    await homeCheer.click();
