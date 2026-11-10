@@ -39,6 +39,18 @@ for(const [browserName,browserEngine] of [['chromium',chromium],['webkit',webkit
       aria:r.getAttribute('aria-orientation'),
       overflow:track.scrollWidth-track.clientWidth,
       handleShadow:getComputedStyle(r.querySelector('.fb-timeline-handle')).boxShadow,
+      hasAwesomeIcon:!!r.querySelector('.fb-timeline-handle .fa-arrows-up-down'),
+      geometry:(()=>{
+        const line=getComputedStyle(r,'::before');
+        const marker=r.querySelector('.fb-timeline-marker');
+        const dot=getComputedStyle(marker,'::before');
+        const hand=r.querySelector('.fb-timeline-handle').getBoundingClientRect();
+        const number=marker.querySelector('span').getBoundingClientRect();
+        const axis=parseFloat(line.left)+parseFloat(line.width)/2;
+        const markerAxis=parseFloat(dot.left)+parseFloat(dot.width)/2;
+        const handAxis=(hand.left+hand.width/2)-rect.left;
+        return {axis,markerAxis,handAxis,numberGap:number.left-hand.right};
+      })(),
       viewport:innerWidth,doc:document.documentElement.scrollWidth};
    });
    assert(initial.items===4&&initial.active===1&&initial.week==='1',label+' initial visibility '+JSON.stringify(initial));
@@ -46,6 +58,12 @@ for(const [browserName,browserEngine] of [['chromium',chromium],['webkit',webkit
      label+' slider not vertical '+JSON.stringify(initial));
    assert(initial.touchAction==='none'&&!initial.handleShadow.includes('none'),
      label+' missing touch drag or glow '+JSON.stringify(initial));
+   assert(initial.hasAwesomeIcon,label+' timeline has unicode arrow instead of Font Awesome');
+   assert(Math.abs(initial.geometry.axis-initial.geometry.markerAxis)<1.5
+     && Math.abs(initial.geometry.axis-initial.geometry.handAxis)<1.5,
+     label+' rail line, marker and handle not centered '+JSON.stringify(initial.geometry));
+   assert(initial.geometry.numberGap>=3,
+     label+' slider handle overlaps week number '+JSON.stringify(initial.geometry));
    assert(initial.overflow<=3,label+' horizontal timeline overflow '+JSON.stringify(initial));
    assert(initial.doc<=initial.viewport+3,label+' horizontal document overflow '+JSON.stringify(initial));
 
